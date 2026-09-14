@@ -1,0 +1,43 @@
+{
+  "schema": "accord402.nonce856.presign-capture-report.v3",
+  "transactionIdentity": {
+    "type": "legacy",
+    "chainId": 4221,
+    "nonce": 856,
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0",
+    "gas": "40390666",
+    "gasPriceWei": "166094850",
+    "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+    "signingHash": "0x7f3e79292d94fcb7129c7946ae69effd8c7622d4e03e4f229cec0aff5f9c3a5d"
+  },
+  "sourceBinding": {
+    "sourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+    "sourceOccurrenceCount": 1,
+    "exact": true
+  },
+  "serialization": {
+    "genericViemSerializerUsed": true,
+    "independentRlpMatches": true,
+    "independentSigningHashMatches": true
+  },
+  "gas": {
+    "capturedSdkGas": "40390666",
+    "eip7623FloorGas": "2051580",
+    "maxFreshEstimate": "40390666",
+    "capturedGasAtOrAboveFreshMax": true
+  },
+  "safety": {
+    "realPrivateKeyAccessed": false,
+    "keychainAccessed": false,
+    "cryptographicSignatureCreated": false,
+    "signedRawTransactionCreated": false,
+    "writeRpcAttemptCount": 0,
+    "blockchainWriteSent": false
+  },
+  "transactionSigningAuthorized": false,
+  "deploymentAuthorized": false,
+  "deployablePacketCertified": false,
+  "classification": "PRESIGN_CAPTURE_VALID_READY_FOR_MULTI_BLOCK_GAS_CERTIFICATION",
+  "nextAction": "RUN_MULTI_BLOCK_GAS_CERTIFICATION_FOR_EXACT_CAPTURED_TRANSACTION"
+}

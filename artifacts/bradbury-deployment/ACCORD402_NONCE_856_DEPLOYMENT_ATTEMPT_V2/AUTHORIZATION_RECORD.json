@@ -1,0 +1,13 @@
+{
+  "authorizationConsumed": false,
+  "authorizationText": "I explicitly authorize one and only one Accord402 Attempt #2 signing and initial broadcast of the frozen nonce-856 transaction with signing hash `0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36` and final unsigned packet manifest SHA-256 `cbdc85d1d1b196ea4ec8c91eb4efeace0b317cf4365a4c0ff86aa200e9af903b`, subject to all immediately-before-signing freshness and safety gates passing. If any gate fails, do not sign or send.",
+  "authorizedFinalUnsignedManifestSha256": "cbdc85d1d1b196ea4ec8c91eb4efeace0b317cf4365a4c0ff86aa200e9af903b",
+  "authorizedInitialBroadcastCount": 1,
+  "authorizedNonce": 856,
+  "authorizedSigningHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+  "authorizedSigningInvocationCount": 1,
+  "automaticRetryAuthorized": false,
+  "deploymentSent": false,
+  "recordedAtUtc": "2026-09-12T15:17:40.613Z",
+  "schema": "accord402.attempt2.authorization.v1"
+}

@@ -1,0 +1,49 @@
+{
+  "capturedAtUtc": "2026-09-12T06:31:31Z",
+  "classification": "LOCAL_DEPLOYMENT_TOOLCHAIN_SNAPSHOTTED",
+  "genlayerCli": {
+    "binarySha256": "024522c98389ca77f7bd8315e0e8ae7454e5536b0b7ff876f99df759f7418387",
+    "path": "/Users/mralbert/.npm-global/bin/genlayer",
+    "resolvedPath": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/dist/index.js",
+    "versionCommand": {
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "0.39.2"
+    }
+  },
+  "keychainAccessed": false,
+  "node": {
+    "path": "/Users/mralbert/.nvm/versions/node/v24.20.0/bin/node",
+    "versionCommand": {
+      "returnCode": 0,
+      "stderr": "",
+      "stdout": "v24.20.0"
+    }
+  },
+  "npmGlobalRoot": "/Users/mralbert/.npm-global/lib/node_modules",
+  "packages": {
+    "genlayer": {
+      "name": "genlayer",
+      "packageJsonSha256": "679643014e4d70eaed113d11148a34c03ea03a5e8a1ebf7afad8bad8ceb89fdd",
+      "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/package.json",
+      "present": true,
+      "version": "0.39.2"
+    },
+    "genlayer-js": {
+      "name": "genlayer-js",
+      "packageJsonSha256": "bdb0b9a86827b392ad9b584a52158bf7b90ef9e4425e009f1f5c8a8d0e6f3662",
+      "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/node_modules/genlayer-js/package.json",
+      "present": true,
+      "version": "1.1.8"
+    },
+    "viem": {
+      "name": "viem",
+      "packageJsonSha256": "9ea3ad06e25590d834c39266eb7c251f55d09db6c1e54e977b4d9aca462276e1",
+      "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/node_modules/viem/package.json",
+      "present": true,
+      "version": "2.55.0"
+    }
+  },
+  "schema": "accord402.preflight-toolchain.v1",
+  "transactionSigningPerformed": false
+}

@@ -1,0 +1,59 @@
+{
+  "classification": "LIVE_BRADBURY_ACCEPTS_EXACT_ZERO_VALUE_LEGACY_DEPLOYMENT_CALL_AT_PINNED_STATE",
+  "consensusMain": {
+    "address": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "bothEndpointsMatch": true,
+    "codeByteLength": 1159,
+    "codeSha256": "f44fc4c62e24435d0b196912becd21e71c9464c289aa03f1c649fc9818edb9d1"
+  },
+  "exactCandidate": {
+    "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+    "chainId": 4221,
+    "gasLimit": 80825672,
+    "gasPriceWeiForSimulation": 185545950,
+    "maximumOuterTransactionCostWei": 14996876095628400,
+    "nonce": 856,
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  },
+  "freshGasPrice": {
+    "chainWei": 185545950,
+    "conservativeMaximumWei": 185545950,
+    "genlayerWei": 185545950
+  },
+  "httpTransport": {
+    "classification": "CURL_TRANSPORT_AFTER_URLLIB_CLOUDFLARE_1010_DIAGNOSIS",
+    "client": "/usr/bin/curl",
+    "explicitUserAgent": "curl/8.7.1"
+  },
+  "liveSimulation": {
+    "cappedEstimateBothEndpointsEqual": true,
+    "certifiedGasCoversLivePinnedRequirement": true,
+    "estimates": {
+      "chain": {
+        "cappedEstimateGas": 40311328,
+        "uncappedEstimateGas": 40390666
+      },
+      "genlayer": {
+        "cappedEstimateGas": 40311328,
+        "uncappedEstimateGas": 40390666
+      }
+    },
+    "ethCallBothEndpointsSucceeded": true,
+    "ethCallResult": "0x",
+    "ethCallResultsEqual": true,
+    "uncappedEstimateBothEndpointsEqual": true
+  },
+  "pinnedBlock": {
+    "gasLimit": 100000000,
+    "hash": "0x3e51b443bb7e5bab4ac05c1f399d6f47cb6472104a08c8b509f914393857378c",
+    "number": 21523730
+  },
+  "schema": "accord402.nonce856.live-bradbury-consensus-binding.v3",
+  "worker": {
+    "address": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "balanceWei": 7530431203937238246,
+    "latestNonce": 856,
+    "pendingNonce": 856
+  }
+}

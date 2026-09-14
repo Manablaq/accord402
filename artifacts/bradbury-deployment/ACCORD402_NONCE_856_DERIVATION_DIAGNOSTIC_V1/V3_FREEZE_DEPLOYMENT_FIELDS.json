@@ -1,0 +1,173 @@
+{
+  "interestingScalarCount": 33,
+  "interestingScalars": [
+    {
+      "path": "$.canonical_contract.bytes",
+      "type": "int",
+      "value": "50674"
+    },
+    {
+      "path": "$.canonical_contract.sha256",
+      "type": "str",
+      "value": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+    },
+    {
+      "path": "$.canonical_deployment_success",
+      "type": "bool",
+      "value": "False"
+    },
+    {
+      "path": "$.canonical_source_manifest.sha256",
+      "type": "str",
+      "value": "980451c91690c23665893d507f8ecf94b4c123bebe8db7d7623fd69f70c54dbd"
+    },
+    {
+      "path": "$.certification_provenance.r17_candidate_h_certification_sha256",
+      "type": "str",
+      "value": "86dafd71bb4307867b6436addc0ab3df3ba5303e9e496332537ab3f0534d485f"
+    },
+    {
+      "path": "$.certification_provenance.r19_r2_differential_sha256",
+      "type": "str",
+      "value": "f659a77c016866a317741aa0b9dbde3c78785b2eee853d79cec2106b1e2bff39"
+    },
+    {
+      "path": "$.certification_provenance.r19_r2_frozen_sdk_scan_sha256",
+      "type": "str",
+      "value": "d832c44c5009feb216363824d1d37b377eb46889c4df8917e6495e85a95ee8ca"
+    },
+    {
+      "path": "$.certification_provenance.r19_r3_normalization_sha256",
+      "type": "str",
+      "value": "e6a22d7e8361fa66a8031b94e7bad7016a00b0d655d668974c2d2385da0108da"
+    },
+    {
+      "path": "$.deployment_envelope_identity.encoded_deploy_recipient",
+      "type": "str",
+      "value": "0x0000000000000000000000000000000000000000"
+    },
+    {
+      "path": "$.deployment_envelope_identity.encoded_sender",
+      "type": "str",
+      "value": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+    },
+    {
+      "path": "$.deployment_envelope_identity.function",
+      "type": "str",
+      "value": "addTransaction"
+    },
+    {
+      "path": "$.deployment_envelope_identity.identity_model",
+      "type": "str",
+      "value": "V6_STATIC_FIELDS_PLUS_NORMALIZED_VALID_UNTIL"
+    },
+    {
+      "path": "$.deployment_envelope_identity.initial_validators",
+      "type": "int",
+      "value": "5"
+    },
+    {
+      "path": "$.deployment_envelope_identity.max_rotations",
+      "type": "int",
+      "value": "3"
+    },
+    {
+      "path": "$.deployment_envelope_identity.normalization.all_other_bytes_must_match",
+      "type": "bool",
+      "value": "True"
+    },
+    {
+      "path": "$.deployment_envelope_identity.normalization.normalized_envelope_sha256",
+      "type": "str",
+      "value": "e984a93709323b457779c6358fc40dd44ae1975455e2b013a7b8b0288d9251e5"
+    },
+    {
+      "path": "$.deployment_envelope_identity.normalization.rule",
+      "type": "str",
+      "value": "zero only the 32-byte ABI word for validUntil"
+    },
+    {
+      "path": "$.deployment_envelope_identity.outer_calldata_bytes",
+      "type": "int",
+      "value": "50916"
+    },
+    {
+      "path": "$.deployment_envelope_identity.outer_consensus_main",
+      "type": "str",
+      "value": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d"
+    },
+    {
+      "path": "$.deployment_envelope_identity.outer_sender",
+      "type": "str",
+      "value": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+    },
+    {
+      "path": "$.deployment_envelope_identity.raw_full_calldata_sha_is_stable_identity",
+      "type": "bool",
+      "value": "False"
+    },
+    {
+      "path": "$.deployment_envelope_identity.selector",
+      "type": "str",
+      "value": "0xe71d5196"
+    },
+    {
+      "path": "$.deployment_envelope_identity.static_txdata_sha256",
+      "type": "str",
+      "value": "b9bbcfe1bed9bb950f401d3807b31bbac9e032598acebeab9a1fd9964ea592e2"
+    },
+    {
+      "path": "$.deployment_envelope_identity.txdata_length",
+      "type": "int",
+      "value": "50682"
+    },
+    {
+      "path": "$.deployment_envelope_identity.txdata_offset",
+      "type": "int",
+      "value": "192"
+    },
+    {
+      "path": "$.deployment_envelope_identity.valid_until.abi_word_index",
+      "type": "int",
+      "value": "5"
+    },
+    {
+      "path": "$.deployment_envelope_identity.valid_until.dynamic",
+      "type": "bool",
+      "value": "True"
+    },
+    {
+      "path": "$.deployment_envelope_identity.valid_until.frozen_sdk",
+      "type": "str",
+      "value": "genlayer-js@1.1.8"
+    },
+    {
+      "path": "$.deployment_envelope_identity.valid_until.must_be_fresh_at_capture",
+      "type": "bool",
+      "value": "True"
+    },
+    {
+      "path": "$.deployment_envelope_identity.valid_until.rule",
+      "type": "str",
+      "value": "floor(Date.now()/1000)+3600"
+    },
+    {
+      "path": "$.promotion_record.sha256",
+      "type": "str",
+      "value": "a4a322b91abb14cc9be44f3f6ec93ecf8b2598b86c558d3ce744ea0d2168c313"
+    },
+    {
+      "path": "$.second_deployment_authorized",
+      "type": "bool",
+      "value": "False"
+    },
+    {
+      "path": "$.supersedes.sha256",
+      "type": "str",
+      "value": "64d7de80de9879cd162bf6cb7fa21b7a7039e506dee8a59395daf6e3b3dfb11d"
+    }
+  ],
+  "longHexCandidateCount": 0,
+  "longHexCandidates": [],
+  "schema": "accord402.v3-freeze-deployment-field-scan.v1"
+}

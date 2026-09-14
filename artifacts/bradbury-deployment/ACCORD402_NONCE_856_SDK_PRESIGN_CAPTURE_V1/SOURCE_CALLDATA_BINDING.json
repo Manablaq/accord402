@@ -1,0 +1,16 @@
+{
+  "schema": "accord402.nonce856.source-calldata-binding.v3",
+  "canonicalSourceByteLength": 50674,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "sourceOccurrenceCount": 1,
+  "sourceOffsets": [
+    234
+  ],
+  "calldataByteLength": 50916,
+  "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+  "chainId": 4221,
+  "nonce": 856,
+  "target": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+  "valueWei": "0",
+  "classification": "CANONICAL_SOURCE_EXACTLY_ONCE_BOUND_TO_CAPTURED_DEPLOY_CALLDATA"
+}

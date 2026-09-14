@@ -1,0 +1,26 @@
+   918			h=by(J.principal)
+   919			if h<=0 or int(gl.message.value)!=h:
+   920				_fail('INVALID_FUNDING_AMOUNT')
+   921			z=am(self.total_funded,h,'TOTAL_FUNDED_OVERFLOW')
+   922			t=am(self.total_outstanding,h,'TOTAL_OUTSTANDING_OVERFLOW')
+   923			if int(self.covenant_count)>=MAX_U64:
+   924				_fail('COVENANT_ID_OVERFLOW')
+   925			s=int(self.covenant_count)+1
+   926			f=u64(s)
+   927			F=str(s)
+   928			for a in J.criteria:
+   929				e.append(CriterionRecord(f,a.criterion_id,a.criterion_text))
+   930			i=[]
+   931			for a in v:
+   932				i.append(AuthorityBinding(f,a.authority_id,u32(int(a.authority_revision)),a.role,a.identity_kind,a.identity_value,a.canonical_origin))
+   933			C=_service_hash(J.service_spec,e)
+   934			D=_policy_hash(y,g,u,J.replay_scope,i)
+   935			I=CovenantRecord(f,gl.message.sender_address,J.provider,u256(h),u256(h),u256(0),u256(0),a7,J.service_spec,C,u64(E),u64(o),u64(p),u64(d),u64(w),u64(n),u64(r),u32(j),u32(EVIDENCE_POLICY_VERSION),D,u64(y),u32(g),u32(REPAIR_POLICY_VERSION),u32(u),J.replay_scope,u32(ADJUDICATION_CRITERIA_VERSION),u32(SETTLEMENT_RULE_VERSION),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),'','','',u32(0),False,'',u32(0),'','','','',False)
+   936			self.covenants[F]=I
+   937			self._s(F,e)
+   938			self._r(F,i)
+   939			self._b(F)
+   940			self.covenant_count=f
+   941			self.total_funded=u256(z)
+   942			self.total_outstanding=u256(t)
+   943			return f

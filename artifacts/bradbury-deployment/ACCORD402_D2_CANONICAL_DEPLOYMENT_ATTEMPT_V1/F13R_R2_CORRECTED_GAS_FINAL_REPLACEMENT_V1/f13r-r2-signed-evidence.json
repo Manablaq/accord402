@@ -1,0 +1,19 @@
+{
+  "d2Sha256": "a3315230692974510d70eee5923a757f6fb476a5909b98b02cc54724e11a8eb3",
+  "gasLimit": 39405047,
+  "gasPriceWei": 1500000000,
+  "immediatePresignBradburyGasPriceWei": 126542400,
+  "nonce": 856,
+  "outerCalldataSha256": "142f4476da6ef651e45511686ba67c49f04a0d25eab23cf674ef4a0047afee0e",
+  "predictedEvmTransactionHash": "0x453a499a445779a3d88acf0faa72586dfcc08676fbe3913de849c7631a1f5210",
+  "privateKeyPersisted": false,
+  "rawTransactionPersisted": false,
+  "rawTransactionSha256": "991260f97b66fc89efca2c25dfc2cf697b3f3938ec9ac78948ef272aff49141a",
+  "replacesEvmHash": "0x36d3e9719e2f8fe2259c371fd5b51a332c993b8503e19b26e7fd079309be0acc",
+  "signingAuthorizationConsumed": true,
+  "signingEventCount": 1,
+  "signingHash": "0x89b115d29eff557070507f7b0df6911d6027b6c0e47b885d0f1f5a12cd2b5ca9",
+  "stage": "F13R-R2",
+  "submissionAuthorizationConsumed": false,
+  "validUntil": 1789356560
+}

@@ -1,0 +1,85 @@
+{
+  "candidate": {
+    "bytes": 47998,
+    "sha256": "a3315230692974510d70eee5923a757f6fb476a5909b98b02cc54724e11a8eb3",
+    "sourcePath": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/ACCORD402_D2_F4_F8_CERTIFIED_RUNTIME_EQUIVALENCE_V1/accord402_candidate_d2_f4_f8.py"
+  },
+  "classification": "READ_ONLY_BRADBURY_ETH_ESTIMATEGAS_PASS",
+  "createdAtUtc": "2026-09-13T04:36:46Z",
+  "evidenceFiles": [
+    {
+      "bytes": 96712,
+      "path": "bradbury-eth_estimateGas.request.json",
+      "sha256": "3ad9eaf3f065b318b5f9453931f72ef30dab651dc0e4bc1428051dad371cf164"
+    },
+    {
+      "bytes": 59,
+      "path": "bradbury-eth_estimateGas.response.json",
+      "sha256": "2c1f5415d195c6245cbf3e28f22d31207217e331355363a746ce791aed8943e7"
+    },
+    {
+      "bytes": 46,
+      "path": "bradbury-eth_estimateGas.response.raw",
+      "sha256": "22beee28d7c7cb85075e4b445823ea7c50485d9a3c9080bd128238cb81219829"
+    },
+    {
+      "bytes": 910,
+      "path": "bradbury-eth_estimateGas.result.json",
+      "sha256": "a7a8c6da2ac9cdc1e12ac352a2aed4742314f165d94382a8604d3898bff11d10"
+    },
+    {
+      "bytes": 11000,
+      "path": "build-exact-estimate-request.mjs",
+      "sha256": "11f8e9ed44a0159c1f42eaecee8c01d2bde5f98675c13b20103de3da9c078ea8"
+    },
+    {
+      "bytes": 97719,
+      "path": "fresh-deployment-estimate-capture.json",
+      "sha256": "6929e42dde4cb4ddb6495d13579e1b1ab882c21ddc2235c555fadd6d45ce63c1"
+    }
+  ],
+  "evidenceId": "accord402-d2-f11-read-only-bradbury-estimate-v1",
+  "feasibility": {
+    "deploymentArtifactRuntimeFeasibility": "READ_ONLY_ESTIMATE_PASS",
+    "deploymentAuthorized": false,
+    "deploymentPerformed": false,
+    "readOnlyEstimateAccepted": true
+  },
+  "formatVersion": 1,
+  "parentCertification": {
+    "certificationManifestSha256": "a6530dc57a15174cccd87b0af4e8cb7df172ef81bd35fb96edeffde6ab2a2fda",
+    "componentIndexSha256": "1e1c6f29c8a157ded17bf77562b656e02c1c8f5085f1dc16018e641cd3f0c993",
+    "deploymentEnvelopeSha256": "5278cf6896110f6fdc0bf07a1136d1e0e2bbe19a18c2c5986b6f4ae206bf30e2",
+    "path": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/ACCORD402_D2_F4_F8_CERTIFIED_RUNTIME_EQUIVALENCE_V1"
+  },
+  "request": {
+    "eip7623GasFloor": 1944740,
+    "externalRequestCount": 1,
+    "localConstructionExternalFetchAttemptCount": 0,
+    "method": "eth_estimateGas",
+    "outerCalldataBytes": 48260,
+    "outerCalldataSha256": "d945fb910a93aabc656cfbff6fb0f3130b119f3f83446bc788ffee9857cd8418",
+    "requestSha256": "3ad9eaf3f065b318b5f9453931f72ef30dab651dc0e4bc1428051dad371cf164"
+  },
+  "response": {
+    "classification": "ESTIMATE_RETURNED",
+    "estimateDecimal": 38531710,
+    "estimateHex": "0x24bf27e",
+    "estimateMinusEip7623Floor": 36586970,
+    "httpStatus": 200,
+    "rawResponseBytes": 46,
+    "rawResponsePersistedBeforeDecode": true,
+    "rawResponseSha256": "22beee28d7c7cb85075e4b445823ea7c50485d9a3c9080bd128238cb81219829"
+  },
+  "safety": {
+    "blockchainWriteSent": false,
+    "canonicalPromotionPerformed": false,
+    "ethSendRawTransactionSent": false,
+    "ethSendTransactionSent": false,
+    "externalRpcMethod": "eth_estimateGas",
+    "externalRpcRequestCount": 1,
+    "keychainAccessed": false,
+    "privateKeyAccessed": false,
+    "transactionSigned": false
+  }
+}

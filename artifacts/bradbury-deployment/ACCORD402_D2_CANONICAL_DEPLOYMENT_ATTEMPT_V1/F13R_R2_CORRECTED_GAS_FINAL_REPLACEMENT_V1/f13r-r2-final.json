@@ -1,0 +1,32 @@
+{
+  "authorization": {
+    "furtherReplacementAuthorized": false,
+    "signingConsumed": true,
+    "submissionConsumed": true
+  },
+  "classification": "SUBMISSION_REJECTED_NO_RETRY",
+  "contractAddress": null,
+  "d2Sha256": "a3315230692974510d70eee5923a757f6fb476a5909b98b02cc54724e11a8eb3",
+  "evmTransactionHash": "0x453a499a445779a3d88acf0faa72586dfcc08676fbe3913de849c7631a1f5210",
+  "formatVersion": 1,
+  "gasLimit": 39405047,
+  "gasPriceWei": 1500000000,
+  "genLayerTransactionId": null,
+  "immediatePresignBradburyGasPriceWei": 126542400,
+  "nonce": 856,
+  "outerCalldataSha256": "142f4476da6ef651e45511686ba67c49f04a0d25eab23cf674ef4a0047afee0e",
+  "receiptStatus": null,
+  "replacedEvmTransactionHash": "0x36d3e9719e2f8fe2259c371fd5b51a332c993b8503e19b26e7fd079309be0acc",
+  "safety": {
+    "blindRetryPerformed": false,
+    "privateKeyPersisted": false,
+    "privateKeyPrinted": false,
+    "rawSignedTransactionPersisted": false,
+    "secondEndpointSubmissionPerformed": false,
+    "signingEventCount": 1,
+    "submissionCallCount": 1
+  },
+  "stage": "F13R-R2",
+  "submissionRpcClassification": "RPC_RETURNED_UNEXPECTED_HASH",
+  "validUntil": 1789356560
+}

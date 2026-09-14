@@ -1,0 +1,26 @@
+{
+  "classification": "ESTIMATE_RETURNED",
+  "estimateDecimal": 38531710,
+  "estimateHex": "0x24bf27e",
+  "externalRequestCount": 1,
+  "externalRpcMethod": "eth_estimateGas",
+  "formatVersion": 1,
+  "freshEip7623GasFloor": 1944740,
+  "freshOuterCalldataBytes": 48260,
+  "freshOuterCalldataSha256": "d945fb910a93aabc656cfbff6fb0f3130b119f3f83446bc788ffee9857cd8418",
+  "httpStatus": 200,
+  "rawResponseBytes": 46,
+  "rawResponsePersistedBeforeDecode": true,
+  "rawResponseSha256": "22beee28d7c7cb85075e4b445823ea7c50485d9a3c9080bd128238cb81219829",
+  "requestSha256": "3ad9eaf3f065b318b5f9453931f72ef30dab651dc0e4bc1428051dad371cf164",
+  "rpcError": null,
+  "safety": {
+    "blockchainWriteSent": false,
+    "ethSendRawTransactionSent": false,
+    "ethSendTransactionSent": false,
+    "keychainAccessed": false,
+    "privateKeyAccessed": false,
+    "transactionSigned": false
+  },
+  "stage": "R20-R24A5B1F11"
+}

@@ -1,0 +1,40 @@
+  1275			g=self._j(key)
+  1276			h=[]
+  1277			j=-1
+  1278			for i in d:
+  1279				if not isinstance(i,dict)or set(i.keys())!={b8,cq}:
+  1280					_fail(bW)
+  1281				l=i[b8]
+  1282				k=i[cq]
+  1283				if not isinstance(l,str)or type(k)is not int:
+  1284					_fail(bW)
+  1285				if l in h or l not in g:
+  1286					_fail(bW)
+  1287				if k<1 or k>ap or k&~int(q.repair_allowed_field_mask):
+  1288					_fail(bW)
+  1289				p=g.index(l)
+  1290				if p<=j:
+  1291					_fail(bW)
+  1292				j=p
+  1293				h.append(l)
+  1294			if f==S:
+  1295				if failed!=[]or a!=au or d!=[]:
+  1296					_fail(bW)
+  1297				e=[c.criterion_id for c in self._o(key)]
+  1298				if challenged!=e:
+  1299					_fail(bW)
+  1300			elif f==U:
+  1301				if len(failed)==0 or a!=V or d!=[]:
+  1302					_fail(bW)
+  1303			elif f==M:
+  1304				if failed!=[]or a!=au or d!=[]:
+  1305					_fail(bW)
+  1306				e=[c.criterion_id for c in self._o(key)]
+  1307				if challenged==e:
+  1308					_fail(bW)
+  1309			elif f==N:
+  1310				if failed!=[]or a!=W or len(d)==0:
+  1311					_fail(bW)
+  1312			elif failed!=[]or a!=O or d!=[]:
+  1313				_fail(bW)
+  1314			return b

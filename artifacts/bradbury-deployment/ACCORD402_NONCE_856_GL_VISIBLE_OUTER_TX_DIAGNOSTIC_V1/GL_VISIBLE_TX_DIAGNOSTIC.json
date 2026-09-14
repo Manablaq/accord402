@@ -1,0 +1,635 @@
+{
+  "authorizationState": {
+    "diagnosticPerformedBroadcast": false,
+    "furtherBroadcastAuthorized": false,
+    "furtherSigningAuthorized": false,
+    "initialBroadcastAuthorizationConsumed": true,
+    "signingAuthorizationConsumed": true
+  },
+  "clientVersions": {
+    "CHAIN": {
+      "result": "zksync-os/v0.23.2",
+      "success": true
+    },
+    "GL": {
+      "error": {
+        "code": -32601,
+        "message": "method not found: web3_clientVersion"
+      },
+      "kind": "rpc",
+      "success": false
+    }
+  },
+  "createdAtUtc": "2026-09-12T18:15:44Z",
+  "currentExactFieldSimulation": {
+    "CHAIN": {
+      "estimateGas": {
+        "result": "0x2673685",
+        "success": true
+      },
+      "ethCall": {
+        "result": "0x",
+        "success": true
+      }
+    },
+    "GL": {
+      "estimateGas": {
+        "result": "0x2671a20",
+        "success": true
+      },
+      "ethCall": {
+        "result": "0x",
+        "success": true
+      }
+    }
+  },
+  "currentFeeContext": {
+    "currentBaseFeeExceedsSignedPrice": false,
+    "currentMaximumBaseFeeWei": 87398200,
+    "currentMaximumSuggestedGasPriceWei": 131097300,
+    "currentSuggestedPriceExceedsSignedPrice": false,
+    "signedLegacyGasPriceWei": 187500000
+  },
+  "diagnosticClassification": "EXACT_OR_NONCE856_EXECUTION_CHAIN_PENDING_STATE_PRESENT_FOLLOW_READ_ONLY",
+  "exactHashFoundInCurrentPendingOrPool": false,
+  "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "fiveObservationSamples": [
+    {
+      "CHAIN": {
+        "head": 21534247,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "GL": {
+        "head": 21534243,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "sampleIndex": 1
+    },
+    {
+      "CHAIN": {
+        "head": 21534259,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "GL": {
+        "head": 21534253,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "sampleIndex": 2
+    },
+    {
+      "CHAIN": {
+        "head": 21534267,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": true
+      },
+      "GL": {
+        "head": 21534261,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "sampleIndex": 3
+    },
+    {
+      "CHAIN": {
+        "head": 21534279,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "GL": {
+        "head": 21534273,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": true
+      },
+      "sampleIndex": 4
+    },
+    {
+      "CHAIN": {
+        "head": 21534292,
+        "latestBaseFeePerGasWei": 85444200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": true
+      },
+      "GL": {
+        "head": 21534287,
+        "latestBaseFeePerGasWei": 87398200,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 131097300,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIndex": null,
+        "transactionVisible": false
+      },
+      "sampleIndex": 5
+    }
+  ],
+  "genlayerVisibleTransactionBlockBinding": {
+    "attempted": false
+  },
+  "genlayerVisibleTransactionIdentity": null,
+  "genlayerVisibleTransactionPendingLikeBlockFields": null,
+  "initialTransactionObjects": {
+    "chain": {
+      "result": null,
+      "success": true
+    },
+    "genlayer": {
+      "result": null,
+      "success": true
+    }
+  },
+  "interpretationLimits": "This diagnostic can distinguish canonical mining, execution-chain pending visibility, stale/noncanonical block binding, and a GL-only unmined transaction object. It cannot prove internal proxy cache or mempool implementation semantics without server-side implementation evidence.",
+  "pendingBlockProbes": {
+    "CHAIN": {
+      "result": {
+        "baseFeePerGas": "0x517c668",
+        "difficulty": "0x0",
+        "extraData": "0x",
+        "gasLimit": "0x5f5e100",
+        "gasUsed": "0x842ca",
+        "hash": "0x6a9fd25dbef49775b1c814e6fd80b6dbdfd66d18fc64558f92022d1f539c78ed",
+        "logsBloom": "0x00000000000000000000140000000000000000000000000000000000000100000000000000000000000020000000080000000000000000000000000000200000080000000000000400000800000000000000000000000000000008102000000000010000020000000000000000000810000000400001000000000000004000200000000000000000000000000040000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000080000000000200000020000004000000000000000000000080000000000000000000000000000200000001",
+        "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+        "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "nonce": "0x0000000000000000",
+        "number": "0x1489658",
+        "parentHash": "0xd07ac8a53ccf0074a4aa494eb2e19c5d87875210fcf527b92a35742ec15b6ffb",
+        "receiptsRoot": "0xd64105a62f2f9b2d88f444bfeef4c4d8a60f7aa8fb126e8141c4e3deb15f7fd5",
+        "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+        "size": "0x22a",
+        "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "timestamp": "0x6aa596a3",
+        "totalDifficulty": "0x0",
+        "transactions": [
+          {
+            "accessList": [],
+            "blockHash": "0x6a9fd25dbef49775b1c814e6fd80b6dbdfd66d18fc64558f92022d1f539c78ed",
+            "blockNumber": "0x1489658",
+            "blockTimestamp": "0x6aa596a3",
+            "chainId": "0x107d",
+            "from": "0xfc3981cb6ea576f3b3ab534d6d7e50485cb2ac77",
+            "gas": "0x10a654",
+            "gasPrice": "0x517c668",
+            "hash": "0x70647650d6ac595ca94c5691d005fb0895d44659674a1f0056466a8839e04102",
+            "input": "0x85d2d274c496291eda3cb81ee739b4e7ce450f7fefc3f0097556e7b819e9a61fcc1f431953f69120960b88c0312f3872f63e32a930625eea22bf7fa71f1a636b5b83ba330000000000000000000000000000000000000000000000000000000000000004",
+            "maxFeePerGas": "0xa6b2e70",
+            "maxPriorityFeePerGas": "0x0",
+            "nonce": "0x4e36e",
+            "r": "0xb0341cf3e9c4dc7ecf09bfa94b6717e43f713bd76b7e3ccf6e9c293edd2777a1",
+            "s": "0x7832c8e840b25f043577a3319edee46d3e8dabda61169fea874c7642292748ac",
+            "to": "0xf8ca407a24aa1dd13386d0bd7a4969e212826574",
+            "transactionIndex": "0x0",
+            "type": "0x2",
+            "v": "0x1",
+            "value": "0x0",
+            "yParity": "0x1"
+          }
+        ],
+        "transactionsRoot": "0xb8d00829ab0bad658301669069546621c7d9c602071315546627f29f18ae47d9",
+        "uncles": []
+      },
+      "success": true
+    },
+    "GL": {
+      "result": {
+        "baseFeePerGas": "0x517c668",
+        "difficulty": "0x0",
+        "extraData": "0x",
+        "gasLimit": "0x5f5e100",
+        "gasUsed": "0x842ca",
+        "hash": "0x6a9fd25dbef49775b1c814e6fd80b6dbdfd66d18fc64558f92022d1f539c78ed",
+        "logsBloom": "0x00000000000000000000140000000000000000000000000000000000000100000000000000000000000020000000080000000000000000000000000000200000080000000000000400000800000000000000000000000000000008102000000000010000020000000000000000000810000000400001000000000000004000200000000000000000000000000040000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000080000000000200000020000004000000000000000000000080000000000000000000000000000200000001",
+        "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+        "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+        "nonce": "0x0000000000000000",
+        "number": "0x1489658",
+        "parentHash": "0xd07ac8a53ccf0074a4aa494eb2e19c5d87875210fcf527b92a35742ec15b6ffb",
+        "receiptsRoot": "0xd64105a62f2f9b2d88f444bfeef4c4d8a60f7aa8fb126e8141c4e3deb15f7fd5",
+        "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+        "size": "0x22a",
+        "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+        "timestamp": "0x6aa596a3",
+        "totalDifficulty": "0x0",
+        "transactions": [
+          {
+            "accessList": [],
+            "blockHash": "0x6a9fd25dbef49775b1c814e6fd80b6dbdfd66d18fc64558f92022d1f539c78ed",
+            "blockNumber": "0x1489658",
+            "blockTimestamp": "0x6aa596a3",
+            "chainId": "0x107d",
+            "from": "0xfc3981cb6ea576f3b3ab534d6d7e50485cb2ac77",
+            "gas": "0x10a654",
+            "gasPrice": "0x517c668",
+            "hash": "0x70647650d6ac595ca94c5691d005fb0895d44659674a1f0056466a8839e04102",
+            "input": "0x85d2d274c496291eda3cb81ee739b4e7ce450f7fefc3f0097556e7b819e9a61fcc1f431953f69120960b88c0312f3872f63e32a930625eea22bf7fa71f1a636b5b83ba330000000000000000000000000000000000000000000000000000000000000004",
+            "maxFeePerGas": "0xa6b2e70",
+            "maxPriorityFeePerGas": "0x0",
+            "nonce": "0x4e36e",
+            "r": "0xb0341cf3e9c4dc7ecf09bfa94b6717e43f713bd76b7e3ccf6e9c293edd2777a1",
+            "s": "0x7832c8e840b25f043577a3319edee46d3e8dabda61169fea874c7642292748ac",
+            "to": "0xf8ca407a24aa1dd13386d0bd7a4969e212826574",
+            "transactionIndex": "0x0",
+            "type": "0x2",
+            "v": "0x1",
+            "value": "0x0",
+            "yParity": "0x1"
+          }
+        ],
+        "transactionsRoot": "0xb8d00829ab0bad658301669069546621c7d9c602071315546627f29f18ae47d9",
+        "uncles": []
+      },
+      "success": true
+    }
+  },
+  "poolProbes": {
+    "CHAIN": {
+      "eth_pendingTransactions": {
+        "error": {
+          "code": -32601,
+          "message": "Method not found"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_content": {
+        "kind": "transport",
+        "stderr": "curl: (28) Operation timed out after 30002 milliseconds with 939515 out of 2125026 bytes received",
+        "stdout": "{\"jsonrpc\":\"2.0\",\"id\":2701,\"result\":{\"pending\":{\"0x06BBFc5F5A06953fFDB117DB376302d6Bd80eBdc\":{\"8\":{\"type\":\"0x0\",\"chainId\":\"0x107d\",\"nonce\":\"0x8\",\"gasPrice\":\"0x8800eb4\",\"gas\":\"0x3b46c7a\",\"to\":\"0x0112bf6e83497965a5fdd6dad1e447a6e004271d\",\"value\":\"0x0\",\"input\":\"0xe71d519600000000000000000000000006bbfc5f5a06953ffdb117db376302d6bd80ebdc00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000005000000000000000000000000000000000000000000000000000000000000000300000000000000000000000000000000000000000000000000000000000000c00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000cae7f9cae4b9cadf23207b2022446570656e6473223a202270792d67656e6c617965723a316a623435616138796e683261396339786e33623771716838736d3571393368776670376a716d7773666868386a707a3039683622207d0a696d706f727420686173686c69620a696d706f7274206a736f6e0a696d706f72742072650a66726f6d2064617461636c6173736",
+        "success": false
+      },
+      "txpool_contentFrom": {
+        "error": {
+          "code": -32601,
+          "message": "Method not found"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_inspect": {
+        "result": {
+          "pending": {
+            "0xcc955bAeEf98F39633D585F68D382C8d1B670D30": {
+              "1036833": "0xb4fb7adc6877a6a16bd131c7c9270834bd3def34: 0 wei + 1354128 gas \u00d7 170888400 wei"
+            }
+          },
+          "queued": {
+            "0x0C84cc7cF4dc6C504D83c3669D5bBB7397e1aF7c": {
+              "1994632": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 4822934927831440698 wei",
+              "1994633": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1546000 gas \u00d7 10043116571 wei",
+              "1994634": "0x5c4331cca98e1a1cfd1bfb6e17b92efe44d29dbb: 0 wei + 32579 gas \u00d7 4822934927831440698 wei",
+              "1994635": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 4193856458983861477 wei",
+              "1994636": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1464508 gas \u00d7 2915238798417577 wei",
+              "1994637": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1017882 gas \u00d7 2204339356081345 wei",
+              "1994638": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1017882 gas \u00d7 473807805152899 wei",
+              "1994639": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1022776 gas \u00d7 2390892000 wei",
+              "1994640": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162364 gas \u00d7 1625446452 wei",
+              "1994641": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162364 gas \u00d7 6451669639 wei",
+              "1994642": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162340 gas \u00d7 1479909766 wei",
+              "1994643": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162340 gas \u00d7 1564022304 wei",
+              "1994644": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162340 gas \u00d7 1533882000 wei",
+              "1994645": "0xabce9710bf2a3d5f1237587ba5f4894798ad7bc5: 0 wei + 1162340 gas \u00d7 1768875609 wei"
+            },
+            "0x0ec9902A59b5a19132d2C4F82599868698Ccec67": {
+              "196": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 48968537 gas \u00d7 167343450 wei",
+              "197": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 48968537 gas \u00d7 158856450 wei",
+              "198": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 26665946 gas \u00d7 151939050 wei",
+              "199": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 48957317 gas \u00d7 155460450 wei",
+              "200": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 48968537 gas \u00d7 152974950 wei",
+              "201": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 2000000 gas \u00d7 125000100 wei",
+              "202": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 2000000 gas \u00d7 129672300 wei",
+              "203": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 2000000 gas \u00d7 133838400 wei"
+            },
+            "0x185810D655D9bf80641741343a59C737e356F805": {
+              "13": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 22555883 gas \u00d7 187500000 wei"
+            },
+            "0x198a1952BD58984281f57CF824d264cdbd412814": {
+              "612": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 22575320 gas \u00d7 182159400 wei"
+            },
+            "0x25c8a9c84461840500544c8b4d58C802C389dbD5": {
+              "55": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1383415 gas \u00d7 125000100 wei"
+            },
+            "0x53b20BeADADe01b46a3fb5bdbC85D3A7B0f12A96": {
+              "3": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 30058325 gas \u00d7 176884500 wei",
+              "4": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 30046070 gas \u00d7 140588850 wei",
+              "5": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 30021558 gas \u00d7 160699800 wei"
+            },
+            "0x682a2aF0685084E3E5c4c62Db5224FAC21C2c240": {
+              "2248401": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 743834411815497795 wei",
+              "2248402": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 595716 gas \u00d7 3855591283779 wei",
+              "2248403": "0x5c4331cca98e1a1cfd1bfb6e17b92efe44d29dbb: 0 wei + 32579 gas \u00d7 743834411815497795 wei",
+              "2248404": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 562126 gas \u00d7 3376151167633103 wei",
+              "2248405": "0x5c4331cca98e1a1cfd1bfb6e17b92efe44d29dbb: 0 wei + 32579 gas \u00d7 743834411815497795 wei",
+              "2248406": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1045954 gas \u00d7 3376151167633103 wei",
+              "2248407": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1008094 gas \u00d7 2552855325242423 wei",
+              "2248408": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1008094 gas \u00d7 464940306664 wei",
+              "2248409": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 882818 gas \u00d7 2405888000 wei",
+              "2248410": "0x7c23e70217ab2a9e777940eb769ba4198d1baa61: 0 wei + 1162340 gas \u00d7 242906800 wei",
+              "2248411": "0x7c23e70217ab2a9e777940eb769ba4198d1baa61: 0 wei + 1162364 gas \u00d7 240837000 wei"
+            },
+            "0x6847156dBfDd55ce74eC9eD309BDe2dc9c37BF72": {
+              "153": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 28668129 gas \u00d7 187500000 wei",
+              "154": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 28697582 gas \u00d7 187500000 wei",
+              "155": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 28668129 gas \u00d7 155015550 wei",
+              "156": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 28668129 gas \u00d7 187500000 wei",
+              "157": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 28668129 gas \u00d7 186138900 wei",
+              "158": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 26851160 gas \u00d7 176033100 wei",
+              "159": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 15000000000000000000 wei + 1709078 gas \u00d7 136307850 wei",
+              "160": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 2051988 gas \u00d7 136307850 wei"
+            },
+            "0x718fD9075d94f14f569CB58406281D54e3F41118": {
+              "1842535": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 23032092 gas \u00d7 3066201761 wei",
+              "1842536": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 1459784297653254544 wei",
+              "1842537": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 595716 gas \u00d7 890106509586 wei",
+              "1842538": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 1930564733646429133 wei",
+              "1842539": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1234708 gas \u00d7 608861800279 wei",
+              "1842540": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1278180 gas \u00d7 56096914814 wei",
+              "1842541": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 595716 gas \u00d7 276667591485 wei",
+              "1842542": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1234708 gas \u00d7 4408988149 wei",
+              "1842543": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1152370 gas \u00d7 1513386899 wei",
+              "1842544": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1162340 gas \u00d7 201282200 wei",
+              "1842545": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1616898 gas \u00d7 166666800 wei",
+              "1842546": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1152370 gas \u00d7 191666820 wei",
+              "1842547": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1152370 gas \u00d7 220416843 wei",
+              "1842548": "0x3a130401885fd9322e2e21174a5496065f716b35: 0 wei + 1152370 gas \u00d7 178802800 wei"
+            },
+            "0x8251f3170C9F16595657563e384802E1534e3179": {
+              "1686754": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 214036893109929 wei",
+              "1686755": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 52914158 gas \u00d7 27660712476030 wei",
+              "1686756": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 92534055434597 wei",
+              "1686757": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 95183657881779760 wei",
+              "1686758": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1167564 gas \u00d7 238572999104648 wei",
+              "1686759": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 969068 gas \u00d7 2696471384114441 wei",
+              "1686760": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 945723956077100 wei",
+              "1686761": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096406 gas \u00d7 1738475480150596 wei",
+              "1686762": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 1741630608063749 wei",
+              "1686763": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 1607982013965327 wei",
+              "1686764": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 1365549300 wei",
+              "1686765": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1091276 gas \u00d7 48822297985 wei",
+              "1686766": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 1080972 gas \u00d7 583251393 wei",
+              "1686767": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 1080972 gas \u00d7 320609270 wei",
+              "1686768": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 320609270 wei",
+              "1686769": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1167564 gas \u00d7 320609270 wei",
+              "1686770": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1096434 gas \u00d7 202303600 wei",
+              "1686771": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 1080972 gas \u00d7 232649140 wei",
+              "1686772": "0x470aaa7de37ff3e1c2b38ed9096263ca0d541f21: 0 wei + 1167564 gas \u00d7 197280800 wei"
+            },
+            "0x96EB1fEAaB2d0439832c060bEaD7CB1B447a4a73": {
+              "1890643": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 38322982 gas \u00d7 264106635 wei",
+              "1890644": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 130745875546367468 wei",
+              "1890645": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1167564 gas \u00d7 1549659194720599 wei",
+              "1890646": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1167564 gas \u00d7 3584455883398207 wei",
+              "1890647": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1167564 gas \u00d7 1210524051803021 wei",
+              "1890648": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1080848 gas \u00d7 843081712796 wei",
+              "1890649": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1080848 gas \u00d7 2413438000000 wei",
+              "1890650": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1148680 gas \u00d7 842331550 wei",
+              "1890651": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1080848 gas \u00d7 324853345 wei",
+              "1890652": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1053722 gas \u00d7 275359680 wei",
+              "1890653": "0x992e8d62263ed1fe2e14ffb11adf1080edbe4b5a: 0 wei + 1080848 gas \u00d7 502839296 wei"
+            },
+            "0x9F1d7Bf03C5Bc11644BF4d5cCE92Cb9a6352F4eF": {
+              "773692": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 71155921883930051 wei",
+              "773693": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 36077836 gas \u00d7 72653104454366 wei",
+              "773694": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 36077836 gas \u00d7 2418968000000 wei",
+              "773695": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 36077836 gas \u00d7 69671925618292 wei",
+              "773696": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 36077836 gas \u00d7 39609011195138 wei",
+              "773697": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 36077836 gas \u00d7 21404869686261 wei",
+              "773698": "0xf5e017c93f37e3f03595c03d5a6a98396769c175: 0 wei + 1035970 gas \u00d7 1883516598 wei",
+              "773699": "0xf5e017c93f37e3f03595c03d5a6a98396769c175: 0 wei + 2111774 gas \u00d7 1605871031 wei",
+              "773700": "0xf5e017c93f37e3f03595c03d5a6a98396769c175: 0 wei + 2111774 gas \u00d7 978349357 wei",
+              "773701": "0xf5e017c93f37e3f03595c03d5a6a98396769c175: 0 wei + 2039004 gas \u00d7 235548800 wei"
+            },
+            "0xA27A0d21768042802875Af32f64D863dA769a0B3": {
+              "1609220": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1162316 gas \u00d7 1865531531 wei",
+              "1609221": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1162364 gas \u00d7 16042410676 wei",
+              "1609222": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 1909214212527402146 wei",
+              "1609223": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 566964 gas \u00d7 351155821590883 wei",
+              "1609224": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1162364 gas \u00d7 5703893190 wei",
+              "1609225": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1162364 gas \u00d7 2835842996 wei",
+              "1609226": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1177936 gas \u00d7 1483899902 wei",
+              "1609227": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1177936 gas \u00d7 1108452654 wei",
+              "1609228": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 1091156 gas \u00d7 198255600 wei",
+              "1609229": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 511592 gas \u00d7 800649563 wei",
+              "1609230": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 1443640236315615990 wei",
+              "1609231": "0x58a7b7ac6cb01843e4e5af117c551e59449e0f49: 0 wei + 2289698 gas \u00d7 25000000000000 wei",
+              "1609232": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 915354 gas \u00d7 5447416097 wei",
+              "1609233": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1013970 gas \u00d7 2435621800 wei"
+            },
+            "0xAEA87B654437E4D7cF3dba1d5A7045E5BF42be39": {
+              "786614": "0x6caff6769d70824745ad895663409dc70ab5b28e: 0 wei + 1045982 gas \u00d7 1747964000 wei"
+            },
+            "0xB1E3ea743DF2b006b66751D57337C2bb10e23eCc": {
+              "7": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 26648039 gas \u00d7 171201000 wei"
+            },
+            "0xB62b8f6D2fb40dF3DDa2639BDe6edc2Ab409f853": {
+              "224": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1416678 gas \u00d7 176965800 wei",
+              "225": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1404896 gas \u00d7 214659188 wei",
+              "226": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1385529 gas \u00d7 187500000 wei",
+              "227": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 23861958 gas \u00d7 175924050 wei",
+              "228": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1404822 gas \u00d7 213584625 wei",
+              "229": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1404783 gas \u00d7 163360500 wei",
+              "230": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1404822 gas \u00d7 165133050 wei",
+              "231": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 1404822 gas \u00d7 184045050 wei"
+            },
+            "0xC495ef51618D03267A1f227aFe5b27B38c748272": {
+              "146": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 25111083 gas \u00d7 174733350 wei",
+              "147": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 25111083 gas \u00d7 187500000 wei"
+            },
+            "0xC6E6d3b2acCaECeCeB40Ad4bD3dF123DDCB4e537": {
+              "1073": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33846707 gas \u00d7 187500000 wei"
+            },
+            "0xC70FF4C06aEcb796ED712029EE548834764c9Fe8": {
+              "252": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 18394864 gas \u00d7 167032650 wei",
+              "253": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 18394864 gas \u00d7 161580900 wei"
+            },
+            "0xDc81Aa4fC686F1297D6b80d4C449Adc3A2999f59": {
+              "2158881": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 265085155575412480 wei",
+              "2158882": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 595716 gas \u00d7 944742100 wei",
+              "2158883": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 200442461682731554 wei",
+              "2158884": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1172310 gas \u00d7 7732704686 wei",
+              "2158885": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1172310 gas \u00d7 19485411728 wei",
+              "2158886": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1162364 gas \u00d7 2142655882 wei",
+              "2158887": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1162364 gas \u00d7 14873029120 wei",
+              "2158888": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1162364 gas \u00d7 12535483531 wei",
+              "2158889": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1162364 gas \u00d7 9720713217 wei",
+              "2158890": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1172310 gas \u00d7 234234530 wei",
+              "2158891": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1172310 gas \u00d7 210407400 wei",
+              "2158892": "0x2d012a292244c7ce6423a114d19109990923af76: 0 wei + 1172310 gas \u00d7 203347200 wei"
+            },
+            "0xEaAdc287dBA33381276DB7E935E7D5bfEE1d7bE4": {
+              "2": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 21284705 gas \u00d7 155359500 wei"
+            },
+            "0xFDEf0D7CB9908945eFA490e4d6636C15772dd86A": {
+              "8": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 200000 gas \u00d7 181626150 wei"
+            },
+            "0xc782a9C1Ee1cFdc7D26AAa3c0649Cd6827fd6246": {
+              "255": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33736631 gas \u00d7 127885080 wei",
+              "256": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33713921 gas \u00d7 126244440 wei",
+              "257": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33713903 gas \u00d7 130604160 wei",
+              "258": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33713921 gas \u00d7 135031920 wei",
+              "259": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 33747986 gas \u00d7 143764560 wei"
+            },
+            "0xe0e13f868a86C269E78C9F43a77F6061BF26Da18": {
+              "1688493": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 1011010 gas \u00d7 37697168546713459 wei",
+              "1688494": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 2009734612934881585 wei",
+              "1688495": "0x4a4449e617f8d10fded0b461cadef83939e821a5: 0 wei + 1011010 gas \u00d7 16214807531226286 wei",
+              "1688496": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 52873778 gas \u00d7 8728798942 wei",
+              "1688497": "0x4a0887ea79c6447abf8577770cf24b005c0aaf45: 0 wei + 32579 gas \u00d7 2009734612934881585 wei",
+              "1688498": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 1035916 gas \u00d7 11622927736 wei",
+              "1688499": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 52873778 gas \u00d7 1670109086 wei",
+              "1688500": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 52873778 gas \u00d7 21301323511 wei",
+              "1688501": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 1030836 gas \u00d7 2868320618 wei",
+              "1688502": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 1035942 gas \u00d7 3660319595 wei",
+              "1688503": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 52873778 gas \u00d7 512733805 wei",
+              "1688504": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 52873778 gas \u00d7 191666820 wei",
+              "1688505": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 1030836 gas \u00d7 226833348 wei",
+              "1688506": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 52873778 gas \u00d7 193850210 wei",
+              "1688507": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 52873778 gas \u00d7 174667000 wei",
+              "1688508": "0x4f36cb2c58385575fafb443d80e3c290b12da6ae: 0 wei + 1035942 gas \u00d7 179664000 wei"
+            },
+            "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266": {
+              "345": "0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266: 0 wei + 21165 gas \u00d7 300000000 wei"
+            },
+            "0xf8e604137A2F4b213AC115D33fee170EB5a63282": {
+              "1": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 23938650 gas \u00d7 2114259300 wei"
+            }
+          }
+        },
+        "success": true
+      },
+      "txpool_status": {
+        "result": {
+          "pending": "0x2f",
+          "queued": "0x51"
+        },
+        "success": true
+      }
+    },
+    "GL": {
+      "eth_pendingTransactions": {
+        "error": {
+          "code": -32601,
+          "message": "Method not found"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_content": {
+        "error": {
+          "code": -32601,
+          "message": "method not found: txpool_content"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_contentFrom": {
+        "error": {
+          "code": -32601,
+          "message": "method not found: txpool_contentFrom"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_inspect": {
+        "error": {
+          "code": -32601,
+          "message": "method not found: txpool_inspect"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "txpool_status": {
+        "error": {
+          "code": -32601,
+          "message": "method not found: txpool_status"
+        },
+        "kind": "rpc",
+        "success": false
+      }
+    }
+  },
+  "rawTransactionProbes": {
+    "CHAIN": {
+      "result": null,
+      "success": true
+    },
+    "GL": {
+      "result": null,
+      "success": true
+    }
+  },
+  "schema": "accord402.attempt2.gl-visible-outer-tx-diagnostic.v1",
+  "visibilitySummary": {
+    "chainPendingNonceAdvancedCount": 2,
+    "chainVisibleCount": 2,
+    "genlayerPendingNonceAdvancedCount": 4,
+    "genlayerVisibleCount": 1,
+    "latestNonceAdvanced": false
+  }
+}

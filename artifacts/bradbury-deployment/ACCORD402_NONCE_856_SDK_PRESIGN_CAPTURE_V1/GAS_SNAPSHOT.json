@@ -1,0 +1,26 @@
+{
+  "schema": "accord402.nonce856.gas-snapshot.v2",
+  "capturedSdkGas": "40390666",
+  "gasPriceWei": "166094850",
+  "maximumTransactionCostWei": "6708681610670100",
+  "calldataZeroBytes": 202,
+  "calldataNonzeroBytes": 50714,
+  "standardIntrinsicGas": "833232",
+  "eip7623FloorGas": "2051580",
+  "capturedGasAtOrAboveEip7623Floor": true,
+  "genlayerEstimate": {
+    "label": "genlayer",
+    "success": true,
+    "resultHex": "0x268500a",
+    "gas": "40390666"
+  },
+  "chainEstimate": {
+    "label": "chain",
+    "success": true,
+    "resultHex": "0x268500a",
+    "gas": "40390666"
+  },
+  "maxFreshEstimate": "40390666",
+  "capturedGasAtOrAboveFreshMax": true,
+  "classification": "CAPTURED_GAS_AT_OR_ABOVE_FRESH_ESTIMATES"
+}

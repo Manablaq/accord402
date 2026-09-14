@@ -1,0 +1,116 @@
+{
+  "bradburyGasMeasured": false,
+  "broadcastAuthorized": false,
+  "callRewrites": [
+    {
+      "callLine": 585,
+      "callOwner": "_service_hash",
+      "helper": "_criterion_bytes",
+      "originalCall": "_criterion_bytes(criterion)",
+      "originalCallBytes": 27,
+      "replacementExpression": "_str_bytes(criterion.criterion_id) + _str_bytes(criterion.criterion_text)",
+      "replacementExpressionBytes": 73
+    },
+    {
+      "callLine": 590,
+      "callOwner": "_policy_hash",
+      "helper": "_authority_bytes",
+      "originalCall": "_authority_bytes(binding)",
+      "originalCallBytes": 25,
+      "replacementExpression": "_str_bytes(binding.authority_id) + _u32_bytes(binding.authority_revision) + _str_bytes(binding.role) + _str_bytes(binding.identity_kind) + _str_bytes(binding.identity_value) + _str_bytes(binding.canonical_origin)",
+      "replacementExpressionBytes": 212
+    },
+    {
+      "callLine": 603,
+      "callOwner": "_active_evidence_hash",
+      "helper": "_evidence_bytes",
+      "originalCall": "_evidence_bytes(record)",
+      "originalCallBytes": 23,
+      "replacementExpression": "_u64_bytes(record.covenant_id) + _u32_bytes(record.generation) + _str_bytes(record.evidence_id) + _str_bytes(record.authority_id) + _u32_bytes(record.authority_revision) + _str_bytes(record.subject) + _str_bytes(record.kind) + _str_bytes(record.source_kind) + _str_bytes(record.canonical_source) + _str_bytes(record.immutable_version_or_record_id) + _u64_bytes(record.published_at) + _u64_bytes(record.observed_at) + _u64_bytes(record.expires_at) + _hex32(record.content_digest) + (b'\\x01' if bool(record.is_primary) else b'\\x00') + _str_bytes(record.replaces_evidence_id)",
+      "replacementExpressionBytes": 572
+    }
+  ],
+  "candidate": {
+    "bytes": 49164,
+    "removedHelperCount": 4,
+    "removedHelpers": [
+      "_criterion_bytes",
+      "_authority_bytes",
+      "_evidence_bytes",
+      "_bool_byte"
+    ],
+    "savedBytesVsCanonical": 1510,
+    "savedBytesVsParent": 82,
+    "savedPercentVsParent": 0.166511,
+    "sha256": "e8f04207b0fd6c74e3f259812ca01d0f45caae8e6cf1e74706bf907016b51dd9"
+  },
+  "candidatePromotionAuthorized": false,
+  "createdAtUtc": "2026-09-12T23:28:32Z",
+  "officialTooling": {
+    "generatedAbiSchemaIdenticalToCertifiedD1": true,
+    "genvmCheckReturnCode": 0,
+    "genvmSchemaReturnCode": 0,
+    "genvmTypecheckReturnCode": 0,
+    "officialPublicMethodCount": 25,
+    "officialViewMethodCount": 12,
+    "officialWriteMethodCount": 13
+  },
+  "parentCandidate": {
+    "bytes": 49246,
+    "runtimeEquivalenceCertified": true,
+    "sha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818"
+  },
+  "removedDefinitions": [
+    {
+      "definitionEndLine": 576,
+      "definitionLine": 575,
+      "definitionSource": "def _criterion_bytes(c)->bytes:\n\treturn _str_bytes(c.criterion_id)+_str_bytes(c.criterion_text)\n",
+      "helper": "_criterion_bytes",
+      "removedBytes": 96
+    },
+    {
+      "definitionEndLine": 578,
+      "definitionLine": 577,
+      "definitionSource": "def _authority_bytes(a)->bytes:\n\treturn _str_bytes(a.authority_id)+_u32_bytes(a.authority_revision)+_str_bytes(a.role)+_str_bytes(a.identity_kind)+_str_bytes(a.identity_value)+_str_bytes(a.canonical_origin)\n",
+      "helper": "_authority_bytes",
+      "removedBytes": 207
+    },
+    {
+      "definitionEndLine": 580,
+      "definitionLine": 579,
+      "definitionSource": "def _evidence_bytes(e)->bytes:\n\treturn _u64_bytes(e.covenant_id)+_u32_bytes(e.generation)+_str_bytes(e.evidence_id)+_str_bytes(e.authority_id)+_u32_bytes(e.authority_revision)+_str_bytes(e.subject)+_str_bytes(e.kind)+_str_bytes(e.source_kind)+_str_bytes(e.canonical_source)+_str_bytes(e.immutable_version_or_record_id)+_u64_bytes(e.published_at)+_u64_bytes(e.observed_at)+_u64_bytes(e.expires_at)+_hex32(e.content_digest)+_bool_byte(bool(e.is_primary))+_str_bytes(e.replaces_evidence_id)\n",
+      "helper": "_evidence_bytes",
+      "removedBytes": 488
+    },
+    {
+      "definitionEndLine": 443,
+      "definitionLine": 442,
+      "definitionSource": "def _bool_byte(value:bool)->bytes:\n\treturn b'\\x01' if value else b'\\x00'\n",
+      "helper": "_bool_byte",
+      "removedBytes": 73
+    }
+  ],
+  "runtimeEquivalenceTested": false,
+  "schema": "accord402.pure-leaf-codec-fold-candidate.v1",
+  "signingAuthorized": false,
+  "verification": {
+    "candidateCompiles": true,
+    "candidateParses": true,
+    "constantMultisetEquivalent": true,
+    "correctedPublicAbiInventoryEquivalent": true,
+    "dataclassSchemaEquivalent": true,
+    "generatedAbiSchemaIdenticalToCertifiedD1": true,
+    "officialGenvmCheckPassed": true,
+    "officialSchemaGenerationPassed": true,
+    "officialTypecheckPassed": true,
+    "onlyExpectedTopLevelFunctionsRemoved": true,
+    "payableOpenCovenantRecognized": true,
+    "publicAbiMethodCount": 25,
+    "publicViewMethodCount": 12,
+    "publicWriteMethodCount": 13,
+    "storageSchemaEquivalent": true,
+    "targetCallsRemoved": true,
+    "targetDefinitionsRemoved": true,
+    "targetNonCallReferencesRemoved": true
+  }
+}

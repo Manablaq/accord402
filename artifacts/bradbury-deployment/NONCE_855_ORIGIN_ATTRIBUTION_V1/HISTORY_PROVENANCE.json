@@ -1,0 +1,10 @@
+{
+  "candidateContextCount": 0,
+  "candidates": [],
+  "classification": "NO_STRONG_SHELL_HISTORY_ORIGIN_CANDIDATE",
+  "filesScanned": 22,
+  "linesScanned": 9641793,
+  "schema": "accord402.nonce855.shell-origin-provenance.v1",
+  "strongActionCandidateCount": 0,
+  "strongPreConsumerHashCandidateCount": 0
+}

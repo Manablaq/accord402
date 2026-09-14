@@ -1,0 +1,5 @@
+329:	adjudication_criteria_version:u32
+322:	evidence_policy_version:u32
+314:	opened_at:u64
+326:	repair_policy_version:u32
+330:	settlement_rule_version:u32

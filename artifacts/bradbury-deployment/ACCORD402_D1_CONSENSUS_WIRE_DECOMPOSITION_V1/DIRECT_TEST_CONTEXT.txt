@@ -1,0 +1,76 @@
+   850	    assert cov.adjudication_decision == "REVIEW_RETRY_REQUIRED"
+   851	    assert cov.failure_classification == "TRANSIENT_REVIEW_FAILURE"
+   852	    assert cov.settlement_direction == ""
+   853	    assert int(cov.outstanding_amount) == PRINCIPAL
+   854	    assert transfers == []
+   855	
+   856	
+   857	def test_adjudication_wire_rejects_hash_generation_and_extra_key_tampering(
+   858	    direct_vm,
+   859	    direct_deploy,
+   860	    direct_alice,
+   861	    direct_bob,
+   862	):
+   863	    buyer, provider = direct_alice, direct_bob
+   864	    contract, mod, _ = _deploy(direct_vm, direct_deploy, buyer)
+   865	    covenant_id = _enter_full_challenge(
+   866	        contract,
+   867	        mod,
+   868	        direct_vm,
+   869	        buyer,
+   870	        provider,
+   871	    )
+   872	
+   873	    direct_vm.clear_mocks()
+   874	    _mock_success(direct_vm, [])
+   875	    review_at = BASE + 200
+   876	    direct_vm.warp(_iso(review_at))
+   877	    raw = _raw_instance(contract)
+   878	    key, cov = raw._require_covenant(covenant_id)
+   879	    wire = raw._execute_review_consensus(key, cov, review_at, 1)
+   880	    base_obj = mod.json.loads(wire)
+   881	
+   882	    mutations = []
+   883	
+   884	    wrong_hash = dict(base_obj)
+   885	    wrong_hash["delivery_hash"] = "0" * 64
+   886	    mutations.append(wrong_hash)
+   887	
+   888	    wrong_generation = dict(base_obj)
+   889	    wrong_generation["review_generation"] = 2
+   890	    mutations.append(wrong_generation)
+   891	
+   892	    extra_key = dict(base_obj)
+   893	    extra_key["recipient"] = "attacker"
+   894	    mutations.append(extra_key)
+   895	
+   896	    for obj in mutations:
+   897	        tampered = mod._canonical_json(obj)
+   898	        with pytest.raises(Exception):
+   899	            raw._validate_consensus_wire(
+   900	                key,
+   901	                cov,
+   902	                tampered,
+   903	                1,
+   904	            )
+   905	
+   906	    assert contract.get_covenant(covenant_id).state == "CHALLENGED"
+   907	
+   908	
+   909	def test_validator_disagreement_is_detected_for_same_challenge_snapshot(
+   910	    direct_vm,
+   911	    direct_deploy,
+   912	    direct_alice,
+   913	    direct_bob,
+   914	    direct_charlie,
+   915	):
+   916	    buyer, provider, caller = direct_alice, direct_bob, direct_charlie
+   917	    contract, mod, _ = _deploy(direct_vm, direct_deploy, buyer)
+   918	    covenant_id = _enter_full_challenge(
+   919	        contract,
+   920	        mod,
+   921	        direct_vm,
+   922	        buyer,
+   923	        provider,
+   924	    )
+   925	

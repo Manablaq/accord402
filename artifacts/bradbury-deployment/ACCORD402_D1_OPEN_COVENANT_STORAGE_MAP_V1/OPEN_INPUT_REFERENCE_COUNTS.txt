@@ -1,0 +1,16 @@
+absolute_dispute_deadline=1
+acceptance_deadline=1
+authority_bindings=4
+challenge_duration=1
+criteria=4
+delivery_deadline=1
+evidence_repair_window=1
+max_evidence_age=1
+max_review_generations=1
+principal=1
+provider=1
+repair_allowed_field_mask=1
+replay_scope=5
+required_corroboration_count=1
+review_retry_window=1
+service_spec=4

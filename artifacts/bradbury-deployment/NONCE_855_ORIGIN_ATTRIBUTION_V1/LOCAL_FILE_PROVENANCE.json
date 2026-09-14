@@ -1,0 +1,58 @@
+{
+  "classification": "NO_STRONG_LOCAL_FILE_ORIGIN_CANDIDATE",
+  "filesScanned": 96,
+  "matches": [
+    {
+      "actionPrimitivePresent": false,
+      "consumerHashPresent": true,
+      "diagnosticContext": true,
+      "exact21000And10000000000Present": true,
+      "mtimeUtc": "2026-09-12T06:05:45.124570Z",
+      "path": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/NONCE_855_RECONCILIATION_V1/CHAIN_EVIDENCE.json",
+      "size": 3524,
+      "snippets": [
+        "      \"logs\": [],\n      \"logsBloom\": \"[LONG_HEX_REDACTED]\",\n      \"status\": \"0x1\",\n      \"to\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",\n      \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n      \"transactionIndex\": \"0x0\",\n      \"type\": \"0x2\"\n    },\n    \"transaction\": {",
+        "      \"chainId\": \"0x107d\",\n      \"from\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",\n      \"gas\": \"0x5208\",\n      \"gasPrice\": \"0x2540be400\",\n      \"hash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n      \"input\": \"0x\",\n      \"maxFeePerGas\": \"0x2540be400\",\n      \"maxPriorityFeePerGas\": \"0x2540be400\",\n      \"nonce\": \"0x357\",",
+        "      \"v\": \"0x1\",\n      \"value\": \"0x0\",\n      \"yParity\": \"0x1\"\n    },\n    \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\"\n  },\n  \"economics\": {\n    \"effectiveGasPrice\": 10000000000,\n    \"feeWei\": 210000000000000,",
+        "    },\n    \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\"\n  },\n  \"economics\": {\n    \"effectiveGasPrice\": 10000000000,\n    \"feeWei\": 210000000000000,\n    \"gasUsed\": 21000,\n    \"valueWei\": 0\n  },",
+        "    \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\"\n  },\n  \"economics\": {\n    \"effectiveGasPrice\": 10000000000,\n    \"feeWei\": 210000000000000,\n    \"gasUsed\": 21000,\n    \"valueWei\": 0\n  },\n  \"finality\": {"
+      ],
+      "strongActionCandidate": false,
+      "workerPresent": true
+    },
+    {
+      "actionPrimitivePresent": false,
+      "consumerHashPresent": true,
+      "diagnosticContext": true,
+      "exact21000And10000000000Present": true,
+      "mtimeUtc": "2026-09-12T06:05:45.131997Z",
+      "path": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/NONCE_855_RECONCILIATION_V1/RECONCILIATION_REPORT.json",
+      "size": 8175,
+      "snippets": [
+        "    \"SOURCE_IDENTITY.json\": \"255a88491b53fe853f85ac6b588abe796c27b3ba7805aa948f1529ae91725ca4\"\n  },\n  \"createdAtUtc\": \"2026-09-12T06:05:45Z\",\n  \"economics\": {\n    \"effectiveGasPrice\": 10000000000,\n    \"feeWei\": 210000000000000,\n    \"gasUsed\": 21000,\n    \"valueWei\": 0\n  },",
+        "  },\n  \"createdAtUtc\": \"2026-09-12T06:05:45Z\",\n  \"economics\": {\n    \"effectiveGasPrice\": 10000000000,\n    \"feeWei\": 210000000000000,\n    \"gasUsed\": 21000,\n    \"valueWei\": 0\n  },\n  \"evidenceId\": \"accord402-nonce855-reconciliation-v1\",",
+        "  \"nonce855\": {\n    \"classification\": \"SUCCESSFUL_ZERO_VALUE_SELF_TRANSFER_CONSUMED_NONCE855\",\n    \"consumed\": true,\n    \"consumerBlock\": 21491855,\n    \"consumerTransactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n    \"historicalNonceAfter\": 856,\n    \"historicalNonceBefore\": 855,\n    \"receiptSuccessful\": true\n  },"
+      ],
+      "strongActionCandidate": false,
+      "workerPresent": true
+    },
+    {
+      "actionPrimitivePresent": false,
+      "consumerHashPresent": true,
+      "diagnosticContext": true,
+      "exact21000And10000000000Present": false,
+      "mtimeUtc": "2026-09-12T06:05:45.126357Z",
+      "path": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/NONCE_855_RECONCILIATION_V1/SIGNER_PROOF.json",
+      "size": 587,
+      "snippets": [
+        "{\n  \"schema\": \"accord402.nonce855.signer-proof.v1\",\n  \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n  \"rawTransactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n  \"rawHashMatchesTransaction\": true,\n  \"expectedWorker\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",\n  \"recoveredAddress\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",",
+        "{\n  \"schema\": \"accord402.nonce855.signer-proof.v1\",\n  \"transactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n  \"rawTransactionHash\": \"0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee\",\n  \"rawHashMatchesTransaction\": true,\n  \"expectedWorker\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",\n  \"recoveredAddress\": \"0x1f87ae197af539253978d435ad45ccf28fb95024\",\n  \"signerMatchesWorker\": true,"
+      ],
+      "strongActionCandidate": false,
+      "workerPresent": true
+    }
+  ],
+  "matchingFileCount": 3,
+  "schema": "accord402.nonce855.local-file-origin.v1",
+  "strongActionCandidateCount": 0
+}

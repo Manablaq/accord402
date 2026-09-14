@@ -1,0 +1,1 @@
+I explicitly authorize the single nonce-855 cancellation transaction using the certified R20-R10 zero-value self-transfer replacement parameters.

@@ -1,0 +1,24 @@
+{
+  "accord402AdoptedPolicy": {
+    "formula": "gasLimit = multiplier * maximumBlockPinnedEstimate",
+    "multiplier": 2,
+    "policyType": "PROJECT_SPECIFIC_CONSERVATIVE_EVM_GAS_ENVELOPE",
+    "rationale": "Adopts the pinned SDK's existing 2x stateful-EVM gas headroom precedent as an explicit Accord402 project policy. It is not represented as the Consensus deployment path's native behavior.",
+    "requiresBlockPinnedEstimates": true,
+    "requiresCandidateBelowEveryObservedBlockGasLimit": true,
+    "requiresCurrentWorkerBalanceForMaximumCandidateCost": true,
+    "requiresHistoricalHighGasWitness": true
+  },
+  "classification": "ACCORD402_PROJECT_POLICY_BOUND_TO_PINNED_SDK_2X_EVM_PRECEDENT",
+  "cliVersion": "0.39.2",
+  "genlayerJsVersion": "1.1.8",
+  "observedSdkPolicy": {
+    "consensusDeploymentPathUsesThisMultiplier": false,
+    "consensusPathFallbackGas": 200000,
+    "multiplier": 2,
+    "sourceComponent": "src/staking/actions.ts",
+    "stakingUseLocated": true
+  },
+  "schema": "accord402.gas-envelope-policy.v2",
+  "sdkBundleSha256": "577032b22e6077b671a7d27ba8d6dac58eb90ed5892f2a05b11eefc6eef29dd2"
+}

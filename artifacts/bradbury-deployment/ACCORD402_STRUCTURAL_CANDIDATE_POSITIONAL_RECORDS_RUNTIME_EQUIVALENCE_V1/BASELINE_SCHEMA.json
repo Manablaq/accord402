@@ -1,0 +1,507 @@
+{
+  "ctor": {
+    "params": [],
+    "kwparams": {}
+  },
+  "methods": {
+    "accept_covenant": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "adjudicate_challenge": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "authorize_unchallenged_settlement": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "challenge_delivery": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ],
+        [
+          "challenge_claim",
+          "string"
+        ],
+        [
+          "challenged_criterion_ids",
+          [
+            {
+              "$rep": "string"
+            }
+          ]
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "claim_settlement": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_non_delivery": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_repair": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_review": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "expire_unaccepted": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "get_accounting_totals": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "total_funded": "int",
+        "total_closed_to_provider": "int",
+        "total_closed_to_buyer": "int",
+        "total_outstanding": "int"
+      }
+    },
+    "get_active_evidence_ids": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": "string"
+        }
+      ]
+    },
+    "get_authority_bindings": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": {
+            "covenant_id": "int",
+            "authority_id": "string",
+            "authority_revision": "int",
+            "role": "string",
+            "identity_kind": "string",
+            "identity_value": "string",
+            "canonical_origin": "string"
+          }
+        }
+      ]
+    },
+    "get_buyer_stats": {
+      "params": [
+        [
+          "buyer",
+          "address"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "funded_covenants": "int",
+        "challenges_filed": "int",
+        "valid_challenges": "int",
+        "invalid_challenges": "int"
+      }
+    },
+    "get_challenged_criterion_ids": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": "string"
+        }
+      ]
+    },
+    "get_covenant": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "covenant_id": "int",
+        "buyer": "address",
+        "provider": "address",
+        "funded_amount": "int",
+        "outstanding_amount": "int",
+        "provider_settlement": "int",
+        "buyer_settlement": "int",
+        "state": "string",
+        "service_spec": "string",
+        "service_spec_hash": "string",
+        "opened_at": "int",
+        "acceptance_deadline": "int",
+        "delivery_deadline": "int",
+        "challenge_duration": "int",
+        "absolute_dispute_deadline": "int",
+        "evidence_repair_window": "int",
+        "review_retry_window": "int",
+        "max_review_generations": "int",
+        "evidence_policy_version": "int",
+        "evidence_policy_hash": "string",
+        "max_evidence_age": "int",
+        "required_corroboration_count": "int",
+        "repair_policy_version": "int",
+        "repair_allowed_field_mask": "int",
+        "replay_scope": "string",
+        "adjudication_criteria_version": "int",
+        "settlement_rule_version": "int",
+        "accepted_at": "int",
+        "delivered_at": "int",
+        "challenge_deadline": "int",
+        "challenged_at": "int",
+        "repair_deadline": "int",
+        "retry_deadline": "int",
+        "closed_at": "int",
+        "delivery_payload": "string",
+        "delivery_hash": "string",
+        "active_evidence_set_hash": "string",
+        "repair_authorization_generation": "int",
+        "repair_authorization_active": "bool",
+        "challenge_claim": "string",
+        "review_generation": "int",
+        "adjudication_decision": "string",
+        "failure_classification": "string",
+        "closure_reason": "string",
+        "settlement_direction": "string",
+        "settlement_message_scheduled": "bool"
+      }
+    },
+    "get_covenant_count": {
+      "params": [],
+      "kwparams": {},
+      "readonly": true,
+      "ret": "int"
+    },
+    "get_criteria": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": {
+            "covenant_id": "int",
+            "criterion_id": "string",
+            "criterion_text": "string"
+          }
+        }
+      ]
+    },
+    "get_evidence_history": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": {
+            "covenant_id": "int",
+            "generation": "int",
+            "evidence_id": "string",
+            "authority_id": "string",
+            "authority_revision": "int",
+            "subject": "string",
+            "kind": "string",
+            "source_kind": "string",
+            "canonical_source": "string",
+            "immutable_version_or_record_id": "string",
+            "published_at": "int",
+            "observed_at": "int",
+            "expires_at": "int",
+            "content_digest": "string",
+            "is_primary": "bool",
+            "replaces_evidence_id": "string"
+          }
+        }
+      ]
+    },
+    "get_failed_criterion_ids": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": "string"
+        }
+      ]
+    },
+    "get_provider_stats": {
+      "params": [
+        [
+          "provider",
+          "address"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": {
+        "accepted_covenants": "int",
+        "deliveries": "int",
+        "non_deliveries": "int",
+        "disputes_won": "int",
+        "disputes_lost": "int"
+      }
+    },
+    "get_repair_authorizations": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": true,
+      "ret": [
+        {
+          "$rep": {
+            "covenant_id": "int",
+            "generation": "int",
+            "evidence_id": "string",
+            "field_mask": "int"
+          }
+        }
+      ]
+    },
+    "open_covenant": {
+      "params": [
+        [
+          "terms",
+          {
+            "provider": "address",
+            "principal": "int",
+            "service_spec": "string",
+            "acceptance_deadline": "int",
+            "delivery_deadline": "int",
+            "challenge_duration": "int",
+            "absolute_dispute_deadline": "int",
+            "evidence_repair_window": "int",
+            "review_retry_window": "int",
+            "max_review_generations": "int",
+            "max_evidence_age": "int",
+            "required_corroboration_count": "int",
+            "repair_allowed_field_mask": "int",
+            "replay_scope": "string",
+            "criteria": [
+              {
+                "$rep": {
+                  "criterion_id": "string",
+                  "criterion_text": "string"
+                }
+              }
+            ],
+            "authority_bindings": [
+              {
+                "$rep": {
+                  "authority_id": "string",
+                  "authority_revision": "int",
+                  "role": "string",
+                  "identity_kind": "string",
+                  "identity_value": "string",
+                  "canonical_origin": "string"
+                }
+              }
+            ]
+          }
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "int",
+      "payable": true
+    },
+    "retry_review": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "submit_delivery": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ],
+        [
+          "delivery_payload",
+          "string"
+        ],
+        [
+          "evidence",
+          [
+            {
+              "$rep": {
+                "evidence_id": "string",
+                "authority_id": "string",
+                "authority_revision": "int",
+                "subject": "string",
+                "kind": "string",
+                "source_kind": "string",
+                "canonical_source": "string",
+                "immutable_version_or_record_id": "string",
+                "published_at": "int",
+                "observed_at": "int",
+                "expires_at": "int",
+                "content_digest": "string",
+                "is_primary": "bool"
+              }
+            }
+          ]
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    },
+    "submit_evidence_repair": {
+      "params": [
+        [
+          "covenant_id",
+          "int"
+        ],
+        [
+          "replacements",
+          [
+            {
+              "$rep": {
+                "replaces_evidence_id": "string",
+                "evidence_id": "string",
+                "authority_id": "string",
+                "authority_revision": "int",
+                "subject": "string",
+                "kind": "string",
+                "source_kind": "string",
+                "canonical_source": "string",
+                "immutable_version_or_record_id": "string",
+                "published_at": "int",
+                "observed_at": "int",
+                "expires_at": "int",
+                "content_digest": "string",
+                "is_primary": "bool"
+              }
+            }
+          ]
+        ]
+      ],
+      "kwparams": {},
+      "readonly": false,
+      "ret": "null",
+      "payable": false
+    }
+  }
+}

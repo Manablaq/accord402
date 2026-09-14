@@ -1,0 +1,307 @@
+CANDIDATE_TEST_LOG_BYTES=82342
+PYTEST_ERROR_SIGNATURE_UNIQUE_COUNT=3
+TOP_PYTEST_ERROR_SIGNATURES=
+55 x AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+55 x - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+55 x + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+===== FIRST FAILURE/ERROR SECTION =====
+==================================== ERRORS ====================================
+____________ ERROR at setup of test_primitive_binary_codec_vectors _____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+________________ ERROR at setup of test_u32_range_rejection[-1] ________________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+____________ ERROR at setup of test_u32_range_rejection[4294967296] ____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+________________ ERROR at setup of test_u64_range_rejection[-1] ________________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_______ ERROR at setup of test_u64_range_rejection[18446744073709551616] _______
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_hex32_strict_lowercase_exact_length[AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_hex32_strict_lowercase_exact_length[000000000000000000000000000000000000000000000000000000000000000] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_hex32_strict_lowercase_exact_length[gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_hex32_strict_lowercase_exact_length[0x0000000000000000000000000000000000000000000000000000000000000000] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_service_reference_vector_matches_contract_and_independent_reference _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_policy_reference_vector_matches_contract_and_independent_reference _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_delivery_reference_vector_matches_contract_and_independent_reference _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_evidence_reference_vector_matches_contract_and_independent_reference _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+____________ ERROR at setup of test_criteria_order_is_consequential ____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+___________ ERROR at setup of test_authority_order_is_consequential ____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+________ ERROR at setup of test_active_evidence_order_is_consequential _________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_hash_changes_when_consequential_record_field_changes[canonical_source-https://example.com/pricing-v2] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_hash_changes_when_consequential_record_field_changes[immutable_version_or_record_id-v2] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_hash_changes_when_consequential_record_field_changes[content_digest-1111111111111111111111111111111111111111111111111111111111111111] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_hash_changes_when_consequential_record_field_changes[observed_at-1699999951] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_ ERROR at setup of test_active_hash_changes_when_consequential_record_field_changes[is_primary-False] _
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+_________ ERROR at setup of test_delivery_rejects_non_20_byte_address __________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+______ ERROR at setup of test_active_hash_rejects_foreign_evidence_record ______
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+___________ ERROR at setup of test_hash_outputs_are_lowercase_hex64 ____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+
+===== FIRST EXCEPTION CONTEXT =====
+INFO:   Artifacts directory: artifacts
+INFO:   Environment: .env
+INFO:   Default wait interval: 3000 ms
+INFO:   Default wait retries: 50
+INFO:   Leader only mode: False
+FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEEEEEEEEEEEEEEEEEEEEE.EEE                 [100%]
+==================================== ERRORS ====================================
+____________ ERROR at setup of test_primitive_binary_codec_vectors _____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+________________ ERROR at setup of test_u32_range_rejection[-1] ________________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+E         + 6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818
+
+tests/test_accord402_hash_vectors.py:107: AssertionError
+____________ ERROR at setup of test_u32_range_rejection[4294967296] ____________
+
+    @pytest.fixture(scope="module")
+    def contract():
+>       assert _sha256(CONTRACT) == EXPECTED_CONTRACT_SHA256
+E       AssertionError: assert '6f048999c2cf...f9606d9a2e818' == 'd6f52562d068...fd0a91ccf50c4'
+E         
+E         - d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4

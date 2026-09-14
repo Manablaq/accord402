@@ -1,0 +1,132 @@
+{
+  "authorizationState": {
+    "furtherBroadcastAuthorized": false,
+    "furtherSigningAuthorized": false,
+    "previousInitialBroadcastAuthorizationConsumed": true,
+    "previousSigningAuthorizationConsumed": true
+  },
+  "canonicalSourceBytes": 50674,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "classification": "CURRENT_EXACT_ACCORD402_DEPLOYMENT_PAYLOAD_INCOMPATIBLE_WITH_OBSERVED_BRADBURY_PER_TX_GAS_CEILING",
+  "createdAtUtc": "2026-09-12T19:26:07Z",
+  "currentPayload": {
+    "estimateAsPercentOfGasCap": 240.74,
+    "estimateMinusGasCap": 23613450,
+    "executesSuccessfullyAtMaximumAdmissibleGas": false,
+    "existingSignedGasLimit": 80825672,
+    "existingSignedGasLimitRejectedByCap": true,
+    "gasCapAsPercentOfEstimate": 41.53,
+    "maximumObservedUncappedEstimateGas": 40390666
+  },
+  "deploymentConclusion": {
+    "currentExactOuterDeploymentPayloadDeployableUnderObservedBradburyRuntime": false,
+    "increasingGasPriceCanResolve": false,
+    "rebroadcastingSameSignedBytesCanChangeRuntimeGasAdmissibility": false,
+    "replacementWithSamePayloadAndOnlyDifferentOuterGasLimitCanBeCertifiedNow": false,
+    "waitingForMempoolInclusionCanMakeGasLimitAdmissible": false
+  },
+  "empiricalBoundaryEvidence": {
+    "gasAtCapPlusOneRejectedForCapReason": true,
+    "gasAtCapRejectedForCapReason": false,
+    "twoPow24BoundaryConfirmed": true
+  },
+  "empiricalBradburyIndividualTransactionGasCap": 16777216,
+  "historicalGasCertificateDisposition": {
+    "gasV2CertificatePreserved": true,
+    "gasV2CertifiedGasLimit": 80825672,
+    "gasV2StillValidAsHistoricalEstimatorHeadroomEvidence": true,
+    "gasV2ValidAsBradburyDeployabilityCertificate": false,
+    "reason": "It did not incorporate the independently observed Bradbury individual transaction gas ceiling."
+  },
+  "liveRecheck": {
+    "createdAtUtc": "2026-09-12T19:25:43Z",
+    "empiricalTxGasCap": 16777216,
+    "endpoints": {
+      "CHAIN": {
+        "cappedEstimate": {
+          "error": {
+            "code": 3,
+            "message": "execution reverted"
+          },
+          "kind": "rpc",
+          "success": false
+        },
+        "cappedEthCall": {
+          "error": {
+            "code": 3,
+            "message": "execution reverted"
+          },
+          "kind": "rpc",
+          "success": false
+        },
+        "cappedEthSimulateV1": {
+          "error": {
+            "code": -32000,
+            "data": "0x",
+            "message": "execution reverted"
+          },
+          "executionSucceeded": false,
+          "gasUsed": "0xee1f29",
+          "maxUsedGas": "0xee1f29",
+          "rpcSuccess": true,
+          "shapeValid": true,
+          "status": "0x0"
+        },
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "transactionVisible": false,
+        "uncappedEstimate": {
+          "result": "0x268500a",
+          "success": true
+        }
+      },
+      "GL": {
+        "cappedEstimate": {
+          "error": {
+            "code": 3,
+            "message": "execution reverted"
+          },
+          "kind": "rpc",
+          "success": false
+        },
+        "cappedEthCall": {
+          "error": {
+            "code": 3,
+            "message": "execution reverted"
+          },
+          "kind": "rpc",
+          "success": false
+        },
+        "cappedEthSimulateV1": {
+          "error": {
+            "code": -32000,
+            "data": "0x",
+            "message": "execution reverted"
+          },
+          "executionSucceeded": false,
+          "gasUsed": "0xee1f29",
+          "maxUsedGas": "0xee1f29",
+          "rpcSuccess": true,
+          "shapeValid": true,
+          "status": "0x0"
+        },
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "transactionVisible": false,
+        "uncappedEstimate": {
+          "result": "0x268500a",
+          "success": true
+        }
+      }
+    },
+    "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+    "outerTransactionStateClassification": "NO_OUTER_RECEIPT_AT_RUNTIME_INFEASIBILITY_CERTIFICATION",
+    "schema": "accord402.bradbury-runtime-live-recheck.v1"
+  },
+  "requiredNextEngineeringAction": "Reduce or restructure the deployment artifact / deployment path and independently prove the resulting exact deployment payload executes successfully at or below 16,777,216 gas before any new signing or broadcast authorization.",
+  "schema": "accord402.bradbury-runtime-infeasibility-certificate.v1"
+}

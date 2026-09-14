@@ -1,0 +1,28 @@
+{
+  "differing_abi_words": [
+    {
+      "byte_end": 195,
+      "byte_start": 164,
+      "r15_hex": "0x000000000000000000000000000000000000000000000000000000006aa4b1fa",
+      "r15_plausible_unix_seconds": true,
+      "r15_uint": 1789178362,
+      "r19_hex": "0x000000000000000000000000000000000000000000000000000000006aa4bbc7",
+      "r19_plausible_unix_seconds": true,
+      "r19_uint": 1789180871,
+      "word_index": 5
+    }
+  ],
+  "differing_byte_count": 2,
+  "differing_ranges": [
+    {
+      "end": 195,
+      "length": 2,
+      "start": 194
+    }
+  ],
+  "function_selector_identical": true,
+  "non_data_call_field_differences": {},
+  "outer_bytes": 50916,
+  "r15_calldata_sha256": "9b6bb89ddd310575482e0f7577ba2adae241231dd6fcb20c5c3baf18d6e71f1f",
+  "r19_calldata_sha256": "d6fd408be8cd951b07414462bd53196abda02f3dc3860d97afce1e27fcd53a6a"
+}

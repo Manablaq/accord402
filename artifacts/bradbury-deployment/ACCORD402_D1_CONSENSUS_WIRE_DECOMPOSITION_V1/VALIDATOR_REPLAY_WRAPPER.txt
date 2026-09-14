@@ -1,0 +1,15 @@
+  1218			def validator_fn(leaders_res)->bool:
+  1219				b=leaders_res
+  1220				if not isinstance(b,gl.vm.Return):
+  1221					return False
+  1222				try:
+  1223					a=derive_wire()
+  1224					return isinstance(b.calldata,str)and a==b.calldata
+  1225				except Exception:
+  1226					return False
+  1227			a=gl.vm.run_nondet_unsafe(derive_wire,validator_fn)
+  1228			if not isinstance(a,str):
+  1229				_fail('INVALID_CONSENSUS_RESULT')
+  1230			if a==cd:
+  1231				_fail('UNREPAIRABLE_EVIDENCE_DEFECT')
+  1232			return a

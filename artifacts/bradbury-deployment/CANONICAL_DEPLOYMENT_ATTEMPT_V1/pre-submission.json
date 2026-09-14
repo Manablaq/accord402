@@ -1,0 +1,47 @@
+{
+  "authorization": {
+    "attempt_limit": 1,
+    "blind_resubmission_allowed": false,
+    "explicit_user_authorization": true,
+    "scope": "single canonical Accord402 deployment to Bradbury"
+  },
+  "canonical_source": {
+    "contract_sha256": "8b18cfafb307ce6076513c1f772b9622252fb4510a5c8b18cad7a05b45cc4ea5",
+    "freeze_record_sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+    "source_manifest_sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2",
+    "step_19j_guard_sha256": "a09bbfdb89338df567ab71b834fbecf515d4ce4b2072946da846b6535b12652f"
+  },
+  "canonical_success": false,
+  "command": [
+    "genlayer",
+    "deploy",
+    "--contract",
+    "contracts/accord402.py",
+    "--rpc",
+    "https://rpc-bradbury.genlayer.com"
+  ],
+  "created_at_utc": "2026-09-11T22:53:29Z",
+  "deployer": {
+    "account_name": "worker",
+    "address": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "expected_pre_submission_nonce": 855
+  },
+  "network": {
+    "alias": "testnet-bradbury",
+    "chain_id": 4221,
+    "rpc": "https://rpc-bradbury.genlayer.com"
+  },
+  "post_attempt_latest_nonce_rpc": {
+    "id": 19,
+    "jsonrpc": "2.0",
+    "result": "0x357"
+  },
+  "post_attempt_pending_nonce_rpc": {
+    "id": 19,
+    "jsonrpc": "2.0",
+    "result": "0x357"
+  },
+  "schema": "accord402.canonical-deployment-attempt.v1",
+  "state": "SUBMISSION_OUTCOME_UNRESOLVED_NO_TXID",
+  "transaction_id": null
+}

@@ -1,0 +1,120 @@
+   472	def bA(label:str,final_label:bool)->bool:
+   473		if len(label)<1 or len(label)>63:
+   474			return False
+   475		if label.startswith('xn--'):
+   476			return False
+   477		if final_label:
+   478			if len(label)<2 or len(label)>63:
+   479				return False
+   480			for ch in label:
+   481				if ch<'a' or ch>'z':
+   482					return False
+   483			return True
+   484		first=label[0]
+   485		last=label[-1]
+   486		if not(first.isdigit()or 'a'<=first<='z'):
+   487			return False
+   488		if not(last.isdigit()or 'a'<=last<='z'):
+   489			return False
+   490		for ch in label:
+   491			if not(ch.isdigit()or 'a'<=ch<='z' or ch=='-'):
+   492				return False
+   493		return True
+   494	def bk(host:str)->str:
+   495		bf(host)
+   496		if len(host)>253 or '.' not in host or host.startswith('.')or host.endswith('.'):
+   497			_fail(cm)
+   498		labels=host.split('.')
+   499		if len(labels)<2:
+   500			_fail(cm)
+   501		denied_tlds={'local','localhost','internal','home','lan','test','invalid','onion'}
+   502		for i,label in enumerate(labels):
+   503			if not bA(label,i==len(labels)-1):
+   504				_fail(cm)
+   505		if labels[-1]in denied_tlds:
+   506			_fail(cm)
+   507		return host
+   508	def bE(origin:str)->str:
+   509		L(origin,aG,cy,True)
+   510		bf(origin)
+   511		prefix=cJ
+   512		if not origin.startswith(prefix):
+   513			_fail(ci)
+   514		rest=origin[len(prefix):]
+   515		if cK in rest or '?' in rest or '#' in rest or('@' in rest)or(':' in rest):
+   516			_fail(ci)
+   517		host=bk(rest)
+   518		if origin!=prefix+host:
+   519			_fail(ci)
+   520		return host
+   521	def aL(segment:str)->bool:
+   522		if segment=='' or segment=='.' or segment=='..':
+   523			return False
+   524		for ch in segment:
+   525			if not(ch.isascii()and(ch.isalnum()or ch in '._~-')):
+   526				return False
+   527		return True
+   528	def bF(source:str)->str:
+   529		L(source,aH,cz,True)
+   530		bf(source)
+   531		prefix=cJ
+   532		if not source.startswith(prefix):
+   533			_fail(b3)
+   534		rest=source[len(prefix):]
+   535		slash=rest.find(cK)
+   536		if slash<0:
+   537			_fail(b3)
+   538		host=rest[:slash]
+   539		path=rest[slash:]
+   540		bk(host)
+   541		if '?' in path or '#' in path or '\\' in path or('%' in path):
+   542			_fail(b3)
+   543		if path==cK:
+   544			return prefix+host
+   545		if not path.startswith(cK)or path.endswith(cK)or '//' in path:
+   546			_fail(b3)
+   547		for segment in path[1:].split(cK):
+   548			if not aL(segment):
+   549				_fail(b3)
+   550		return prefix+host
+   551	def af(source:str,version_id:str)->bool:
+   552		if version_id=='':
+   553			return False
+   554		try:
+   555			version_id.encode(cU)
+   556		except UnicodeEncodeError:
+   557			return False
+   558		if not aL(version_id):
+   559			return False
+   560		prefix=cJ
+   561		if not source.startswith(prefix):
+   562			return False
+   563		rest=source[len(prefix):]
+   564		slash=rest.find(cK)
+   565		if slash<0:
+   566			return False
+   567		path=rest[slash:]
+   568		if path==cK or not path.startswith(cK):
+   569			return False
+   570		return version_id in path[1:].split(cK)
+   571	def aC(source:str,version_id:str)->None:
+   572		L(version_id,aA,cH,True)
+   573		if not af(source,version_id):
+   574			_fail('VERSION_ID_SOURCE_MISMATCH')
+   575	def _criterion_bytes(c)->bytes:
+   576		return _str_bytes(c.criterion_id)+_str_bytes(c.criterion_text)
+   577	def _authority_bytes(a)->bytes:
+   578		return _str_bytes(a.authority_id)+_u32_bytes(a.authority_revision)+_str_bytes(a.role)+_str_bytes(a.identity_kind)+_str_bytes(a.identity_value)+_str_bytes(a.canonical_origin)
+   579	def _evidence_bytes(e)->bytes:
+   580		return _u64_bytes(e.covenant_id)+_u32_bytes(e.generation)+_str_bytes(e.evidence_id)+_str_bytes(e.authority_id)+_u32_bytes(e.authority_revision)+_str_bytes(e.subject)+_str_bytes(e.kind)+_str_bytes(e.source_kind)+_str_bytes(e.canonical_source)+_str_bytes(e.immutable_version_or_record_id)+_u64_bytes(e.published_at)+_u64_bytes(e.observed_at)+_u64_bytes(e.expires_at)+_hex32(e.content_digest)+_bool_byte(bool(e.is_primary))+_str_bytes(e.replaces_evidence_id)
+   581	def _service_hash(service_spec:str,criteria)->str:
+   582		preimage=SERVICE_DOMAIN+_str_bytes(service_spec)+_u32_bytes(ADJUDICATION_CRITERIA_VERSION)
+   583		preimage+=_count_bytes(len(criteria))
+   584		for criterion in criteria:
+   585			preimage+=_criterion_bytes(criterion)
+   586		return _sha256_hex(preimage)
+   587	def _policy_hash(max_evidence_age,required_corroboration_count,repair_allowed_field_mask,replay_scope,bindings)->str:
+   588		preimage=POLICY_DOMAIN+_u32_bytes(EVIDENCE_POLICY_VERSION)+_u64_bytes(max_evidence_age)+_u32_bytes(required_corroboration_count)+_u32_bytes(REPAIR_POLICY_VERSION)+_u32_bytes(repair_allowed_field_mask)+_str_bytes(replay_scope)+_u32_bytes(ADJUDICATION_CRITERIA_VERSION)+_count_bytes(len(bindings))
+   589		for binding in bindings:
+   590			preimage+=_authority_bytes(binding)
+   591		return _sha256_hex(preimage)

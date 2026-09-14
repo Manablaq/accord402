@@ -1,0 +1,37 @@
+{
+  "bothEthereumEndpointsAgree": true,
+  "certifiedGasLimit": 80825672,
+  "chainId": 4221,
+  "classification": "LIVE_BRADBURY_DEPLOYMENT_PATH_COMPATIBILITY_GATE_PASS",
+  "componentSha256": {
+    "live": "1588d38a087cea3f28cb3a77f422000df9a902dd3f032930669d7361165fad2c",
+    "schema": "6167bea9817e68121f46d2ee66f9db6b81adc73d975e31fd5f48262b6be72eca",
+    "sdk": "e1995f76bc29b6bfccb28c2f1130c3ddaf3ee7540a501abf57ae118f0082bafe",
+    "toolchain": "2b66e947de8b96a3f1a46c2a3f8f1ad716b300f5903b00f448156f664f4da3bb",
+    "transport": "6f6643f11ff06d873ee8733ee90ce89a5c37b11b441d1ecccecec9a356ebbd18"
+  },
+  "consensusMain": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+  "createdAtUtc": "2026-09-12T14:45:01Z",
+  "deploymentAuthorized": false,
+  "finalUnsignedSigningHashFrozen": false,
+  "gasPriceFinalized": false,
+  "httpTransport": {
+    "client": "/usr/bin/curl",
+    "explicitUserAgent": "curl/8.7.1",
+    "priorRejectedClient": "Python-urllib/3.9",
+    "priorRejectedCloudflareCode": 1010,
+    "priorRejectedHttpStatus": 403
+  },
+  "liveConsensusMainCodeBound": true,
+  "liveGenLayerNodeAcceptsFrozenSourceSchema": true,
+  "liveZeroValueLegacyCallSimulationAccepted": true,
+  "nextAction": "RECAPTURE_FRESH_GAS_PRICE_AND_FREEZE_FINAL_UNSIGNED_NONCE856_TRANSACTION",
+  "schema": "accord402.nonce856.bradbury-compatibility-report.v3",
+  "toolchainResolution": {
+    "cliRoot": "/Users/mralbert/.npm-global/lib/node_modules/genlayer",
+    "method": "ABSOLUTE_CERTIFIED_PATH",
+    "npmRootGlobalUsed": false
+  },
+  "transactionSigningAuthorized": false,
+  "workerRequiredNextNonce": 856
+}

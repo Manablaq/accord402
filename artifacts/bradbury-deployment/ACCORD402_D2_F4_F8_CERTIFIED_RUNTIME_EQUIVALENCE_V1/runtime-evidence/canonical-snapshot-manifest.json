@@ -1,0 +1,132 @@
+[
+  {
+    "bytes": 159,
+    "path": ".gitignore",
+    "sha256": "8a27d310a5cb52ac358eb5d7796d427c5143a45b5acde9c32d58e04dfeff3274"
+  },
+  {
+    "bytes": 451,
+    "path": "README.md",
+    "sha256": "fdda02368016da6b9f2345af541168ba7db69fb917d6aa8cff309dfc9d199226"
+  },
+  {
+    "bytes": 50674,
+    "path": "contracts/accord402.py",
+    "sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  {
+    "bytes": 11634,
+    "path": "docs/ADJUDICATION_WIRE_V1.md",
+    "sha256": "7237745e1d7ddfeb0451c8eb495126dd808088e809791c7fa86e699ebc93ab5a"
+  },
+  {
+    "bytes": 10754,
+    "path": "docs/CANONICAL_SOURCE_V1.md",
+    "sha256": "0aee5a0df40f61e2a82a0d397edd5193ee7a8f5454ad2b3cf767793c2b2f719c"
+  },
+  {
+    "bytes": 14407,
+    "path": "docs/EVIDENCE_MODEL_V1.md",
+    "sha256": "157c192cfb47cf66dba6d16816838a45ec2e18772826b4dcffed4b6713f0d7c0"
+  },
+  {
+    "bytes": 12847,
+    "path": "docs/HASH_PREIMAGES_V1.md",
+    "sha256": "6564024d3a1a3e31405b9d99e95c6ce5df2e8d051c4bfa9b240507adaa71c9e9"
+  },
+  {
+    "bytes": 8749,
+    "path": "docs/INPUT_CAPS_V1.md",
+    "sha256": "0a776bcb26cf2855665449e188257db7ff460b3ff883bd55bb6091e0912f230a"
+  },
+  {
+    "bytes": 10934,
+    "path": "docs/PREIMPLEMENTATION_SEMANTICS_AMENDMENT_V1.md",
+    "sha256": "7ad354340d9094ed880e48f6679320bc77b73d3831bf2ff6bf617ef18b6edac6"
+  },
+  {
+    "bytes": 15369,
+    "path": "docs/PREIMPLEMENTATION_SEMANTICS_AMENDMENT_V2.md",
+    "sha256": "de66a4fd93240c0e8b5473dd2dc96f7dcdd32b7edc5db21dade592d7df033189"
+  },
+  {
+    "bytes": 14593,
+    "path": "docs/PREIMPLEMENTATION_SEMANTICS_AMENDMENT_V3.md",
+    "sha256": "832428b87431c157d58083f44b2afc07989126fa13e5db8c76c3bc3938c39435"
+  },
+  {
+    "bytes": 13223,
+    "path": "docs/PREIMPLEMENTATION_SEMANTICS_AMENDMENT_V4.md",
+    "sha256": "eb8491a448ebce4eaab409db7c0899273019557b20688a51181bc35bd36aaa53"
+  },
+  {
+    "bytes": 11853,
+    "path": "docs/PUBLIC_ABI_V1.md",
+    "sha256": "d21a6dd73660174ec2be0c8fc042d8ab86fd51fb2794501651a522dbea26bfc6"
+  },
+  {
+    "bytes": 8710,
+    "path": "docs/REVIEWER_GATES_V1.md",
+    "sha256": "b11ea255c833a5a96ab142ac87b73035eff43be2203016460a957d902b13b12b"
+  },
+  {
+    "bytes": 7356,
+    "path": "docs/SETTLEMENT_INVARIANTS_V1.md",
+    "sha256": "98f8f3b71ca9e405e2ecf8dca16353e85954da18d085c789ae1577091b7fa04f"
+  },
+  {
+    "bytes": 25692,
+    "path": "docs/SPEC_V1.md",
+    "sha256": "bb73bf5bc2f737981a69fa9b08ed96f2e600d2c0806535b2f0bd5fe915b9cb32"
+  },
+  {
+    "bytes": 12028,
+    "path": "docs/STATE_MACHINE_V1.md",
+    "sha256": "3d7d0e21cfccbbdd9e8314687474b756752744c4cbc52ddbe2b03de8caef00d8"
+  },
+  {
+    "bytes": 29714,
+    "path": "docs/STORAGE_AND_ABI_V1.md",
+    "sha256": "7b58f34e2a7329a2a3ad742f1d715592d18a16949569afd97ef047db9c90b6c1"
+  },
+  {
+    "bytes": 7290,
+    "path": "docs/THREAT_MODEL_V1.md",
+    "sha256": "c8ce86641adf16afc5934a46ab34e7768d204544457dda609d0679f57b928ce0"
+  },
+  {
+    "bytes": 2099,
+    "path": "docs/TOOLCHAIN_V1.md",
+    "sha256": "31d9654fb9b70ff188e0514b34808ac82161ade865e89c8f8c91fdf3f81d5d82"
+  },
+  {
+    "bytes": 5086,
+    "path": "docs/VERIFIED_GENLAYER_BASELINE.md",
+    "sha256": "0fb73e86c28dd4fbefc1a4408951a43c11960e6d1cf23ef48cfe976977f46689"
+  },
+  {
+    "bytes": 350,
+    "path": "requirements-dev.txt",
+    "sha256": "9e287221b592dd0bce0992ff3c3a58bc38432f7cab284c8341a67c1f7e689efa"
+  },
+  {
+    "bytes": 1217,
+    "path": "requirements-lock.txt",
+    "sha256": "99e923899428aa788a05c1dd0241aea3cc7bd4792fcf53a62b6867c31d48855a"
+  },
+  {
+    "bytes": 33846,
+    "path": "tests/direct/test_accord402_direct_mode.py",
+    "sha256": "fd17b167852857af341b2ebc53b3b1819a8b0b2e7b6c9e2b3a54c97192c79c66"
+  },
+  {
+    "bytes": 43623,
+    "path": "tests/security/test_accord402_adversarial.py",
+    "sha256": "9d3e2b169c39c67bcb15c0f8be13952f0af80b34c7b57aa1103bf727fff690b5"
+  },
+  {
+    "bytes": 15861,
+    "path": "tests/test_accord402_hash_vectors.py",
+    "sha256": "1e6f247ada527b15092458ec665cef68a771999675083d307b0249acc26fcfc7"
+  }
+]

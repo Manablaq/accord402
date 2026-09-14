@@ -1,0 +1,26 @@
+{
+  "certifiedGasCoversRequirement": true,
+  "chainEstimateGas": 40311328,
+  "classification": "EXACT_FINAL_UNSIGNED_FIELDS_LIVE_SIMULATION_PASS",
+  "createdAtUtc": "2026-09-12T14:50:48Z",
+  "estimateBothEndpointsEqual": true,
+  "ethCallBothEndpointsSucceeded": true,
+  "ethCallResult": "0x",
+  "ethCallResultsEqual": true,
+  "exactTransactionFields": {
+    "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+    "chainId": 4221,
+    "gas": 80825672,
+    "gasPriceWei": 187500000,
+    "nonce": 856,
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  },
+  "genlayerEstimateGas": 40311328,
+  "pinnedBlock": {
+    "gasLimit": 100000000,
+    "hash": "0x72cbdd33deecd219d259949e834fc63bca5eecea58ebcfe95fa8304bc2f1a88e",
+    "number": 21524090
+  },
+  "schema": "accord402.nonce856.final-live-simulation.v1"
+}

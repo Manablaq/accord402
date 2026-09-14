@@ -1,0 +1,17 @@
+{
+  "schema": "accord402.attempt2.signing-intent.v1",
+  "createdAtUtc": "2026-09-12T15:17:40.804Z",
+  "signerAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "chainId": 4221,
+  "nonce": 856,
+  "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+  "valueWei": "0",
+  "gas": "80825672",
+  "gasPriceWei": "187500000",
+  "signingHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+  "keychainAccessed": true,
+  "signingInvocationAuthorized": true,
+  "signingInvocationCountAllowed": 1,
+  "signingInvocationPerformed": false,
+  "authorizationConsumed": false
+}

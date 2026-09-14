@@ -1,0 +1,14 @@
+{
+  "schema": "accord402.attempt2.keychain-access-intent.v1",
+  "createdAtUtc": "2026-09-12T15:17:40.780Z",
+  "accountName": "worker",
+  "keychainService": "genlayer-cli",
+  "keychainAccount": "account:worker",
+  "expectedWorkerAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "signingHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+  "keychainAccessAuthorized": true,
+  "signingInvocationAuthorized": true,
+  "keychainAccessed": false,
+  "signingInvocationPerformed": false,
+  "authorizationConsumed": false
+}

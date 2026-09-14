@@ -1,0 +1,239 @@
+{
+  "accord402": {
+    "deploymentAuthorized": false,
+    "deploymentSent": false,
+    "nextCandidateNonce": 856
+  },
+  "blockchainActionsDuringReconstruction": {
+    "deploymentSent": false,
+    "keychainAccessed": false,
+    "privateKeyAccessed": false,
+    "transactionSent": false,
+    "transactionSigned": false
+  },
+  "classification": "NONCE855_INCIDENT_CHAIN_RECONSTRUCTED_WORKER_STABLE_AT_NONCE856",
+  "componentSha256": {
+    "CHAIN_EVIDENCE.json": "4cd0999d8f3a49ce9b52cf8e36fb36fe0a19d5a7489f93134c7d89bd44933c0e",
+    "NONCE_856_STABILITY.json": "210db3335b3a1c490805b8f4144f69c5bb2adc916f38e6838a698c55a2df0200",
+    "SIGNER_PROOF.json": "0ee9d959e16e3ef9236fa9323d875c86400131be839224e7a340afad125e8cd0",
+    "SOURCE_IDENTITY.json": "255a88491b53fe853f85ac6b588abe796c27b3ba7805aa948f1529ae91725ca4"
+  },
+  "createdAtUtc": "2026-09-12T06:05:45Z",
+  "economics": {
+    "effectiveGasPrice": 10000000000,
+    "feeWei": 210000000000000,
+    "gasUsed": 21000,
+    "valueWei": 0
+  },
+  "evidenceId": "accord402-nonce855-reconciliation-v1",
+  "nextAction": "REVIEW_PERSISTENT_EVIDENCE_AND_RESOLVE_SELF_TRANSFER_ORIGIN_BEFORE_FRESH_ACCORD402_NONCE856_PREFLIGHT",
+  "nonce855": {
+    "classification": "SUCCESSFUL_ZERO_VALUE_SELF_TRANSFER_CONSUMED_NONCE855",
+    "consumed": true,
+    "consumerBlock": 21491855,
+    "consumerTransactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+    "historicalNonceAfter": 856,
+    "historicalNonceBefore": 855,
+    "receiptSuccessful": true
+  },
+  "oldCancellationAuthorization": {
+    "authorizedGasLimit": 26457,
+    "authorizedGasPrice": 8589934592,
+    "authorizedSigningHash": "0x792283ddccf06088e4e601e1aaef62fd58abc23bfba8783e217ce49accb23ff6",
+    "consumedByThisAccord402Workflow": false,
+    "matchesMinedTransaction": false,
+    "state": "STALE_AND_NON_EXECUTABLE_AFTER_NONCE855_CONSUMPTION"
+  },
+  "originAttribution": {
+    "localApplicationOrOperatorThatInitiatedSelfTransfer": "NOT_FULLY_ATTRIBUTED",
+    "privateKeyCompromiseClaimed": false,
+    "workerSignatureCryptographicallyProven": true
+  },
+  "schema": "accord402.nonce855.reconciliation.v1",
+  "signer": {
+    "classification": "RAW_TRANSACTION_CRYPTOGRAPHICALLY_SIGNED_BY_WORKER",
+    "recoveredAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "workerSignatureCryptographicallyProven": true
+  },
+  "sourceIdentity": {
+    "capturedAtUtc": "2026-09-12T06:03:24Z",
+    "existingProjectTreeManifestSha256": "cc16014ca80c53f7de03105ddc64a248157044cc1385e458e783c8277759e697",
+    "frozenFiles": {
+      "artifacts/CANONICAL_SOURCE_FREEZE_V3.json": "0782f7c834a449eb0d3c8ee83dbce6fc9daa1424eaa44cf675a578e8eea85494",
+      "artifacts/CANONICAL_V2_CERTIFICATION_V1.json": "849f592d517b1c2711a2de8c45a198645a61f539bb6ad6efc6bba59d1113fe41",
+      "contracts/accord402.py": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+    },
+    "headCommit": null,
+    "identityBinding": "FROZEN_SHA256_IDENTITIES_PLUS_UNBORN_REPOSITORY_STATE",
+    "indexPresent": false,
+    "looseObjectCount": 0,
+    "originConfigured": false,
+    "packCount": 0,
+    "refCount": 0,
+    "repositoryState": "UNBORN_EMPTY_LOCAL_REPOSITORY",
+    "schema": "accord402.source-identity.v1",
+    "symbolicHead": "refs/heads/main"
+  },
+  "worker": {
+    "nextUsableNonce": 856,
+    "stability": {
+      "classification": "WORKER_STABLY_FREE_AT_NONCE856",
+      "consumerReceiptStillSuccessful": true,
+      "distinctBlockCount": 12,
+      "expectedNonce": 856,
+      "network": {
+        "chainId": 4221,
+        "chainRpc": "https://rpc.testnet-chain.genlayer.com",
+        "genlayerRpc": "https://rpc-bradbury.genlayer.com"
+      },
+      "oldVariantAReceiptAbsent": true,
+      "oldVariantBReceiptAbsent": true,
+      "pendingNonce856TransactionAbsent": true,
+      "sampleCount": 12,
+      "samples": [
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497716,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 1,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:03:44Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497728,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 2,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:03:54Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497739,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 3,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:05Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497749,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 4,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:17Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497756,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 5,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:28Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497764,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 6,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:38Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497768,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 7,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:48Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497779,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 8,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:04:58Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497793,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 9,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:05:09Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497804,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 10,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:05:22Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497812,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 11,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:05:33Z"
+        },
+        {
+          "balanceWei": 7530431203937238246,
+          "block": 21497824,
+          "chainLatest": 856,
+          "chainPending": 856,
+          "glLatest": 856,
+          "glPending": 856,
+          "index": 12,
+          "pendingNonce856TransactionCount": 0,
+          "utc": "2026-09-12T06:05:43Z"
+        }
+      ],
+      "schema": "accord402.nonce856.stability.v1",
+      "stableBalanceWei": 7530431203937238246,
+      "worker": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+    }
+  },
+  "workflowRepair": {
+    "appendOnly": true,
+    "authoritativeEvidenceLocation": "artifacts/bradbury-deployment/NONCE_855_RECONCILIATION_V1",
+    "identityBinding": "FROZEN_FILE_HASHES_PLUS_UNBORN_REPOSITORY_STATE",
+    "privateTmpAuthoritative": false,
+    "requiresGitHeadCommit": false
+  }
+}

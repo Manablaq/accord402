@@ -1,0 +1,30 @@
+{
+  "baseline": {
+    "allGatesGreen": false,
+    "genvmCheckReturnCode": 0,
+    "genvmSchemaReturnCode": 0,
+    "genvmTypecheckReturnCode": 1,
+    "pytestPassedCount": 56,
+    "pytestReturnCode": 0
+  },
+  "broadcastAuthorized": false,
+  "candidate": {
+    "allGatesGreen": false,
+    "genvmCheckReturnCode": 0,
+    "genvmSchemaReturnCode": 0,
+    "genvmTypecheckReturnCode": 1,
+    "pytestPassedCount": 1,
+    "pytestReturnCode": 1
+  },
+  "candidateBradburyGasMeasured": false,
+  "candidatePromotionAuthorized": false,
+  "candidateSha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818",
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "classification": "CANONICAL_BASELINE_NOT_GREEN_DIAGNOSTIC_REQUIRED_BEFORE_CANDIDATE_JUDGMENT",
+  "createdAtUtc": "2026-09-12T22:37:06Z",
+  "expectedDirectModeTestCount": 56,
+  "generatedAbiSchemaIdentical": true,
+  "runtimeEquivalencePassed": false,
+  "schema": "accord402.positional-record-runtime-equivalence.v1",
+  "signingAuthorized": false
+}

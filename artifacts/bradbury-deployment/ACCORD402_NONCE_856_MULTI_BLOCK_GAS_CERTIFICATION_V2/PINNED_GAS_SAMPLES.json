@@ -1,0 +1,521 @@
+{
+  "candidateCapValidationSamples": [
+    {
+      "blockHash": "0xbe05ec8dcd23d686e2332277ae799443e5bb0c765ec2b61c1d3b818dc034de28",
+      "blockNumber": 21503315,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40325867,
+      "sampleIndex": 1
+    },
+    {
+      "blockHash": "0x4dda987fa64cc792bed69ca6323df4c4edcf6a397eebb26bf107c3199a141990",
+      "blockNumber": 21521401,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 2
+    },
+    {
+      "blockHash": "0x263b56d20d4a856a57017fc3cedc07339a6bf7d8af05603819d1cfbc74c3420d",
+      "blockNumber": 21521399,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 3
+    },
+    {
+      "blockHash": "0x1186747c8bf5ac538e91e65bd02b155cfe990a1020d2f5273f05f1589c346a35",
+      "blockNumber": 21521397,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 4
+    },
+    {
+      "blockHash": "0x87a51e2b5ce5c387bfab1e2e645f8c7be1c8f8c2077721ceb3478a4438a8633f",
+      "blockNumber": 21521395,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 5
+    },
+    {
+      "blockHash": "0x19f156a6faa4279bd9a53e0f685beb9549253183993c7326f19ec30b1b35096d",
+      "blockNumber": 21521393,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 6
+    },
+    {
+      "blockHash": "0x6c5509fbde8b1c0e1e1857820cfd04518bb7bbf4717f1caa895d457b91033c72",
+      "blockNumber": 21521391,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40320105,
+      "sampleIndex": 7
+    },
+    {
+      "blockHash": "0x8036b9d77dc3772b8275d3df8e04de4342811cba18a89c519ac05ed33d0a0ca7",
+      "blockNumber": 21521389,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 8
+    },
+    {
+      "blockHash": "0x5ea75bb121119920caf528bd7f3d361129d8ddd55354f38430a4d086b916ba3f",
+      "blockNumber": 21521387,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 9
+    },
+    {
+      "blockHash": "0xcd20c58a7f94ce8f59304a9d2777ed8afd2730f77839686dbe8504e4eb435696",
+      "blockNumber": 21521385,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 10
+    },
+    {
+      "blockHash": "0x59a821a0181fbfcf9cf2d5f735a0b51ee6ade451d14fcdc5b1b58ba638614537",
+      "blockNumber": 21521383,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 11
+    },
+    {
+      "blockHash": "0x3e87d2f8487976f1ee48b9a9e66bc04bbe520ef0233dfa35d5a89852bb7c03e4",
+      "blockNumber": 21521381,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 12
+    },
+    {
+      "blockHash": "0x38d0da8fee5aa5263e55fffc2db34f2d998684024c1848e724c57bfa49bb6b1c",
+      "blockNumber": 21521379,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40333138,
+      "sampleIndex": 13
+    },
+    {
+      "blockHash": "0x2482e90cc3c9baa1c9f5836410c6ec8bf3e47c2d1d50f6a2c40564cc6fa9c700",
+      "blockNumber": 21521377,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 14
+    },
+    {
+      "blockHash": "0xaf1f0b68ec71cea909ccb8dd74f1e756093535fb917550c48f28e3169a49d30b",
+      "blockNumber": 21521375,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 15
+    },
+    {
+      "blockHash": "0xe32d64deeb532a64d5a986c1cacb39876c2bba4ab9d3e79389200bb769a155b0",
+      "blockNumber": 21521373,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 16
+    },
+    {
+      "blockHash": "0xa6263733d7e7e0b1a4f9c34cc7826e294c20143218a9577bf35cc4454841d9f3",
+      "blockNumber": 21521371,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 17
+    },
+    {
+      "blockHash": "0xe234204d158c5ca5f017096104c23707b0b3f1ac2bbfbe0a038dd87afcbb4a07",
+      "blockNumber": 21521369,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 18
+    },
+    {
+      "blockHash": "0xf14f7e25a455581cfbb7e556a137a1e1e3e5392afa45f91a725a9649c9a61f6d",
+      "blockNumber": 21521367,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 19
+    },
+    {
+      "blockHash": "0x9267014078cb70123c833d6f7b3cfc35a92a4498c00ab6cced343ac27a4ddc24",
+      "blockNumber": 21521365,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 20
+    },
+    {
+      "blockHash": "0xe3023f9f5ce74c8e9366c00c3eb0895e03fcf38b2e90d96f5cf601ad6e54fe1b",
+      "blockNumber": 21521363,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 21
+    },
+    {
+      "blockHash": "0xb5047a4b3f1d606fa4f9ff7013bbad95f016de6ef7afc69962b526dbeaafe81e",
+      "blockNumber": 21521361,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 22
+    },
+    {
+      "blockHash": "0x6ec5fdf298a6c9fce7b8eb9ac8fc180074614749e8bd1f7ed64f868d058557b3",
+      "blockNumber": 21521359,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40311328,
+      "sampleIndex": 23
+    },
+    {
+      "blockHash": "0x6a9f7554f103556d9e5cd77e4814202e130939a858ea619f1d1785c0833332de",
+      "blockNumber": 21521357,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 24
+    },
+    {
+      "blockHash": "0xd848645e298dea7203f004515baa324a2a2e24a06d7b605afb440558846eab94",
+      "blockNumber": 21521355,
+      "bothEndpointsAgree": true,
+      "candidateCoversRequirement": true,
+      "candidateGasLimit": 80825672,
+      "estimateWithCandidateCap": 40318597,
+      "sampleIndex": 25
+    }
+  ],
+  "capturedTransaction": {
+    "calldataByteLength": 50916,
+    "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+    "capturedGasPriceWei": "166094850",
+    "capturedSdkGas": "40390666",
+    "chainId": 4221,
+    "nonce": 856,
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  },
+  "deriveSamples": [
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xbe05ec8dcd23d686e2332277ae799443e5bb0c765ec2b61c1d3b818dc034de28",
+      "blockNumber": 21503315,
+      "chainEstimateSeconds": 2.2834385829999997,
+      "estimateGas": 40405446,
+      "genlayerEstimateSeconds": 2.198495583,
+      "historicalWitness": true,
+      "sampleIndex": 1
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x4dda987fa64cc792bed69ca6323df4c4edcf6a397eebb26bf107c3199a141990",
+      "blockNumber": 21521401,
+      "chainEstimateSeconds": 2.731844583999999,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 3.0636889160000003,
+      "historicalWitness": false,
+      "sampleIndex": 2
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x263b56d20d4a856a57017fc3cedc07339a6bf7d8af05603819d1cfbc74c3420d",
+      "blockNumber": 21521399,
+      "chainEstimateSeconds": 2.0324212500000005,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.396726874999999,
+      "historicalWitness": false,
+      "sampleIndex": 3
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x1186747c8bf5ac538e91e65bd02b155cfe990a1020d2f5273f05f1589c346a35",
+      "blockNumber": 21521397,
+      "chainEstimateSeconds": 2.085541417,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.3360470000000007,
+      "historicalWitness": false,
+      "sampleIndex": 4
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x87a51e2b5ce5c387bfab1e2e645f8c7be1c8f8c2077721ceb3478a4438a8633f",
+      "blockNumber": 21521395,
+      "chainEstimateSeconds": 2.4709114999999997,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 1.9970228330000008,
+      "historicalWitness": false,
+      "sampleIndex": 5
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x19f156a6faa4279bd9a53e0f685beb9549253183993c7326f19ec30b1b35096d",
+      "blockNumber": 21521393,
+      "chainEstimateSeconds": 2.4362655829999973,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.0825192910000005,
+      "historicalWitness": false,
+      "sampleIndex": 6
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x6c5509fbde8b1c0e1e1857820cfd04518bb7bbf4717f1caa895d457b91033c72",
+      "blockNumber": 21521391,
+      "chainEstimateSeconds": 2.183338291000002,
+      "estimateGas": 40399589,
+      "genlayerEstimateSeconds": 2.5222099170000014,
+      "historicalWitness": false,
+      "sampleIndex": 7
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x8036b9d77dc3772b8275d3df8e04de4342811cba18a89c519ac05ed33d0a0ca7",
+      "blockNumber": 21521389,
+      "chainEstimateSeconds": 2.4645279580000015,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.4650405840000005,
+      "historicalWitness": false,
+      "sampleIndex": 8
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x5ea75bb121119920caf528bd7f3d361129d8ddd55354f38430a4d086b916ba3f",
+      "blockNumber": 21521387,
+      "chainEstimateSeconds": 2.4122460419999996,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.268766750000001,
+      "historicalWitness": false,
+      "sampleIndex": 9
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xcd20c58a7f94ce8f59304a9d2777ed8afd2730f77839686dbe8504e4eb435696",
+      "blockNumber": 21521385,
+      "chainEstimateSeconds": 2.6572924590000007,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.6073852909999964,
+      "historicalWitness": false,
+      "sampleIndex": 10
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x59a821a0181fbfcf9cf2d5f735a0b51ee6ade451d14fcdc5b1b58ba638614537",
+      "blockNumber": 21521383,
+      "chainEstimateSeconds": 2.1683541250000005,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.171571874999998,
+      "historicalWitness": false,
+      "sampleIndex": 11
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x3e87d2f8487976f1ee48b9a9e66bc04bbe520ef0233dfa35d5a89852bb7c03e4",
+      "blockNumber": 21521381,
+      "chainEstimateSeconds": 2.580107333000001,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.465312500000003,
+      "historicalWitness": false,
+      "sampleIndex": 12
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x38d0da8fee5aa5263e55fffc2db34f2d998684024c1848e724c57bfa49bb6b1c",
+      "blockNumber": 21521379,
+      "chainEstimateSeconds": 2.145464375000003,
+      "estimateGas": 40412836,
+      "genlayerEstimateSeconds": 2.377959916000002,
+      "historicalWitness": false,
+      "sampleIndex": 13
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x2482e90cc3c9baa1c9f5836410c6ec8bf3e47c2d1d50f6a2c40564cc6fa9c700",
+      "blockNumber": 21521377,
+      "chainEstimateSeconds": 2.310052082999995,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 1.8890832499999988,
+      "historicalWitness": false,
+      "sampleIndex": 14
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xaf1f0b68ec71cea909ccb8dd74f1e756093535fb917550c48f28e3169a49d30b",
+      "blockNumber": 21521375,
+      "chainEstimateSeconds": 2.382745541999995,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.3828483749999947,
+      "historicalWitness": false,
+      "sampleIndex": 15
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xe32d64deeb532a64d5a986c1cacb39876c2bba4ab9d3e79389200bb769a155b0",
+      "blockNumber": 21521373,
+      "chainEstimateSeconds": 1.9832795420000053,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.1563012500000056,
+      "historicalWitness": false,
+      "sampleIndex": 16
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xa6263733d7e7e0b1a4f9c34cc7826e294c20143218a9577bf35cc4454841d9f3",
+      "blockNumber": 21521371,
+      "chainEstimateSeconds": 2.0798707909999976,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.1104447079999957,
+      "historicalWitness": false,
+      "sampleIndex": 17
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xe234204d158c5ca5f017096104c23707b0b3f1ac2bbfbe0a038dd87afcbb4a07",
+      "blockNumber": 21521369,
+      "chainEstimateSeconds": 2.3187513329999945,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.1150935000000004,
+      "historicalWitness": false,
+      "sampleIndex": 18
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xf14f7e25a455581cfbb7e556a137a1e1e3e5392afa45f91a725a9649c9a61f6d",
+      "blockNumber": 21521367,
+      "chainEstimateSeconds": 2.179825874999999,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.599121457999999,
+      "historicalWitness": false,
+      "sampleIndex": 19
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x9267014078cb70123c833d6f7b3cfc35a92a4498c00ab6cced343ac27a4ddc24",
+      "blockNumber": 21521365,
+      "chainEstimateSeconds": 2.3346469580000004,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.1947150420000057,
+      "historicalWitness": false,
+      "sampleIndex": 20
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xe3023f9f5ce74c8e9366c00c3eb0895e03fcf38b2e90d96f5cf601ad6e54fe1b",
+      "blockNumber": 21521363,
+      "chainEstimateSeconds": 2.360812957999997,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.1057801249999955,
+      "historicalWitness": false,
+      "sampleIndex": 21
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xb5047a4b3f1d606fa4f9ff7013bbad95f016de6ef7afc69962b526dbeaafe81e",
+      "blockNumber": 21521361,
+      "chainEstimateSeconds": 2.0710336660000053,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.204785125000001,
+      "historicalWitness": false,
+      "sampleIndex": 22
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x6ec5fdf298a6c9fce7b8eb9ac8fc180074614749e8bd1f7ed64f868d058557b3",
+      "blockNumber": 21521359,
+      "chainEstimateSeconds": 2.011319125,
+      "estimateGas": 40390666,
+      "genlayerEstimateSeconds": 2.7708962079999964,
+      "historicalWitness": false,
+      "sampleIndex": 23
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0x6a9f7554f103556d9e5cd77e4814202e130939a858ea619f1d1785c0833332de",
+      "blockNumber": 21521357,
+      "chainEstimateSeconds": 2.1857448749999975,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.185835499999996,
+      "historicalWitness": false,
+      "sampleIndex": 24
+    },
+    {
+      "blockGasLimit": 100000000,
+      "blockHash": "0xd848645e298dea7203f004515baa324a2a2e24a06d7b605afb440558846eab94",
+      "blockNumber": 21521355,
+      "chainEstimateSeconds": 1.9013448749999924,
+      "estimateGas": 40398056,
+      "genlayerEstimateSeconds": 2.130114167000002,
+      "historicalWitness": false,
+      "sampleIndex": 25
+    }
+  ],
+  "gasPriceSensitivityProbes": [
+    {
+      "blockNumber": 21503315,
+      "capturedGasPriceWei": 166094850,
+      "currentGasPriceWei": 178770000,
+      "estimateAtCapturedPrice": 40325867,
+      "estimateAtCurrentPrice": 40325867,
+      "invariant": true
+    },
+    {
+      "blockNumber": 21521401,
+      "capturedGasPriceWei": 166094850,
+      "currentGasPriceWei": 178770000,
+      "estimateAtCapturedPrice": 40311328,
+      "estimateAtCurrentPrice": 40311328,
+      "invariant": true
+    }
+  ],
+  "historicalWitness": {
+    "blockNumber": 21503315,
+    "reproduced": true,
+    "requiredEstimate": 40405446
+  },
+  "recentSampling": {
+    "anchorBlock": 21521401,
+    "anchorDepth": 6,
+    "sampleCount": 24,
+    "spacingBlocks": 2
+  },
+  "schema": "accord402.nonce856.block-pinned-gas-samples.v2"
+}

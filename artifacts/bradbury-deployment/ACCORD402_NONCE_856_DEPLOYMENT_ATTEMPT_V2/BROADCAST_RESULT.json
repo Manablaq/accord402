@@ -1,0 +1,23 @@
+{
+  "automaticRetryAuthorized": false,
+  "automaticRetryPerformed": false,
+  "broadcastClassification": "INITIAL_BROADCAST_ACCEPTED_HASH_MATCH",
+  "broadcastEndedAtUtc": "2026-09-12T15:17:44.498Z",
+  "broadcastStartedAtUtc": "2026-09-12T15:17:42.810Z",
+  "curlReturnCode": 0,
+  "doNotRebroadcast": true,
+  "hashesMatch": true,
+  "localSignedTransactionHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "parsedJsonRpcResponse": {
+    "id": 2303,
+    "jsonrpc": "2.0",
+    "result": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e"
+  },
+  "rpcMethod": "eth_sendRawTransaction",
+  "rpcReturnedTransactionHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "schema": "accord402.attempt2.initial-broadcast-result.v1",
+  "sendRawTransactionInvocationCount": 1,
+  "stderr": "",
+  "stdout": "{\"jsonrpc\":\"2.0\",\"result\":\"0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e\",\"id\":2303}\n",
+  "targetRpc": "https://rpc-bradbury.genlayer.com"
+}

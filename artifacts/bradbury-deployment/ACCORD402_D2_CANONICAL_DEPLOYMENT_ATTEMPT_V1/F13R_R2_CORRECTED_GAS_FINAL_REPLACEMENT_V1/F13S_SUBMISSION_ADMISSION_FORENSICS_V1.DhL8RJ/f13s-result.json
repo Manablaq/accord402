@@ -1,0 +1,73 @@
+{
+  "authorization": {
+    "furtherReplacementAuthorized": false,
+    "previousSigningConsumed": true,
+    "previousSubmissionConsumed": true
+  },
+  "classification": "F13R_R2_NOT_ADMITTED_F13O_STILL_SURVIVES",
+  "predictedF13R2Hash": "0x453a499a445779a3d88acf0faa72586dfcc08676fbe3913de849c7631a1f5210",
+  "summary": {
+    "BRADBURY": {
+      "blockNumber": 21693622,
+      "blockTimestamp": 1789353973,
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "transactions": {
+        "F13M": {
+          "hash": "0x2a6635dd6ed367e3ecef50cc2a8b2e2754b568728b541a2e526821e40f927adf",
+          "receipt": false,
+          "visible": false
+        },
+        "F13O": {
+          "hash": "0x36d3e9719e2f8fe2259c371fd5b51a332c993b8503e19b26e7fd079309be0acc",
+          "receipt": false,
+          "visible": false
+        },
+        "F13R_R2": {
+          "hash": "0x453a499a445779a3d88acf0faa72586dfcc08676fbe3913de849c7631a1f5210",
+          "receipt": false,
+          "visible": false
+        },
+        "STALE": {
+          "hash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+          "receipt": false,
+          "visible": false
+        }
+      }
+    },
+    "CHAIN": {
+      "blockNumber": 21693637,
+      "blockTimestamp": 1789353980,
+      "latestNonce": 856,
+      "pendingNonce": 856,
+      "transactions": {
+        "F13M": {
+          "hash": "0x2a6635dd6ed367e3ecef50cc2a8b2e2754b568728b541a2e526821e40f927adf",
+          "receipt": false,
+          "visible": false
+        },
+        "F13O": {
+          "hash": "0x36d3e9719e2f8fe2259c371fd5b51a332c993b8503e19b26e7fd079309be0acc",
+          "receipt": false,
+          "visible": true
+        },
+        "F13R_R2": {
+          "hash": "0x453a499a445779a3d88acf0faa72586dfcc08676fbe3913de849c7631a1f5210",
+          "receipt": false,
+          "visible": false
+        },
+        "STALE": {
+          "hash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+          "receipt": false,
+          "visible": false
+        }
+      }
+    }
+  },
+  "writes": {
+    "blockchainWrite": false,
+    "keyAccess": false,
+    "signing": false,
+    "submission": false
+  }
+}

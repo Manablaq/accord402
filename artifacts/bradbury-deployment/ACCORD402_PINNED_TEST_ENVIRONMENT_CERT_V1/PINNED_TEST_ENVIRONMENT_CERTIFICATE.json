@@ -1,0 +1,342 @@
+{
+  "broadcastAuthorized": false,
+  "createdAtUtc": "2026-09-12T22:31:39Z",
+  "keyPackageVersions": {
+    "genlayer-py": {
+      "actual": "0.18.0",
+      "expected": "0.18.0",
+      "match": true
+    },
+    "genlayer-test": {
+      "actual": "0.29.2",
+      "expected": "0.29.2",
+      "match": true
+    },
+    "genvm-linter": {
+      "actual": "0.11.1rc2",
+      "expected": "0.11.1rc2",
+      "match": true
+    },
+    "pip": {
+      "actual": "26.2.1",
+      "expected": "26.2.1",
+      "match": true
+    },
+    "pyright": {
+      "actual": "1.1.414",
+      "expected": "1.1.414",
+      "match": true
+    },
+    "pytest": {
+      "actual": "9.1.1",
+      "expected": "9.1.1",
+      "match": true
+    }
+  },
+  "ordinaryLockPinCount": 52,
+  "ordinaryLockPins": {
+    "aiohappyeyeballs": {
+      "actual": "2.7.1",
+      "expected": "2.7.1",
+      "match": true
+    },
+    "aiohttp": {
+      "actual": "3.14.3",
+      "expected": "3.14.3",
+      "match": true
+    },
+    "aiosignal": {
+      "actual": "1.4.0",
+      "expected": "1.4.0",
+      "match": true
+    },
+    "annotated-types": {
+      "actual": "0.8.0",
+      "expected": "0.8.0",
+      "match": true
+    },
+    "attrs": {
+      "actual": "26.1.0",
+      "expected": "26.1.0",
+      "match": true
+    },
+    "bitarray": {
+      "actual": "3.11.0",
+      "expected": "3.11.0",
+      "match": true
+    },
+    "certifi": {
+      "actual": "2026.7.22",
+      "expected": "2026.7.22",
+      "match": true
+    },
+    "charset-normalizer": {
+      "actual": "3.5.1",
+      "expected": "3.5.1",
+      "match": true
+    },
+    "ckzg": {
+      "actual": "2.1.8",
+      "expected": "2.1.8",
+      "match": true
+    },
+    "click": {
+      "actual": "8.5.0",
+      "expected": "8.5.0",
+      "match": true
+    },
+    "colorama": {
+      "actual": "0.4.6",
+      "expected": "0.4.6",
+      "match": true
+    },
+    "cytoolz": {
+      "actual": "1.1.0",
+      "expected": "1.1.0",
+      "match": true
+    },
+    "eth-abi": {
+      "actual": "6.0.0",
+      "expected": "6.0.0",
+      "match": true
+    },
+    "eth-account": {
+      "actual": "0.14.0",
+      "expected": "0.14.0",
+      "match": true
+    },
+    "eth-hash": {
+      "actual": "0.8.0",
+      "expected": "0.8.0",
+      "match": true
+    },
+    "eth-keyfile": {
+      "actual": "0.10.0",
+      "expected": "0.10.0",
+      "match": true
+    },
+    "eth-keys": {
+      "actual": "0.8.0",
+      "expected": "0.8.0",
+      "match": true
+    },
+    "eth-rlp": {
+      "actual": "3.0.0",
+      "expected": "3.0.0",
+      "match": true
+    },
+    "eth-typing": {
+      "actual": "6.0.0",
+      "expected": "6.0.0",
+      "match": true
+    },
+    "eth-utils": {
+      "actual": "6.0.0",
+      "expected": "6.0.0",
+      "match": true
+    },
+    "frozenlist": {
+      "actual": "1.8.0",
+      "expected": "1.8.0",
+      "match": true
+    },
+    "hexbytes": {
+      "actual": "2.0.0",
+      "expected": "2.0.0",
+      "match": true
+    },
+    "idna": {
+      "actual": "3.19",
+      "expected": "3.19",
+      "match": true
+    },
+    "iniconfig": {
+      "actual": "2.3.0",
+      "expected": "2.3.0",
+      "match": true
+    },
+    "multidict": {
+      "actual": "6.8.0",
+      "expected": "6.8.0",
+      "match": true
+    },
+    "nodeenv": {
+      "actual": "1.10.0",
+      "expected": "1.10.0",
+      "match": true
+    },
+    "numpy": {
+      "actual": "2.5.3",
+      "expected": "2.5.3",
+      "match": true
+    },
+    "packaging": {
+      "actual": "26.3",
+      "expected": "26.3",
+      "match": true
+    },
+    "parsimonious": {
+      "actual": "0.10.0",
+      "expected": "0.10.0",
+      "match": true
+    },
+    "pip": {
+      "actual": "26.2.1",
+      "expected": "26.2.1",
+      "match": true
+    },
+    "pluggy": {
+      "actual": "1.6.0",
+      "expected": "1.6.0",
+      "match": true
+    },
+    "propcache": {
+      "actual": "0.5.2",
+      "expected": "0.5.2",
+      "match": true
+    },
+    "py-ecc": {
+      "actual": "8.0.0",
+      "expected": "8.0.0",
+      "match": true
+    },
+    "pycryptodome": {
+      "actual": "3.23.0",
+      "expected": "3.23.0",
+      "match": true
+    },
+    "pydantic": {
+      "actual": "2.13.5",
+      "expected": "2.13.5",
+      "match": true
+    },
+    "pydantic-core": {
+      "actual": "2.46.5",
+      "expected": "2.46.5",
+      "match": true
+    },
+    "pygments": {
+      "actual": "2.21.0",
+      "expected": "2.21.0",
+      "match": true
+    },
+    "pyright": {
+      "actual": "1.1.414",
+      "expected": "1.1.414",
+      "match": true
+    },
+    "pytest": {
+      "actual": "9.1.1",
+      "expected": "9.1.1",
+      "match": true
+    },
+    "python-dotenv": {
+      "actual": "1.2.3",
+      "expected": "1.2.3",
+      "match": true
+    },
+    "pyunormalize": {
+      "actual": "17.0.0",
+      "expected": "17.0.0",
+      "match": true
+    },
+    "pyyaml": {
+      "actual": "6.0.3",
+      "expected": "6.0.3",
+      "match": true
+    },
+    "regex": {
+      "actual": "2026.9.10",
+      "expected": "2026.9.10",
+      "match": true
+    },
+    "requests": {
+      "actual": "2.34.2",
+      "expected": "2.34.2",
+      "match": true
+    },
+    "rlp": {
+      "actual": "5.0.0",
+      "expected": "5.0.0",
+      "match": true
+    },
+    "toolz": {
+      "actual": "1.1.0",
+      "expected": "1.1.0",
+      "match": true
+    },
+    "typing-extensions": {
+      "actual": "4.16.0",
+      "expected": "4.16.0",
+      "match": true
+    },
+    "typing-inspection": {
+      "actual": "0.4.4",
+      "expected": "0.4.4",
+      "match": true
+    },
+    "urllib3": {
+      "actual": "2.7.0",
+      "expected": "2.7.0",
+      "match": true
+    },
+    "web3": {
+      "actual": "8.0.0",
+      "expected": "8.0.0",
+      "match": true
+    },
+    "websockets": {
+      "actual": "17.1",
+      "expected": "17.1",
+      "match": true
+    },
+    "yarl": {
+      "actual": "1.24.5",
+      "expected": "1.24.5",
+      "match": true
+    }
+  },
+  "python": {
+    "executable": "/Users/mralbert/Downloads/accord402/.venv/bin/python",
+    "version": "3.12.14"
+  },
+  "schema": "accord402.pinned-test-environment-certificate.v1",
+  "signingAuthorized": false,
+  "sourceModified": false,
+  "testsExecuted": false,
+  "vcsPackages": {
+    "genlayer-py": {
+      "commitId": "a3dc35e04898e3889cbfa855bcaf7d2664675b8f",
+      "directUrlPath": "/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/genlayer_py-0.18.0.dist-info/direct_url.json",
+      "expectedCommit": "a3dc35e04898e3889cbfa855bcaf7d2664675b8f",
+      "match": true,
+      "requestedRevision": "a3dc35e04898e3889cbfa855bcaf7d2664675b8f",
+      "url": "https://github.com/genlayerlabs/genlayer-py.git",
+      "vcs": "git"
+    },
+    "genlayer-test": {
+      "commitId": "9c09578b143905471fb0657dd53bdaf18da8e35f",
+      "directUrlPath": "/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/genlayer_test-0.29.2.dist-info/direct_url.json",
+      "expectedCommit": "9c09578b143905471fb0657dd53bdaf18da8e35f",
+      "match": true,
+      "requestedRevision": "9c09578b143905471fb0657dd53bdaf18da8e35f",
+      "url": "https://github.com/genlayerlabs/genlayer-testing-suite.git",
+      "vcs": "git"
+    },
+    "genvm-linter": {
+      "commitId": "28450e665666300fc648dbe495110dfd0cb6a7b4",
+      "directUrlPath": "/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/genvm_linter-0.11.1rc2.dist-info/direct_url.json",
+      "expectedCommit": "28450e665666300fc648dbe495110dfd0cb6a7b4",
+      "match": true,
+      "requestedRevision": "28450e665666300fc648dbe495110dfd0cb6a7b4",
+      "url": "https://github.com/genlayerlabs/genvm-linter.git",
+      "vcs": "git"
+    }
+  },
+  "verification": {
+    "allOrdinaryLockVersionsMatch": true,
+    "allVcsCommitsMatch": true,
+    "keyPackageVersionsMatch": true,
+    "pythonVersionMatch": true
+  }
+}

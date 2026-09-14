@@ -1,0 +1,4 @@
+AUGMENTED_PATH=/Users/mralbert/Downloads/accord402/.venv/bin:/Users/mralbert/.nvm/versions/node/v24.20.0/bin:/Users/mralbert/.npm-global/bin:/Users/mralbert/.local/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/opt/pkg/env/active/bin:/opt/pmk/env/global/bin:/Users/mralbert/.foundry/bin
+AUGMENTED_PATH_PYRIGHT=/Users/mralbert/Downloads/accord402/.venv/bin/pyright
+pyright 1.1.414
+AUGMENTED_PATH_PYRIGHT_VERSION_RC=0

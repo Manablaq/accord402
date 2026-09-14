@@ -1,0 +1,184 @@
+{
+  "candidate": {
+    "bytes": 47998,
+    "bytesBelowConservativeSourceTarget": 2,
+    "conservativeSourceTargetBytes": 48000,
+    "path": "accord402_candidate_d2_f4_f8.py",
+    "sha256": "a3315230692974510d70eee5923a757f6fb476a5909b98b02cc54724e11a8eb3"
+  },
+  "certificationId": "accord402-d2-f4-f8-certified-runtime-equivalence-v1",
+  "createdAtUtc": "2026-09-13T04:30:07Z",
+  "formatVersion": 1,
+  "offlineDeploymentEnvelope": {
+    "captureHarnessPath": "offline-envelope-capture-local-endpoint.mjs",
+    "captureHarnessSha256": "abb72e3e7807c8d85e34a9d46ff422f0edc385fa5381cd14aa362b7d612a0ec2",
+    "captureUtc": "2026-09-13T04:30:07.514Z",
+    "effectiveIntrinsicFloor": 1944740,
+    "eip7623GasFloor": 1944740,
+    "externalNetworkFetchAttemptCount": 0,
+    "localhostOnly": true,
+    "meetsOneKiBMarginTarget": true,
+    "mode": "OFFLINE_PINNED_GENLAYERJS_LOCALHOST_ENDPOINT_CAPTURE",
+    "nonzeroBytes": 48038,
+    "observedLargestEstimatableOuterBytes": 53284,
+    "observedSmallestBlockedOuterBytes": 53316,
+    "oneKiBMarginTargetOuterBytes": 52260,
+    "outerCalldataBytes": 48260,
+    "outerCalldataSha256": "81f4bb0ef0763ce2129c825ab55d4c595021e9513fb767601416b9a1de0680b9",
+    "realBradburyRpcCalled": false,
+    "realGasEstimatePerformed": false,
+    "realSendPerformed": false,
+    "referenceSenderAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "zeroBytes": 222
+  },
+  "parents": {
+    "canonicalSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+    "d1Sha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818",
+    "f4ReportSha256": "547e4afcf2d26cb0df2461d13a8f34bf17788f020e23ceb7466c07bea940c02e",
+    "f8ReportSha256": "5364f856cc24f03fb8e7262a065f1fdeca1d2ff78a1b11b25bf6941b294716d5",
+    "transformationManifestSha256": "590337fcc3607deb008fdf167e4a8db24fa82f71dc83d4fd259ac8b00f7b2d42"
+  },
+  "runtimeCertification": {
+    "candidateFullSuite": "PASS_56_OF_56",
+    "canonicalFullSuite": "PASS_56_OF_56",
+    "crossContractSurfaceExact": true,
+    "exactCollectedTestCount": 56,
+    "focusedDirectModeCandidate": "PASS_13_OF_13",
+    "focusedHashVectorsCandidate": "PASS_25_OF_25",
+    "generatedAbiExact": true,
+    "genvmCheckCandidate": "PASS",
+    "genvmCheckCanonical": "PASS",
+    "genvmTypecheckCandidate": "PASS",
+    "genvmTypecheckCanonical": "PASS",
+    "isolationMode": "FILESYSTEM_SNAPSHOT",
+    "nondetCallSurfaceExact": true,
+    "normalizedSchemaSha256": "3ad3e0c729c27c7e1c71742ddc3e9f91d145494bcaa932264c5f338e9cec5f6d",
+    "realTestHarnessModified": false,
+    "storageSchemaExact": true,
+    "valueTransferSurfaceExact": true
+  },
+  "runtimeEvidenceFiles": [
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/canonical-56-tests.log",
+      "sha256": "700f4249564a2a380afd2aa6cce982749c0ed0a92471c6b08777c985c3a49f50"
+    },
+    {
+      "bytes": 6859,
+      "path": "runtime-evidence/canonical-collect.log",
+      "sha256": "291e567753c2b5adff7c06fcb763384357d09fe2f5f4bf463b26ad00822ac139"
+    },
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/canonical-direct-mode.log",
+      "sha256": "dcc68eae39c81198fd0104deba91592f9f01bb8e2b45e017660200d56de66a05"
+    },
+    {
+      "bytes": 281,
+      "path": "runtime-evidence/canonical-genvm-check.log",
+      "sha256": "03232e4ce272db4ad2cb6190d2fabe6ab4b3a9ba2fc0b987c3506f85818d2467"
+    },
+    {
+      "bytes": 56,
+      "path": "runtime-evidence/canonical-genvm-typecheck.log",
+      "sha256": "ca0b8a3f2403f4ed8229b29c80e1c235cdf31981a4465285c65533c3f1f8a431"
+    },
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/canonical-hash-vectors.log",
+      "sha256": "92e579cf61bd96bf19a6897298732e67b96a502f02ee0ce18bda58a414a5c89f"
+    },
+    {
+      "bytes": 11548,
+      "path": "runtime-evidence/canonical-schema.json",
+      "sha256": "06bf17c99dfd9dcc2488a07f68731c9cede58f5911d61080397860cecb0d0e2d"
+    },
+    {
+      "bytes": 75,
+      "path": "runtime-evidence/canonical-schema.log",
+      "sha256": "c0d8467fca32db2b1900d14a20fb1303de201d0a1863cd6d64e04757a0833b98"
+    },
+    {
+      "bytes": 4008,
+      "path": "runtime-evidence/canonical-snapshot-manifest.json",
+      "sha256": "521b5663dfb1d3b739aa0eef33d8b396fc65ff1a57faa7fceb91e317c63390ae"
+    },
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/d2-56-tests.log",
+      "sha256": "e25e50e68806518ba5cbc490689c0cb1352a06f0e104b1b8f44af66c00fabafb"
+    },
+    {
+      "bytes": 6859,
+      "path": "runtime-evidence/d2-collect.log",
+      "sha256": "291e567753c2b5adff7c06fcb763384357d09fe2f5f4bf463b26ad00822ac139"
+    },
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/d2-direct-mode.log",
+      "sha256": "dcc68eae39c81198fd0104deba91592f9f01bb8e2b45e017660200d56de66a05"
+    },
+    {
+      "bytes": 281,
+      "path": "runtime-evidence/d2-genvm-check.log",
+      "sha256": "03232e4ce272db4ad2cb6190d2fabe6ab4b3a9ba2fc0b987c3506f85818d2467"
+    },
+    {
+      "bytes": 56,
+      "path": "runtime-evidence/d2-genvm-typecheck.log",
+      "sha256": "ca0b8a3f2403f4ed8229b29c80e1c235cdf31981a4465285c65533c3f1f8a431"
+    },
+    {
+      "bytes": 838,
+      "path": "runtime-evidence/d2-hash-vectors.log",
+      "sha256": "92e579cf61bd96bf19a6897298732e67b96a502f02ee0ce18bda58a414a5c89f"
+    },
+    {
+      "bytes": 11548,
+      "path": "runtime-evidence/d2-schema.json",
+      "sha256": "06bf17c99dfd9dcc2488a07f68731c9cede58f5911d61080397860cecb0d0e2d"
+    },
+    {
+      "bytes": 68,
+      "path": "runtime-evidence/d2-schema.log",
+      "sha256": "224d5fb13c2388c6f4d562a85726b27508372ffef6843fe967327b02f7b57077"
+    },
+    {
+      "bytes": 485,
+      "path": "runtime-evidence/real-tests-after.json",
+      "sha256": "eeac5307930bca32b8f072562629c1f17a772da122c896dcd39296feac73e9e7"
+    },
+    {
+      "bytes": 485,
+      "path": "runtime-evidence/real-tests-before.json",
+      "sha256": "eeac5307930bca32b8f072562629c1f17a772da122c896dcd39296feac73e9e7"
+    },
+    {
+      "bytes": 4008,
+      "path": "runtime-evidence/source-snapshot-manifest.json",
+      "sha256": "521b5663dfb1d3b739aa0eef33d8b396fc65ff1a57faa7fceb91e317c63390ae"
+    }
+  ],
+  "safety": {
+    "blockchainWriteSent": false,
+    "bradburyDeploymentPerformed": false,
+    "bradburyGasEstimatePerformed": false,
+    "canonicalPromoted": false,
+    "canonicalSourceModified": false,
+    "d1SourceModified": false,
+    "gitCommitCreated": false,
+    "keychainAccessed": false,
+    "privateKeyAccessed": false,
+    "realTestsModified": false,
+    "transactionSigned": false
+  },
+  "sdk": {
+    "distChainsIndexSha256": "042017914dd3bc8fef3a9bcd5aaf9cfdc5e633ff7c5d82785e045e381da54897",
+    "distIndexSha256": "577032b22e6077b671a7d27ba8d6dac58eb90ed5892f2a05b11eefc6eef29dd2",
+    "package": "genlayer-js",
+    "packageJsonSha256": "bdb0b9a86827b392ad9b584a52158bf7b90ef9e4425e009f1f5c8a8d0e6f3662",
+    "transportInjection": "endpoint",
+    "version": "1.1.8"
+  },
+  "status": "CERTIFIED_OUT_OF_TREE_NOT_PROMOTED_NOT_DEPLOYED"
+}

@@ -1,0 +1,24 @@
+{
+  "capturedAtUtc": "2026-09-12T06:49:31Z",
+  "classification": "WORKER_STILL_FREE_AT_NONCE856",
+  "schema": "accord402.r22d1r2-network.v1",
+  "states": {
+    "chain": {
+      "balanceWei": 7530431203937238246,
+      "blockNumber": 21500125,
+      "chainId": 4221,
+      "gasPriceWei": 171302700,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    },
+    "genlayer": {
+      "balanceWei": 7530431203937238246,
+      "blockNumber": 21500122,
+      "chainId": 4221,
+      "gasPriceWei": 171302700,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    }
+  },
+  "worker": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+}

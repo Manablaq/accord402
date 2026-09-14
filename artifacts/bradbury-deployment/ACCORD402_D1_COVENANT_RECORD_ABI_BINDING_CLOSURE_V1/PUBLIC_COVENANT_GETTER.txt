@@ -1,0 +1,7 @@
+  1575		def get_covenant_count(self)->u64:
+  1576			return self.covenant_count
+  1577		@gl.public.view
+  1578		def get_covenant(self,covenant_id:u64)->CovenantRecord:
+  1579			a,_=self._require_covenant(covenant_id)
+  1580			return self.covenants[a]
+  1581		@gl.public.view

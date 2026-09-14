@@ -1,0 +1,59 @@
+{
+  "balanceSufficient": true,
+  "certifiedGasLimit": 80825672,
+  "classification": "FRESH_GAS_PRICE_FROZEN_WITH_MAX_OBSERVED_PAIRED_RPC_POLICY",
+  "latestPairMaximumGasPriceWei": 187500000,
+  "maximumObservedGasPriceWei": 187500000,
+  "maximumOuterTransactionCostWei": 15154813500000000,
+  "minimumObservedGasPriceWei": 187500000,
+  "sampleCount": 5,
+  "samples": [
+    {
+      "capturedAtUtc": "2026-09-12T14:50:31.701Z",
+      "chainGasPriceWei": 187500000,
+      "genlayerGasPriceWei": 187500000,
+      "pairEqual": true,
+      "pairMaximumWei": 187500000,
+      "sampleIndex": 1
+    },
+    {
+      "capturedAtUtc": "2026-09-12T14:50:33.385Z",
+      "chainGasPriceWei": 187500000,
+      "genlayerGasPriceWei": 187500000,
+      "pairEqual": true,
+      "pairMaximumWei": 187500000,
+      "sampleIndex": 2
+    },
+    {
+      "capturedAtUtc": "2026-09-12T14:50:35.043Z",
+      "chainGasPriceWei": 187500000,
+      "genlayerGasPriceWei": 187500000,
+      "pairEqual": true,
+      "pairMaximumWei": 187500000,
+      "sampleIndex": 3
+    },
+    {
+      "capturedAtUtc": "2026-09-12T14:50:36.822Z",
+      "chainGasPriceWei": 187500000,
+      "genlayerGasPriceWei": 187500000,
+      "pairEqual": true,
+      "pairMaximumWei": 187500000,
+      "sampleIndex": 4
+    },
+    {
+      "capturedAtUtc": "2026-09-12T14:50:38.519Z",
+      "chainGasPriceWei": 187500000,
+      "genlayerGasPriceWei": 187500000,
+      "pairEqual": true,
+      "pairMaximumWei": 187500000,
+      "sampleIndex": 5
+    }
+  ],
+  "schema": "accord402.nonce856.gas-price-freeze.v1",
+  "selectedFrozenGasPriceWei": 187500000,
+  "selectionPolicy": "Maximum observed value across five fresh paired eth_gasPrice observations from both Bradbury RPC endpoints.",
+  "signingTimeFreshnessPredicate": "Before signing, both endpoints must still report latest/pending nonce 856/856 and the then-current eth_gasPrice must not exceed selectedFrozenGasPriceWei. Otherwise this unsigned packet is stale and must not be signed.",
+  "workerBalanceWei": 7530431203937238246,
+  "workerLatestNonce": 856,
+  "workerPendingNonce": 856
+}

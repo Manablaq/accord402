@@ -1,0 +1,16 @@
+  1069		def _p(self,key:str,cov:CovenantRecord,review_generation:int):
+  1070			k=cov
+  1071			j=self._o(key)
+  1072			i=self._n(key)
+  1073			f=self._f(key)
+  1074			h=[value for value in self.challenged_criterion_ids_by_covenant[key]]
+  1075			c=[]
+  1076			for g in j:
+  1077				c.append({cB:g.criterion_id,'criterion_text':g.criterion_text})
+  1078			e=[]
+  1079			for b in i:
+  1080				e.append({cc:b.authority_id,b5:int(b.authority_revision),cI:b.role,cg:b.identity_kind,ce:b.identity_value,'canonical_origin':b.canonical_origin})
+  1081			d=[]
+  1082			for a in f:
+  1083				d.append({b4:int(a.covenant_id),'generation':int(a.generation),b8:a.evidence_id,cc:a.authority_id,b5:int(a.authority_revision),cR:a.subject,cX:a.kind,cj:a.source_kind,cp:a.canonical_source,b6:a.immutable_version_or_record_id,'published_at':int(a.published_at),cV:int(a.observed_at),cW:int(a.expires_at),cS:a.content_digest,'is_primary':bool(a.is_primary),'replaces_evidence_id':a.replaces_evidence_id})
+  1084			return{b4:int(k.covenant_id),cA:k.service_spec,b9:k.service_spec_hash,cN:k.delivery_payload,cP:k.challenge_claim,cf:k.delivery_hash,b7:k.evidence_policy_hash,b2:k.active_evidence_set_hash,cO:int(k.max_evidence_age),cu:int(k.required_corroboration_count),bY:int(k.repair_allowed_field_mask),bZ:review_generation,cM:c,cY:e,cZ:d,b0:h}

@@ -1,0 +1,1 @@
+sample_index	block_number	block_hash	gl_estimate_success	gl_estimate_gas	chain_estimate_success	chain_estimate_gas	captured_gas	gl_block_gas_limit	chain_block_gas_limit	gl_gas_price_wei	chain_gas_price_wei	worker_balance_wei	balance_headroom_wei

@@ -1,0 +1,18 @@
+   190	class OpenCovenantInput:
+   191		provider:Address
+   192		principal:u256
+   193		service_spec:str
+   194		acceptance_deadline:u64
+   195		delivery_deadline:u64
+   196		challenge_duration:u64
+   197		absolute_dispute_deadline:u64
+   198		evidence_repair_window:u64
+   199		review_retry_window:u64
+   200		max_review_generations:u32
+   201		max_evidence_age:u64
+   202		required_corroboration_count:u32
+   203		repair_allowed_field_mask:u32
+   204		replay_scope:str
+   205		criteria:list[CriterionInput]
+   206		authority_bindings:list[AuthorityBindingInput]
+   207	@dataclass

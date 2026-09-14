@@ -1,0 +1,531 @@
+{
+  "authorizationState": {
+    "broadcastPerformedByFollower": false,
+    "furtherBroadcastAuthorized": false,
+    "furtherSigningAuthorized": false,
+    "initialBroadcastAuthorizationConsumed": true,
+    "signPerformedByFollower": false,
+    "signingAuthorizationConsumed": true
+  },
+  "createdAtUtc": "2026-09-12T18:39:44Z",
+  "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "observations": [
+    {
+      "CHAIN": {
+        "head": 21535368,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535360,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:36:37.556Z",
+      "sampleIndex": 1
+    },
+    {
+      "CHAIN": {
+        "head": 21535392,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535383,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "capturedAtUtc": "2026-09-12T18:36:58.023Z",
+      "sampleIndex": 2
+    },
+    {
+      "CHAIN": {
+        "head": 21535415,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535407,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:37:20.394Z",
+      "sampleIndex": 3
+    },
+    {
+      "CHAIN": {
+        "head": 21535428,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535427,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "capturedAtUtc": "2026-09-12T18:37:36.138Z",
+      "sampleIndex": 4
+    },
+    {
+      "CHAIN": {
+        "head": 21535436,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": [
+          {
+            "account": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "description": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 80825672 gas \u00d7 187500000 wei",
+            "nonce": 856,
+            "nonceKey": "856",
+            "section": "pending"
+          }
+        ]
+      },
+      "GL": {
+        "head": 21535433,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "capturedAtUtc": "2026-09-12T18:37:50.522Z",
+      "sampleIndex": 5
+    },
+    {
+      "CHAIN": {
+        "head": 21535444,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535442,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:38:04.853Z",
+      "sampleIndex": 6
+    },
+    {
+      "CHAIN": {
+        "head": 21535454,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": [
+          {
+            "account": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "description": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 80825672 gas \u00d7 187500000 wei",
+            "nonce": 856,
+            "nonceKey": "856",
+            "section": "pending"
+          }
+        ]
+      },
+      "GL": {
+        "head": 21535454,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "capturedAtUtc": "2026-09-12T18:38:18.636Z",
+      "sampleIndex": 7
+    },
+    {
+      "CHAIN": {
+        "head": 21535466,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": [
+          {
+            "account": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "description": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 80825672 gas \u00d7 187500000 wei",
+            "nonce": 856,
+            "nonceKey": "856",
+            "section": "pending"
+          }
+        ]
+      },
+      "GL": {
+        "head": 21535462,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:38:33.742Z",
+      "sampleIndex": 8
+    },
+    {
+      "CHAIN": {
+        "head": 21535476,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": [
+          {
+            "account": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "description": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 80825672 gas \u00d7 187500000 wei",
+            "nonce": 856,
+            "nonceKey": "856",
+            "section": "pending"
+          }
+        ]
+      },
+      "GL": {
+        "head": 21535472,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "capturedAtUtc": "2026-09-12T18:38:49.355Z",
+      "sampleIndex": 9
+    },
+    {
+      "CHAIN": {
+        "head": 21535485,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": {
+          "calldataSha256": true,
+          "from": true,
+          "gas": true,
+          "gasPrice": true,
+          "hash": true,
+          "nonce": true,
+          "to": true,
+          "value": true
+        },
+        "transactionVisible": true
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": [
+          {
+            "account": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "description": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d: 0 wei + 80825672 gas \u00d7 187500000 wei",
+            "nonce": 856,
+            "nonceKey": "856",
+            "section": "pending"
+          }
+        ]
+      },
+      "GL": {
+        "head": 21535483,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:39:04.062Z",
+      "sampleIndex": 10
+    },
+    {
+      "CHAIN": {
+        "head": 21535495,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535493,
+        "latestNonce": 856,
+        "pendingNonce": 857,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:39:19.136Z",
+      "sampleIndex": 11
+    },
+    {
+      "CHAIN": {
+        "head": 21535504,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "CHAIN_TXPOOL_INSPECT": {
+        "supported": true,
+        "workerNonce856Entries": []
+      },
+      "GL": {
+        "head": 21535503,
+        "latestNonce": 856,
+        "pendingNonce": 856,
+        "receipt": null,
+        "receiptVisible": false,
+        "suggestedGasPriceWei": 144108900,
+        "transactionBlockHash": null,
+        "transactionBlockNumber": null,
+        "transactionIdentity": null,
+        "transactionVisible": false
+      },
+      "capturedAtUtc": "2026-09-12T18:39:34.813Z",
+      "sampleIndex": 12
+    }
+  ],
+  "schema": "accord402.attempt2.pending-follower.v1",
+  "summary": {
+    "chainPendingNonce857Count": 4,
+    "chainTransactionVisibleCount": 4,
+    "chainTxpoolInspectNonce856Count": 5,
+    "classification": "EXACT_NONCE856_TRANSACTION_REMAINS_INTERMITTENTLY_PENDING_CONTINUE_READ_ONLY_FOLLOW",
+    "genlayerPendingNonce857Count": 5,
+    "genlayerTransactionVisibleCount": 5,
+    "mined": false,
+    "minedSource": null,
+    "sampleCount": 12
+  }
+}

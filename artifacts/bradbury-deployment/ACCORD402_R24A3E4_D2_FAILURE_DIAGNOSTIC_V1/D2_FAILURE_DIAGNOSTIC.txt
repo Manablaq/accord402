@@ -1,0 +1,33 @@
+FIND_FUNCTION_CALL_COUNT=1
+EXPLICITLY_REQUIRED_FUNCTION_NAMES=[]
+_criterion_bytes_PRESENT_CANONICAL=YES
+_criterion_bytes_PRESENT_D1=YES
+_criterion_bytes_PRESENT_D2=NO
+_criterion_bytes_TEST_MENTION_COUNT=1
+_authority_bytes_PRESENT_CANONICAL=YES
+_authority_bytes_PRESENT_D1=YES
+_authority_bytes_PRESENT_D2=NO
+_authority_bytes_TEST_MENTION_COUNT=1
+_evidence_bytes_PRESENT_CANONICAL=YES
+_evidence_bytes_PRESENT_D1=YES
+_evidence_bytes_PRESENT_D2=NO
+_evidence_bytes_TEST_MENTION_COUNT=1
+_bool_byte_PRESENT_CANONICAL=YES
+_bool_byte_PRESENT_D1=YES
+_bool_byte_PRESENT_D2=NO
+_bool_byte_TEST_MENTION_COUNT=3
+REMOVED_AND_EXPLICITLY_REQUIRED_TARGET_HELPERS=[]
+R24A3E4D1_CLASSIFICATION=D2_FAILURE_NOT_EXPLAINED_BY_EXPLICIT_PRIVATE_HELPER_TEST_BINDING
+D2_RETAIN_AS_RUNTIME_VERIFIED_BASE=NO
+D1_REMAINS_RUNTIME_VERIFIED_BASE=YES
+
+FIND_FUNCTION_DEFINITION=
+{"endLine": 53, "line": 49, "source": "def _find_function(tree: ast.Module, name: str) -> ast.FunctionDef:\n    for node in tree.body:\n        if isinstance(node, ast.FunctionDef) and node.name == name:\n            return node\n    raise AssertionError(f\"contract helper missing: {name}\")"}
+
+FIXTURE_OR_FUNCTION_BLOCKS_USING_FIND_FUNCTION=
+
+TARGET_TEST_MENTIONS=
+_criterion_bytes=[{"line": 71, "text": "        \"_criterion_bytes\","}]
+_authority_bytes=[{"line": 72, "text": "        \"_authority_bytes\","}]
+_evidence_bytes=[{"line": 73, "text": "        \"_evidence_bytes\","}]
+_bool_byte=[{"line": 68, "text": "        \"_bool_byte\","}, {"line": 325, "text": "    assert contract[\"_bool_byte\"](False) == b\"\\x00\""}, {"line": 326, "text": "    assert contract[\"_bool_byte\"](True) == b\"\\x01\""}]

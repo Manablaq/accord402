@@ -1,0 +1,28 @@
+303:class CovenantRecord:
+707:	covenants:TreeMap[str,CovenantRecord]
+724:	def _require_covenant(self,covenant_id:u64)->tuple[str,CovenantRecord]:
+727:		if b not in self.covenants:
+729:		a=gl.storage.copy_to_memory(self.covenants[b])
+787:	def _h(self,key:str,cov:CovenantRecord,closure_reason:str)->None:
+795:		self.covenants[key]=a
+796:	def _m(self,key:str,cov:CovenantRecord,closure_reason:str)->None:
+804:		self.covenants[key]=a
+805:	def _g(self,cov:CovenantRecord,key:str,record:EvidenceRecord)->None:
+813:	def _a(self,cov:CovenantRecord,key:str,evidence_id:str,authority_id:str)->None:
+935:		I=CovenantRecord(f,gl.message.sender_address,J.provider,u256(h),u256(h),u256(0),u256(0),a7,J.service_spec,C,u64(E),u64(o),u64(p),u64(d),u64(w),u64(n),u64(r),u32(j),u32(EVIDENCE_POLICY_VERSION),D,u64(y),u32(g),u32(REPAIR_POLICY_VERSION),u32(u),J.replay_scope,u32(ADJUDICATION_CRITERIA_VERSION),u32(SETTLEMENT_RULE_VERSION),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),'','','',u32(0),False,'',u32(0),'','','','',False)
+936:		self.covenants[F]=I
+956:		self.covenants[c]=a
+1012:		self.covenants[i]=b
+1060:		self.covenants[g]=a
+1069:	def _p(self,key:str,cov:CovenantRecord,review_generation:int):
+1085:	def _execute_review_consensus(self,key:str,cov:CovenantRecord,now:int,review_generation:int)->str:
+1233:	def _validate_consensus_wire(self,key:str,cov:CovenantRecord,wire_text:str,review_generation:int):
+1315:	def _k(self,key:str,cov:CovenantRecord,obj,now:int,review_generation:int)->None:
+1345:			self.covenants[f]=d
+1352:		self.covenants[f]=d
+1468:		self.covenants[l]=d
+1516:	def _c(self,cov:CovenantRecord)->None:
+1572:		self.covenants[f]=b
+1575:	def get_covenant_count(self)->u64:
+1578:	def get_covenant(self,covenant_id:u64)->CovenantRecord:
+1580:		return self.covenants[a]

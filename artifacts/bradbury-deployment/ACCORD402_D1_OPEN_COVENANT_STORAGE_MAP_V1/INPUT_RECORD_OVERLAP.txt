@@ -1,0 +1,13 @@
+absolute_dispute_deadline
+acceptance_deadline
+challenge_duration
+delivery_deadline
+evidence_repair_window
+max_evidence_age
+max_review_generations
+provider
+repair_allowed_field_mask
+replay_scope
+required_corroboration_count
+review_retry_window
+service_spec

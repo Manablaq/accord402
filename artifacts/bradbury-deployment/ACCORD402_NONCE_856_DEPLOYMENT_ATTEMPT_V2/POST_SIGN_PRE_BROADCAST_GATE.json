@@ -1,0 +1,23 @@
+{
+  "additionalSigningAuthorized": false,
+  "automaticRebroadcastAuthorized": false,
+  "broadcastGatePassed": true,
+  "chain": {
+    "gasPriceWei": 180462000,
+    "latestNonce": 856,
+    "pendingNonce": 856
+  },
+  "createdAtUtc": "2026-09-12T15:17:42.719Z",
+  "frozenGasPriceWei": 187500000,
+  "gasPriceGatePassed": true,
+  "genlayer": {
+    "gasPriceWei": 180462000,
+    "latestNonce": 856,
+    "pendingNonce": 856
+  },
+  "nonceGatePassed": true,
+  "schema": "accord402.attempt2.post-sign-pre-broadcast-gate.v1",
+  "signatureAlreadyCreated": true,
+  "signedTransactionHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "signingAuthorizationAlreadyConsumed": true
+}

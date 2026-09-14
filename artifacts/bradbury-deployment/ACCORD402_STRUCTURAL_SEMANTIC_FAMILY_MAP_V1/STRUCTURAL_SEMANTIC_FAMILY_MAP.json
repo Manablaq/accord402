@@ -1,0 +1,3506 @@
+{
+  "authorizationState": {
+    "broadcastAuthorized": false,
+    "functionDeletionAuthorized": false,
+    "identifierRenamingAuthorized": false,
+    "semanticRewriteAuthorized": false,
+    "signingAuthorized": false,
+    "sourceModificationAuthorized": false
+  },
+  "canonicalSourceBytes": 50674,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "classification": "STRUCTURAL_SEMANTIC_FAMILY_MAP_READY_FOR_MANUAL_COMPACTION_DESIGN",
+  "contractClass": "Accord402",
+  "createdAtUtc": "2026-09-12T19:56:51Z",
+  "failGuardAnalysis": {
+    "largestFailGuards": [
+      {
+        "bytes": 573,
+        "endLine": 1346,
+        "function": "Accord402._k",
+        "line": 1334,
+        "source": "if a==N:\n\t\t\tif d.repair_authorization_active:\n\t\t\t\t_fail('REPAIR_AUTHORIZATION_ALREADY_ACTIVE')\n\t\t\tfor c in g[cb]:\n\t\t\t\tself.repair_authorizations_by_covenant[f].append(RepairAuthorizationRecord(covenant_id=u64(int(d.covenant_id)),generation=u32(e),evidence_id=c[b8],field_mask=u32(c[cq])))\n\t\t\td.state=R\n\t\t\td.repair_authorization_generation=u32(e)\n\t\t\td.repair_authorization_active=True\n\t\t\tb=Q(now,d.evidence_repair_window,'REPAIR_DEADLINE_OVERFLOW')\n\t\t\td.repair_deadline=u64(min(b,int(d.absolute_dispute_deadline)))\n\t\t\td.retry_deadline=u64(0)\n\t\t\tself.covenants[f]=d\n\t\t\treturn"
+      },
+      {
+        "bytes": 503,
+        "endLine": 1564,
+        "function": "Accord402.claim_settlement",
+        "line": 1546,
+        "source": "if b.state==ac:\n\t\t\tif b.settlement_direction!=aJ:\n\t\t\t\t_fail(ct)\n\t\t\te=b.provider\n\t\t\tb.state=bg\n\t\t\tb.provider_settlement=u256(a)\n\t\t\tc=am(self.total_closed_to_provider,a,'CLOSED_PROVIDER_TOTAL_OVERFLOW')\n\t\t\tself.total_closed_to_provider=u256(c)\n\t\telif b.state==ag:\n\t\t\tif b.settlement_direction!=a4:\n\t\t\t\t_fail(ct)\n\t\t\te=b.buyer\n\t\t\tb.state=bs\n\t\t\tb.buyer_settlement=u256(a)\n\t\t\td=am(self.total_closed_to_buyer,a,'CLOSED_BUYER_TOTAL_OVERFLOW')\n\t\t\tself.total_closed_to_buyer=u256(d)\n\t\telse:\n\t\t\t_fail(bX)\n\t\t\treturn"
+      },
+      {
+        "bytes": 456,
+        "endLine": 1313,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1294,
+        "source": "if f==S:\n\t\t\tif failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)\n\t\t\te=[c.criterion_id for c in self._o(key)]\n\t\t\tif challenged!=e:\n\t\t\t\t_fail(bW)\n\t\telif f==U:\n\t\t\tif len(failed)==0 or a!=V or d!=[]:\n\t\t\t\t_fail(bW)\n\t\telif f==M:\n\t\t\tif failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)\n\t\t\te=[c.criterion_id for c in self._o(key)]\n\t\t\tif challenged==e:\n\t\t\t\t_fail(bW)\n\t\telif f==N:\n\t\t\tif failed!=[]or a!=W or len(d)==0:\n\t\t\t\t_fail(bW)\n\t\telif failed!=[]or a!=O or d!=[]:\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 317,
+        "endLine": 1313,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1300,
+        "source": "elif f==U:\n\t\t\tif len(failed)==0 or a!=V or d!=[]:\n\t\t\t\t_fail(bW)\n\t\telif f==M:\n\t\t\tif failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)\n\t\t\te=[c.criterion_id for c in self._o(key)]\n\t\t\tif challenged==e:\n\t\t\t\t_fail(bW)\n\t\telif f==N:\n\t\t\tif failed!=[]or a!=W or len(d)==0:\n\t\t\t\t_fail(bW)\n\t\telif failed!=[]or a!=O or d!=[]:\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 259,
+        "endLine": 1564,
+        "function": "Accord402.claim_settlement",
+        "line": 1554,
+        "source": "elif b.state==ag:\n\t\t\tif b.settlement_direction!=a4:\n\t\t\t\t_fail(ct)\n\t\t\te=b.buyer\n\t\t\tb.state=bs\n\t\t\tb.buyer_settlement=u256(a)\n\t\t\td=am(self.total_closed_to_buyer,a,'CLOSED_BUYER_TOTAL_OVERFLOW')\n\t\t\tself.total_closed_to_buyer=u256(d)\n\t\telse:\n\t\t\t_fail(bX)\n\t\t\treturn"
+      },
+      {
+        "bytes": 251,
+        "endLine": 1313,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1303,
+        "source": "elif f==M:\n\t\t\tif failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)\n\t\t\te=[c.criterion_id for c in self._o(key)]\n\t\t\tif challenged==e:\n\t\t\t\t_fail(bW)\n\t\telif f==N:\n\t\t\tif failed!=[]or a!=W or len(d)==0:\n\t\t\t\t_fail(bW)\n\t\telif failed!=[]or a!=O or d!=[]:\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 207,
+        "endLine": 1514,
+        "function": "Accord402.expire_review",
+        "line": 1503,
+        "source": "if b.state==aq:\n\t\t\tif not a:\n\t\t\t\t_fail(cn)\n\t\telif b.state==R:\n\t\t\tif not(c or a):\n\t\t\t\t_fail(cn)\n\t\t\tb.repair_authorization_active=False\n\t\telif b.state==ad:\n\t\t\tif not(c or a):\n\t\t\t\t_fail(cn)\n\t\telse:\n\t\t\t_fail(bX)"
+      },
+      {
+        "bytes": 162,
+        "endLine": 1514,
+        "function": "Accord402.expire_review",
+        "line": 1506,
+        "source": "elif b.state==R:\n\t\t\tif not(c or a):\n\t\t\t\t_fail(cn)\n\t\t\tb.repair_authorization_active=False\n\t\telif b.state==ad:\n\t\t\tif not(c or a):\n\t\t\t\t_fail(cn)\n\t\telse:\n\t\t\t_fail(bX)"
+      },
+      {
+        "bytes": 158,
+        "endLine": 1431,
+        "function": "Accord402.submit_evidence_repair",
+        "line": 1430,
+        "source": "if a.subject!=f.subject or a.kind!=f.kind or a.source_kind!=f.source_kind or(bool(a.is_primary)!=bool(f.is_primary)):\n\t\t\t\t_fail('NONREPAIRABLE_FIELD_CHANGED')"
+      },
+      {
+        "bytes": 149,
+        "endLine": 660,
+        "function": "ao",
+        "line": 653,
+        "source": "if binding.role==av:\n\t\tif not bool(item.is_primary):\n\t\t\t_fail(cD)\n\telif binding.role==al:\n\t\tif bool(item.is_primary):\n\t\t\t_fail(cD)\n\telse:\n\t\t_fail(cE)"
+      },
+      {
+        "bytes": 125,
+        "endLine": 1382,
+        "function": "Accord402.submit_evidence_repair",
+        "line": 1381,
+        "source": "if not d.repair_authorization_active or int(d.repair_authorization_generation)!=j:\n\t\t\t_fail('NO_ACTIVE_REPAIR_AUTHORIZATION')"
+      },
+      {
+        "bytes": 114,
+        "endLine": 996,
+        "function": "Accord402.submit_delivery",
+        "line": 995,
+        "source": "if not aM(records,g,int(b.required_corroboration_count)):\n\t\t\t_fail('TERMINAL_CAPABLE_EVIDENCE_STRUCTURE_REQUIRED')"
+      },
+      {
+        "bytes": 110,
+        "endLine": 1313,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1309,
+        "source": "elif f==N:\n\t\t\tif failed!=[]or a!=W or len(d)==0:\n\t\t\t\t_fail(bW)\n\t\telif failed!=[]or a!=O or d!=[]:\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 105,
+        "endLine": 1456,
+        "function": "Accord402.submit_evidence_repair",
+        "line": 1455,
+        "source": "if not aM(h,w,int(d.required_corroboration_count)):\n\t\t\t_fail('REPAIR_BREAKS_TERMINAL_EVIDENCE_STRUCTURE')"
+      },
+      {
+        "bytes": 104,
+        "endLine": 1475,
+        "function": "Accord402.expire_repair",
+        "line": 1474,
+        "source": "if int(a.review_generation)>=int(a.max_review_generations):\n\t\t\t_fail('USE_EXPIRE_REVIEW_FOR_EXHAUSTION')"
+      },
+      {
+        "bytes": 101,
+        "endLine": 642,
+        "function": "ao",
+        "line": 641,
+        "source": "if item.source_kind in(X,Y)and item.immutable_version_or_record_id=='':\n\t\t_fail('MISSING_VERSION_ID')"
+      },
+      {
+        "bytes": 101,
+        "endLine": 1427,
+        "function": "Accord402.submit_evidence_repair",
+        "line": 1426,
+        "source": "if A<1 or A>ap or A&~int(d.repair_allowed_field_mask):\n\t\t\t\t_fail('INVALID_REPAIR_AUTHORIZATION_MASK')"
+      },
+      {
+        "bytes": 99,
+        "endLine": 830,
+        "function": "Accord402.open_covenant",
+        "line": 829,
+        "source": "if len(J.authority_bindings)<1 or len(J.authority_bindings)>bd:\n\t\t\t_fail('INVALID_AUTHORITY_COUNT')"
+      },
+      {
+        "bytes": 96,
+        "endLine": 810,
+        "function": "Accord402._g",
+        "line": 809,
+        "source": "if self.evidence_replay_keys.get(a,False)or self.evidence_replay_keys.get(b,False):\n\t\t\t_fail(cQ)"
+      },
+      {
+        "bytes": 96,
+        "endLine": 818,
+        "function": "Accord402._a",
+        "line": 817,
+        "source": "if self.evidence_replay_keys.get(a,False)or self.evidence_replay_keys.get(b,False):\n\t\t\t_fail(cQ)"
+      },
+      {
+        "bytes": 96,
+        "endLine": 1247,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1246,
+        "source": "if type(b[b4])is not int or b[b4]!=int(q.covenant_id)or b[b4]<=0 or(b[b4]>MAX_U64):\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 96,
+        "endLine": 1249,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1248,
+        "source": "if type(b[bZ])is not int or b[bZ]!=review_generation or b[bZ]<=0 or(b[bZ]>MAX_U32):\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 94,
+        "endLine": 999,
+        "function": "Accord402.submit_delivery",
+        "line": 998,
+        "source": "if c>=int(b.absolute_dispute_deadline):\n\t\t\t_fail('CHALLENGE_WINDOW_EXCEEDS_ABSOLUTE_DEADLINE')"
+      },
+      {
+        "bytes": 93,
+        "endLine": 497,
+        "function": "bk",
+        "line": 496,
+        "source": "if len(host)>253 or '.' not in host or host.startswith('.')or host.endswith('.'):\n\t\t_fail(cm)"
+      },
+      {
+        "bytes": 92,
+        "endLine": 1262,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1261,
+        "source": "if any((not isinstance(x,str)for x in failed))or len(set(failed))!=len(failed):\n\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 92,
+        "endLine": 1407,
+        "function": "Accord402.submit_evidence_repair",
+        "line": 1406,
+        "source": "if I[i].replaces_evidence_id!=p[i].evidence_id:\n\t\t\t\t_fail('REPAIR_ORDER_OR_TARGET_MISMATCH')"
+      },
+      {
+        "bytes": 87,
+        "endLine": 516,
+        "function": "bE",
+        "line": 515,
+        "source": "if cK in rest or '?' in rest or '#' in rest or('@' in rest)or(':' in rest):\n\t\t_fail(ci)"
+      },
+      {
+        "bytes": 87,
+        "endLine": 731,
+        "function": "Accord402._require_covenant",
+        "line": 730,
+        "source": "if int(a.covenant_id)!=int(c)or int(a.covenant_id)==0:\n\t\t\t_fail('COVENANT_ID_MISMATCH')"
+      },
+      {
+        "bytes": 87,
+        "endLine": 905,
+        "function": "Accord402.open_covenant",
+        "line": 904,
+        "source": "if p<=o or p>Q(E,aN,'DELIVERY_HORIZON_OVERFLOW'):\n\t\t\t_fail('INVALID_DELIVERY_DEADLINE')"
+      },
+      {
+        "bytes": 85,
+        "endLine": 901,
+        "function": "Accord402.open_covenant",
+        "line": 900,
+        "source": "if o<Q(E,aP,'ACCEPTANCE_DEADLINE_OVERFLOW'):\n\t\t\t_fail('ACCEPTANCE_DEADLINE_TOO_SOON')"
+      },
+      {
+        "bytes": 83,
+        "endLine": 903,
+        "function": "Accord402.open_covenant",
+        "line": 902,
+        "source": "if o>Q(E,aD,'ACCEPTANCE_HORIZON_OVERFLOW'):\n\t\t\t_fail('ACCEPTANCE_DEADLINE_TOO_FAR')"
+      },
+      {
+        "bytes": 82,
+        "endLine": 660,
+        "function": "ao",
+        "line": 656,
+        "source": "elif binding.role==al:\n\t\tif bool(item.is_primary):\n\t\t\t_fail(cD)\n\telse:\n\t\t_fail(cE)"
+      },
+      {
+        "bytes": 82,
+        "endLine": 1336,
+        "function": "Accord402._k",
+        "line": 1335,
+        "source": "if d.repair_authorization_active:\n\t\t\t\t_fail('REPAIR_AUTHORIZATION_ALREADY_ACTIVE')"
+      },
+      {
+        "bytes": 81,
+        "endLine": 602,
+        "function": "_active_evidence_hash",
+        "line": 601,
+        "source": "if int(record.covenant_id)!=int(covenant_id):\n\t\t\t_fail('FOREIGN_EVIDENCE_RECORD')"
+      },
+      {
+        "bytes": 80,
+        "endLine": 1252,
+        "function": "Accord402._validate_consensus_wire",
+        "line": 1251,
+        "source": "if not isinstance(b[o],str)or not _is_lower_hex64(b[o])or b[o]!=m:\n\t\t\t\t_fail(bW)"
+      },
+      {
+        "bytes": 80,
+        "endLine": 1363,
+        "function": "Accord402.adjudicate_challenge",
+        "line": 1362,
+        "source": "if a<1 or a>int(b.max_review_generations):\n\t\t\t_fail('INVALID_REVIEW_GENERATION')"
+      },
+      {
+        "bytes": 79,
+        "endLine": 917,
+        "function": "Accord402.open_covenant",
+        "line": 916,
+        "source": "if w>Q(E,ar,'ABSOLUTE_HORIZON_OVERFLOW'):\n\t\t\t_fail('ABSOLUTE_DEADLINE_TOO_FAR')"
+      },
+      {
+        "bytes": 78,
+        "endLine": 649,
+        "function": "ao",
+        "line": 648,
+        "source": "if now-observed>int(cov.max_evidence_age):\n\t\t_fail('EVIDENCE_STALE_AT_INSERT')"
+      },
+      {
+        "bytes": 78,
+        "endLine": 828,
+        "function": "Accord402.open_covenant",
+        "line": 827,
+        "source": "if len(J.criteria)<1 or len(J.criteria)>bP:\n\t\t\t_fail('INVALID_CRITERIA_COUNT')"
+      },
+      {
+        "bytes": 77,
+        "endLine": 647,
+        "function": "ao",
+        "line": 646,
+        "source": "if published>observed or observed>now:\n\t\t_fail('INVALID_EVIDENCE_TIME_ORDER')"
+      }
+    ],
+    "nonAdditiveSourceBytes": 11833,
+    "ownedFailGuardCount": 152
+  },
+  "functionCount": 97,
+  "interpretationLimits": "All byte totals marked non-additive may overlap through nested control-flow regions. Local-name normalization does not alter the source; shape normalization is intentionally heuristic. No family is authorized for consolidation until its exact semantic, storage, consensus, liveness, evidence, and settlement effects are manually reviewed.",
+  "localNameNormalizedExactLiteralFamilies": {
+    "groupCount": 14,
+    "nonAdditiveGrossTop80": 1247,
+    "topGroups": [
+      {
+        "largestOccurrenceBytes": 39,
+        "nonAdditiveGrossCandidateBytes": 624,
+        "occurrenceCount": 17,
+        "occurrences": [
+          {
+            "bytes": 39,
+            "endLine": 946,
+            "function": "Accord402.accept_covenant",
+            "line": 946,
+            "source": "c,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 959,
+            "function": "Accord402.expire_unaccepted",
+            "line": 959,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1015,
+            "function": "Accord402.expire_non_delivery",
+            "line": 1015,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1063,
+            "function": "Accord402.authorize_unchallenged_settlement",
+            "line": 1063,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1355,
+            "function": "Accord402.adjudicate_challenge",
+            "line": 1355,
+            "source": "c,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1471,
+            "function": "Accord402.expire_repair",
+            "line": 1471,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1482,
+            "function": "Accord402.retry_review",
+            "line": 1482,
+            "source": "e,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1499,
+            "function": "Accord402.expire_review",
+            "line": 1499,
+            "source": "d,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1539,
+            "function": "Accord402.claim_settlement",
+            "line": 1539,
+            "source": "f,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1579,
+            "function": "Accord402.get_covenant",
+            "line": 1579,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1583,
+            "function": "Accord402.get_criteria",
+            "line": 1583,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1587,
+            "function": "Accord402.get_authority_bindings",
+            "line": 1587,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1591,
+            "function": "Accord402.get_evidence_history",
+            "line": 1591,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1595,
+            "function": "Accord402.get_active_evidence_ids",
+            "line": 1595,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1599,
+            "function": "Accord402.get_repair_authorizations",
+            "line": 1599,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1603,
+            "function": "Accord402.get_challenged_criterion_ids",
+            "line": 1603,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 85,
+        "nonAdditiveGrossCandidateBytes": 85,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 85,
+            "endLine": 674,
+            "function": "aM",
+            "line": 673,
+            "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+          },
+          {
+            "bytes": 85,
+            "endLine": 684,
+            "function": "aM",
+            "line": 683,
+            "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 38,
+        "nonAdditiveGrossCandidateBytes": 76,
+        "occurrenceCount": 3,
+        "occurrences": [
+          {
+            "bytes": 38,
+            "endLine": 736,
+            "function": "Accord402._o",
+            "line": 736,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          },
+          {
+            "bytes": 38,
+            "endLine": 741,
+            "function": "Accord402._n",
+            "line": 741,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          },
+          {
+            "bytes": 38,
+            "endLine": 746,
+            "function": "Accord402._q",
+            "line": 746,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 66,
+        "nonAdditiveGrossCandidateBytes": 66,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 66,
+            "endLine": 675,
+            "function": "aM",
+            "line": 675,
+            "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+          },
+          {
+            "bytes": 66,
+            "endLine": 685,
+            "function": "aM",
+            "line": 685,
+            "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 51,
+        "nonAdditiveGrossCandidateBytes": 51,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 51,
+            "endLine": 1360,
+            "function": "Accord402.adjudicate_challenge",
+            "line": 1359,
+            "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+          },
+          {
+            "bytes": 51,
+            "endLine": 1489,
+            "function": "Accord402.retry_review",
+            "line": 1488,
+            "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 46,
+        "nonAdditiveGrossCandidateBytes": 46,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 46,
+            "endLine": 672,
+            "function": "aM",
+            "line": 671,
+            "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+          },
+          {
+            "bytes": 46,
+            "endLine": 682,
+            "function": "aM",
+            "line": 681,
+            "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 45,
+        "nonAdditiveGrossCandidateBytes": 45,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 45,
+            "endLine": 1296,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1295,
+            "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+          },
+          {
+            "bytes": 45,
+            "endLine": 1305,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1304,
+            "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 43,
+        "nonAdditiveGrossCandidateBytes": 43,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 43,
+            "endLine": 790,
+            "function": "Accord402._h",
+            "line": 789,
+            "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+          },
+          {
+            "bytes": 43,
+            "endLine": 799,
+            "function": "Accord402._m",
+            "line": 798,
+            "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 40,
+        "nonAdditiveGrossCandidateBytes": 40,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 40,
+            "endLine": 1297,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1297,
+            "source": "e=[c.criterion_id for c in self._o(key)]"
+          },
+          {
+            "bytes": 40,
+            "endLine": 1306,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1306,
+            "source": "e=[c.criterion_id for c in self._o(key)]"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 39,
+        "nonAdditiveGrossCandidateBytes": 39,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 39,
+            "endLine": 969,
+            "function": "Accord402.submit_delivery",
+            "line": 969,
+            "source": "i,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1025,
+            "function": "Accord402.challenge_delivery",
+            "line": 1025,
+            "source": "g,a=self._require_covenant(covenant_id)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 35,
+        "nonAdditiveGrossCandidateBytes": 35,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 35,
+            "endLine": 794,
+            "function": "Accord402._h",
+            "line": 794,
+            "source": "a.repair_authorization_active=False"
+          },
+          {
+            "bytes": 35,
+            "endLine": 803,
+            "function": "Accord402._m",
+            "line": 803,
+            "source": "a.repair_authorization_active=False"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 35,
+        "nonAdditiveGrossCandidateBytes": 35,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 35,
+            "endLine": 1478,
+            "function": "Accord402.expire_repair",
+            "line": 1478,
+            "source": "a.repair_authorization_active=False"
+          },
+          {
+            "bytes": 35,
+            "endLine": 1509,
+            "function": "Accord402.expire_review",
+            "line": 1509,
+            "source": "b.repair_authorization_active=False"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 31,
+        "nonAdditiveGrossCandidateBytes": 31,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 31,
+            "endLine": 773,
+            "function": "Accord402._s",
+            "line": 772,
+            "source": "for a in values:\n\t\t\tb.append(a)"
+          },
+          {
+            "bytes": 31,
+            "endLine": 778,
+            "function": "Accord402._r",
+            "line": 777,
+            "source": "for a in values:\n\t\t\tb.append(a)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 31,
+        "nonAdditiveGrossCandidateBytes": 31,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 31,
+            "endLine": 792,
+            "function": "Accord402._h",
+            "line": 792,
+            "source": "a.closure_reason=closure_reason"
+          },
+          {
+            "bytes": 31,
+            "endLine": 801,
+            "function": "Accord402._m",
+            "line": 801,
+            "source": "a.closure_reason=closure_reason"
+          }
+        ]
+      }
+    ]
+  },
+  "privateHelperCallFrequency": [
+    {
+      "callCount": 166,
+      "helper": "_fail",
+      "sites": [
+        {
+          "function": "L",
+          "line": 365
+        },
+        {
+          "function": "bG",
+          "line": 368
+        },
+        {
+          "function": "bL",
+          "line": 381
+        },
+        {
+          "function": "bL",
+          "line": 383
+        },
+        {
+          "function": "_int_u32",
+          "line": 387
+        },
+        {
+          "function": "_int_u64",
+          "line": 392
+        },
+        {
+          "function": "by",
+          "line": 397
+        },
+        {
+          "function": "Q",
+          "line": 403
+        },
+        {
+          "function": "am",
+          "line": 409
+        },
+        {
+          "function": "P",
+          "line": 420
+        },
+        {
+          "function": "P",
+          "line": 422
+        },
+        {
+          "function": "bO",
+          "line": 427
+        },
+        {
+          "function": "_str_bytes",
+          "line": 436
+        },
+        {
+          "function": "_hex32",
+          "line": 440
+        },
+        {
+          "function": "bf",
+          "line": 468
+        },
+        {
+          "function": "bf",
+          "line": 471
+        },
+        {
+          "function": "bk",
+          "line": 497
+        },
+        {
+          "function": "bk",
+          "line": 500
+        },
+        {
+          "function": "bk",
+          "line": 504
+        },
+        {
+          "function": "bk",
+          "line": 506
+        },
+        {
+          "function": "bE",
+          "line": 513
+        },
+        {
+          "function": "bE",
+          "line": 516
+        },
+        {
+          "function": "bE",
+          "line": 519
+        },
+        {
+          "function": "bF",
+          "line": 533
+        },
+        {
+          "function": "bF",
+          "line": 537
+        },
+        {
+          "function": "bF",
+          "line": 542
+        },
+        {
+          "function": "bF",
+          "line": 546
+        },
+        {
+          "function": "bF",
+          "line": 549
+        },
+        {
+          "function": "aC",
+          "line": 574
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 595
+        }
+      ]
+    },
+    {
+      "callCount": 32,
+      "helper": "K",
+      "sites": [
+        {
+          "function": "L",
+          "line": 363
+        },
+        {
+          "function": "aK",
+          "line": 458
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 831
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 831
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 837
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 837
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 852
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 852
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 852
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 852
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 852
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 980
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 983
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1038
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1042
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1190
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1396
+        }
+      ]
+    },
+    {
+      "callCount": 24,
+      "helper": "L",
+      "sites": [
+        {
+          "function": "bL",
+          "line": 377
+        },
+        {
+          "function": "bE",
+          "line": 509
+        },
+        {
+          "function": "bF",
+          "line": 529
+        },
+        {
+          "function": "aC",
+          "line": 572
+        },
+        {
+          "function": "ao",
+          "line": 628
+        },
+        {
+          "function": "ao",
+          "line": 629
+        },
+        {
+          "function": "ao",
+          "line": 630
+        },
+        {
+          "function": "ao",
+          "line": 631
+        },
+        {
+          "function": "ao",
+          "line": 632
+        },
+        {
+          "function": "ao",
+          "line": 633
+        },
+        {
+          "function": "ao",
+          "line": 634
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 823
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 824
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 835
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 836
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 846
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 847
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 848
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 849
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 850
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 977
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1037
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1041
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1389
+        }
+      ]
+    },
+    {
+      "callCount": 20,
+      "helper": "_require_covenant",
+      "sites": [
+        {
+          "function": "Accord402.accept_covenant",
+          "line": 946
+        },
+        {
+          "function": "Accord402.expire_unaccepted",
+          "line": 959
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 969
+        },
+        {
+          "function": "Accord402.expire_non_delivery",
+          "line": 1015
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1025
+        },
+        {
+          "function": "Accord402.authorize_unchallenged_settlement",
+          "line": 1063
+        },
+        {
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1355
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1370
+        },
+        {
+          "function": "Accord402.expire_repair",
+          "line": 1471
+        },
+        {
+          "function": "Accord402.retry_review",
+          "line": 1482
+        },
+        {
+          "function": "Accord402.expire_review",
+          "line": 1499
+        },
+        {
+          "function": "Accord402.claim_settlement",
+          "line": 1539
+        },
+        {
+          "function": "Accord402.get_covenant",
+          "line": 1579
+        },
+        {
+          "function": "Accord402.get_criteria",
+          "line": 1583
+        },
+        {
+          "function": "Accord402.get_authority_bindings",
+          "line": 1587
+        },
+        {
+          "function": "Accord402.get_evidence_history",
+          "line": 1591
+        },
+        {
+          "function": "Accord402.get_active_evidence_ids",
+          "line": 1595
+        },
+        {
+          "function": "Accord402.get_repair_authorizations",
+          "line": 1599
+        },
+        {
+          "function": "Accord402.get_challenged_criterion_ids",
+          "line": 1603
+        },
+        {
+          "function": "Accord402.get_failed_criterion_ids",
+          "line": 1607
+        }
+      ]
+    },
+    {
+      "callCount": 18,
+      "helper": "_str_bytes",
+      "sites": [
+        {
+          "function": "_criterion_bytes",
+          "line": 576
+        },
+        {
+          "function": "_criterion_bytes",
+          "line": 576
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_service_hash",
+          "line": 582
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 596
+        }
+      ]
+    },
+    {
+      "callCount": 14,
+      "helper": "_int_u64",
+      "sites": [
+        {
+          "function": "Q",
+          "line": 400
+        },
+        {
+          "function": "Q",
+          "line": 401
+        },
+        {
+          "function": "bO",
+          "line": 425
+        },
+        {
+          "function": "_u64_bytes",
+          "line": 432
+        },
+        {
+          "function": "ao",
+          "line": 643
+        },
+        {
+          "function": "ao",
+          "line": 644
+        },
+        {
+          "function": "ao",
+          "line": 645
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 891
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 894
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 895
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 896
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 897
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 898
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 899
+        }
+      ]
+    },
+    {
+      "callCount": 13,
+      "helper": "P",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 822
+        },
+        {
+          "function": "Accord402.accept_covenant",
+          "line": 947
+        },
+        {
+          "function": "Accord402.expire_unaccepted",
+          "line": 962
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 970
+        },
+        {
+          "function": "Accord402.expire_non_delivery",
+          "line": 1018
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1026
+        },
+        {
+          "function": "Accord402.authorize_unchallenged_settlement",
+          "line": 1066
+        },
+        {
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1356
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1371
+        },
+        {
+          "function": "Accord402.expire_repair",
+          "line": 1476
+        },
+        {
+          "function": "Accord402.retry_review",
+          "line": 1483
+        },
+        {
+          "function": "Accord402.expire_review",
+          "line": 1500
+        },
+        {
+          "function": "Accord402.claim_settlement",
+          "line": 1540
+        }
+      ]
+    },
+    {
+      "callCount": 10,
+      "helper": "_u32_bytes",
+      "sites": [
+        {
+          "function": "_count_bytes",
+          "line": 445
+        },
+        {
+          "function": "_authority_bytes",
+          "line": 578
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_service_hash",
+          "line": 582
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        }
+      ]
+    },
+    {
+      "callCount": 9,
+      "helper": "Q",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 900
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 902
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 904
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 912
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 913
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 916
+        },
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 997
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1342
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1349
+        }
+      ]
+    },
+    {
+      "callCount": 9,
+      "helper": "T",
+      "sites": [
+        {
+          "function": "Accord402._c",
+          "line": 1520
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1522
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1524
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1526
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1528
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1530
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1531
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1533
+        },
+        {
+          "function": "Accord402._c",
+          "line": 1534
+        }
+      ]
+    },
+    {
+      "callCount": 8,
+      "helper": "_u64_bytes",
+      "sites": [
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 596
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 596
+        },
+        {
+          "function": "_active_evidence_hash",
+          "line": 599
+        }
+      ]
+    },
+    {
+      "callCount": 8,
+      "helper": "_canonical_json",
+      "sites": [
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1161
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1165
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1184
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1185
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1213
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1216
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1217
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1242
+        }
+      ]
+    },
+    {
+      "callCount": 6,
+      "helper": "_int_u32",
+      "sites": [
+        {
+          "function": "_u32_bytes",
+          "line": 430
+        },
+        {
+          "function": "ao",
+          "line": 638
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 853
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 876
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 885
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 888
+        }
+      ]
+    },
+    {
+      "callCount": 6,
+      "helper": "base_wire",
+      "sites": [
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1161
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1165
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1185
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1213
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1216
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1217
+        }
+      ]
+    },
+    {
+      "callCount": 5,
+      "helper": "_m",
+      "sites": [
+        {
+          "function": "Accord402.expire_unaccepted",
+          "line": 964
+        },
+        {
+          "function": "Accord402.expire_non_delivery",
+          "line": 1020
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1332
+        },
+        {
+          "function": "Accord402.expire_repair",
+          "line": 1479
+        },
+        {
+          "function": "Accord402.expire_review",
+          "line": 1515
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "af",
+      "sites": [
+        {
+          "function": "aC",
+          "line": 573
+        },
+        {
+          "function": "aM",
+          "line": 673
+        },
+        {
+          "function": "aM",
+          "line": 683
+        },
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1150
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "_hex32",
+      "sites": [
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 596
+        },
+        {
+          "function": "_active_evidence_hash",
+          "line": 599
+        },
+        {
+          "function": "_active_evidence_hash",
+          "line": 599
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "_sha256_hex",
+      "sites": [
+        {
+          "function": "_service_hash",
+          "line": 586
+        },
+        {
+          "function": "_policy_hash",
+          "line": 591
+        },
+        {
+          "function": "_delivery_hash",
+          "line": 597
+        },
+        {
+          "function": "_active_evidence_hash",
+          "line": 604
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "am",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 921
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 922
+        },
+        {
+          "function": "Accord402.claim_settlement",
+          "line": 1552
+        },
+        {
+          "function": "Accord402.claim_settlement",
+          "line": 1560
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "_i",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 1005
+        },
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1055
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1323
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1461
+        }
+      ]
+    },
+    {
+      "callCount": 4,
+      "helper": "_o",
+      "sites": [
+        {
+          "function": "Accord402.challenge_delivery",
+          "line": 1048
+        },
+        {
+          "function": "Accord402._p",
+          "line": 1071
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1297
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1306
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "_is_lower_hex64",
+      "sites": [
+        {
+          "function": "bL",
+          "line": 382
+        },
+        {
+          "function": "_hex32",
+          "line": 439
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1251
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "by",
+      "sites": [
+        {
+          "function": "am",
+          "line": 406
+        },
+        {
+          "function": "am",
+          "line": 407
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 918
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "bf",
+      "sites": [
+        {
+          "function": "bk",
+          "line": 495
+        },
+        {
+          "function": "bE",
+          "line": 510
+        },
+        {
+          "function": "bF",
+          "line": 530
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "_count_bytes",
+      "sites": [
+        {
+          "function": "_service_hash",
+          "line": 583
+        },
+        {
+          "function": "_policy_hash",
+          "line": 588
+        },
+        {
+          "function": "_active_evidence_hash",
+          "line": 599
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "bG",
+      "sites": [
+        {
+          "function": "ao",
+          "line": 636
+        },
+        {
+          "function": "ao",
+          "line": 637
+        },
+        {
+          "function": "Accord402.open_covenant",
+          "line": 851
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "az",
+      "sites": [
+        {
+          "function": "ao",
+          "line": 652
+        },
+        {
+          "function": "aM",
+          "line": 675
+        },
+        {
+          "function": "aM",
+          "line": 685
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "aU",
+      "sites": [
+        {
+          "function": "Accord402._g",
+          "line": 807
+        },
+        {
+          "function": "Accord402._a",
+          "line": 815
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1437
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "an",
+      "sites": [
+        {
+          "function": "Accord402._g",
+          "line": 808
+        },
+        {
+          "function": "Accord402._a",
+          "line": 816
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1438
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "_n",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 989
+        },
+        {
+          "function": "Accord402._p",
+          "line": 1072
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1408
+        }
+      ]
+    },
+    {
+      "callCount": 3,
+      "helper": "_h",
+      "sites": [
+        {
+          "function": "Accord402.authorize_unchallenged_settlement",
+          "line": 1068
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1326
+        },
+        {
+          "function": "Accord402._k",
+          "line": 1329
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_utf8",
+      "sites": [
+        {
+          "function": "K",
+          "line": 361
+        },
+        {
+          "function": "_str_bytes",
+          "line": 434
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "bk",
+      "sites": [
+        {
+          "function": "bE",
+          "line": 517
+        },
+        {
+          "function": "bF",
+          "line": 540
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "aL",
+      "sites": [
+        {
+          "function": "bF",
+          "line": 548
+        },
+        {
+          "function": "af",
+          "line": 558
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "bx",
+      "sites": [
+        {
+          "function": "aM",
+          "line": 676
+        },
+        {
+          "function": "aM",
+          "line": 686
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_j",
+      "sites": [
+        {
+          "function": "Accord402._f",
+          "line": 752
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1275
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "ao",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 992
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1428
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_a",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 993
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1429
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "aM",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 995
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1455
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_active_evidence_hash",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 1001
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1457
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_g",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 1003
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1459
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_f",
+      "sites": [
+        {
+          "function": "Accord402._p",
+          "line": 1073
+        },
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1409
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "aK",
+      "sites": [
+        {
+          "function": "Accord402._execute_review_consensus.derive_wire",
+          "line": 1193
+        },
+        {
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1237
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_execute_review_consensus",
+      "sites": [
+        {
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1364
+        },
+        {
+          "function": "Accord402.retry_review",
+          "line": 1494
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_validate_consensus_wire",
+      "sites": [
+        {
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1365
+        },
+        {
+          "function": "Accord402.retry_review",
+          "line": 1495
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "_k",
+      "sites": [
+        {
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1366
+        },
+        {
+          "function": "Accord402.retry_review",
+          "line": 1496
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "aR",
+      "sites": [
+        {
+          "function": "Accord402._c",
+          "line": 1518
+        },
+        {
+          "function": "Accord402.get_buyer_stats",
+          "line": 1614
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "helper": "aB",
+      "sites": [
+        {
+          "function": "Accord402._c",
+          "line": 1519
+        },
+        {
+          "function": "Accord402.get_provider_stats",
+          "line": 1611
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bA",
+      "sites": [
+        {
+          "function": "bk",
+          "line": 503
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_bool_byte",
+      "sites": [
+        {
+          "function": "_evidence_bytes",
+          "line": 580
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_criterion_bytes",
+      "sites": [
+        {
+          "function": "_service_hash",
+          "line": 585
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_authority_bytes",
+      "sites": [
+        {
+          "function": "_policy_hash",
+          "line": 590
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_evidence_bytes",
+      "sites": [
+        {
+          "function": "_active_evidence_hash",
+          "line": 603
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bL",
+      "sites": [
+        {
+          "function": "ao",
+          "line": 635
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bF",
+      "sites": [
+        {
+          "function": "ao",
+          "line": 661
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "aC",
+      "sites": [
+        {
+          "function": "ao",
+          "line": 665
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bO",
+      "sites": [
+        {
+          "function": "Accord402._require_covenant",
+          "line": 726
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_q",
+      "sites": [
+        {
+          "function": "Accord402._f",
+          "line": 751
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bE",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 864
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_service_hash",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 933
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_policy_hash",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 934
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_s",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 937
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_r",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 938
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_b",
+      "sites": [
+        {
+          "function": "Accord402.open_covenant",
+          "line": 939
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_delivery_hash",
+      "sites": [
+        {
+          "function": "Accord402.submit_delivery",
+          "line": 1000
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_p",
+      "sites": [
+        {
+          "function": "Accord402._execute_review_consensus",
+          "line": 1086
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "derive_wire",
+      "sites": [
+        {
+          "function": "Accord402._execute_review_consensus.validator_fn",
+          "line": 1223
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "bh",
+      "sites": [
+        {
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1434
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "helper": "_c",
+      "sites": [
+        {
+          "function": "Accord402.claim_settlement",
+          "line": 1571
+        }
+      ]
+    }
+  ],
+  "protectedRuntimeSurfaces": {
+    "publicMethods": [
+      "accept_covenant",
+      "adjudicate_challenge",
+      "authorize_unchallenged_settlement",
+      "challenge_delivery",
+      "claim_settlement",
+      "expire_non_delivery",
+      "expire_repair",
+      "expire_review",
+      "expire_unaccepted",
+      "get_accounting_totals",
+      "get_active_evidence_ids",
+      "get_authority_bindings",
+      "get_buyer_stats",
+      "get_challenged_criterion_ids",
+      "get_covenant",
+      "get_covenant_count",
+      "get_criteria",
+      "get_evidence_history",
+      "get_failed_criterion_ids",
+      "get_provider_stats",
+      "get_repair_authorizations",
+      "open_covenant",
+      "retry_review",
+      "submit_delivery",
+      "submit_evidence_repair"
+    ],
+    "schemaClasses": [
+      "Accord402",
+      "AccountingTotalsView",
+      "AuthorityBinding",
+      "AuthorityBindingInput",
+      "BuyerStats",
+      "CovenantRecord",
+      "CriterionInput",
+      "CriterionRecord",
+      "EvidenceInput",
+      "EvidenceRecord",
+      "EvidenceReplacementInput",
+      "OpenCovenantInput",
+      "ProviderStats",
+      "RepairAuthorizationRecord",
+      "View",
+      "Write",
+      "_Recipient"
+    ],
+    "storageFields": [
+      "active_evidence_ids_by_covenant",
+      "authority_bindings_by_covenant",
+      "buyer_stats",
+      "challenged_criterion_ids_by_covenant",
+      "covenant_count",
+      "covenants",
+      "criteria_by_covenant",
+      "evidence_records_by_covenant",
+      "evidence_replay_keys",
+      "failed_criterion_ids_by_covenant",
+      "provider_stats",
+      "repair_authorizations_by_covenant",
+      "total_closed_to_buyer",
+      "total_closed_to_provider",
+      "total_funded",
+      "total_outstanding"
+    ]
+  },
+  "publicMethodCount": 25,
+  "schema": "accord402.structural-semantic-family-map.v1",
+  "schemaConstructorPressure": [
+    {
+      "callCount": 1,
+      "class": "CovenantRecord",
+      "grossCallExpressionBytes": 1277,
+      "sites": [
+        {
+          "callBytes": 1277,
+          "function": "Accord402.open_covenant",
+          "line": 935
+        }
+      ]
+    },
+    {
+      "callCount": 2,
+      "class": "EvidenceRecord",
+      "grossCallExpressionBytes": 1066,
+      "sites": [
+        {
+          "callBytes": 523,
+          "function": "Accord402.submit_delivery",
+          "line": 994
+        },
+        {
+          "callBytes": 543,
+          "function": "Accord402.submit_evidence_repair",
+          "line": 1436
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "AccountingTotalsView",
+      "grossCallExpressionBytes": 197,
+      "sites": [
+        {
+          "callBytes": 197,
+          "function": "Accord402.get_accounting_totals",
+          "line": 1617
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "AuthorityBinding",
+      "grossCallExpressionBytes": 124,
+      "sites": [
+        {
+          "callBytes": 124,
+          "function": "Accord402.open_covenant",
+          "line": 932
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "RepairAuthorizationRecord",
+      "grossCallExpressionBytes": 120,
+      "sites": [
+        {
+          "callBytes": 120,
+          "function": "Accord402._k",
+          "line": 1338
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "CriterionRecord",
+      "grossCallExpressionBytes": 50,
+      "sites": [
+        {
+          "callBytes": 50,
+          "function": "Accord402.open_covenant",
+          "line": 929
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "ProviderStats",
+      "grossCallExpressionBytes": 49,
+      "sites": [
+        {
+          "callBytes": 49,
+          "function": "aB",
+          "line": 697
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "BuyerStats",
+      "grossCallExpressionBytes": 39,
+      "sites": [
+        {
+          "callBytes": 39,
+          "function": "aR",
+          "line": 699
+        }
+      ]
+    },
+    {
+      "callCount": 1,
+      "class": "_Recipient",
+      "grossCallExpressionBytes": 13,
+      "sites": [
+        {
+          "callBytes": 13,
+          "function": "Accord402.claim_settlement",
+          "line": 1573
+        }
+      ]
+    }
+  ],
+  "shapeNormalizedHeuristicFamilies": {
+    "groupCount": 18,
+    "nonAdditiveGrossTop80": 5039,
+    "topGroups": [
+      {
+        "largestOccurrenceBytes": 53,
+        "nonAdditiveGrossCandidateBytes": 3604,
+        "occurrenceCount": 69,
+        "occurrences": [
+          {
+            "bytes": 37,
+            "endLine": 471,
+            "function": "bf",
+            "line": 471,
+            "source": "_fail('SOURCE_WHITESPACE_OR_CONTROL')"
+          },
+          {
+            "bytes": 35,
+            "endLine": 574,
+            "function": "aC",
+            "line": 574,
+            "source": "_fail('VERSION_ID_SOURCE_MISMATCH')"
+          },
+          {
+            "bytes": 33,
+            "endLine": 595,
+            "function": "_delivery_hash",
+            "line": 595,
+            "source": "_fail('INVALID_PROVIDER_ADDRESS')"
+          },
+          {
+            "bytes": 32,
+            "endLine": 602,
+            "function": "_active_evidence_hash",
+            "line": 602,
+            "source": "_fail('FOREIGN_EVIDENCE_RECORD')"
+          },
+          {
+            "bytes": 37,
+            "endLine": 625,
+            "function": "az",
+            "line": 625,
+            "source": "_fail('AUTHORITY_BINDING_NOT_UNIQUE')"
+          },
+          {
+            "bytes": 36,
+            "endLine": 647,
+            "function": "ao",
+            "line": 647,
+            "source": "_fail('INVALID_EVIDENCE_TIME_ORDER')"
+          },
+          {
+            "bytes": 33,
+            "endLine": 649,
+            "function": "ao",
+            "line": 649,
+            "source": "_fail('EVIDENCE_STALE_AT_INSERT')"
+          },
+          {
+            "bytes": 35,
+            "endLine": 651,
+            "function": "ao",
+            "line": 651,
+            "source": "_fail('EVIDENCE_EXPIRED_AT_INSERT')"
+          },
+          {
+            "bytes": 31,
+            "endLine": 663,
+            "function": "ao",
+            "line": 663,
+            "source": "_fail('SOURCE_ORIGIN_MISMATCH')"
+          },
+          {
+            "bytes": 42,
+            "endLine": 762,
+            "function": "Accord402._f",
+            "line": 762,
+            "source": "_fail('ACTIVE_EVIDENCE_RESOLUTION_FAILED')"
+          },
+          {
+            "bytes": 31,
+            "endLine": 828,
+            "function": "Accord402.open_covenant",
+            "line": 828,
+            "source": "_fail('INVALID_CRITERIA_COUNT')"
+          },
+          {
+            "bytes": 32,
+            "endLine": 830,
+            "function": "Accord402.open_covenant",
+            "line": 830,
+            "source": "_fail('INVALID_AUTHORITY_COUNT')"
+          },
+          {
+            "bytes": 31,
+            "endLine": 839,
+            "function": "Accord402.open_covenant",
+            "line": 839,
+            "source": "_fail('DUPLICATE_CRITERION_ID')"
+          },
+          {
+            "bytes": 36,
+            "endLine": 855,
+            "function": "Accord402.open_covenant",
+            "line": 855,
+            "source": "_fail('DUPLICATE_AUTHORITY_BINDING')"
+          },
+          {
+            "bytes": 37,
+            "endLine": 858,
+            "function": "Accord402.open_covenant",
+            "line": 858,
+            "source": "_fail('OPEN_DYNAMIC_BUDGET_EXCEEDED')"
+          },
+          {
+            "bytes": 30,
+            "endLine": 863,
+            "function": "Accord402.open_covenant",
+            "line": 863,
+            "source": "_fail('INVALID_IDENTITY_KIND')"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 39,
+        "nonAdditiveGrossCandidateBytes": 624,
+        "occurrenceCount": 17,
+        "occurrences": [
+          {
+            "bytes": 39,
+            "endLine": 946,
+            "function": "Accord402.accept_covenant",
+            "line": 946,
+            "source": "c,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 959,
+            "function": "Accord402.expire_unaccepted",
+            "line": 959,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1015,
+            "function": "Accord402.expire_non_delivery",
+            "line": 1015,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1063,
+            "function": "Accord402.authorize_unchallenged_settlement",
+            "line": 1063,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1355,
+            "function": "Accord402.adjudicate_challenge",
+            "line": 1355,
+            "source": "c,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1471,
+            "function": "Accord402.expire_repair",
+            "line": 1471,
+            "source": "b,a=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1482,
+            "function": "Accord402.retry_review",
+            "line": 1482,
+            "source": "e,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1499,
+            "function": "Accord402.expire_review",
+            "line": 1499,
+            "source": "d,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1539,
+            "function": "Accord402.claim_settlement",
+            "line": 1539,
+            "source": "f,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1579,
+            "function": "Accord402.get_covenant",
+            "line": 1579,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1583,
+            "function": "Accord402.get_criteria",
+            "line": 1583,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1587,
+            "function": "Accord402.get_authority_bindings",
+            "line": 1587,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1591,
+            "function": "Accord402.get_evidence_history",
+            "line": 1591,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1595,
+            "function": "Accord402.get_active_evidence_ids",
+            "line": 1595,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1599,
+            "function": "Accord402.get_repair_authorizations",
+            "line": 1599,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1603,
+            "function": "Accord402.get_challenged_criterion_ids",
+            "line": 1603,
+            "source": "a,_=self._require_covenant(covenant_id)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 85,
+        "nonAdditiveGrossCandidateBytes": 85,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 85,
+            "endLine": 674,
+            "function": "aM",
+            "line": 673,
+            "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+          },
+          {
+            "bytes": 85,
+            "endLine": 684,
+            "function": "aM",
+            "line": 683,
+            "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 38,
+        "nonAdditiveGrossCandidateBytes": 76,
+        "occurrenceCount": 3,
+        "occurrences": [
+          {
+            "bytes": 38,
+            "endLine": 736,
+            "function": "Accord402._o",
+            "line": 736,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          },
+          {
+            "bytes": 38,
+            "endLine": 741,
+            "function": "Accord402._n",
+            "line": 741,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          },
+          {
+            "bytes": 38,
+            "endLine": 746,
+            "function": "Accord402._q",
+            "line": 746,
+            "source": "b.append(gl.storage.copy_to_memory(a))"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 35,
+        "nonAdditiveGrossCandidateBytes": 70,
+        "occurrenceCount": 3,
+        "occurrences": [
+          {
+            "bytes": 33,
+            "endLine": 454,
+            "function": "bM",
+            "line": 454,
+            "source": "raise ValueError('duplicate key')"
+          },
+          {
+            "bytes": 34,
+            "endLine": 459,
+            "function": "aK",
+            "line": 459,
+            "source": "raise ValueError('oversized json')"
+          },
+          {
+            "bytes": 35,
+            "endLine": 462,
+            "function": "aK",
+            "line": 462,
+            "source": "raise ValueError('object required')"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 69,
+        "nonAdditiveGrossCandidateBytes": 69,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 57,
+            "endLine": 985,
+            "function": "Accord402.submit_delivery",
+            "line": 984,
+            "source": "if a.evidence_id in f:\n\t\t\t\t_fail('DUPLICATE_EVIDENCE_ID')"
+          },
+          {
+            "bytes": 69,
+            "endLine": 1393,
+            "function": "Accord402.submit_evidence_repair",
+            "line": 1392,
+            "source": "if a.evidence_id in y:\n\t\t\t\t_fail('DUPLICATE_REPLACEMENT_EVIDENCE_ID')"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 66,
+        "nonAdditiveGrossCandidateBytes": 66,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 66,
+            "endLine": 675,
+            "function": "aM",
+            "line": 675,
+            "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+          },
+          {
+            "bytes": 66,
+            "endLine": 685,
+            "function": "aM",
+            "line": 685,
+            "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 51,
+        "nonAdditiveGrossCandidateBytes": 51,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 51,
+            "endLine": 1360,
+            "function": "Accord402.adjudicate_challenge",
+            "line": 1359,
+            "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+          },
+          {
+            "bytes": 51,
+            "endLine": 1489,
+            "function": "Accord402.retry_review",
+            "line": 1488,
+            "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 49,
+        "nonAdditiveGrossCandidateBytes": 49,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 48,
+            "endLine": 474,
+            "function": "bA",
+            "line": 473,
+            "source": "if len(label)<1 or len(label)>63:\n\t\treturn False"
+          },
+          {
+            "bytes": 49,
+            "endLine": 479,
+            "function": "bA",
+            "line": 478,
+            "source": "if len(label)<2 or len(label)>63:\n\t\t\treturn False"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 46,
+        "nonAdditiveGrossCandidateBytes": 46,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 46,
+            "endLine": 672,
+            "function": "aM",
+            "line": 671,
+            "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+          },
+          {
+            "bytes": 46,
+            "endLine": 682,
+            "function": "aM",
+            "line": 681,
+            "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 45,
+        "nonAdditiveGrossCandidateBytes": 45,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 45,
+            "endLine": 1296,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1295,
+            "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+          },
+          {
+            "bytes": 45,
+            "endLine": 1305,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1304,
+            "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 43,
+        "nonAdditiveGrossCandidateBytes": 43,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 43,
+            "endLine": 790,
+            "function": "Accord402._h",
+            "line": 789,
+            "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+          },
+          {
+            "bytes": 43,
+            "endLine": 799,
+            "function": "Accord402._m",
+            "line": 798,
+            "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 40,
+        "nonAdditiveGrossCandidateBytes": 40,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 40,
+            "endLine": 1297,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1297,
+            "source": "e=[c.criterion_id for c in self._o(key)]"
+          },
+          {
+            "bytes": 40,
+            "endLine": 1306,
+            "function": "Accord402._validate_consensus_wire",
+            "line": 1306,
+            "source": "e=[c.criterion_id for c in self._o(key)]"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 39,
+        "nonAdditiveGrossCandidateBytes": 39,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 39,
+            "endLine": 969,
+            "function": "Accord402.submit_delivery",
+            "line": 969,
+            "source": "i,b=self._require_covenant(covenant_id)"
+          },
+          {
+            "bytes": 39,
+            "endLine": 1025,
+            "function": "Accord402.challenge_delivery",
+            "line": 1025,
+            "source": "g,a=self._require_covenant(covenant_id)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 35,
+        "nonAdditiveGrossCandidateBytes": 35,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 35,
+            "endLine": 794,
+            "function": "Accord402._h",
+            "line": 794,
+            "source": "a.repair_authorization_active=False"
+          },
+          {
+            "bytes": 35,
+            "endLine": 803,
+            "function": "Accord402._m",
+            "line": 803,
+            "source": "a.repair_authorization_active=False"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 35,
+        "nonAdditiveGrossCandidateBytes": 35,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 35,
+            "endLine": 1478,
+            "function": "Accord402.expire_repair",
+            "line": 1478,
+            "source": "a.repair_authorization_active=False"
+          },
+          {
+            "bytes": 35,
+            "endLine": 1509,
+            "function": "Accord402.expire_review",
+            "line": 1509,
+            "source": "b.repair_authorization_active=False"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 31,
+        "nonAdditiveGrossCandidateBytes": 31,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 31,
+            "endLine": 773,
+            "function": "Accord402._s",
+            "line": 772,
+            "source": "for a in values:\n\t\t\tb.append(a)"
+          },
+          {
+            "bytes": 31,
+            "endLine": 778,
+            "function": "Accord402._r",
+            "line": 777,
+            "source": "for a in values:\n\t\t\tb.append(a)"
+          }
+        ]
+      },
+      {
+        "largestOccurrenceBytes": 31,
+        "nonAdditiveGrossCandidateBytes": 31,
+        "occurrenceCount": 2,
+        "occurrences": [
+          {
+            "bytes": 31,
+            "endLine": 792,
+            "function": "Accord402._h",
+            "line": 792,
+            "source": "a.closure_reason=closure_reason"
+          },
+          {
+            "bytes": 31,
+            "endLine": 801,
+            "function": "Accord402._m",
+            "line": 801,
+            "source": "a.closure_reason=closure_reason"
+          }
+        ]
+      }
+    ],
+    "warning": "Shape-normalized groups abstract literals and private helper names. They identify structural families only and are NOT proof that occurrences may share one helper."
+  },
+  "sourceWeight": {
+    "largestFunctions": [
+      {
+        "endLine": 943,
+        "line": 820,
+        "nested": false,
+        "publicKind": "write_payable",
+        "qualname": "Accord402.open_covenant",
+        "sourceSpanBytes": 5151
+      },
+      {
+        "endLine": 1232,
+        "line": 1085,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._execute_review_consensus",
+        "sourceSpanBytes": 4549
+      },
+      {
+        "endLine": 1468,
+        "line": 1368,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.submit_evidence_repair",
+        "sourceSpanBytes": 3997
+      },
+      {
+        "endLine": 1217,
+        "line": 1087,
+        "nested": true,
+        "publicKind": null,
+        "qualname": "Accord402._execute_review_consensus.derive_wire",
+        "sourceSpanBytes": 3987
+      },
+      {
+        "endLine": 1314,
+        "line": 1233,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._validate_consensus_wire",
+        "sourceSpanBytes": 2205
+      },
+      {
+        "endLine": 1012,
+        "line": 966,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.submit_delivery",
+        "sourceSpanBytes": 2175
+      },
+      {
+        "endLine": 666,
+        "line": 627,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "ao",
+        "sourceSpanBytes": 1415
+      },
+      {
+        "endLine": 1084,
+        "line": 1069,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._p",
+        "sourceSpanBytes": 1212
+      },
+      {
+        "endLine": 1352,
+        "line": 1315,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._k",
+        "sourceSpanBytes": 1206
+      },
+      {
+        "endLine": 1573,
+        "line": 1538,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.claim_settlement",
+        "sourceSpanBytes": 1098
+      },
+      {
+        "endLine": 1060,
+        "line": 1022,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.challenge_delivery",
+        "sourceSpanBytes": 1079
+      },
+      {
+        "endLine": 690,
+        "line": 667,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "aM",
+        "sourceSpanBytes": 910
+      },
+      {
+        "endLine": 1536,
+        "line": 1516,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._c",
+        "sourceSpanBytes": 756
+      },
+      {
+        "endLine": 493,
+        "line": 472,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "bA",
+        "sourceSpanBytes": 524
+      },
+      {
+        "endLine": 550,
+        "line": 528,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "bF",
+        "sourceSpanBytes": 515
+      },
+      {
+        "endLine": 591,
+        "line": 587,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "_policy_hash",
+        "sourceSpanBytes": 508
+      },
+      {
+        "endLine": 786,
+        "line": 780,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._b",
+        "sourceSpanBytes": 488
+      },
+      {
+        "endLine": 580,
+        "line": 579,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "_evidence_bytes",
+        "sourceSpanBytes": 487
+      },
+      {
+        "endLine": 1496,
+        "line": 1481,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.retry_review",
+        "sourceSpanBytes": 441
+      },
+      {
+        "endLine": 570,
+        "line": 551,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "af",
+        "sourceSpanBytes": 440
+      },
+      {
+        "endLine": 1515,
+        "line": 1498,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.expire_review",
+        "sourceSpanBytes": 423
+      },
+      {
+        "endLine": 1366,
+        "line": 1354,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.adjudicate_challenge",
+        "sourceSpanBytes": 408
+      },
+      {
+        "endLine": 507,
+        "line": 494,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "bk",
+        "sourceSpanBytes": 406
+      },
+      {
+        "endLine": 604,
+        "line": 598,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "_active_evidence_hash",
+        "sourceSpanBytes": 397
+      },
+      {
+        "endLine": 597,
+        "line": 592,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "_delivery_hash",
+        "sourceSpanBytes": 375
+      },
+      {
+        "endLine": 626,
+        "line": 616,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "az",
+        "sourceSpanBytes": 353
+      },
+      {
+        "endLine": 1479,
+        "line": 1470,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.expire_repair",
+        "sourceSpanBytes": 346
+      },
+      {
+        "endLine": 812,
+        "line": 805,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._g",
+        "sourceSpanBytes": 334
+      },
+      {
+        "endLine": 956,
+        "line": 945,
+        "nested": false,
+        "publicKind": "write",
+        "qualname": "Accord402.accept_covenant",
+        "sourceSpanBytes": 318
+      },
+      {
+        "endLine": 423,
+        "line": 411,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "P",
+        "sourceSpanBytes": 312
+      },
+      {
+        "endLine": 732,
+        "line": 724,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._require_covenant",
+        "sourceSpanBytes": 311
+      },
+      {
+        "endLine": 520,
+        "line": 508,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "bE",
+        "sourceSpanBytes": 297
+      },
+      {
+        "endLine": 586,
+        "line": 581,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "_service_hash",
+        "sourceSpanBytes": 279
+      },
+      {
+        "endLine": 764,
+        "line": 750,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._f",
+        "sourceSpanBytes": 272
+      },
+      {
+        "endLine": 1159,
+        "line": 1158,
+        "nested": true,
+        "publicKind": null,
+        "qualname": "Accord402._execute_review_consensus.derive_wire.base_wire",
+        "sourceSpanBytes": 267
+      },
+      {
+        "endLine": 1617,
+        "line": 1616,
+        "nested": false,
+        "publicKind": "view",
+        "qualname": "Accord402.get_accounting_totals",
+        "sourceSpanBytes": 261
+      },
+      {
+        "endLine": 795,
+        "line": 787,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._h",
+        "sourceSpanBytes": 256
+      },
+      {
+        "endLine": 804,
+        "line": 796,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._m",
+        "sourceSpanBytes": 256
+      },
+      {
+        "endLine": 818,
+        "line": 813,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "Accord402._a",
+        "sourceSpanBytes": 252
+      },
+      {
+        "endLine": 613,
+        "line": 607,
+        "nested": false,
+        "publicKind": null,
+        "qualname": "an",
+        "sourceSpanBytes": 249
+      }
+    ],
+    "nestedFunctionSpanBytesNonAdditive": 4483,
+    "privateTopLevelFunctionSpanBytesNonAdditive": 24255,
+    "publicFunctionSpanBytesNonAdditive": 17877
+  },
+  "storageFieldCount": 16
+}

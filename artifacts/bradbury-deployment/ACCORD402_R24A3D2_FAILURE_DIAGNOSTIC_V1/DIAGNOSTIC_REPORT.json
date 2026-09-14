@@ -1,0 +1,14 @@
+{
+  "baselineTypecheckWithCertifiedVenvPathReturnCode": 0,
+  "broadcastAuthorized": false,
+  "candidatePromotionAuthorized": false,
+  "candidateRejected": false,
+  "candidateTypecheckWithCertifiedVenvPathReturnCode": 0,
+  "createdAtUtc": "2026-09-12T22:51:32Z",
+  "packageInstallPerformed": false,
+  "pyrightFailureClassification": "LINTER_SUBPROCESS_PATH_DID_NOT_INCLUDE_CERTIFIED_VENV_BIN",
+  "pytestRerunPerformed": false,
+  "schema": "accord402.r24a3d2-failure-diagnostic.v1",
+  "signingAuthorized": false,
+  "sourceModificationPerformed": false
+}

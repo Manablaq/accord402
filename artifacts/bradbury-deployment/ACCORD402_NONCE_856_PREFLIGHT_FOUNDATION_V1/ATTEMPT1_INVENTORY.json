@@ -1,0 +1,58 @@
+{
+  "capturedAtUtc": "2026-09-12T06:31:31Z",
+  "classification": "CANONICAL_ATTEMPT1_ARTIFACTS_INVENTORIED",
+  "fileCount": 5,
+  "files": [
+    {
+      "path": "CANONICAL_SOURCE_FILES_V1.tsv",
+      "sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2",
+      "size": 3962
+    },
+    {
+      "path": "CANONICAL_SOURCE_FREEZE_V1.json",
+      "sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+      "size": 3554
+    },
+    {
+      "path": "STEP_19J_DEPLOYMENT_GUARD_V1.json",
+      "sha256": "a09bbfdb89338df567ab71b834fbecf515d4ce4b2072946da846b6535b12652f",
+      "size": 3171
+    },
+    {
+      "path": "cli-deployment.log",
+      "sha256": "71ff6292329769c177b0ce7977330a7ad26d679952d9a2b0994489fddb1b770f",
+      "size": 19730
+    },
+    {
+      "path": "pre-submission.json",
+      "sha256": "623cda70e594b68b3831b20d0c9364d32ff5aa0a25097a0fc3f9e3a1eceaef9e",
+      "size": 1446
+    }
+  ],
+  "root": "artifacts/bradbury-deployment/CANONICAL_DEPLOYMENT_ATTEMPT_V1",
+  "schema": "accord402.canonical-attempt1-inventory.v1",
+  "signals": {
+    "blockPubdataLimitReached": {
+      "files": [
+        "cli-deployment.log"
+      ],
+      "present": true
+    },
+    "candidateHash": {
+      "files": [
+        "cli-deployment.log"
+      ],
+      "present": true
+    },
+    "fallbackGas200000": {
+      "files": [],
+      "present": false
+    },
+    "intrinsicGasTooLow": {
+      "files": [
+        "cli-deployment.log"
+      ],
+      "present": true
+    }
+  }
+}

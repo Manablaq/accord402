@@ -1,0 +1,264 @@
+{
+  "abiMethodCount": 25,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "correctedDuplicateStatementGroups": [
+    {
+      "nonAdditiveGrossCandidateBytes": 96,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 96,
+          "endLine": 810,
+          "function": "Accord402._g",
+          "line": 809,
+          "source": "if self.evidence_replay_keys.get(a,False)or self.evidence_replay_keys.get(b,False):\n\t\t\t_fail(cQ)"
+        },
+        {
+          "bytes": 96,
+          "endLine": 818,
+          "function": "Accord402._a",
+          "line": 817,
+          "source": "if self.evidence_replay_keys.get(a,False)or self.evidence_replay_keys.get(b,False):\n\t\t\t_fail(cQ)"
+        }
+      ],
+      "unitBytes": 96
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 85,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 85,
+          "endLine": 674,
+          "function": "aM",
+          "line": 673,
+          "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+        },
+        {
+          "bytes": 85,
+          "endLine": 684,
+          "function": "aM",
+          "line": 683,
+          "source": "if not af(record.canonical_source,record.immutable_version_or_record_id):\n\t\t\tcontinue"
+        }
+      ],
+      "unitBytes": 85
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 66,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 66,
+          "endLine": 675,
+          "function": "aM",
+          "line": 675,
+          "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+        },
+        {
+          "bytes": 66,
+          "endLine": 685,
+          "function": "aM",
+          "line": 685,
+          "source": "binding=az(bindings,record.authority_id,record.authority_revision)"
+        }
+      ],
+      "unitBytes": 66
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 51,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 51,
+          "endLine": 1360,
+          "function": "Accord402.adjudicate_challenge",
+          "line": 1359,
+          "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+        },
+        {
+          "bytes": 51,
+          "endLine": 1489,
+          "function": "Accord402.retry_review",
+          "line": 1488,
+          "source": "if d>int(b.absolute_dispute_deadline):\n\t\t\t_fail(cr)"
+        }
+      ],
+      "unitBytes": 51
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 46,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 46,
+          "endLine": 672,
+          "function": "aM",
+          "line": 671,
+          "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+        },
+        {
+          "bytes": 46,
+          "endLine": 682,
+          "function": "aM",
+          "line": 681,
+          "source": "if record.source_kind not in(X,Y):\n\t\t\tcontinue"
+        }
+      ],
+      "unitBytes": 46
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 45,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 45,
+          "endLine": 1296,
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1295,
+          "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+        },
+        {
+          "bytes": 45,
+          "endLine": 1305,
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1304,
+          "source": "if failed!=[]or a!=au or d!=[]:\n\t\t\t\t_fail(bW)"
+        }
+      ],
+      "unitBytes": 45
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 43,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 43,
+          "endLine": 790,
+          "function": "Accord402._h",
+          "line": 789,
+          "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+        },
+        {
+          "bytes": 43,
+          "endLine": 799,
+          "function": "Accord402._m",
+          "line": 798,
+          "source": "if a.settlement_direction!=a9:\n\t\t\t_fail(cs)"
+        }
+      ],
+      "unitBytes": 43
+    },
+    {
+      "nonAdditiveGrossCandidateBytes": 40,
+      "occurrenceCount": 2,
+      "occurrences": [
+        {
+          "bytes": 40,
+          "endLine": 1297,
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1297,
+          "source": "e=[c.criterion_id for c in self._o(key)]"
+        },
+        {
+          "bytes": 40,
+          "endLine": 1306,
+          "function": "Accord402._validate_consensus_wire",
+          "line": 1306,
+          "source": "e=[c.criterion_id for c in self._o(key)]"
+        }
+      ],
+      "unitBytes": 40
+    }
+  ],
+  "corrections": {
+    "correctedDuplicateGroupCount": 8,
+    "correctedDuplicateNonAdditiveGrossTop80": 472,
+    "correctedUnreachableCandidates": [],
+    "correctedUnreachableCount": 0,
+    "duplicateAccountingWarning": "The corrected scanner assigns nested function bodies only to the nested function itself. The gross duplicate number remains non-additive because repeated AST groups may be ancestor/descendant overlapping regions.",
+    "previousDuplicateGrossTop80": 7714,
+    "previousUnreachableCount": 2
+  },
+  "parentCompactionMapManifestBound": true,
+  "previousUnreachableCandidateReviews": [
+    {
+      "correctedReachable": true,
+      "endLine": 1226,
+      "functionSource": "def validator_fn(leaders_res)->bool:\n\t\t\tb=leaders_res\n\t\t\tif not isinstance(b,gl.vm.Return):\n\t\t\t\treturn False\n\t\t\ttry:\n\t\t\t\ta=derive_wire()\n\t\t\t\treturn isinstance(b.calldata,str)and a==b.calldata\n\t\t\texcept Exception:\n\t\t\t\treturn False",
+      "line": 1218,
+      "present": true,
+      "qualname": "Accord402._execute_review_consensus.validator_fn",
+      "referenceSites": [
+        {
+          "column": 40,
+          "kind": "name_load",
+          "line": 1227,
+          "owner": "Accord402._execute_review_consensus"
+        }
+      ],
+      "sourceSpanBytes": 232
+    },
+    {
+      "correctedReachable": true,
+      "endLine": 456,
+      "functionSource": "def bM(pairs):\n\tout={}\n\tfor key,value in pairs:\n\t\tif key in out:\n\t\t\traise ValueError('duplicate key')\n\t\tout[key]=value\n\treturn out",
+      "line": 450,
+      "present": true,
+      "qualname": "bM",
+      "referenceSites": [
+        {
+          "column": 39,
+          "kind": "name_load",
+          "line": 460,
+          "owner": "aK"
+        }
+      ],
+      "sourceSpanBytes": 131
+    }
+  ],
+  "reachabilityRoots": [
+    "Accord402.__init__",
+    "Accord402.accept_covenant",
+    "Accord402.adjudicate_challenge",
+    "Accord402.authorize_unchallenged_settlement",
+    "Accord402.challenge_delivery",
+    "Accord402.claim_settlement",
+    "Accord402.expire_non_delivery",
+    "Accord402.expire_repair",
+    "Accord402.expire_review",
+    "Accord402.expire_unaccepted",
+    "Accord402.get_accounting_totals",
+    "Accord402.get_active_evidence_ids",
+    "Accord402.get_authority_bindings",
+    "Accord402.get_buyer_stats",
+    "Accord402.get_challenged_criterion_ids",
+    "Accord402.get_covenant",
+    "Accord402.get_covenant_count",
+    "Accord402.get_criteria",
+    "Accord402.get_evidence_history",
+    "Accord402.get_failed_criterion_ids",
+    "Accord402.get_provider_stats",
+    "Accord402.get_repair_authorizations",
+    "Accord402.open_covenant",
+    "Accord402.retry_review",
+    "Accord402.submit_delivery",
+    "Accord402.submit_evidence_repair"
+  ],
+  "safety": {
+    "broadcastAuthorized": false,
+    "functionDeletionAuthorized": false,
+    "signingAuthorized": false,
+    "sourceModified": false
+  },
+  "schema": "accord402.single-contract-compaction-map-correction.v1",
+  "scopeFunctionValueRoots": [],
+  "validatorFunctionValueEvidence": [
+    {
+      "column": 40,
+      "kind": "name_load",
+      "line": 1227,
+      "owner": "Accord402._execute_review_consensus"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "allGatesGreen": true,
+    "checkReturnCode": 0,
+    "pytestPassedCount": 56,
+    "pytestReturnCode": 0,
+    "schemaReturnCode": 0,
+    "typecheckReturnCode": 0
+  },
+  "bradburyGasMeasured": false,
+  "broadcastAuthorized": false,
+  "candidatePromotionAuthorized": false,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "classification": "PURE_LEAF_CODEC_FOLD_D2_RUNTIME_FAILURE_AFTER_SOURCE_HASH_GUARD_REBIND",
+  "createdAtUtc": "2026-09-12T23:30:49Z",
+  "d2Candidate": {
+    "allGatesGreen": false,
+    "checkReturnCode": 0,
+    "pytestPassedCount": 32,
+    "pytestReturnCode": 1,
+    "schemaReturnCode": 0,
+    "typecheckReturnCode": 0
+  },
+  "d2CandidateBytes": 49164,
+  "d2CandidateSha256": "e8f04207b0fd6c74e3f259812ca01d0f45caae8e6cf1e74706bf907016b51dd9",
+  "expectedDirectModeTestCount": 56,
+  "generatedAbiSchemaIdentical": true,
+  "realRepositoryTestsModified": false,
+  "runtimeEquivalencePassed": false,
+  "savedBytesVsCanonical": 1510,
+  "schema": "accord402.pure-leaf-codec-fold-runtime-equivalence.v1",
+  "signingAuthorized": false,
+  "temporaryCandidateTestHarnessRebound": true,
+  "temporaryHarnessVerificationPassed": true
+}

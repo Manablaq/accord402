@@ -1,0 +1,14 @@
+/Users/mralbert/Downloads/accord402/tests/direct/test_accord402_direct_mode.py:292:    return mod.OpenCovenantInput(
+/Users/mralbert/Downloads/accord402/tests/direct/test_accord402_direct_mode.py:305:        repair_allowed_field_mask=255,
+/Users/mralbert/Downloads/accord402/tests/direct/test_accord402_direct_mode.py:336:        "open_covenant",
+/Users/mralbert/Downloads/accord402/tests/direct/test_accord402_direct_mode.py:581:            "open_covenant",
+/Users/mralbert/Downloads/accord402/tests/direct/test_accord402_direct_mode.py:590:            "open_covenant",
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:1450:    terms.repair_allowed_field_mask = 0
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:292:    return mod.OpenCovenantInput(
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:305:        repair_allowed_field_mask=255,
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:336:        "open_covenant",
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:541:    covenant_id = _structured_call(contract, "open_covenant", terms)
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:675:        _structured_call(contract, "open_covenant", duplicate)
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:690:        _structured_call(contract, "open_covenant", correlated)
+/Users/mralbert/Downloads/accord402/tests/test_accord402_hash_vectors.py:203:    repair_allowed_field_mask: int,
+/Users/mralbert/Downloads/accord402/tests/test_accord402_hash_vectors.py:213:        + ref_u32(repair_allowed_field_mask)

@@ -1,0 +1,42 @@
+{
+  "classification": "LIVE_BRADBURY_NODE_ACCEPTS_FROZEN_ACCORD402_SOURCE_SCHEMA",
+  "constructor": {
+    "kwparams": {},
+    "params": []
+  },
+  "httpTransport": {
+    "client": "/usr/bin/curl",
+    "explicitUserAgent": "curl/8.7.1"
+  },
+  "liveMethodCount": 25,
+  "methodNames": [
+    "accept_covenant",
+    "adjudicate_challenge",
+    "authorize_unchallenged_settlement",
+    "challenge_delivery",
+    "claim_settlement",
+    "expire_non_delivery",
+    "expire_repair",
+    "expire_review",
+    "expire_unaccepted",
+    "get_accounting_totals",
+    "get_active_evidence_ids",
+    "get_authority_bindings",
+    "get_buyer_stats",
+    "get_challenged_criterion_ids",
+    "get_covenant",
+    "get_covenant_count",
+    "get_criteria",
+    "get_evidence_history",
+    "get_failed_criterion_ids",
+    "get_provider_stats",
+    "get_repair_authorizations",
+    "open_covenant",
+    "retry_review",
+    "submit_delivery",
+    "submit_evidence_repair"
+  ],
+  "schema": "accord402.live-bradbury-source-schema-binding.v3",
+  "sourceByteLength": 50674,
+  "sourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+}

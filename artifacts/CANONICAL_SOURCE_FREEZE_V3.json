@@ -1,0 +1,78 @@
+{
+  "blockchain_write_sent": false,
+  "canonical_contract": {
+    "bytes": 50674,
+    "path": "contracts/accord402.py",
+    "sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "canonical_deployment_success": false,
+  "canonical_source_manifest": {
+    "file_count": 40,
+    "path": "artifacts/CANONICAL_SOURCE_FILES_V2.tsv",
+    "sha256": "980451c91690c23665893d507f8ecf94b4c123bebe8db7d7623fd69f70c54dbd",
+    "source_changed_since_v2": false
+  },
+  "certification_provenance": {
+    "r17_candidate_h_certification_sha256": "86dafd71bb4307867b6436addc0ab3df3ba5303e9e496332537ab3f0534d485f",
+    "r19_r2_differential_artifact": "artifacts/CANONICAL_DEPLOYMENT_ENVELOPE_DIFFERENTIAL_V1.json",
+    "r19_r2_differential_sha256": "f659a77c016866a317741aa0b9dbde3c78785b2eee853d79cec2106b1e2bff39",
+    "r19_r2_frozen_sdk_scan_sha256": "d832c44c5009feb216363824d1d37b377eb46889c4df8917e6495e85a95ee8ca",
+    "r19_r3_normalization_artifact": "artifacts/CANONICAL_DEPLOYMENT_ENVELOPE_NORMALIZATION_V1.json",
+    "r19_r3_normalization_sha256": "e6a22d7e8361fa66a8031b94e7bad7016a00b0d655d668974c2d2385da0108da"
+  },
+  "created_at_utc": "2026-09-12T01:51:26Z",
+  "deployment_envelope_identity": {
+    "encoded_deploy_recipient": "0x0000000000000000000000000000000000000000",
+    "encoded_sender": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "function": "addTransaction",
+    "identity_model": "V6_STATIC_FIELDS_PLUS_NORMALIZED_VALID_UNTIL",
+    "initial_validators": 5,
+    "max_rotations": 3,
+    "normalization": {
+      "all_other_bytes_must_match": true,
+      "normalized_envelope_sha256": "e984a93709323b457779c6358fc40dd44ae1975455e2b013a7b8b0288d9251e5",
+      "rule": "zero only the 32-byte ABI word for validUntil"
+    },
+    "outer_calldata_bytes": 50916,
+    "outer_consensus_main": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "outer_sender": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "raw_full_calldata_sha_is_stable_identity": false,
+    "selector": "0xe71d5196",
+    "static_txdata_sha256": "b9bbcfe1bed9bb950f401d3807b31bbac9e032598acebeab9a1fd9964ea592e2",
+    "txdata_length": 50682,
+    "txdata_offset": 192,
+    "valid_until": {
+      "abi_word_index": 5,
+      "dynamic": true,
+      "frozen_sdk": "genlayer-js@1.1.8",
+      "must_be_fresh_at_capture": true,
+      "rule": "floor(Date.now()/1000)+3600"
+    }
+  },
+  "freeze_id": "accord402-v1-source-freeze-v3-20260912T015126Z",
+  "historical_v1_evidence_preserved": true,
+  "historical_v2_freeze_preserved": true,
+  "last_read_only_admission_evidence": {
+    "both_pass": true,
+    "direct_chain_rpc_estimated_gas": 40390666,
+    "genlayer_rpc_estimated_gas": 40390666,
+    "pre_sign_reconciliation_still_required": true,
+    "worker_latest_nonce": 855,
+    "worker_pending_nonce": 855
+  },
+  "promotion_record": {
+    "path": "artifacts/CANONICAL_PROMOTION_H_V2.json",
+    "sha256": "a4a322b91abb14cc9be44f3f6ec93ecf8b2598b86c558d3ce744ea0d2168c313"
+  },
+  "second_deployment_authorized": false,
+  "status": "FROZEN_PREDEPLOY",
+  "supersedes": {
+    "artifact": "artifacts/CANONICAL_SOURCE_FREEZE_V2.json",
+    "contract_changed": false,
+    "frontend_changed": false,
+    "reason": "V2 recorded a full raw addTransaction calldata SHA even though frozen genlayer-js 1.1.8 intentionally derives V6 validUntil from current time plus 3600 seconds",
+    "scope": "DEPLOYMENT_ENVELOPE_IDENTITY_METADATA_ONLY",
+    "sha256": "64d7de80de9879cd162bf6cb7fa21b7a7039e506dee8a59395daf6e3b3dfb11d",
+    "source_manifest_changed": false
+  }
+}

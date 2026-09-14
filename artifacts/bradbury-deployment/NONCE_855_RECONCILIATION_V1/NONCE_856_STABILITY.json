@@ -1,0 +1,152 @@
+{
+  "classification": "WORKER_STABLY_FREE_AT_NONCE856",
+  "consumerReceiptStillSuccessful": true,
+  "distinctBlockCount": 12,
+  "expectedNonce": 856,
+  "network": {
+    "chainId": 4221,
+    "chainRpc": "https://rpc.testnet-chain.genlayer.com",
+    "genlayerRpc": "https://rpc-bradbury.genlayer.com"
+  },
+  "oldVariantAReceiptAbsent": true,
+  "oldVariantBReceiptAbsent": true,
+  "pendingNonce856TransactionAbsent": true,
+  "sampleCount": 12,
+  "samples": [
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497716,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 1,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:03:44Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497728,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 2,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:03:54Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497739,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 3,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:05Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497749,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 4,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:17Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497756,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 5,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:28Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497764,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 6,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:38Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497768,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 7,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:48Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497779,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 8,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:04:58Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497793,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 9,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:05:09Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497804,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 10,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:05:22Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497812,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 11,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:05:33Z"
+    },
+    {
+      "balanceWei": 7530431203937238246,
+      "block": 21497824,
+      "chainLatest": 856,
+      "chainPending": 856,
+      "glLatest": 856,
+      "glPending": 856,
+      "index": 12,
+      "pendingNonce856TransactionCount": 0,
+      "utc": "2026-09-12T06:05:43Z"
+    }
+  ],
+  "schema": "accord402.nonce856.stability.v1",
+  "stableBalanceWei": 7530431203937238246,
+  "worker": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+}

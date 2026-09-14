@@ -1,0 +1,708 @@
+{
+  "authorization": {
+    "f13oSigningConsumed": true,
+    "f13oSubmissionConsumed": true,
+    "resubmissionAuthorized": false
+  },
+  "blockProfile": {
+    "blockCount": 64,
+    "blocks": [
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 4423635,
+        "maxTransactionGas": 1017882,
+        "maxTransactionInputBytes": 36,
+        "number": 21600177,
+        "residualGas": 95576365,
+        "transactionCount": 15
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "maxTransactionGas": 1390570,
+        "maxTransactionInputBytes": 196,
+        "number": 21600178,
+        "residualGas": 99344218,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 82036,
+        "maxTransactionGas": 0,
+        "maxTransactionInputBytes": 292,
+        "number": 21600179,
+        "residualGas": 99917964,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 719111,
+        "maxTransactionGas": 887672,
+        "maxTransactionInputBytes": 36,
+        "number": 21600180,
+        "residualGas": 99280889,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 863182,
+        "maxTransactionGas": 2002806,
+        "maxTransactionInputBytes": 292,
+        "number": 21600181,
+        "residualGas": 99136818,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1356473,
+        "maxTransactionGas": 2934988,
+        "maxTransactionInputBytes": 196,
+        "number": 21600182,
+        "residualGas": 98643527,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 515119,
+        "maxTransactionGas": 1041692,
+        "maxTransactionInputBytes": 356,
+        "number": 21600183,
+        "residualGas": 99484881,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1580561,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600184,
+        "residualGas": 98419439,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 500363,
+        "maxTransactionGas": 1091156,
+        "maxTransactionInputBytes": 100,
+        "number": 21600185,
+        "residualGas": 99499637,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "maxTransactionGas": 1162364,
+        "maxTransactionInputBytes": 100,
+        "number": 21600186,
+        "residualGas": 99458614,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 400431,
+        "maxTransactionGas": 855548,
+        "maxTransactionInputBytes": 292,
+        "number": 21600187,
+        "residualGas": 99599569,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1141866,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600188,
+        "residualGas": 98858134,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 369230,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600189,
+        "residualGas": 99630770,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "maxTransactionGas": 1390570,
+        "maxTransactionInputBytes": 196,
+        "number": 21600190,
+        "residualGas": 99344218,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 709551,
+        "maxTransactionGas": 1390418,
+        "maxTransactionInputBytes": 36,
+        "number": 21600191,
+        "residualGas": 99290449,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 840472,
+        "maxTransactionGas": 1825122,
+        "maxTransactionInputBytes": 292,
+        "number": 21600192,
+        "residualGas": 99159528,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1401284,
+        "maxTransactionGas": 3031724,
+        "maxTransactionInputBytes": 196,
+        "number": 21600193,
+        "residualGas": 98598716,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 494119,
+        "maxTransactionGas": 1041692,
+        "maxTransactionInputBytes": 356,
+        "number": 21600194,
+        "residualGas": 99505881,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1580549,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600195,
+        "residualGas": 98419451,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 500363,
+        "maxTransactionGas": 1091156,
+        "maxTransactionInputBytes": 100,
+        "number": 21600196,
+        "residualGas": 99499637,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "maxTransactionGas": 1091156,
+        "maxTransactionInputBytes": 100,
+        "number": 21600197,
+        "residualGas": 99458614,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 400431,
+        "maxTransactionGas": 855548,
+        "maxTransactionInputBytes": 292,
+        "number": 21600198,
+        "residualGas": 99599569,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1141866,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600199,
+        "residualGas": 98858134,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 369230,
+        "maxTransactionGas": 802148,
+        "maxTransactionInputBytes": 196,
+        "number": 21600200,
+        "residualGas": 99630770,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "maxTransactionGas": 802148,
+        "maxTransactionInputBytes": 196,
+        "number": 21600201,
+        "residualGas": 99344218,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 878323,
+        "maxTransactionGas": 1875998,
+        "maxTransactionInputBytes": 292,
+        "number": 21600202,
+        "residualGas": 99121677,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1774141,
+        "maxTransactionGas": 2771192,
+        "maxTransactionInputBytes": 196,
+        "number": 21600203,
+        "residualGas": 98225859,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 294909,
+        "maxTransactionGas": 2117704,
+        "maxTransactionInputBytes": 36,
+        "number": 21600204,
+        "residualGas": 99705091,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 494107,
+        "maxTransactionGas": 1041666,
+        "maxTransactionInputBytes": 356,
+        "number": 21600205,
+        "residualGas": 99505893,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1580561,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600206,
+        "residualGas": 98419439,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 500363,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600207,
+        "residualGas": 99499637,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 82048,
+        "maxTransactionGas": 0,
+        "maxTransactionInputBytes": 292,
+        "number": 21600208,
+        "residualGas": 99917952,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "maxTransactionGas": 1162364,
+        "maxTransactionInputBytes": 100,
+        "number": 21600209,
+        "residualGas": 99458614,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 402675,
+        "maxTransactionGas": 855574,
+        "maxTransactionInputBytes": 292,
+        "number": 21600210,
+        "residualGas": 99597325,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 772660,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600211,
+        "residualGas": 99227340,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 738436,
+        "maxTransactionGas": 802124,
+        "maxTransactionInputBytes": 196,
+        "number": 21600212,
+        "residualGas": 99261564,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "maxTransactionGas": 802148,
+        "maxTransactionInputBytes": 196,
+        "number": 21600213,
+        "residualGas": 99344218,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 719087,
+        "maxTransactionGas": 1045982,
+        "maxTransactionInputBytes": 36,
+        "number": 21600214,
+        "residualGas": 99280913,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1102355,
+        "maxTransactionGas": 1825122,
+        "maxTransactionInputBytes": 292,
+        "number": 21600215,
+        "residualGas": 98897645,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1473920,
+        "maxTransactionGas": 3188526,
+        "maxTransactionInputBytes": 196,
+        "number": 21600216,
+        "residualGas": 98526080,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 82036,
+        "maxTransactionGas": 0,
+        "maxTransactionInputBytes": 292,
+        "number": 21600217,
+        "residualGas": 99917964,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 494119,
+        "maxTransactionGas": 1041692,
+        "maxTransactionInputBytes": 356,
+        "number": 21600218,
+        "residualGas": 99505881,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1082599,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600219,
+        "residualGas": 98917401,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 998313,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600220,
+        "residualGas": 99001687,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "maxTransactionGas": 1162364,
+        "maxTransactionInputBytes": 100,
+        "number": 21600221,
+        "residualGas": 99458614,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 402675,
+        "maxTransactionGas": 855574,
+        "maxTransactionInputBytes": 292,
+        "number": 21600222,
+        "residualGas": 99597325,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1511096,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600223,
+        "residualGas": 98488904,
+        "transactionCount": 4
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 776901,
+        "maxTransactionGas": 1464356,
+        "maxTransactionInputBytes": 36,
+        "number": 21600224,
+        "residualGas": 99223099,
+        "transactionCount": 2
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "maxTransactionGas": 1390570,
+        "maxTransactionInputBytes": 196,
+        "number": 21600225,
+        "residualGas": 99344218,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 910174,
+        "maxTransactionGas": 1897766,
+        "maxTransactionInputBytes": 292,
+        "number": 21600226,
+        "residualGas": 99089826,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1246470,
+        "maxTransactionGas": 2697520,
+        "maxTransactionInputBytes": 196,
+        "number": 21600227,
+        "residualGas": 98753530,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 494119,
+        "maxTransactionGas": 1041692,
+        "maxTransactionInputBytes": 356,
+        "number": 21600228,
+        "residualGas": 99505881,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 127783,
+        "maxTransactionGas": 200000,
+        "maxTransactionInputBytes": 292,
+        "number": 21600229,
+        "residualGas": 99872217,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 2622298,
+        "maxTransactionGas": 1278206,
+        "maxTransactionInputBytes": 100,
+        "number": 21600230,
+        "residualGas": 97377702,
+        "transactionCount": 5
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 402663,
+        "maxTransactionGas": 855548,
+        "maxTransactionInputBytes": 292,
+        "number": 21600231,
+        "residualGas": 99597337,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1511096,
+        "maxTransactionGas": 874892,
+        "maxTransactionInputBytes": 196,
+        "number": 21600232,
+        "residualGas": 98488904,
+        "transactionCount": 4
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1370101,
+        "maxTransactionGas": 3654554,
+        "maxTransactionInputBytes": 196,
+        "number": 21600233,
+        "residualGas": 98629899,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 996550,
+        "maxTransactionGas": 1809262,
+        "maxTransactionInputBytes": 292,
+        "number": 21600234,
+        "residualGas": 99003450,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1443026,
+        "maxTransactionGas": 3121832,
+        "maxTransactionInputBytes": 196,
+        "number": 21600235,
+        "residualGas": 98556974,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 21000,
+        "maxTransactionGas": 21165,
+        "maxTransactionInputBytes": 0,
+        "number": 21600236,
+        "residualGas": 99979000,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 494119,
+        "maxTransactionGas": 1045982,
+        "maxTransactionInputBytes": 356,
+        "number": 21600237,
+        "residualGas": 99505881,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 587011,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600238,
+        "residualGas": 99412989,
+        "transactionCount": 1
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 1493913,
+        "maxTransactionGas": 1273658,
+        "maxTransactionInputBytes": 100,
+        "number": 21600239,
+        "residualGas": 98506087,
+        "transactionCount": 3
+      },
+      {
+        "baseFeePerGas": 120580500,
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "maxTransactionGas": 1162364,
+        "maxTransactionInputBytes": 100,
+        "number": 21600240,
+        "residualGas": 99458614,
+        "transactionCount": 1
+      }
+    ],
+    "blocksWithAppendCapacityForF13O": 64,
+    "firstBlock": 21600177,
+    "includedTransactionsGasAboveOldCap": 0,
+    "includedTransactionsGasAtLeastEstimate": 0,
+    "includedTransactionsGasAtLeastF13O": 0,
+    "lastBlock": 21600240,
+    "maxIncludedTransactionGasLimit": 3654554,
+    "maxIncludedTransactionInputBytes": 356
+  },
+  "classification": "F13O_STILL_PENDING_HIGH_GAS_INCLUSION_LIMIT_STRONGLY_SUSPECTED",
+  "endpointState": {
+    "BRADBURY": {
+      "baseFeePerGas": 120580500,
+      "blockGasLimit": 100000000,
+      "blockGasUsed": 1443026,
+      "blockNumber": 21600235,
+      "gasPriceWei": 180870750,
+      "latestNonce": 856,
+      "pendingNonce": 856,
+      "receiptVisible": false,
+      "transactionVisible": false
+    },
+    "CHAIN": {
+      "baseFeePerGas": 120580500,
+      "blockGasLimit": 100000000,
+      "blockGasUsed": 541386,
+      "blockNumber": 21600240,
+      "gasPriceWei": 180870750,
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "receiptVisible": false,
+      "transactionVisible": true
+    }
+  },
+  "f13oTransactionHash": "0x36d3e9719e2f8fe2259c371fd5b51a332c993b8503e19b26e7fd079309be0acc",
+  "formatVersion": 1,
+  "knownNonce856Receipts": {
+    "F13M": null,
+    "F13O": null,
+    "ORIGINAL_STALE": null
+  },
+  "pendingNonce856Candidates": [],
+  "stage": "R20-R24A5B1F13P",
+  "writes": {
+    "blockchainWrite": false,
+    "keyAccess": false,
+    "signing": false,
+    "submission": false
+  },
+  "zksEstimateFee": null,
+  "zksFeeParams": null,
+  "zksGasPerPubdata": null,
+  "zksTransactionDetails": {
+    "F13M": null,
+    "F13O": null,
+    "ORIGINAL_STALE": null
+  }
+}

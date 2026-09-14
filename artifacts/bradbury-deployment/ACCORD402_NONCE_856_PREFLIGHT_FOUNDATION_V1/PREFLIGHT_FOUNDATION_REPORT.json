@@ -1,0 +1,145 @@
+{
+  "classification": "NONCE856_PREFLIGHT_FOUNDATION_READY_FOR_EXACT_UNSIGNED_TRANSACTION_DERIVATION",
+  "componentSha256": {
+    "ATTEMPT1_INVENTORY.json": "1889a02819f78422c9f4ede36bc5877c21656d0dba066942fb67ec1577e886e0",
+    "NETWORK_STATE.json": "9610f4425351e25db961010b4262f5d98d4f6e204d2361d1cf72df99d724d1de",
+    "TOOLCHAIN_STATE.json": "e2a27767aeadab812f311539e35cdcbd7134d08163010df27856a41ee083f76f"
+  },
+  "createdAtUtc": "2026-09-12T06:31:31Z",
+  "evidenceId": "accord402-nonce856-preflight-foundation-v1",
+  "nextAction": "DERIVE_AND_CERTIFY_EXACT_UNSIGNED_ACCORD402_NONCE856_DEPLOYMENT_TRANSACTION",
+  "operatorConfirmation": {
+    "authorizesAccord402Deployment": false,
+    "authorizesTransactionSigning": false,
+    "manifestSha256": "34b7616db255d2a2b24f33e6aa7e10dbcc9bcbe07bd6ff05b584bfa6bdb4e761",
+    "nonce855OperatorGateClosed": true
+  },
+  "priorFailedAttempt": {
+    "capturedAtUtc": "2026-09-12T06:31:31Z",
+    "classification": "CANONICAL_ATTEMPT1_ARTIFACTS_INVENTORIED",
+    "fileCount": 5,
+    "files": [
+      {
+        "path": "CANONICAL_SOURCE_FILES_V1.tsv",
+        "sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2",
+        "size": 3962
+      },
+      {
+        "path": "CANONICAL_SOURCE_FREEZE_V1.json",
+        "sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+        "size": 3554
+      },
+      {
+        "path": "STEP_19J_DEPLOYMENT_GUARD_V1.json",
+        "sha256": "a09bbfdb89338df567ab71b834fbecf515d4ce4b2072946da846b6535b12652f",
+        "size": 3171
+      },
+      {
+        "path": "cli-deployment.log",
+        "sha256": "71ff6292329769c177b0ce7977330a7ad26d679952d9a2b0994489fddb1b770f",
+        "size": 19730
+      },
+      {
+        "path": "pre-submission.json",
+        "sha256": "623cda70e594b68b3831b20d0c9364d32ff5aa0a25097a0fc3f9e3a1eceaef9e",
+        "size": 1446
+      }
+    ],
+    "root": "artifacts/bradbury-deployment/CANONICAL_DEPLOYMENT_ATTEMPT_V1",
+    "schema": "accord402.canonical-attempt1-inventory.v1",
+    "signals": {
+      "blockPubdataLimitReached": {
+        "files": [
+          "cli-deployment.log"
+        ],
+        "present": true
+      },
+      "candidateHash": {
+        "files": [
+          "cli-deployment.log"
+        ],
+        "present": true
+      },
+      "fallbackGas200000": {
+        "files": [],
+        "present": false
+      },
+      "intrinsicGasTooLow": {
+        "files": [
+          "cli-deployment.log"
+        ],
+        "present": true
+      }
+    }
+  },
+  "schema": "accord402.nonce856.preflight-foundation.v1",
+  "sourceIdentity": {
+    "certificationSha256": "849f592d517b1c2711a2de8c45a198645a61f539bb6ad6efc6bba59d1113fe41",
+    "contractSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+    "freezeV3Sha256": "0782f7c834a449eb0d3c8ee83dbce6fc9daa1424eaa44cf675a578e8eea85494"
+  },
+  "toolchain": {
+    "capturedAtUtc": "2026-09-12T06:31:31Z",
+    "classification": "LOCAL_DEPLOYMENT_TOOLCHAIN_SNAPSHOTTED",
+    "genlayerCli": {
+      "binarySha256": "024522c98389ca77f7bd8315e0e8ae7454e5536b0b7ff876f99df759f7418387",
+      "path": "/Users/mralbert/.npm-global/bin/genlayer",
+      "resolvedPath": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/dist/index.js",
+      "versionCommand": {
+        "returnCode": 0,
+        "stderr": "",
+        "stdout": "0.39.2"
+      }
+    },
+    "keychainAccessed": false,
+    "node": {
+      "path": "/Users/mralbert/.nvm/versions/node/v24.20.0/bin/node",
+      "versionCommand": {
+        "returnCode": 0,
+        "stderr": "",
+        "stdout": "v24.20.0"
+      }
+    },
+    "npmGlobalRoot": "/Users/mralbert/.npm-global/lib/node_modules",
+    "packages": {
+      "genlayer": {
+        "name": "genlayer",
+        "packageJsonSha256": "679643014e4d70eaed113d11148a34c03ea03a5e8a1ebf7afad8bad8ceb89fdd",
+        "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/package.json",
+        "present": true,
+        "version": "0.39.2"
+      },
+      "genlayer-js": {
+        "name": "genlayer-js",
+        "packageJsonSha256": "bdb0b9a86827b392ad9b584a52158bf7b90ef9e4425e009f1f5c8a8d0e6f3662",
+        "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/node_modules/genlayer-js/package.json",
+        "present": true,
+        "version": "1.1.8"
+      },
+      "viem": {
+        "name": "viem",
+        "packageJsonSha256": "9ea3ad06e25590d834c39266eb7c251f55d09db6c1e54e977b4d9aca462276e1",
+        "path": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/node_modules/viem/package.json",
+        "present": true,
+        "version": "2.55.0"
+      }
+    },
+    "schema": "accord402.preflight-toolchain.v1",
+    "transactionSigningPerformed": false
+  },
+  "transactionDerivation": {
+    "deploymentAuthorized": false,
+    "exactUnsignedNonce856TransactionDerived": false,
+    "rawTransactionCreated": false,
+    "sendAuthorized": false,
+    "signatureCreated": false
+  },
+  "worker": {
+    "address": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "balanceWei": 7530431203937238246,
+    "latestNonce": 856,
+    "pendingNonce": 856,
+    "pendingNonce856TransactionVisible": false,
+    "requiredDeploymentNonce": 856
+  }
+}

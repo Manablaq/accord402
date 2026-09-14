@@ -1,0 +1,101 @@
+{
+  "bradbury_release_policy": {
+    "canonical_receipt_method": "gen_getTransactionReceipt",
+    "canonical_receipt_source": "Bradbury JSON-RPC",
+    "canonical_status_method": "gen_getTransactionStatus",
+    "canonical_success_requires_status": "Finalized",
+    "canonical_success_requires_tx_execution_result": 1,
+    "chain_id": 4221,
+    "cli_estimate_fees_trusted": false,
+    "network": "testnet-bradbury",
+    "rpc": "https://rpc-bradbury.genlayer.com",
+    "submission_client": "genlayer-cli 0.39.2",
+    "submission_client_role": "SUBMISSION_ONLY"
+  },
+  "canonical_source": {
+    "contract": {
+      "bytes": 86757,
+      "path": "contracts/accord402.py",
+      "sha256": "8b18cfafb307ce6076513c1f772b9622252fb4510a5c8b18cad7a05b45cc4ea5"
+    },
+    "file_count": 40,
+    "files_manifest": "artifacts/CANONICAL_SOURCE_FILES_V1.tsv",
+    "files_manifest_sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2",
+    "frontend": {
+      "canonical_manifest_sha256": "b8b8d9481ef59c2c1be214f6226d1bbe4e158eca13459369b815b07ab27adb7b",
+      "generated_next_env_is_source": false,
+      "next_build_output_is_source": false,
+      "package_lock_sha256": "a154933ecd95d7589ff6792c266a53740b6b59018bcaebb20a9b866404d5d79f"
+    }
+  },
+  "claims": {
+    "account_created_or_imported": false,
+    "bradbury_finality_claimed": false,
+    "canonical_deployment_authorized": false,
+    "contract_write_sent": false,
+    "deployment_performed": false,
+    "frontend_contract_address_bound": false,
+    "git_commit_created": false,
+    "private_key_accessed": false,
+    "value_transfer_sent": false
+  },
+  "created_at_utc": "2026-09-11T22:12:24Z",
+  "excluded_from_canonical_source": [
+    ".git/",
+    "artifacts/",
+    "evidence/",
+    "frontend/node_modules/",
+    "frontend/.next/",
+    "frontend/next-env.d.ts",
+    "__pycache__/",
+    ".pytest_cache/",
+    ".venv/",
+    "*.pyc",
+    "*.tsbuildinfo",
+    ".DS_Store"
+  ],
+  "freeze_id": "accord402-v1-source-freeze-20260911T221224Z",
+  "freeze_rule": "Any addition, deletion, rename, or byte change to a canonical source file invalidates this freeze and requires a new reviewed freeze before canonical deployment.",
+  "frontend_release_surface": {
+    "genlayer_js": "1.1.8",
+    "next": "16.3.5",
+    "node": "24.20.0",
+    "npm": "11.19.0",
+    "react": "19.3.0",
+    "react_dom": "19.3.0",
+    "typescript": "5.9.3"
+  },
+  "frozen_toolchain_v1": {
+    "genlayer_cli": "0.39.2",
+    "genlayer_py": {
+      "commit": "a3dc35e04898e3889cbfa855bcaf7d2664675b8f",
+      "version": "0.18.0"
+    },
+    "genlayer_test": {
+      "commit": "9c09578b143905471fb0657dd53bdaf18da8e35f",
+      "version": "0.29.2"
+    },
+    "genvm_bundle_sha256": "bd30580f911338d5533460eca8ed714dec371de5803c04e41dbb96430aea7b6e",
+    "genvm_linter": {
+      "commit": "28450e665666300fc648dbe495110dfd0cb6a7b4",
+      "version": "0.11.1rc2"
+    },
+    "genvm_release": "v0.6.0-rc5",
+    "pip": "26.2.1",
+    "py_genlayer_runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6",
+    "pytest": "9.1.1",
+    "python": "3.12.14"
+  },
+  "schema": "accord402.canonical-source-freeze.v1",
+  "status": "FROZEN_PREDEPLOY",
+  "verified_gates": {
+    "bradbury_live_schema_compatibility": true,
+    "clean_environment_reproducibility_step_18": true,
+    "frontend_build_source_idempotence": true,
+    "frontend_dependency_audit": true,
+    "frontend_production_build": true,
+    "frontend_stable_client_binding": true,
+    "frontend_typecheck": true,
+    "full_regression_tests_passed": 56
+  }
+}

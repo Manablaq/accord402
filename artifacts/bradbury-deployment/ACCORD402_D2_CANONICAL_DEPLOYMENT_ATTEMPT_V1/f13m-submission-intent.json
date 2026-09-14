@@ -1,0 +1,9 @@
+{
+  "blindRetryAuthorized": false,
+  "endpoint": "https://rpc-bradbury.genlayer.com",
+  "method": "eth_sendRawTransaction",
+  "predictedEvmTransactionHash": "0x2a6635dd6ed367e3ecef50cc2a8b2e2754b568728b541a2e526821e40f927adf",
+  "rawTransactionPersisted": false,
+  "rawTransactionSha256": "44ca60f179f2e8ecb4634f23d2ad0d3de051bffa5e1786b1a6d208a192b3a158",
+  "submissionLimit": 1
+}

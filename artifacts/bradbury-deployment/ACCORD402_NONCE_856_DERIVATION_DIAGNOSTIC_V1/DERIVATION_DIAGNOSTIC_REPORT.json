@@ -1,0 +1,32 @@
+{
+  "attempt1AbsolutePathValidated": true,
+  "attempt1ExactRawMatchCount": 0,
+  "attempt1ExactRawRecovered": false,
+  "classification": "DERIVATION_PATH_READY_EXACT_CALLDATA_MUST_BE_REDERIVED_FROM_PINNED_SDK",
+  "cliLiteral200000OccurrenceCount": 2,
+  "cliPathReady": true,
+  "componentSha256": {
+    "attempt": "da8b1a22c9795b8e0a85fcd64976c0c15022570da82280b1bd25a20a5a5d8d83",
+    "cli": "247477a6ce0a911bb8295dbd71e61ce20677692d07fd98e8ececd0cc49b8f6ca",
+    "freeze": "4d5b6c443f1cbced66ecf13803059e4bd2fc425e11da1bdbfc053289bbaa0a4a",
+    "network": "864d177547a18fde166bb3f82ceeb89b757a58b1e23a959c769ecf5f653c6380",
+    "runtime": "e0977530b2f4851f6544cb65580c87f13f920be83114fea44431a716e6076780",
+    "sdk": "89386f2efe8dfc1ecd278f98f94fd9b1b1b2827184e4db548c2b3e11dde3ce0d"
+  },
+  "createdAtUtc": "2026-09-12T06:49:31Z",
+  "deploymentAuthorized": false,
+  "fallback200000Reason": "Literal presence alone is not treated as proof of the deployment fallback. Exact runtime derivation must establish the actual gas value used for nonce 856.",
+  "fallback200000SemanticallyCertified": false,
+  "keychainAccessed": false,
+  "nextAction": "DERIVE_EXACT_UNSIGNED_ACCORD402_NONCE856_TRANSACTION_FROM_PINNED_SDK_WITH_SEND_AND_SIGN_BOUNDARIES_INTERCEPTED",
+  "privateKeyAccessed": false,
+  "rawNonce856TransactionCreated": false,
+  "runtimeDeployPresent": true,
+  "schema": "accord402.nonce856.derivation-diagnostic.v2",
+  "sdkLiteral200000OccurrenceCount": 4,
+  "sdkPathReady": true,
+  "signingPerformed": false,
+  "transactionSent": false,
+  "v3FreezeEmbedsLongHexCalldata": false,
+  "workerStillFreeAtNonce856": true
+}

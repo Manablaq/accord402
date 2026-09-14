@@ -1,0 +1,11 @@
+{
+  "authorizedInvocationCount": 1,
+  "automaticRetryAuthorized": false,
+  "broadcastInvocationPerformed": false,
+  "createdAtUtc": "2026-09-12T15:17:42.774Z",
+  "doNotRebroadcastIfOutcomeIsAmbiguous": true,
+  "rpcMethod": "eth_sendRawTransaction",
+  "schema": "accord402.attempt2.broadcast-intent.v1",
+  "signedTransactionHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "targetRpc": "https://rpc-bradbury.genlayer.com"
+}

@@ -1,0 +1,26 @@
+2026-09-12 05:08:55.558 Df securityd[391:12df] [com.apple.securityd:KCdb] 0x758d4e300(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:08:55.560 A  securityd[391:12df] (Security) SecKeyVerifySignature
+2026-09-12 05:08:55.560 A  securityd[391:12df] (Security) SecTrustEvaluateIfNecessary
+2026-09-12 05:09:45.927 E  kernel[0:1b5be05] (Sandbox) Sandbox: duetexpertd(34194) deny(1) file-read-xattr /Users/mralbert/Downloads/genlayer-docs (1).txt
+2026-09-12 05:09:49.087 A  node[96441:1b5bee0] (libsystem_info.dylib) Retrieve User by ID
+2026-09-12 05:10:04.501 A  node[96481:1b5bffb] (libsystem_info.dylib) Retrieve User by ID
+2026-09-12 05:10:04.912 Df node[96481:1b5bffb] [com.apple.xpc:connection] [0x10bed4640] activating connection: mach=true listener=false peer=false name=com.apple.SystemConfiguration.DNSConfiguration
+2026-09-12 05:10:04.913 Df node[96481:1b5bffb] [com.apple.xpc:connection] [0x10bed4640] invalidated after the last release of the connection object
+2026-09-12 05:10:04.913 Df node[96481:1b5c017] [com.apple.network:] networkd_settings_read_from_file_locked initialized networkd settings by reading plist directly
+2026-09-12 05:10:04.913 Df node[96481:1b5c017] [com.apple.network:] networkd_settings_read_from_file_locked initialized networkd settings by reading plist directly
+2026-09-12 05:10:04.914 Df node[96481:1b5c017] [com.apple.network:path] nw_path_libinfo_path_check [224BC927-AA57-4207-8A60-A4073C66DDC1 Hostname#af7503df:0 tcp, legacy-socket, attribution: developer]
+2026-09-12 05:10:22.887 Df securityd[391:1b581bb] [com.apple.securityd:KCdb] 0x758d4cf00(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:10:22.888 Df securityd[391:1b5c211] [com.apple.securityd:KCdb] 0x758d4e300(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:10:22.888 Df securityd[391:12df] [com.apple.securityd:KCdb] 0x758d4f200(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:10:22.892 A  securityd[391:1b581bb] (Security) SecKeyVerifySignature
+2026-09-12 05:10:22.892 A  securityd[391:1b5c211] (Security) SecKeyVerifySignature
+2026-09-12 05:10:22.892 A  securityd[391:12df] (Security) SecKeyVerifySignature
+2026-09-12 05:10:22.892 A  securityd[391:1b5c211] (Security) SecTrustEvaluateIfNecessary
+2026-09-12 05:10:22.892 A  securityd[391:1b581bb] (Security) SecTrustEvaluateIfNecessary
+2026-09-12 05:10:22.892 A  securityd[391:12df] (Security) SecTrustEvaluateIfNecessary
+2026-09-12 05:10:22.905 Df securityd[391:1b5c211] [com.apple.securityd:KCdb] 0x758d4cf00(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:10:22.905 Df securityd[391:1b5c212] [com.apple.securityd:KCdb] 0x758d4e300(0x758c7c300) is unlocked; decoding for makeUnlocked()
+2026-09-12 05:10:22.910 A  securityd[391:12df] (Security) SecKeyVerifySignature
+2026-09-12 05:10:22.910 A  securityd[391:1b581bb] (Security) SecKeyVerifySignature
+2026-09-12 05:10:22.910 A  securityd[391:1b581bb] (Security) SecTrustEvaluateIfNecessary
+2026-09-12 05:10:22.910 A  securityd[391:12df] (Security) SecTrustEvaluateIfNecessary

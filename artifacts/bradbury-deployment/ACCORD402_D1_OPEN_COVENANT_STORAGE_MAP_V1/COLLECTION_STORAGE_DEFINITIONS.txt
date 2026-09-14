@@ -1,0 +1,22 @@
+   705	class Accord402(gl.Contract):
+   706		covenant_count:u64
+   707		covenants:TreeMap[str,CovenantRecord]
+   708		criteria_by_covenant:TreeMap[str,DynArray[CriterionRecord]]
+   709		authority_bindings_by_covenant:TreeMap[str,DynArray[AuthorityBinding]]
+   710		evidence_records_by_covenant:TreeMap[str,DynArray[EvidenceRecord]]
+   711		active_evidence_ids_by_covenant:TreeMap[str,DynArray[str]]
+   712		repair_authorizations_by_covenant:TreeMap[str,DynArray[RepairAuthorizationRecord]]
+   713		challenged_criterion_ids_by_covenant:TreeMap[str,DynArray[str]]
+   714		failed_criterion_ids_by_covenant:TreeMap[str,DynArray[str]]
+   715		evidence_replay_keys:TreeMap[str,bool]
+   716		provider_stats:TreeMap[Address,ProviderStats]
+   717		buyer_stats:TreeMap[Address,BuyerStats]
+   718		total_funded:u256
+   719		total_closed_to_provider:u256
+   720		total_closed_to_buyer:u256
+   721		total_outstanding:u256
+   722		def __init__(self)->None:
+   723			pass
+   724		def _require_covenant(self,covenant_id:u64)->tuple[str,CovenantRecord]:
+   725			c=covenant_id
+   726			b=bO(c)

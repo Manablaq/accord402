@@ -1,0 +1,21 @@
+{
+  "schema": "accord402.attempt1-transaction-scan.v2",
+  "attemptRoot": "/Users/mralbert/Downloads/accord402/artifacts/bradbury-deployment/CANONICAL_DEPLOYMENT_ATTEMPT_V1",
+  "attemptRootAbsolute": true,
+  "expectedTransactionHash": "0x4df3d10897bc02b680942b0da91980638d880ef291d6964f8e524d4102dafe73",
+  "fileCount": 5,
+  "uniqueLongHexCandidateCount": 1,
+  "exactRawTransactionMatchCount": 0,
+  "exactRawTransactionMatches": [],
+  "largestCandidateMetadata": [
+    {
+      "file": "cli-deployment.log",
+      "byteLength": 32,
+      "sha256": "b11f1dd71302226457afce69058f88081ed00a0d5c9324fe64f8e3f178ebee05",
+      "keccak256": "0x73a80960cbbdb1bc3b30ab2aaeae059da49b3a78a1100e2b5ab4e94b1e1c9cd5",
+      "prefix": "0x4df3d10897bc02b6",
+      "suffix": "8e524d4102dafe73"
+    }
+  ],
+  "classification": "EXACT_ATTEMPT1_RAW_TRANSACTION_NOT_RECOVERED"
+}

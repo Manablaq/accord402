@@ -1,0 +1,49 @@
+{
+  "allPreSignFreshnessGatesPassed": true,
+  "balanceGatePassed": true,
+  "broadcastPerformed": false,
+  "classification": "AUTHORIZED_ATTEMPT2_PRE_SIGN_GATE_PASS",
+  "createdAtUtc": "2026-09-12T15:17:40.550Z",
+  "frozenTransaction": {
+    "chainId": 4221,
+    "gas": 80825672,
+    "gasPriceWei": 187500000,
+    "nonce": 856,
+    "signingHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  },
+  "gasPriceGatePassed": true,
+  "keychainAccessed": false,
+  "nonceGatePassed": true,
+  "pinnedSimulationBlock": {
+    "gasLimit": 100000000,
+    "hash": "0xfcf734a67b5a64a78fca0695ac576647278c633a6b8b5eb0d997c9474e556c92",
+    "number": 21525590
+  },
+  "schema": "accord402.attempt2.pre-sign-gate.v1",
+  "signatureCreated": false,
+  "simulation": {
+    "certifiedGasCoversRequirement": true,
+    "estimateBothEndpointsEqual": true,
+    "estimateBothEndpointsSucceeded": true,
+    "estimateGas": 40311328,
+    "ethCallBothEndpointsSucceeded": true,
+    "ethCallResultsEqual": true
+  },
+  "worker": {
+    "address": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "chain": {
+      "balanceWei": 7530431203937238246,
+      "gasPriceWei": 180462000,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    },
+    "genlayer": {
+      "balanceWei": 7530431203937238246,
+      "gasPriceWei": 180462000,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    }
+  }
+}

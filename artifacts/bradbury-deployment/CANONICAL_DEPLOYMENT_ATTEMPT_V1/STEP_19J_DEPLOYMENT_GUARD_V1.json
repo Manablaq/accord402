@@ -1,0 +1,75 @@
+{
+  "canonical_source": {
+    "contract_path": "contracts/accord402.py",
+    "contract_sha256": "8b18cfafb307ce6076513c1f772b9622252fb4510a5c8b18cad7a05b45cc4ea5",
+    "freeze_record_sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+    "source_manifest_sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2"
+  },
+  "canonical_success": {
+    "deployed_source_parity_required": true,
+    "status": "Finalized",
+    "tx_execution_result": 1
+  },
+  "claims": {
+    "account_created": false,
+    "account_imported": false,
+    "account_unlocked": false,
+    "canonical_deployment_authorized": false,
+    "deployment_sent": false,
+    "private_key_decrypted": false,
+    "transaction_signed": false
+  },
+  "created_at_utc": "2026-09-11T22:41:45Z",
+  "deployer": {
+    "account_name": "worker",
+    "address": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "balance_gen": "7.530641203937238246",
+    "balance_wei": "7530641203937238246",
+    "encrypted_keystore_sha256": "b7ceef1d40690da3485c2206dac33c36d70ae51121265ed30d66f130308ff043",
+    "nonce_latest": 855,
+    "nonce_pending": 855,
+    "private_key_decrypted": false,
+    "selection_mode": "ACTIVE_ACCOUNT"
+  },
+  "mandatory_execution_guards": [
+    "Reverify canonical frozen source hashes immediately before submission.",
+    "Reverify the effective CLI account name and public address immediately before submission.",
+    "Reverify latest nonce equals pending nonce immediately before submission.",
+    "Reverify the account has nonzero GEN before submission.",
+    "Persist an attempt-state record before invoking the CLI.",
+    "Invoke the canonical deploy command at most once.",
+    "Tee CLI output to durable evidence while the command is running.",
+    "Persist the returned transaction ID immediately when first emitted.",
+    "If no transaction ID is captured, do not retry until nonce and chain state are independently reconciled.",
+    "Never treat CLI success text or Accepted consensus as canonical deployment success.",
+    "Observe the persisted transaction ID through gen_getTransactionStatus and gen_getTransactionReceipt.",
+    "Require Finalized plus txExecutionResult=1.",
+    "After successful finality, fetch deployed source and prove byte parity with the frozen contract."
+  ],
+  "network": {
+    "alias": "testnet-bradbury",
+    "chain_id": 4221,
+    "main_contract": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "rpc": "https://rpc-bradbury.genlayer.com",
+    "submission_interface": "V6_SIX_ARGUMENT_PRE_FEE_DISTRIBUTION"
+  },
+  "preflight": {
+    "eoa": true,
+    "no_pending_transactions": true,
+    "nonzero_gen": true,
+    "ready": true
+  },
+  "schema": "accord402.canonical-deployment-guard.v1",
+  "status": "PREDEPLOY_GUARDS_READY",
+  "submission": {
+    "attempt_limit": 1,
+    "authorized": false,
+    "blind_resubmission_allowed": false,
+    "client": "genlayer-cli 0.39.2",
+    "command_template": "genlayer deploy --contract contracts/accord402.py --rpc https://rpc-bradbury.genlayer.com",
+    "constructor_args": [],
+    "fee_distribution": null,
+    "raw_fee_guessing_allowed": false,
+    "role": "SUBMISSION_ONLY"
+  }
+}

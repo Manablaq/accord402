@@ -1,0 +1,19 @@
+{
+  "capturedAtUtc": "2026-09-12T06:03:24Z",
+  "existingProjectTreeManifestSha256": "cc16014ca80c53f7de03105ddc64a248157044cc1385e458e783c8277759e697",
+  "frozenFiles": {
+    "artifacts/CANONICAL_SOURCE_FREEZE_V3.json": "0782f7c834a449eb0d3c8ee83dbce6fc9daa1424eaa44cf675a578e8eea85494",
+    "artifacts/CANONICAL_V2_CERTIFICATION_V1.json": "849f592d517b1c2711a2de8c45a198645a61f539bb6ad6efc6bba59d1113fe41",
+    "contracts/accord402.py": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "headCommit": null,
+  "identityBinding": "FROZEN_SHA256_IDENTITIES_PLUS_UNBORN_REPOSITORY_STATE",
+  "indexPresent": false,
+  "looseObjectCount": 0,
+  "originConfigured": false,
+  "packCount": 0,
+  "refCount": 0,
+  "repositoryState": "UNBORN_EMPTY_LOCAL_REPOSITORY",
+  "schema": "accord402.source-identity.v1",
+  "symbolicHead": "refs/heads/main"
+}

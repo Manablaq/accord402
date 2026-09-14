@@ -1,0 +1,30 @@
+{
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "changedFiles": [
+    {
+      "file": "direct/test_accord402_direct_mode.py",
+      "replacementCount": 1
+    },
+    {
+      "file": "security/test_accord402_adversarial.py",
+      "replacementCount": 1
+    },
+    {
+      "file": "test_accord402_hash_vectors.py",
+      "replacementCount": 1
+    }
+  ],
+  "changedTestFileCount": 3,
+  "createdAtUtc": "2026-09-12T23:30:34Z",
+  "d2CandidateSha256": "e8f04207b0fd6c74e3f259812ca01d0f45caae8e6cf1e74706bf907016b51dd9",
+  "realRepositoryTestsModified": false,
+  "replacementCount": 3,
+  "schema": "accord402.d2-temporary-test-sha-rebind.v1",
+  "temporaryCandidateHarnessOnly": true,
+  "verification": {
+    "baselineAndCandidateTestsIdenticalBeforeRebind": true,
+    "onlyExpectedContractSha256AssignmentsRebound": true,
+    "reverseSubstitutionRestoresBaselineExactly": true,
+    "untouchedTestsRemainByteIdentical": true
+  }
+}

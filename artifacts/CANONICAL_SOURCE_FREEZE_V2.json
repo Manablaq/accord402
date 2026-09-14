@@ -1,0 +1,66 @@
+{
+  "active_frontend_contract_identity": {
+    "binding": "CONTRACT_SHA",
+    "classification": "ACTIVE_CANONICAL_SOURCE_PROVENANCE",
+    "file_sha256": "4925f8f024e86629757b58afc919a81b07632041a8571d02ea42b7654df0710c",
+    "path": "frontend/app/page.tsx",
+    "sha256_value": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "canonical_contract": {
+    "bytes": 50674,
+    "path": "contracts/accord402.py",
+    "sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "canonical_deployment_success": false,
+  "canonical_source_manifest": {
+    "file_count": 40,
+    "path": "artifacts/CANONICAL_SOURCE_FILES_V2.tsv",
+    "sha256": "980451c91690c23665893d507f8ecf94b4c123bebe8db7d7623fd69f70c54dbd"
+  },
+  "certification_provenance": {
+    "annotations_preserved": true,
+    "ast_exact_to_candidate_f": true,
+    "candidate": "H",
+    "candidate_h_meta_sha256": "bf526c88645b9605afb85db2c9b238518678b007055b1eadb68a7d00b3de33ad",
+    "r16_admission_stability": true,
+    "r16_samples_sha256": "9a84ded09e82e4d105c4cde0f8266908c48d5f7c8f8a0a25d3e7015eac6f005d",
+    "r16_summary_sha256": "17836af101a50f2dff1fd7131ea55fff0a98b898cc90e65d1b56d9d937485b07",
+    "r17_certification_sha256": "86dafd71bb4307867b6436addc0ab3df3ba5303e9e496332537ab3f0534d485f",
+    "r17_full_frozen_temp_certification": true,
+    "r18_r1_frontend_classification_sha256": "20a5cdcadac922354dd3124ddfcc0eea28d7a86012a231b516112426541c9348"
+  },
+  "created_at_utc": "2026-09-12T01:35:55Z",
+  "deployment_envelope": {
+    "bytes_below_observed_largest_ok": 2368,
+    "bytes_below_one_kib_margin_target": 1344,
+    "outer_calldata_bytes": 50916,
+    "outer_calldata_sha256": "9b6bb89ddd310575482e0f7577ba2adae241231dd6fcb20c5c3baf18d6e71f1f"
+  },
+  "freeze_id": "accord402-v1-source-freeze-v2-20260912T013555Z",
+  "network_target": "Bradbury",
+  "pre_sign_nonce_reconciliation_required": true,
+  "promotion_scope": {
+    "paths": [
+      "contracts/accord402.py",
+      "frontend/app/page.tsx",
+      "tests/test_accord402_hash_vectors.py",
+      "tests/direct/test_accord402_direct_mode.py",
+      "tests/security/test_accord402_adversarial.py"
+    ],
+    "reference_replacements": 4,
+    "source_paths_changed": 5
+  },
+  "repository_locks": {
+    "frontend_package_lock_sha256": "a154933ecd95d7589ff6792c266a53740b6b59018bcaebb20a9b866404d5d79f",
+    "requirements_dev_sha256": "9e287221b592dd0bce0992ff3c3a58bc38432f7cab284c8341a67c1f7e689efa",
+    "requirements_lock_sha256": "99e923899428aa788a05c1dd0241aea3cc7bd4792fcf53a62b6867c31d48855a"
+  },
+  "second_deployment_authorized": false,
+  "status": "FROZEN_PREDEPLOY",
+  "supersedes": {
+    "contract_sha256": "8b18cfafb307ce6076513c1f772b9622252fb4510a5c8b18cad7a05b45cc4ea5",
+    "freeze_artifact": "artifacts/CANONICAL_SOURCE_FREEZE_V1.json",
+    "freeze_sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+    "manifest_sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2"
+  }
+}

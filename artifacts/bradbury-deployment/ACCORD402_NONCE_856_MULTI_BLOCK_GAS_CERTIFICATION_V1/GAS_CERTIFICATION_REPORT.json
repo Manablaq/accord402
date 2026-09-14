@@ -1,0 +1,51 @@
+{
+  "acceptedDistinctStableBlockCount": 0,
+  "blockGasLimit": {
+    "allObservedBlocksCoverCapturedGas": true,
+    "failureCount": 0,
+    "failures": []
+  },
+  "capturedTransaction": {
+    "calldataByteLength": 50916,
+    "calldataSha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+    "chainId": 4221,
+    "gas": 40390666,
+    "gasPriceWei": 166094850,
+    "maximumCostWeiAtCaptureGasPrice": 6708681610670100,
+    "nonce": 856,
+    "signingHashAtCaptureTime": "0x7f3e79292d94fcb7129c7946ae69effd8c7622d4e03e4f229cec0aff5f9c3a5d",
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  },
+  "classification": "INSUFFICIENT_DISTINCT_STABLE_BLOCK_SAMPLES",
+  "createdAtUtc": "2026-09-12T07:43:29Z",
+  "deploymentAuthorized": false,
+  "discardedAttemptCount": 240,
+  "estimateObservationTarget": 12,
+  "failedEstimateObservationCount": 0,
+  "failedEstimates": [],
+  "gasLimitCertified": false,
+  "gasPriceCertifiedForFinalSigning": false,
+  "nextAction": "DIAGNOSE_MULTI_BLOCK_GAS_CERTIFICATION_RESULT",
+  "observedEstimateGas": {
+    "allSuccessful": false,
+    "capturedGasAtOrAboveMaximum": false,
+    "maximum": null,
+    "minimum": null
+  },
+  "observedGasPriceWei": {
+    "capturedGasPriceWei": 166094850,
+    "maximum": null,
+    "minimum": null,
+    "note": "Gas price is time-sensitive and is not frozen by this gas-limit certification. Final unsigned transaction must recapture a fresh gas price."
+  },
+  "sampleTarget": 6,
+  "schema": "accord402.nonce856.multi-block-gas-certification.v1",
+  "successfulEstimateObservationCount": 0,
+  "transactionSigningAuthorized": false,
+  "workerSafety": {
+    "balanceSufficientInEveryAcceptedSample": true,
+    "maximumTransactionCostWei": 6708681610670100,
+    "requiredNonce": 856
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "accordCurrentEstimate": 38531710,
+  "classification": "TX_GAS_CAP_RPC_UNSUPPORTED_REQUIRE_CURRENT_CLIENT_CONFIG_PROOF",
+  "effectiveCap": null,
+  "endpoints": {
+    "BRADBURY": {
+      "cap": null,
+      "raw": {
+        "error": {
+          "code": -32601,
+          "message": "Method not found"
+        },
+        "id": 4,
+        "jsonrpc": "2.0",
+        "result": null
+      },
+      "supported": false
+    },
+    "CHAIN": {
+      "cap": null,
+      "raw": {
+        "error": {
+          "code": -32601,
+          "message": "Method not found"
+        },
+        "id": 8,
+        "jsonrpc": "2.0"
+      },
+      "supported": false
+    }
+  },
+  "f13rRejectedGasLimit": 39405047,
+  "referenceEip7825Cap": 16777216,
+  "stage": "F13T",
+  "writes": {
+    "blockchainWrite": false,
+    "keyAccess": false,
+    "signing": false,
+    "submission": false
+  }
+}

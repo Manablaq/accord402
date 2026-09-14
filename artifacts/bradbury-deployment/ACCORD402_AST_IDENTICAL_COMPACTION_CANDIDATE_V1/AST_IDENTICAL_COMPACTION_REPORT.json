@@ -1,0 +1,65 @@
+{
+  "authorizationState": {
+    "broadcastAuthorized": false,
+    "canonicalSourceModificationAuthorized": false,
+    "signingAuthorized": false
+  },
+  "canonical": {
+    "bytes": 50674,
+    "path": "contracts/accord402.py",
+    "publicAbiMethodCount": 25,
+    "sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "compileSucceeded": true,
+  "createdAtUtc": "2026-09-12T19:49:56Z",
+  "exactAstEquivalent": true,
+  "exactPublicAbiEquivalent": true,
+  "heuristicContext": {
+    "candidateBytesAboveHeuristicTarget": 29543,
+    "heuristicIsDeployabilityCertificate": false,
+    "previousLinearPressureTargetBytes": 21048
+  },
+  "interpretation": "This candidate changes source representation only. It performs no identifier renaming, no function deletion, no control-flow rewrite, no constant change, no ABI change, and no AST change. A smaller candidate is not considered Bradbury-deployable until its exact deployment payload is separately encoded and simulated.",
+  "runtimeContext": {
+    "candidateBradburyGasMeasured": false,
+    "candidateDeployabilityCertified": false,
+    "empiricalBradburyIndividualTxGasCap": 16777216
+  },
+  "savedBytes": 83,
+  "savedPercent": 0.16379208272486878,
+  "schema": "accord402.ast-identical-compaction-candidate.v1",
+  "selectedCandidateBytes": 50591,
+  "selectedCandidateSha256": "716c58d14ec2f3b94fa57c49d2e7cbc5919fe51edd73ad3b9f125a429376c45e",
+  "selectedVariant": "COMMENT_STRIPPED_ORIGINAL",
+  "sourceIntrospectionHazards": [],
+  "usefulAstIdenticalCompactionFound": true,
+  "variants": [
+    {
+      "abiEquivalent": true,
+      "astEquivalent": true,
+      "bytes": 50591,
+      "compileSucceeded": true,
+      "name": "COMMENT_STRIPPED_ORIGINAL",
+      "savedBytes": 83,
+      "sha256": "716c58d14ec2f3b94fa57c49d2e7cbc5919fe51edd73ad3b9f125a429376c45e"
+    },
+    {
+      "abiEquivalent": true,
+      "astEquivalent": true,
+      "bytes": 62773,
+      "compileSucceeded": true,
+      "name": "AST_UNPARSE",
+      "savedBytes": -12099,
+      "sha256": "cb4b5d95f477eb3531c332864aa6f1faa998b767193c1b1de83b5e8e1d5e7ba0"
+    },
+    {
+      "abiEquivalent": true,
+      "astEquivalent": true,
+      "bytes": 55874,
+      "compileSucceeded": true,
+      "name": "TOKEN_ROUNDTRIP",
+      "savedBytes": -5200,
+      "sha256": "bfe5e4aee8fbe11e1eac5579a632e0e3cd35dde44e6073b44fd60fbf4d8d006d"
+    }
+  ]
+}

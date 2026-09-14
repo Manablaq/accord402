@@ -1,0 +1,14 @@
+{
+  "classification": "ABSOLUTE_PINNED_GENLAYER_TOOLCHAIN_REBOUND",
+  "cliBinary": "/Users/mralbert/.npm-global/bin/genlayer",
+  "cliBinaryRealpath": "/Users/mralbert/.npm-global/lib/node_modules/genlayer/dist/index.js",
+  "cliRoot": "/Users/mralbert/.npm-global/lib/node_modules/genlayer",
+  "cliVersion": "0.39.2",
+  "genlayerJsBundleSha256": "577032b22e6077b671a7d27ba8d6dac58eb90ed5892f2a05b11eefc6eef29dd2",
+  "genlayerJsVersion": "1.1.8",
+  "identityVerified": true,
+  "npmRootGlobalUsed": false,
+  "rootResolutionMethod": "ABSOLUTE_CERTIFIED_PATH",
+  "schema": "accord402.pinned-toolchain-binding.v1",
+  "viemVersion": "2.55.0"
+}

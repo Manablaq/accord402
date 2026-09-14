@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "stage": "R20-R24A5B1F10R3",
+  "mode": "OFFLINE_PINNED_GENLAYERJS_LOCALHOST_ENDPOINT_CAPTURE",
+  "capturedAtUnixMs": 1789273807514,
+  "capturedAtUtc": "2026-09-13T04:30:07.514Z",
+  "derivedValidUntilUnix": 1789277407,
+  "localRpcUrl": "http://127.0.0.1:63825",
+  "localRpcFetchCount": 8,
+  "forbiddenExternalFetchAttemptCount": 0,
+  "referenceSenderAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "chain": {
+    "name": "Genlayer Bradbury Testnet",
+    "id": 4221,
+    "idHex": "0x107d"
+  },
+  "sdk": {
+    "package": "genlayer-js",
+    "version": "1.1.8",
+    "transportOverride": "endpoint"
+  },
+  "historicalAdmissionReference": {
+    "canonicalHOuterBytes": 50916,
+    "observedLargestEstimatableOuterBytes": 53284,
+    "observedSmallestBlockedOuterBytes": 53316,
+    "oneKiBMarginTargetOuterBytes": 52260
+  },
+  "eip7623": {
+    "txBaseCost": 21000,
+    "zeroByteTokens": 1,
+    "nonzeroByteTokens": 4,
+    "floorGasPerToken": 10,
+    "historicalCandidateDVector": {
+      "zeroBytes": 197,
+      "nonzeroBytes": 66623,
+      "computedFloor": 2687890,
+      "expectedFloor": 2687890,
+      "pass": true
+    }
+  },
+  "canonical": {
+    "label": "canonical-h",
+    "sourceBytes": 50674,
+    "senderAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "to": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "localRpcMethodTrace": [
+      "eth_getTransactionCount",
+      "eth_estimateGas",
+      "eth_gasPrice",
+      "eth_sendTransaction"
+    ],
+    "localhostRpcOnly": true,
+    "externalNetworkFetchAttemptCount": 0,
+    "realBradburyRpcCalled": false,
+    "realGasEstimatePerformed": false,
+    "realEthSendTransactionSent": false,
+    "outerCalldataBytes": 50916,
+    "zeroBytes": 202,
+    "nonzeroBytes": 50714,
+    "calldataTokens": 203058,
+    "standardIntrinsicGas": 833232,
+    "eip7623GasFloor": 2051580,
+    "effectiveIntrinsicFloor": 2051580,
+    "outerCalldataSha256": "e61e2d8022f33814fe851c40e7ef21654808442399d5438880c78fb71e3e7efa"
+  },
+  "d2": {
+    "label": "d2-f4-f8",
+    "sourceBytes": 47998,
+    "senderAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+    "to": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+    "localRpcMethodTrace": [
+      "eth_getTransactionCount",
+      "eth_estimateGas",
+      "eth_gasPrice",
+      "eth_sendTransaction"
+    ],
+    "localhostRpcOnly": true,
+    "externalNetworkFetchAttemptCount": 0,
+    "realBradburyRpcCalled": false,
+    "realGasEstimatePerformed": false,
+    "realEthSendTransactionSent": false,
+    "outerCalldataBytes": 48260,
+    "zeroBytes": 222,
+    "nonzeroBytes": 48038,
+    "calldataTokens": 192374,
+    "standardIntrinsicGas": 790496,
+    "eip7623GasFloor": 1944740,
+    "effectiveIntrinsicFloor": 1944740,
+    "outerCalldataSha256": "81f4bb0ef0763ce2129c825ab55d4c595021e9513fb767601416b9a1de0680b9"
+  },
+  "comparison": {
+    "sourceByteSavings": 2676,
+    "outerCalldataByteSavings": 2656,
+    "d2BytesBelowObservedLargestEstimatableOuter": 5024,
+    "d2BytesBelowObservedSmallestBlockedOuter": 5056,
+    "d2BytesBelowOneKiBMarginTarget": 4000,
+    "d2BelowObservedLargestEstimatableOuter": true,
+    "d2BelowObservedSmallestBlockedOuter": true,
+    "d2MeetsOneKiBMarginTarget": true
+  },
+  "safety": {
+    "localhostOnlyEndpoint": true,
+    "externalNetworkFetchAttemptCount": 0,
+    "bradburyRpcCalled": false,
+    "realGasEstimatePerformed": false,
+    "realSendPerformed": false,
+    "privateKeyAccessed": false,
+    "keychainAccessed": false,
+    "transactionSigned": false
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "active_frontend_contract_sha_updated": true,
+  "blockchain_write_sent": false,
+  "canonical_deployment_success": false,
+  "changed_source_paths": [
+    "contracts/accord402.py",
+    "frontend/app/page.tsx",
+    "tests/test_accord402_hash_vectors.py",
+    "tests/direct/test_accord402_direct_mode.py",
+    "tests/security/test_accord402_adversarial.py"
+  ],
+  "created_at_utc": "2026-09-12T01:35:55Z",
+  "deployment_authorized": false,
+  "new_contract_sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "new_freeze_sha256": "64d7de80de9879cd162bf6cb7fa21b7a7039e506dee8a59395daf6e3b3dfb11d",
+  "new_manifest_sha256": "980451c91690c23665893d507f8ecf94b4c123bebe8db7d7623fd69f70c54dbd",
+  "new_v2_freeze_status": "FROZEN_PREDEPLOY",
+  "old_contract_sha256": "8b18cfafb307ce6076513c1f772b9622252fb4510a5c8b18cad7a05b45cc4ea5",
+  "old_freeze_sha256": "f823326ea20d50265ad71b04e50a5572917252a575771acab36372f79a7ecba8",
+  "old_manifest_sha256": "b1511128e790282fff611fad8427ab63991476e7d4e37731ca65b966efcffcb2",
+  "old_v1_evidence_preserved": true,
+  "promotion": "Certified Candidate H -> canonical Accord402",
+  "r17_certification_sha256": "86dafd71bb4307867b6436addc0ab3df3ba5303e9e496332537ab3f0534d485f",
+  "r18_r1_frontend_classification_sha256": "20a5cdcadac922354dd3124ddfcc0eea28d7a86012a231b516112426541c9348",
+  "source_snapshot_after_sha256": "535dc85ef345d7b77e06953ba3709bb7c5f189bf420e1b29844f699886930471",
+  "source_snapshot_before_sha256": "ecedacd129f75688db91ce20a7e5481ecd92cfa423665c507d2352e9912ab783"
+}

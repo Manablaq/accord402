@@ -1,0 +1,73 @@
+{
+  "schema": "accord402.nonce856.sdk-rpc-trace.v3",
+  "methodCounts": {
+    "eth_getTransactionCount": 1,
+    "eth_estimateGas": 1,
+    "eth_gasPrice": 1
+  },
+  "writeRpcAttemptCount": 0,
+  "trace": [
+    {
+      "method": "eth_getTransactionCount",
+      "blocked": false,
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1789196924334,
+        "method": "eth_getTransactionCount",
+        "params": [
+          "0x1f87ae197af539253978d435ad45ccf28fb95024",
+          "pending"
+        ]
+      },
+      "response": {
+        "jsonrpc": "2.0",
+        "result": "0x358",
+        "id": 1789196924334
+      }
+    },
+    {
+      "method": "eth_estimateGas",
+      "blocked": false,
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1789196924959,
+        "method": "eth_estimateGas",
+        "params": [
+          {
+            "from": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+            "to": "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D",
+            "data": {
+              "redactedHex": true,
+              "byteLength": 50916,
+              "sha256": "b06ce90919968d8a4758b6cab8ac9b8bb4555d77cc110686acceff33bc20d0ec",
+              "prefix": "0xe71d519600000000",
+              "suffix": "0600000000000000"
+            },
+            "value": "0x0"
+          }
+        ]
+      },
+      "response": {
+        "jsonrpc": "2.0",
+        "result": "0x268500a",
+        "id": 1789196924959
+      }
+    },
+    {
+      "method": "eth_gasPrice",
+      "blocked": false,
+      "request": {
+        "jsonrpc": "2.0",
+        "id": 1789196926190,
+        "method": "eth_gasPrice",
+        "params": []
+      },
+      "response": {
+        "jsonrpc": "2.0",
+        "result": "0x9e66802",
+        "id": 1789196926190
+      }
+    }
+  ],
+  "classification": "FAKE_SIGN_BOUNDARY_REACHED_BEFORE_ANY_WRITE_RPC"
+}

@@ -1,0 +1,86 @@
+{
+  "classification": "SUCCESSFUL_ZERO_VALUE_SELF_TRANSFER_CONSUMED_NONCE855",
+  "consumer": {
+    "blockNumber": 21491855,
+    "blockTimestampUtc": "2026-09-12T04:10:06Z",
+    "rawTransaction": "0x02f87082107d8203578502540be4008502540be400825208941f87ae197af539253978d435ad45ccf28fb950248080c001a0a5bbe452eda43247985a423517bf365b5b5695cd18272b6ca829d385fa792fdea07951029484f5e1f745e985dd5cfebd737a101dd1fe560f50e8ab68af19acea94",
+    "receipt": {
+      "blockHash": "0x07f86cb2fdbf746d98fe53b41aa51bfd5ccf08d9a835545510d4ec7240556db5",
+      "blockNumber": "0x147f08f",
+      "contractAddress": null,
+      "cumulativeGasUsed": "0x5208",
+      "effectiveGasPrice": "0x2540be400",
+      "from": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+      "gasUsed": "0x5208",
+      "l2ToL1Logs": [],
+      "logs": [],
+      "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "status": "0x1",
+      "to": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+      "transactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+      "transactionIndex": "0x0",
+      "type": "0x2"
+    },
+    "transaction": {
+      "accessList": [],
+      "blockHash": "0x07f86cb2fdbf746d98fe53b41aa51bfd5ccf08d9a835545510d4ec7240556db5",
+      "blockNumber": "0x147f08f",
+      "blockTimestamp": "0x6aa4d09e",
+      "chainId": "0x107d",
+      "from": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+      "gas": "0x5208",
+      "gasPrice": "0x2540be400",
+      "hash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+      "input": "0x",
+      "maxFeePerGas": "0x2540be400",
+      "maxPriorityFeePerGas": "0x2540be400",
+      "nonce": "0x357",
+      "r": "0xa5bbe452eda43247985a423517bf365b5b5695cd18272b6ca829d385fa792fde",
+      "s": "0x7951029484f5e1f745e985dd5cfebd737a101dd1fe560f50e8ab68af19acea94",
+      "to": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+      "transactionIndex": "0x0",
+      "type": "0x2",
+      "v": "0x1",
+      "value": "0x0",
+      "yParity": "0x1"
+    },
+    "transactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee"
+  },
+  "economics": {
+    "effectiveGasPrice": 10000000000,
+    "feeWei": 210000000000000,
+    "gasUsed": 21000,
+    "valueWei": 0
+  },
+  "finality": {
+    "consumerBlockAtOrBeforeFinalized": true,
+    "finalizedBlockNumber": 21496690,
+    "finalizedTagAvailable": true
+  },
+  "historicalState": {
+    "balanceAfterWei": 7530431203937238246,
+    "balanceBeforeWei": 7530641203937238246,
+    "balanceDeltaWei": 210000000000000,
+    "blockBefore": 21491854,
+    "nonceAfter": 856,
+    "nonceBefore": 855
+  },
+  "identityChecks": {
+    "blockNumber": true,
+    "from": true,
+    "gas": true,
+    "gasPrice": true,
+    "hash": true,
+    "input": true,
+    "nonce": true,
+    "to": true,
+    "value": true
+  },
+  "network": {
+    "chainId": 4221,
+    "chainRpc": "https://rpc.testnet-chain.genlayer.com",
+    "genlayerRpc": "https://rpc-bradbury.genlayer.com",
+    "name": "Bradbury Testnet"
+  },
+  "schema": "accord402.nonce855.chain-evidence.v1"
+}

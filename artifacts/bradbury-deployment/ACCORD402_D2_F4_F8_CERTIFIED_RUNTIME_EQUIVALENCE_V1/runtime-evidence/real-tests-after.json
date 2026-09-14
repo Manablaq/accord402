@@ -1,0 +1,17 @@
+[
+  {
+    "bytes": 33846,
+    "path": "direct/test_accord402_direct_mode.py",
+    "sha256": "fd17b167852857af341b2ebc53b3b1819a8b0b2e7b6c9e2b3a54c97192c79c66"
+  },
+  {
+    "bytes": 43623,
+    "path": "security/test_accord402_adversarial.py",
+    "sha256": "9d3e2b169c39c67bcb15c0f8be13952f0af80b34c7b57aa1103bf727fff690b5"
+  },
+  {
+    "bytes": 15861,
+    "path": "test_accord402_hash_vectors.py",
+    "sha256": "1e6f247ada527b15092458ec665cef68a771999675083d307b0249acc26fcfc7"
+  }
+]

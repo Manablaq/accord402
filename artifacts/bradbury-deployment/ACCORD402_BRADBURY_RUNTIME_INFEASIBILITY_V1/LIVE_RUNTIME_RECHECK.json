@@ -1,0 +1,89 @@
+{
+  "createdAtUtc": "2026-09-12T19:25:43Z",
+  "empiricalTxGasCap": 16777216,
+  "endpoints": {
+    "CHAIN": {
+      "cappedEstimate": {
+        "error": {
+          "code": 3,
+          "message": "execution reverted"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "cappedEthCall": {
+        "error": {
+          "code": 3,
+          "message": "execution reverted"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "cappedEthSimulateV1": {
+        "error": {
+          "code": -32000,
+          "data": "0x",
+          "message": "execution reverted"
+        },
+        "executionSucceeded": false,
+        "gasUsed": "0xee1f29",
+        "maxUsedGas": "0xee1f29",
+        "rpcSuccess": true,
+        "shapeValid": true,
+        "status": "0x0"
+      },
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "receipt": null,
+      "receiptVisible": false,
+      "transactionVisible": false,
+      "uncappedEstimate": {
+        "result": "0x268500a",
+        "success": true
+      }
+    },
+    "GL": {
+      "cappedEstimate": {
+        "error": {
+          "code": 3,
+          "message": "execution reverted"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "cappedEthCall": {
+        "error": {
+          "code": 3,
+          "message": "execution reverted"
+        },
+        "kind": "rpc",
+        "success": false
+      },
+      "cappedEthSimulateV1": {
+        "error": {
+          "code": -32000,
+          "data": "0x",
+          "message": "execution reverted"
+        },
+        "executionSucceeded": false,
+        "gasUsed": "0xee1f29",
+        "maxUsedGas": "0xee1f29",
+        "rpcSuccess": true,
+        "shapeValid": true,
+        "status": "0x0"
+      },
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "receipt": null,
+      "receiptVisible": false,
+      "transactionVisible": false,
+      "uncappedEstimate": {
+        "result": "0x268500a",
+        "success": true
+      }
+    }
+  },
+  "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "outerTransactionStateClassification": "NO_OUTER_RECEIPT_AT_RUNTIME_INFEASIBILITY_CERTIFICATION",
+  "schema": "accord402.bradbury-runtime-live-recheck.v1"
+}

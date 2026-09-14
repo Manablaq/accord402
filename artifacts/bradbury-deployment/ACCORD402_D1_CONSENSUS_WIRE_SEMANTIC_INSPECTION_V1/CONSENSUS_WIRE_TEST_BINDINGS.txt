@@ -1,0 +1,2 @@
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:879:    wire = raw._execute_review_consensus(key, cov, review_at, 1)
+/Users/mralbert/Downloads/accord402/tests/security/test_accord402_adversarial.py:899:            raw._validate_consensus_wire(

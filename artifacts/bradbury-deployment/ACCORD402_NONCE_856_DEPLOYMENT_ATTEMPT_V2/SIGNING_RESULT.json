@@ -1,0 +1,17 @@
+{
+  "schema": "accord402.attempt2.signing-result.v1",
+  "createdAtUtc": "2026-09-12T15:17:40.810Z",
+  "authorizedSigningHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+  "actualUnsignedSigningHash": "0xc574a4a9ac89af4782e91d71619c57de8165d0baf04e4b7d046d63ea6d22dc36",
+  "hashesMatch": true,
+  "signerAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "signedTransactionHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "signCallCount": 1,
+  "keychainAccessed": true,
+  "cryptographicSignatureCreated": true,
+  "signedRawTransactionCreated": true,
+  "authorizationConsumed": true,
+  "furtherSigningAuthorized": false,
+  "automaticRetryAuthorized": false,
+  "classification": "AUTHORIZED_ATTEMPT2_EXACT_TRANSACTION_SIGNED_ONCE"
+}

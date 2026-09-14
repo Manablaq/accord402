@@ -1,0 +1,33 @@
+{
+  "baseline": {
+    "allGatesGreen": true,
+    "checkReturnCode": 0,
+    "pytestPassedCount": 56,
+    "pytestReturnCode": 0,
+    "schemaReturnCode": 0,
+    "typecheckReturnCode": 0
+  },
+  "bradburyGasMeasured": false,
+  "broadcastAuthorized": false,
+  "candidate": {
+    "allGatesGreen": true,
+    "checkReturnCode": 0,
+    "pytestPassedCount": 56,
+    "pytestReturnCode": 0,
+    "schemaReturnCode": 0,
+    "typecheckReturnCode": 0
+  },
+  "candidatePromotionAuthorized": false,
+  "candidateSourceSha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818",
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "classification": "POSITIONAL_RECORD_CANDIDATE_RUNTIME_EQUIVALENCE_PASS_SAFE_TO_RETAIN_AS_OUT_OF_TREE_COMPACTION_BASE",
+  "createdAtUtc": "2026-09-12T23:01:08Z",
+  "expectedDirectModeTestCount": 56,
+  "generatedAbiSchemaIdentical": true,
+  "realRepositoryTestsModified": false,
+  "runtimeEquivalencePassed": true,
+  "schema": "accord402.positional-record-runtime-equivalence-corrected.v1",
+  "signingAuthorized": false,
+  "temporaryCandidateTestHarnessRebound": true,
+  "temporaryHarnessVerificationPassed": true
+}

@@ -1,0 +1,12 @@
+{
+  "schema": "accord402.nonce855.signer-proof.v1",
+  "transactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+  "rawTransactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+  "rawHashMatchesTransaction": true,
+  "expectedWorker": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "recoveredAddress": "0x1f87ae197af539253978d435ad45ccf28fb95024",
+  "signerMatchesWorker": true,
+  "method": "viem.recoverTransactionAddress",
+  "viemVersion": "2.55.0",
+  "classification": "RAW_TRANSACTION_CRYPTOGRAPHICALLY_SIGNED_BY_WORKER"
+}

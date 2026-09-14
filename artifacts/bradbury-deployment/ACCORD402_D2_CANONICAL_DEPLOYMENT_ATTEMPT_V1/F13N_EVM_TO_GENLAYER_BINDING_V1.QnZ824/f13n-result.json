@@ -1,0 +1,22 @@
+{
+  "blockchainWriteSent": false,
+  "classification": "EVM_SUBMISSION_STILL_PENDING_NO_RESUBMIT",
+  "distinctBlocksObserved": 120,
+  "everVisible": true,
+  "evmTransactionHash": "0x2a6635dd6ed367e3ecef50cc2a8b2e2754b568728b541a2e526821e40f927adf",
+  "formatVersion": 1,
+  "latestNonceState": {
+    "BRADBURY": {
+      "latest": 856,
+      "pending": 856
+    },
+    "CHAIN": {
+      "latest": 856,
+      "pending": 857
+    }
+  },
+  "resubmissionAuthorized": false,
+  "signingAuthorizationConsumed": true,
+  "stage": "R20-R24A5B1F13N",
+  "submissionAuthorizationConsumed": true
+}

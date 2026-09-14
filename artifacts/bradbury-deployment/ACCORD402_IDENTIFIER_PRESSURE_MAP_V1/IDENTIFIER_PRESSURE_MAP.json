@@ -1,0 +1,3720 @@
+{
+  "authorizationState": {
+    "broadcastAuthorized": false,
+    "identifierRenamingAuthorized": false,
+    "signingAuthorized": false,
+    "sourceModificationAuthorized": false
+  },
+  "candidateIdentifierPressure": [
+    {
+      "grossSourceBytes": 835,
+      "identifierBytes": 5,
+      "name": "_fail",
+      "occurrenceCount": 167,
+      "oneCharacterRenameSavingsUpperBound": 668
+    },
+    {
+      "grossSourceBytes": 357,
+      "identifierBytes": 17,
+      "name": "_require_covenant",
+      "occurrenceCount": 21,
+      "oneCharacterRenameSavingsUpperBound": 336
+    },
+    {
+      "grossSourceBytes": 190,
+      "identifierBytes": 10,
+      "name": "_str_bytes",
+      "occurrenceCount": 19,
+      "oneCharacterRenameSavingsUpperBound": 171
+    },
+    {
+      "grossSourceBytes": 184,
+      "identifierBytes": 8,
+      "name": "snapshot",
+      "occurrenceCount": 23,
+      "oneCharacterRenameSavingsUpperBound": 161
+    },
+    {
+      "grossSourceBytes": 135,
+      "identifierBytes": 15,
+      "name": "_canonical_json",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 126
+    },
+    {
+      "grossSourceBytes": 140,
+      "identifierBytes": 7,
+      "name": "binding",
+      "occurrenceCount": 20,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 116,
+      "identifierBytes": 29,
+      "name": "ADJUDICATION_CRITERIA_VERSION",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 112
+    },
+    {
+      "grossSourceBytes": 159,
+      "identifierBytes": 3,
+      "name": "key",
+      "occurrenceCount": 53,
+      "oneCharacterRenameSavingsUpperBound": 106
+    },
+    {
+      "grossSourceBytes": 120,
+      "identifierBytes": 8,
+      "name": "_int_u64",
+      "occurrenceCount": 15,
+      "oneCharacterRenameSavingsUpperBound": 105
+    },
+    {
+      "grossSourceBytes": 110,
+      "identifierBytes": 10,
+      "name": "_u32_bytes",
+      "occurrenceCount": 11,
+      "oneCharacterRenameSavingsUpperBound": 99
+    },
+    {
+      "grossSourceBytes": 114,
+      "identifierBytes": 6,
+      "name": "record",
+      "occurrenceCount": 19,
+      "oneCharacterRenameSavingsUpperBound": 95
+    },
+    {
+      "grossSourceBytes": 96,
+      "identifierBytes": 8,
+      "name": "preimage",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 84
+    },
+    {
+      "grossSourceBytes": 112,
+      "identifierBytes": 4,
+      "name": "item",
+      "occurrenceCount": 28,
+      "oneCharacterRenameSavingsUpperBound": 84
+    },
+    {
+      "grossSourceBytes": 90,
+      "identifierBytes": 10,
+      "name": "challenged",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 81
+    },
+    {
+      "grossSourceBytes": 90,
+      "identifierBytes": 10,
+      "name": "_u64_bytes",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 81
+    },
+    {
+      "grossSourceBytes": 90,
+      "identifierBytes": 6,
+      "name": "failed",
+      "occurrenceCount": 15,
+      "oneCharacterRenameSavingsUpperBound": 75
+    },
+    {
+      "grossSourceBytes": 75,
+      "identifierBytes": 25,
+      "name": "_execute_review_consensus",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 72
+    },
+    {
+      "grossSourceBytes": 84,
+      "identifierBytes": 7,
+      "name": "records",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 72
+    },
+    {
+      "grossSourceBytes": 80,
+      "identifierBytes": 10,
+      "name": "version_id",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 72
+    },
+    {
+      "grossSourceBytes": 80,
+      "identifierBytes": 8,
+      "name": "bindings",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 70
+    },
+    {
+      "grossSourceBytes": 72,
+      "identifierBytes": 24,
+      "name": "_validate_consensus_wire",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 69
+    },
+    {
+      "grossSourceBytes": 85,
+      "identifierBytes": 5,
+      "name": "value",
+      "occurrenceCount": 17,
+      "oneCharacterRenameSavingsUpperBound": 68
+    },
+    {
+      "grossSourceBytes": 69,
+      "identifierBytes": 23,
+      "name": "EVIDENCE_POLICY_VERSION",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 66
+    },
+    {
+      "grossSourceBytes": 68,
+      "identifierBytes": 17,
+      "name": "corroborator_keys",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 64
+    },
+    {
+      "grossSourceBytes": 72,
+      "identifierBytes": 6,
+      "name": "prefix",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 60
+    },
+    {
+      "grossSourceBytes": 63,
+      "identifierBytes": 21,
+      "name": "REPAIR_POLICY_VERSION",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 60
+    },
+    {
+      "grossSourceBytes": 63,
+      "identifierBytes": 21,
+      "name": "_active_evidence_hash",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 60
+    },
+    {
+      "grossSourceBytes": 63,
+      "identifierBytes": 9,
+      "name": "base_wire",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 56
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 15,
+      "name": "_is_lower_hex64",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 56
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 12,
+      "name": "primary_keys",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 55
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 6,
+      "name": "source",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 50
+    },
+    {
+      "grossSourceBytes": 55,
+      "identifierBytes": 11,
+      "name": "_sha256_hex",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 50
+    },
+    {
+      "grossSourceBytes": 56,
+      "identifierBytes": 8,
+      "name": "_int_u32",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 49
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 5,
+      "name": "label",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 48
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 4,
+      "name": "host",
+      "occurrenceCount": 15,
+      "oneCharacterRenameSavingsUpperBound": 45
+    },
+    {
+      "grossSourceBytes": 48,
+      "identifierBytes": 12,
+      "name": "_count_bytes",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 44
+    },
+    {
+      "grossSourceBytes": 46,
+      "identifierBytes": 23,
+      "name": "SETTLEMENT_RULE_VERSION",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 44
+    },
+    {
+      "grossSourceBytes": 48,
+      "identifierBytes": 12,
+      "name": "covenant_key",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 44
+    },
+    {
+      "grossSourceBytes": 56,
+      "identifierBytes": 4,
+      "name": "path",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 42
+    },
+    {
+      "grossSourceBytes": 49,
+      "identifierBytes": 7,
+      "name": "segment",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 42
+    },
+    {
+      "grossSourceBytes": 49,
+      "identifierBytes": 7,
+      "name": "MAX_U64",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 42
+    },
+    {
+      "grossSourceBytes": 56,
+      "identifierBytes": 4,
+      "name": "rest",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 42
+    },
+    {
+      "grossSourceBytes": 48,
+      "identifierBytes": 6,
+      "name": "origin",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 40
+    },
+    {
+      "grossSourceBytes": 60,
+      "identifierBytes": 3,
+      "name": "cov",
+      "occurrenceCount": 20,
+      "oneCharacterRenameSavingsUpperBound": 40
+    },
+    {
+      "grossSourceBytes": 32,
+      "identifierBytes": 16,
+      "name": "_criterion_bytes",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 33,
+      "identifierBytes": 11,
+      "name": "derive_wire",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 40,
+      "identifierBytes": 4,
+      "name": "code",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 32,
+      "identifierBytes": 16,
+      "name": "_authority_bytes",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 36,
+      "identifierBytes": 6,
+      "name": "values",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 33,
+      "identifierBytes": 11,
+      "name": "raw_address",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 30
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 15,
+      "name": "DELIVERY_DOMAIN",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 28
+    },
+    {
+      "grossSourceBytes": 35,
+      "identifierBytes": 5,
+      "name": "slash",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 28
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 15,
+      "name": "EVIDENCE_DOMAIN",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 28
+    },
+    {
+      "grossSourceBytes": 32,
+      "identifierBytes": 8,
+      "name": "observed",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 28
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 15,
+      "name": "_evidence_bytes",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 28
+    },
+    {
+      "grossSourceBytes": 54,
+      "identifierBytes": 2,
+      "name": "bW",
+      "occurrenceCount": 27,
+      "oneCharacterRenameSavingsUpperBound": 27
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 14,
+      "name": "_delivery_hash",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 26
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 14,
+      "name": "repair_entries",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 26
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 14,
+      "name": "classification",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 26
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 14,
+      "name": "SERVICE_DOMAIN",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 26
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 6,
+      "name": "_hex32",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 25
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 6,
+      "name": "labels",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 25
+    },
+    {
+      "grossSourceBytes": 26,
+      "identifierBytes": 13,
+      "name": "_service_hash",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 24
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 7,
+      "name": "MAX_U32",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 24
+    },
+    {
+      "grossSourceBytes": 36,
+      "identifierBytes": 3,
+      "name": "raw",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 24
+    },
+    {
+      "grossSourceBytes": 26,
+      "identifierBytes": 13,
+      "name": "POLICY_DOMAIN",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 24
+    },
+    {
+      "grossSourceBytes": 24,
+      "identifierBytes": 12,
+      "name": "validator_fn",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 22
+    },
+    {
+      "grossSourceBytes": 24,
+      "identifierBytes": 12,
+      "name": "_policy_hash",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 22
+    },
+    {
+      "grossSourceBytes": 24,
+      "identifierBytes": 8,
+      "name": "MAX_U256",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 21
+    },
+    {
+      "grossSourceBytes": 22,
+      "identifierBytes": 11,
+      "name": "final_label",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 20
+    },
+    {
+      "grossSourceBytes": 30,
+      "identifierBytes": 3,
+      "name": "now",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 20
+    },
+    {
+      "grossSourceBytes": 22,
+      "identifierBytes": 11,
+      "name": "denied_tlds",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 20
+    },
+    {
+      "grossSourceBytes": 22,
+      "identifierBytes": 11,
+      "name": "leaders_res",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 20
+    },
+    {
+      "grossSourceBytes": 20,
+      "identifierBytes": 10,
+      "name": "_bool_byte",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 18
+    },
+    {
+      "grossSourceBytes": 21,
+      "identifierBytes": 7,
+      "name": "changed",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 18
+    },
+    {
+      "grossSourceBytes": 21,
+      "identifierBytes": 7,
+      "name": "current",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 18
+    },
+    {
+      "grossSourceBytes": 20,
+      "identifierBytes": 10,
+      "name": "normalized",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 18
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 9,
+      "name": "new_value",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 9,
+      "name": "old_value",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 20,
+      "identifierBytes": 5,
+      "name": "found",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 9,
+      "name": "wire_text",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 9,
+      "name": "published",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 9,
+      "name": "criterion",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 16
+    },
+    {
+      "grossSourceBytes": 21,
+      "identifierBytes": 3,
+      "name": "obj",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 16,
+      "identifierBytes": 8,
+      "name": "required",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 16,
+      "identifierBytes": 8,
+      "name": "revision",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 16,
+      "identifierBytes": 8,
+      "name": "decision",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 28,
+      "identifierBytes": 2,
+      "name": "ch",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 16,
+      "identifierBytes": 8,
+      "name": "nonempty",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 14
+    },
+    {
+      "grossSourceBytes": 26,
+      "identifierBytes": 2,
+      "name": "bX",
+      "occurrenceCount": 13,
+      "oneCharacterRenameSavingsUpperBound": 13
+    },
+    {
+      "grossSourceBytes": 15,
+      "identifierBytes": 5,
+      "name": "count",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 12
+    },
+    {
+      "grossSourceBytes": 14,
+      "identifierBytes": 7,
+      "name": "expires",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 12
+    },
+    {
+      "grossSourceBytes": 15,
+      "identifierBytes": 5,
+      "name": "first",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 12
+    },
+    {
+      "grossSourceBytes": 14,
+      "identifierBytes": 7,
+      "name": "mapping",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 12
+    },
+    {
+      "grossSourceBytes": 15,
+      "identifierBytes": 5,
+      "name": "_utf8",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 12
+    },
+    {
+      "grossSourceBytes": 22,
+      "identifierBytes": 2,
+      "name": "cK",
+      "occurrenceCount": 11,
+      "oneCharacterRenameSavingsUpperBound": 11
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 2,
+      "name": "b8",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 9
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 4,
+      "name": "text",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 9
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 4,
+      "name": "last",
+      "occurrenceCount": 3,
+      "oneCharacterRenameSavingsUpperBound": 9
+    },
+    {
+      "grossSourceBytes": 18,
+      "identifierBytes": 2,
+      "name": "b4",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 9
+    },
+    {
+      "grossSourceBytes": 10,
+      "identifierBytes": 5,
+      "name": "pairs",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 8
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 3,
+      "name": "out",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 8
+    },
+    {
+      "grossSourceBytes": 16,
+      "identifierBytes": 2,
+      "name": "bZ",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 8
+    },
+    {
+      "grossSourceBytes": 14,
+      "identifierBytes": 2,
+      "name": "b5",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 7
+    },
+    {
+      "grossSourceBytes": 14,
+      "identifierBytes": 2,
+      "name": "cc",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 7
+    },
+    {
+      "grossSourceBytes": 14,
+      "identifierBytes": 2,
+      "name": "bY",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 7
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "_m",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "cg",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "ce",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "b0",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 8,
+      "identifierBytes": 4,
+      "name": "data",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "ai",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "cI",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 8,
+      "identifierBytes": 4,
+      "name": "mask",
+      "occurrenceCount": 2,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "b1",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "cj",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "av",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "bi",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "au",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    },
+    {
+      "grossSourceBytes": 12,
+      "identifierBytes": 2,
+      "name": "b3",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 6
+    }
+  ],
+  "canonicalSourceBytes": 50674,
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "categoryPressure": {
+    "localNames": {
+      "grossSourceBytes": 3510,
+      "oneCharacterSavingsUpperBound": 1753,
+      "symbolCount": 79,
+      "topSymbols": [
+        {
+          "grossSourceBytes": 184,
+          "identifierBytes": 8,
+          "name": "snapshot",
+          "occurrenceCount": 23,
+          "oneCharacterRenameSavingsUpperBound": 161
+        },
+        {
+          "grossSourceBytes": 140,
+          "identifierBytes": 7,
+          "name": "binding",
+          "occurrenceCount": 20,
+          "oneCharacterRenameSavingsUpperBound": 120
+        },
+        {
+          "grossSourceBytes": 159,
+          "identifierBytes": 3,
+          "name": "key",
+          "occurrenceCount": 53,
+          "oneCharacterRenameSavingsUpperBound": 106
+        },
+        {
+          "grossSourceBytes": 114,
+          "identifierBytes": 6,
+          "name": "record",
+          "occurrenceCount": 19,
+          "oneCharacterRenameSavingsUpperBound": 95
+        },
+        {
+          "grossSourceBytes": 96,
+          "identifierBytes": 8,
+          "name": "preimage",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 84
+        },
+        {
+          "grossSourceBytes": 112,
+          "identifierBytes": 4,
+          "name": "item",
+          "occurrenceCount": 28,
+          "oneCharacterRenameSavingsUpperBound": 84
+        },
+        {
+          "grossSourceBytes": 90,
+          "identifierBytes": 10,
+          "name": "challenged",
+          "occurrenceCount": 9,
+          "oneCharacterRenameSavingsUpperBound": 81
+        },
+        {
+          "grossSourceBytes": 90,
+          "identifierBytes": 6,
+          "name": "failed",
+          "occurrenceCount": 15,
+          "oneCharacterRenameSavingsUpperBound": 75
+        },
+        {
+          "grossSourceBytes": 84,
+          "identifierBytes": 7,
+          "name": "records",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 72
+        },
+        {
+          "grossSourceBytes": 85,
+          "identifierBytes": 5,
+          "name": "value",
+          "occurrenceCount": 17,
+          "oneCharacterRenameSavingsUpperBound": 68
+        },
+        {
+          "grossSourceBytes": 68,
+          "identifierBytes": 17,
+          "name": "corroborator_keys",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 64
+        },
+        {
+          "grossSourceBytes": 72,
+          "identifierBytes": 6,
+          "name": "prefix",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 60
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 12,
+          "name": "primary_keys",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 55
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 5,
+          "name": "label",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 48
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 4,
+          "name": "host",
+          "occurrenceCount": 15,
+          "oneCharacterRenameSavingsUpperBound": 45
+        },
+        {
+          "grossSourceBytes": 56,
+          "identifierBytes": 4,
+          "name": "path",
+          "occurrenceCount": 14,
+          "oneCharacterRenameSavingsUpperBound": 42
+        },
+        {
+          "grossSourceBytes": 49,
+          "identifierBytes": 7,
+          "name": "segment",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 42
+        },
+        {
+          "grossSourceBytes": 56,
+          "identifierBytes": 4,
+          "name": "rest",
+          "occurrenceCount": 14,
+          "oneCharacterRenameSavingsUpperBound": 42
+        },
+        {
+          "grossSourceBytes": 48,
+          "identifierBytes": 6,
+          "name": "origin",
+          "occurrenceCount": 8,
+          "oneCharacterRenameSavingsUpperBound": 40
+        },
+        {
+          "grossSourceBytes": 33,
+          "identifierBytes": 11,
+          "name": "raw_address",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 35,
+          "identifierBytes": 5,
+          "name": "slash",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 28
+        },
+        {
+          "grossSourceBytes": 32,
+          "identifierBytes": 8,
+          "name": "observed",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 28
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 6,
+          "name": "labels",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 25
+        },
+        {
+          "grossSourceBytes": 36,
+          "identifierBytes": 3,
+          "name": "raw",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 24
+        },
+        {
+          "grossSourceBytes": 22,
+          "identifierBytes": 11,
+          "name": "denied_tlds",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 20
+        },
+        {
+          "grossSourceBytes": 21,
+          "identifierBytes": 7,
+          "name": "changed",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 18
+        },
+        {
+          "grossSourceBytes": 21,
+          "identifierBytes": 7,
+          "name": "current",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 18
+        },
+        {
+          "grossSourceBytes": 20,
+          "identifierBytes": 10,
+          "name": "normalized",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 18
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 9,
+          "name": "published",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 20,
+          "identifierBytes": 5,
+          "name": "found",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 9,
+          "name": "criterion",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 2,
+          "name": "ch",
+          "occurrenceCount": 14,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 21,
+          "identifierBytes": 3,
+          "name": "obj",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 16,
+          "identifierBytes": 8,
+          "name": "revision",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 15,
+          "identifierBytes": 5,
+          "name": "count",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 12
+        },
+        {
+          "grossSourceBytes": 14,
+          "identifierBytes": 7,
+          "name": "expires",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 12
+        },
+        {
+          "grossSourceBytes": 15,
+          "identifierBytes": 5,
+          "name": "first",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 12
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 4,
+          "name": "last",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 9
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 3,
+          "name": "out",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 8
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "bi",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        }
+      ]
+    },
+    "moduleAssignmentNames": {
+      "grossSourceBytes": 1642,
+      "oneCharacterSavingsUpperBound": 1011,
+      "symbolCount": 169,
+      "topSymbols": [
+        {
+          "grossSourceBytes": 116,
+          "identifierBytes": 29,
+          "name": "ADJUDICATION_CRITERIA_VERSION",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 112
+        },
+        {
+          "grossSourceBytes": 69,
+          "identifierBytes": 23,
+          "name": "EVIDENCE_POLICY_VERSION",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 66
+        },
+        {
+          "grossSourceBytes": 63,
+          "identifierBytes": 21,
+          "name": "REPAIR_POLICY_VERSION",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 60
+        },
+        {
+          "grossSourceBytes": 46,
+          "identifierBytes": 23,
+          "name": "SETTLEMENT_RULE_VERSION",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 44
+        },
+        {
+          "grossSourceBytes": 49,
+          "identifierBytes": 7,
+          "name": "MAX_U64",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 42
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 15,
+          "name": "DELIVERY_DOMAIN",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 28
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 15,
+          "name": "EVIDENCE_DOMAIN",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 28
+        },
+        {
+          "grossSourceBytes": 54,
+          "identifierBytes": 2,
+          "name": "bW",
+          "occurrenceCount": 27,
+          "oneCharacterRenameSavingsUpperBound": 27
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 14,
+          "name": "SERVICE_DOMAIN",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 26
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 7,
+          "name": "MAX_U32",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 24
+        },
+        {
+          "grossSourceBytes": 26,
+          "identifierBytes": 13,
+          "name": "POLICY_DOMAIN",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 24
+        },
+        {
+          "grossSourceBytes": 24,
+          "identifierBytes": 8,
+          "name": "MAX_U256",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 21
+        },
+        {
+          "grossSourceBytes": 26,
+          "identifierBytes": 2,
+          "name": "bX",
+          "occurrenceCount": 13,
+          "oneCharacterRenameSavingsUpperBound": 13
+        },
+        {
+          "grossSourceBytes": 22,
+          "identifierBytes": 2,
+          "name": "cK",
+          "occurrenceCount": 11,
+          "oneCharacterRenameSavingsUpperBound": 11
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 2,
+          "name": "b8",
+          "occurrenceCount": 9,
+          "oneCharacterRenameSavingsUpperBound": 9
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 2,
+          "name": "b4",
+          "occurrenceCount": 9,
+          "oneCharacterRenameSavingsUpperBound": 9
+        },
+        {
+          "grossSourceBytes": 16,
+          "identifierBytes": 2,
+          "name": "bZ",
+          "occurrenceCount": 8,
+          "oneCharacterRenameSavingsUpperBound": 8
+        },
+        {
+          "grossSourceBytes": 14,
+          "identifierBytes": 2,
+          "name": "b5",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 7
+        },
+        {
+          "grossSourceBytes": 14,
+          "identifierBytes": 2,
+          "name": "cc",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 7
+        },
+        {
+          "grossSourceBytes": 14,
+          "identifierBytes": 2,
+          "name": "bY",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 7
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "cg",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "cj",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "ce",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "av",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "b0",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "b1",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "au",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "b3",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "cI",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "cq",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "aq",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "co",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "b6",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "al",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "b9",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "cm",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "ae",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "aa",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "cf",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "b7",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        }
+      ]
+    },
+    "privateArgumentNames": {
+      "grossSourceBytes": 2434,
+      "oneCharacterSavingsUpperBound": 1396,
+      "symbolCount": 44,
+      "topSymbols": [
+        {
+          "grossSourceBytes": 140,
+          "identifierBytes": 7,
+          "name": "binding",
+          "occurrenceCount": 20,
+          "oneCharacterRenameSavingsUpperBound": 120
+        },
+        {
+          "grossSourceBytes": 159,
+          "identifierBytes": 3,
+          "name": "key",
+          "occurrenceCount": 53,
+          "oneCharacterRenameSavingsUpperBound": 106
+        },
+        {
+          "grossSourceBytes": 114,
+          "identifierBytes": 6,
+          "name": "record",
+          "occurrenceCount": 19,
+          "oneCharacterRenameSavingsUpperBound": 95
+        },
+        {
+          "grossSourceBytes": 112,
+          "identifierBytes": 4,
+          "name": "item",
+          "occurrenceCount": 28,
+          "oneCharacterRenameSavingsUpperBound": 84
+        },
+        {
+          "grossSourceBytes": 90,
+          "identifierBytes": 6,
+          "name": "failed",
+          "occurrenceCount": 15,
+          "oneCharacterRenameSavingsUpperBound": 75
+        },
+        {
+          "grossSourceBytes": 80,
+          "identifierBytes": 10,
+          "name": "version_id",
+          "occurrenceCount": 8,
+          "oneCharacterRenameSavingsUpperBound": 72
+        },
+        {
+          "grossSourceBytes": 84,
+          "identifierBytes": 7,
+          "name": "records",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 72
+        },
+        {
+          "grossSourceBytes": 80,
+          "identifierBytes": 8,
+          "name": "bindings",
+          "occurrenceCount": 10,
+          "oneCharacterRenameSavingsUpperBound": 70
+        },
+        {
+          "grossSourceBytes": 85,
+          "identifierBytes": 5,
+          "name": "value",
+          "occurrenceCount": 17,
+          "oneCharacterRenameSavingsUpperBound": 68
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 6,
+          "name": "source",
+          "occurrenceCount": 10,
+          "oneCharacterRenameSavingsUpperBound": 50
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 5,
+          "name": "label",
+          "occurrenceCount": 12,
+          "oneCharacterRenameSavingsUpperBound": 48
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 4,
+          "name": "host",
+          "occurrenceCount": 15,
+          "oneCharacterRenameSavingsUpperBound": 45
+        },
+        {
+          "grossSourceBytes": 48,
+          "identifierBytes": 12,
+          "name": "covenant_key",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 44
+        },
+        {
+          "grossSourceBytes": 49,
+          "identifierBytes": 7,
+          "name": "segment",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 42
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 3,
+          "name": "cov",
+          "occurrenceCount": 20,
+          "oneCharacterRenameSavingsUpperBound": 40
+        },
+        {
+          "grossSourceBytes": 48,
+          "identifierBytes": 6,
+          "name": "origin",
+          "occurrenceCount": 8,
+          "oneCharacterRenameSavingsUpperBound": 40
+        },
+        {
+          "grossSourceBytes": 40,
+          "identifierBytes": 4,
+          "name": "code",
+          "occurrenceCount": 10,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 36,
+          "identifierBytes": 6,
+          "name": "values",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 14,
+          "name": "classification",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 26
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 14,
+          "name": "repair_entries",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 26
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 3,
+          "name": "now",
+          "occurrenceCount": 10,
+          "oneCharacterRenameSavingsUpperBound": 20
+        },
+        {
+          "grossSourceBytes": 22,
+          "identifierBytes": 11,
+          "name": "leaders_res",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 20
+        },
+        {
+          "grossSourceBytes": 22,
+          "identifierBytes": 11,
+          "name": "final_label",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 20
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 9,
+          "name": "new_value",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 9,
+          "name": "wire_text",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 18,
+          "identifierBytes": 9,
+          "name": "old_value",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 16
+        },
+        {
+          "grossSourceBytes": 16,
+          "identifierBytes": 8,
+          "name": "required",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 16,
+          "identifierBytes": 8,
+          "name": "nonempty",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 21,
+          "identifierBytes": 3,
+          "name": "obj",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 16,
+          "identifierBytes": 8,
+          "name": "decision",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 14
+        },
+        {
+          "grossSourceBytes": 14,
+          "identifierBytes": 7,
+          "name": "mapping",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 12
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 4,
+          "name": "text",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 9
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 5,
+          "name": "pairs",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 8
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 4,
+          "name": "data",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 4,
+          "name": "mask",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 6,
+          "identifierBytes": 3,
+          "name": "cap",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 6,
+          "identifierBytes": 3,
+          "name": "bit",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 301,
+          "identifierBytes": 1,
+          "name": "a",
+          "occurrenceCount": 301,
+          "oneCharacterRenameSavingsUpperBound": 0
+        },
+        {
+          "grossSourceBytes": 36,
+          "identifierBytes": 1,
+          "name": "s",
+          "occurrenceCount": 36,
+          "oneCharacterRenameSavingsUpperBound": 0
+        },
+        {
+          "grossSourceBytes": 195,
+          "identifierBytes": 1,
+          "name": "b",
+          "occurrenceCount": 195,
+          "oneCharacterRenameSavingsUpperBound": 0
+        }
+      ]
+    },
+    "privateFunctionNames": {
+      "grossSourceBytes": 2965,
+      "oneCharacterSavingsUpperBound": 2434,
+      "symbolCount": 71,
+      "topSymbols": [
+        {
+          "grossSourceBytes": 835,
+          "identifierBytes": 5,
+          "name": "_fail",
+          "occurrenceCount": 167,
+          "oneCharacterRenameSavingsUpperBound": 668
+        },
+        {
+          "grossSourceBytes": 357,
+          "identifierBytes": 17,
+          "name": "_require_covenant",
+          "occurrenceCount": 21,
+          "oneCharacterRenameSavingsUpperBound": 336
+        },
+        {
+          "grossSourceBytes": 190,
+          "identifierBytes": 10,
+          "name": "_str_bytes",
+          "occurrenceCount": 19,
+          "oneCharacterRenameSavingsUpperBound": 171
+        },
+        {
+          "grossSourceBytes": 135,
+          "identifierBytes": 15,
+          "name": "_canonical_json",
+          "occurrenceCount": 9,
+          "oneCharacterRenameSavingsUpperBound": 126
+        },
+        {
+          "grossSourceBytes": 120,
+          "identifierBytes": 8,
+          "name": "_int_u64",
+          "occurrenceCount": 15,
+          "oneCharacterRenameSavingsUpperBound": 105
+        },
+        {
+          "grossSourceBytes": 110,
+          "identifierBytes": 10,
+          "name": "_u32_bytes",
+          "occurrenceCount": 11,
+          "oneCharacterRenameSavingsUpperBound": 99
+        },
+        {
+          "grossSourceBytes": 90,
+          "identifierBytes": 10,
+          "name": "_u64_bytes",
+          "occurrenceCount": 9,
+          "oneCharacterRenameSavingsUpperBound": 81
+        },
+        {
+          "grossSourceBytes": 75,
+          "identifierBytes": 25,
+          "name": "_execute_review_consensus",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 72
+        },
+        {
+          "grossSourceBytes": 72,
+          "identifierBytes": 24,
+          "name": "_validate_consensus_wire",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 69
+        },
+        {
+          "grossSourceBytes": 63,
+          "identifierBytes": 21,
+          "name": "_active_evidence_hash",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 60
+        },
+        {
+          "grossSourceBytes": 60,
+          "identifierBytes": 15,
+          "name": "_is_lower_hex64",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 56
+        },
+        {
+          "grossSourceBytes": 63,
+          "identifierBytes": 9,
+          "name": "base_wire",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 56
+        },
+        {
+          "grossSourceBytes": 55,
+          "identifierBytes": 11,
+          "name": "_sha256_hex",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 50
+        },
+        {
+          "grossSourceBytes": 56,
+          "identifierBytes": 8,
+          "name": "_int_u32",
+          "occurrenceCount": 7,
+          "oneCharacterRenameSavingsUpperBound": 49
+        },
+        {
+          "grossSourceBytes": 48,
+          "identifierBytes": 12,
+          "name": "_count_bytes",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 44
+        },
+        {
+          "grossSourceBytes": 33,
+          "identifierBytes": 11,
+          "name": "derive_wire",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 32,
+          "identifierBytes": 16,
+          "name": "_authority_bytes",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 32,
+          "identifierBytes": 16,
+          "name": "_criterion_bytes",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 30
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 15,
+          "name": "_evidence_bytes",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 28
+        },
+        {
+          "grossSourceBytes": 28,
+          "identifierBytes": 14,
+          "name": "_delivery_hash",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 26
+        },
+        {
+          "grossSourceBytes": 30,
+          "identifierBytes": 6,
+          "name": "_hex32",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 25
+        },
+        {
+          "grossSourceBytes": 26,
+          "identifierBytes": 13,
+          "name": "_service_hash",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 24
+        },
+        {
+          "grossSourceBytes": 24,
+          "identifierBytes": 12,
+          "name": "validator_fn",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 22
+        },
+        {
+          "grossSourceBytes": 24,
+          "identifierBytes": 12,
+          "name": "_policy_hash",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 22
+        },
+        {
+          "grossSourceBytes": 20,
+          "identifierBytes": 10,
+          "name": "_bool_byte",
+          "occurrenceCount": 2,
+          "oneCharacterRenameSavingsUpperBound": 18
+        },
+        {
+          "grossSourceBytes": 15,
+          "identifierBytes": 5,
+          "name": "_utf8",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 12
+        },
+        {
+          "grossSourceBytes": 12,
+          "identifierBytes": 2,
+          "name": "_m",
+          "occurrenceCount": 6,
+          "oneCharacterRenameSavingsUpperBound": 6
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "am",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "af",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "_i",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 10,
+          "identifierBytes": 2,
+          "name": "_o",
+          "occurrenceCount": 5,
+          "oneCharacterRenameSavingsUpperBound": 5
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "by",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "aU",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "_h",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "bG",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "_n",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "bf",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "an",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 8,
+          "identifierBytes": 2,
+          "name": "az",
+          "occurrenceCount": 4,
+          "oneCharacterRenameSavingsUpperBound": 4
+        },
+        {
+          "grossSourceBytes": 6,
+          "identifierBytes": 2,
+          "name": "_j",
+          "occurrenceCount": 3,
+          "oneCharacterRenameSavingsUpperBound": 3
+        }
+      ]
+    }
+  },
+  "classification": "EVEN_OPTIMISTIC_PRIVATE_IDENTIFIER_RENAMING_CANNOT_REACH_HEURISTIC_SIZE_TARGET_STRUCTURAL_SEMANTIC_COMPACTION_REQUIRED",
+  "createdAtUtc": "2026-09-12T19:52:58Z",
+  "dynamicNameHazards": [],
+  "heuristicContext": {
+    "bytesAboveTargetAfterOptimisticPrivateRenaming": 23841,
+    "bytesAboveTargetBeforeRenaming": 29626,
+    "linearPressureTargetBytes": 21048,
+    "optimisticRenameOnlyCouldReachHeuristicTarget": false,
+    "warning": "The heuristic target is not a Bradbury deployability certificate. The renaming savings number is also an optimistic mathematical upper bound, not an authorized or necessarily realizable source transformation."
+  },
+  "optimisticBytesAfterPrivateIdentifierRenaming": 44889,
+  "optimisticPrivateIdentifierRenameSavingsUpperBoundBytes": 5785,
+  "privateCandidateGrossSourceBytes": 8817,
+  "privateCandidateIdentifierCount": 344,
+  "protectedIdentifierCount": 150,
+  "protectedIdentifierGrossSourceBytes": 15433,
+  "publicSurface": {
+    "classAnnotatedFields": [
+      {
+        "annotation": "str",
+        "class": "CriterionInput",
+        "line": 179,
+        "name": "criterion_id"
+      },
+      {
+        "annotation": "str",
+        "class": "CriterionInput",
+        "line": 180,
+        "name": "criterion_text"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBindingInput",
+        "line": 183,
+        "name": "authority_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "AuthorityBindingInput",
+        "line": 184,
+        "name": "authority_revision"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBindingInput",
+        "line": 185,
+        "name": "role"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBindingInput",
+        "line": 186,
+        "name": "identity_kind"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBindingInput",
+        "line": 187,
+        "name": "identity_value"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBindingInput",
+        "line": 188,
+        "name": "canonical_origin"
+      },
+      {
+        "annotation": "Address",
+        "class": "OpenCovenantInput",
+        "line": 191,
+        "name": "provider"
+      },
+      {
+        "annotation": "u256",
+        "class": "OpenCovenantInput",
+        "line": 192,
+        "name": "principal"
+      },
+      {
+        "annotation": "str",
+        "class": "OpenCovenantInput",
+        "line": 193,
+        "name": "service_spec"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 194,
+        "name": "acceptance_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 195,
+        "name": "delivery_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 196,
+        "name": "challenge_duration"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 197,
+        "name": "absolute_dispute_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 198,
+        "name": "evidence_repair_window"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 199,
+        "name": "review_retry_window"
+      },
+      {
+        "annotation": "u32",
+        "class": "OpenCovenantInput",
+        "line": 200,
+        "name": "max_review_generations"
+      },
+      {
+        "annotation": "u64",
+        "class": "OpenCovenantInput",
+        "line": 201,
+        "name": "max_evidence_age"
+      },
+      {
+        "annotation": "u32",
+        "class": "OpenCovenantInput",
+        "line": 202,
+        "name": "required_corroboration_count"
+      },
+      {
+        "annotation": "u32",
+        "class": "OpenCovenantInput",
+        "line": 203,
+        "name": "repair_allowed_field_mask"
+      },
+      {
+        "annotation": "str",
+        "class": "OpenCovenantInput",
+        "line": 204,
+        "name": "replay_scope"
+      },
+      {
+        "annotation": "list[CriterionInput]",
+        "class": "OpenCovenantInput",
+        "line": 205,
+        "name": "criteria"
+      },
+      {
+        "annotation": "list[AuthorityBindingInput]",
+        "class": "OpenCovenantInput",
+        "line": 206,
+        "name": "authority_bindings"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 209,
+        "name": "evidence_id"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 210,
+        "name": "authority_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "EvidenceInput",
+        "line": 211,
+        "name": "authority_revision"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 212,
+        "name": "subject"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 213,
+        "name": "kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 214,
+        "name": "source_kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 215,
+        "name": "canonical_source"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 216,
+        "name": "immutable_version_or_record_id"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceInput",
+        "line": 217,
+        "name": "published_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceInput",
+        "line": 218,
+        "name": "observed_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceInput",
+        "line": 219,
+        "name": "expires_at"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceInput",
+        "line": 220,
+        "name": "content_digest"
+      },
+      {
+        "annotation": "bool",
+        "class": "EvidenceInput",
+        "line": 221,
+        "name": "is_primary"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 224,
+        "name": "replaces_evidence_id"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 225,
+        "name": "evidence_id"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 226,
+        "name": "authority_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "EvidenceReplacementInput",
+        "line": 227,
+        "name": "authority_revision"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 228,
+        "name": "subject"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 229,
+        "name": "kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 230,
+        "name": "source_kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 231,
+        "name": "canonical_source"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 232,
+        "name": "immutable_version_or_record_id"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceReplacementInput",
+        "line": 233,
+        "name": "published_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceReplacementInput",
+        "line": 234,
+        "name": "observed_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceReplacementInput",
+        "line": 235,
+        "name": "expires_at"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceReplacementInput",
+        "line": 236,
+        "name": "content_digest"
+      },
+      {
+        "annotation": "bool",
+        "class": "EvidenceReplacementInput",
+        "line": 237,
+        "name": "is_primary"
+      },
+      {
+        "annotation": "u256",
+        "class": "AccountingTotalsView",
+        "line": 240,
+        "name": "total_funded"
+      },
+      {
+        "annotation": "u256",
+        "class": "AccountingTotalsView",
+        "line": 241,
+        "name": "total_closed_to_provider"
+      },
+      {
+        "annotation": "u256",
+        "class": "AccountingTotalsView",
+        "line": 242,
+        "name": "total_closed_to_buyer"
+      },
+      {
+        "annotation": "u256",
+        "class": "AccountingTotalsView",
+        "line": 243,
+        "name": "total_outstanding"
+      },
+      {
+        "annotation": "u64",
+        "class": "CriterionRecord",
+        "line": 247,
+        "name": "covenant_id"
+      },
+      {
+        "annotation": "str",
+        "class": "CriterionRecord",
+        "line": 248,
+        "name": "criterion_id"
+      },
+      {
+        "annotation": "str",
+        "class": "CriterionRecord",
+        "line": 249,
+        "name": "criterion_text"
+      },
+      {
+        "annotation": "u64",
+        "class": "AuthorityBinding",
+        "line": 253,
+        "name": "covenant_id"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBinding",
+        "line": 254,
+        "name": "authority_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "AuthorityBinding",
+        "line": 255,
+        "name": "authority_revision"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBinding",
+        "line": 256,
+        "name": "role"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBinding",
+        "line": 257,
+        "name": "identity_kind"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBinding",
+        "line": 258,
+        "name": "identity_value"
+      },
+      {
+        "annotation": "str",
+        "class": "AuthorityBinding",
+        "line": 259,
+        "name": "canonical_origin"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceRecord",
+        "line": 263,
+        "name": "covenant_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "EvidenceRecord",
+        "line": 264,
+        "name": "generation"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 265,
+        "name": "evidence_id"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 266,
+        "name": "authority_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "EvidenceRecord",
+        "line": 267,
+        "name": "authority_revision"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 268,
+        "name": "subject"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 269,
+        "name": "kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 270,
+        "name": "source_kind"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 271,
+        "name": "canonical_source"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 272,
+        "name": "immutable_version_or_record_id"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceRecord",
+        "line": 273,
+        "name": "published_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceRecord",
+        "line": 274,
+        "name": "observed_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "EvidenceRecord",
+        "line": 275,
+        "name": "expires_at"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 276,
+        "name": "content_digest"
+      },
+      {
+        "annotation": "bool",
+        "class": "EvidenceRecord",
+        "line": 277,
+        "name": "is_primary"
+      },
+      {
+        "annotation": "str",
+        "class": "EvidenceRecord",
+        "line": 278,
+        "name": "replaces_evidence_id"
+      },
+      {
+        "annotation": "u64",
+        "class": "RepairAuthorizationRecord",
+        "line": 282,
+        "name": "covenant_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "RepairAuthorizationRecord",
+        "line": 283,
+        "name": "generation"
+      },
+      {
+        "annotation": "str",
+        "class": "RepairAuthorizationRecord",
+        "line": 284,
+        "name": "evidence_id"
+      },
+      {
+        "annotation": "u32",
+        "class": "RepairAuthorizationRecord",
+        "line": 285,
+        "name": "field_mask"
+      },
+      {
+        "annotation": "u64",
+        "class": "ProviderStats",
+        "line": 289,
+        "name": "accepted_covenants"
+      },
+      {
+        "annotation": "u64",
+        "class": "ProviderStats",
+        "line": 290,
+        "name": "deliveries"
+      },
+      {
+        "annotation": "u64",
+        "class": "ProviderStats",
+        "line": 291,
+        "name": "non_deliveries"
+      },
+      {
+        "annotation": "u64",
+        "class": "ProviderStats",
+        "line": 292,
+        "name": "disputes_won"
+      },
+      {
+        "annotation": "u64",
+        "class": "ProviderStats",
+        "line": 293,
+        "name": "disputes_lost"
+      },
+      {
+        "annotation": "u64",
+        "class": "BuyerStats",
+        "line": 297,
+        "name": "funded_covenants"
+      },
+      {
+        "annotation": "u64",
+        "class": "BuyerStats",
+        "line": 298,
+        "name": "challenges_filed"
+      },
+      {
+        "annotation": "u64",
+        "class": "BuyerStats",
+        "line": 299,
+        "name": "valid_challenges"
+      },
+      {
+        "annotation": "u64",
+        "class": "BuyerStats",
+        "line": 300,
+        "name": "invalid_challenges"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 304,
+        "name": "covenant_id"
+      },
+      {
+        "annotation": "Address",
+        "class": "CovenantRecord",
+        "line": 305,
+        "name": "buyer"
+      },
+      {
+        "annotation": "Address",
+        "class": "CovenantRecord",
+        "line": 306,
+        "name": "provider"
+      },
+      {
+        "annotation": "u256",
+        "class": "CovenantRecord",
+        "line": 307,
+        "name": "funded_amount"
+      },
+      {
+        "annotation": "u256",
+        "class": "CovenantRecord",
+        "line": 308,
+        "name": "outstanding_amount"
+      },
+      {
+        "annotation": "u256",
+        "class": "CovenantRecord",
+        "line": 309,
+        "name": "provider_settlement"
+      },
+      {
+        "annotation": "u256",
+        "class": "CovenantRecord",
+        "line": 310,
+        "name": "buyer_settlement"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 311,
+        "name": "state"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 312,
+        "name": "service_spec"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 313,
+        "name": "service_spec_hash"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 314,
+        "name": "opened_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 315,
+        "name": "acceptance_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 316,
+        "name": "delivery_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 317,
+        "name": "challenge_duration"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 318,
+        "name": "absolute_dispute_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 319,
+        "name": "evidence_repair_window"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 320,
+        "name": "review_retry_window"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 321,
+        "name": "max_review_generations"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 322,
+        "name": "evidence_policy_version"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 323,
+        "name": "evidence_policy_hash"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 324,
+        "name": "max_evidence_age"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 325,
+        "name": "required_corroboration_count"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 326,
+        "name": "repair_policy_version"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 327,
+        "name": "repair_allowed_field_mask"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 328,
+        "name": "replay_scope"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 329,
+        "name": "adjudication_criteria_version"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 330,
+        "name": "settlement_rule_version"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 331,
+        "name": "accepted_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 332,
+        "name": "delivered_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 333,
+        "name": "challenge_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 334,
+        "name": "challenged_at"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 335,
+        "name": "repair_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 336,
+        "name": "retry_deadline"
+      },
+      {
+        "annotation": "u64",
+        "class": "CovenantRecord",
+        "line": 337,
+        "name": "closed_at"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 338,
+        "name": "delivery_payload"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 339,
+        "name": "delivery_hash"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 340,
+        "name": "active_evidence_set_hash"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 341,
+        "name": "repair_authorization_generation"
+      },
+      {
+        "annotation": "bool",
+        "class": "CovenantRecord",
+        "line": 342,
+        "name": "repair_authorization_active"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 343,
+        "name": "challenge_claim"
+      },
+      {
+        "annotation": "u32",
+        "class": "CovenantRecord",
+        "line": 344,
+        "name": "review_generation"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 345,
+        "name": "adjudication_decision"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 346,
+        "name": "failure_classification"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 347,
+        "name": "closure_reason"
+      },
+      {
+        "annotation": "str",
+        "class": "CovenantRecord",
+        "line": 348,
+        "name": "settlement_direction"
+      },
+      {
+        "annotation": "bool",
+        "class": "CovenantRecord",
+        "line": 349,
+        "name": "settlement_message_scheduled"
+      },
+      {
+        "annotation": "u64",
+        "class": "Accord402",
+        "line": 706,
+        "name": "covenant_count"
+      },
+      {
+        "annotation": "TreeMap[str, CovenantRecord]",
+        "class": "Accord402",
+        "line": 707,
+        "name": "covenants"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[CriterionRecord]]",
+        "class": "Accord402",
+        "line": 708,
+        "name": "criteria_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[AuthorityBinding]]",
+        "class": "Accord402",
+        "line": 709,
+        "name": "authority_bindings_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[EvidenceRecord]]",
+        "class": "Accord402",
+        "line": 710,
+        "name": "evidence_records_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "class": "Accord402",
+        "line": 711,
+        "name": "active_evidence_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[RepairAuthorizationRecord]]",
+        "class": "Accord402",
+        "line": 712,
+        "name": "repair_authorizations_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "class": "Accord402",
+        "line": 713,
+        "name": "challenged_criterion_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "class": "Accord402",
+        "line": 714,
+        "name": "failed_criterion_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, bool]",
+        "class": "Accord402",
+        "line": 715,
+        "name": "evidence_replay_keys"
+      },
+      {
+        "annotation": "TreeMap[Address, ProviderStats]",
+        "class": "Accord402",
+        "line": 716,
+        "name": "provider_stats"
+      },
+      {
+        "annotation": "TreeMap[Address, BuyerStats]",
+        "class": "Accord402",
+        "line": 717,
+        "name": "buyer_stats"
+      },
+      {
+        "annotation": "u256",
+        "class": "Accord402",
+        "line": 718,
+        "name": "total_funded"
+      },
+      {
+        "annotation": "u256",
+        "class": "Accord402",
+        "line": 719,
+        "name": "total_closed_to_provider"
+      },
+      {
+        "annotation": "u256",
+        "class": "Accord402",
+        "line": 720,
+        "name": "total_closed_to_buyer"
+      },
+      {
+        "annotation": "u256",
+        "class": "Accord402",
+        "line": 721,
+        "name": "total_outstanding"
+      }
+    ],
+    "classCount": 17,
+    "classes": [
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 178,
+        "name": "CriterionInput"
+      },
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 182,
+        "name": "AuthorityBindingInput"
+      },
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 190,
+        "name": "OpenCovenantInput"
+      },
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 208,
+        "name": "EvidenceInput"
+      },
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 223,
+        "name": "EvidenceReplacementInput"
+      },
+      {
+        "decorators": [
+          "dataclass"
+        ],
+        "line": 239,
+        "name": "AccountingTotalsView"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 246,
+        "name": "CriterionRecord"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 252,
+        "name": "AuthorityBinding"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 262,
+        "name": "EvidenceRecord"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 281,
+        "name": "RepairAuthorizationRecord"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 288,
+        "name": "ProviderStats"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 296,
+        "name": "BuyerStats"
+      },
+      {
+        "decorators": [
+          "allow_storage",
+          "dataclass"
+        ],
+        "line": 303,
+        "name": "CovenantRecord"
+      },
+      {
+        "decorators": [
+          "gl.evm.contract_interface"
+        ],
+        "line": 351,
+        "name": "_Recipient"
+      },
+      {
+        "decorators": [],
+        "line": 705,
+        "name": "Accord402"
+      },
+      {
+        "decorators": [],
+        "line": 352,
+        "name": "View"
+      },
+      {
+        "decorators": [],
+        "line": 354,
+        "name": "Write"
+      }
+    ],
+    "constructorCount": 1,
+    "contractClass": "Accord402",
+    "publicMethodCount": 25,
+    "publicMethods": [
+      {
+        "kind": "write_payable",
+        "line": 820,
+        "name": "open_covenant"
+      },
+      {
+        "kind": "write",
+        "line": 945,
+        "name": "accept_covenant"
+      },
+      {
+        "kind": "write",
+        "line": 958,
+        "name": "expire_unaccepted"
+      },
+      {
+        "kind": "write",
+        "line": 966,
+        "name": "submit_delivery"
+      },
+      {
+        "kind": "write",
+        "line": 1014,
+        "name": "expire_non_delivery"
+      },
+      {
+        "kind": "write",
+        "line": 1022,
+        "name": "challenge_delivery"
+      },
+      {
+        "kind": "write",
+        "line": 1062,
+        "name": "authorize_unchallenged_settlement"
+      },
+      {
+        "kind": "write",
+        "line": 1354,
+        "name": "adjudicate_challenge"
+      },
+      {
+        "kind": "write",
+        "line": 1368,
+        "name": "submit_evidence_repair"
+      },
+      {
+        "kind": "write",
+        "line": 1470,
+        "name": "expire_repair"
+      },
+      {
+        "kind": "write",
+        "line": 1481,
+        "name": "retry_review"
+      },
+      {
+        "kind": "write",
+        "line": 1498,
+        "name": "expire_review"
+      },
+      {
+        "kind": "write",
+        "line": 1538,
+        "name": "claim_settlement"
+      },
+      {
+        "kind": "view",
+        "line": 1575,
+        "name": "get_covenant_count"
+      },
+      {
+        "kind": "view",
+        "line": 1578,
+        "name": "get_covenant"
+      },
+      {
+        "kind": "view",
+        "line": 1582,
+        "name": "get_criteria"
+      },
+      {
+        "kind": "view",
+        "line": 1586,
+        "name": "get_authority_bindings"
+      },
+      {
+        "kind": "view",
+        "line": 1590,
+        "name": "get_evidence_history"
+      },
+      {
+        "kind": "view",
+        "line": 1594,
+        "name": "get_active_evidence_ids"
+      },
+      {
+        "kind": "view",
+        "line": 1598,
+        "name": "get_repair_authorizations"
+      },
+      {
+        "kind": "view",
+        "line": 1602,
+        "name": "get_challenged_criterion_ids"
+      },
+      {
+        "kind": "view",
+        "line": 1606,
+        "name": "get_failed_criterion_ids"
+      },
+      {
+        "kind": "view",
+        "line": 1610,
+        "name": "get_provider_stats"
+      },
+      {
+        "kind": "view",
+        "line": 1613,
+        "name": "get_buyer_stats"
+      },
+      {
+        "kind": "view",
+        "line": 1616,
+        "name": "get_accounting_totals"
+      }
+    ],
+    "storageFieldCount": 16,
+    "storageFields": [
+      {
+        "annotation": "u64",
+        "line": 706,
+        "name": "covenant_count"
+      },
+      {
+        "annotation": "TreeMap[str, CovenantRecord]",
+        "line": 707,
+        "name": "covenants"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[CriterionRecord]]",
+        "line": 708,
+        "name": "criteria_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[AuthorityBinding]]",
+        "line": 709,
+        "name": "authority_bindings_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[EvidenceRecord]]",
+        "line": 710,
+        "name": "evidence_records_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "line": 711,
+        "name": "active_evidence_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[RepairAuthorizationRecord]]",
+        "line": 712,
+        "name": "repair_authorizations_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "line": 713,
+        "name": "challenged_criterion_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, DynArray[str]]",
+        "line": 714,
+        "name": "failed_criterion_ids_by_covenant"
+      },
+      {
+        "annotation": "TreeMap[str, bool]",
+        "line": 715,
+        "name": "evidence_replay_keys"
+      },
+      {
+        "annotation": "TreeMap[Address, ProviderStats]",
+        "line": 716,
+        "name": "provider_stats"
+      },
+      {
+        "annotation": "TreeMap[Address, BuyerStats]",
+        "line": 717,
+        "name": "buyer_stats"
+      },
+      {
+        "annotation": "u256",
+        "line": 718,
+        "name": "total_funded"
+      },
+      {
+        "annotation": "u256",
+        "line": 719,
+        "name": "total_closed_to_provider"
+      },
+      {
+        "annotation": "u256",
+        "line": 720,
+        "name": "total_closed_to_buyer"
+      },
+      {
+        "annotation": "u256",
+        "line": 721,
+        "name": "total_outstanding"
+      }
+    ]
+  },
+  "runtimeContext": {
+    "empiricalBradburyIndividualTxGasCap": 16777216
+  },
+  "schema": "accord402.identifier-pressure-map.v1",
+  "topProtectedIdentifiers": [
+    {
+      "grossSourceBytes": 781,
+      "identifierBytes": 11,
+      "name": "covenant_id",
+      "occurrenceCount": 71,
+      "oneCharacterRenameSavingsUpperBound": 710
+    },
+    {
+      "grossSourceBytes": 704,
+      "identifierBytes": 4,
+      "name": "self",
+      "occurrenceCount": 176,
+      "oneCharacterRenameSavingsUpperBound": 528
+    },
+    {
+      "grossSourceBytes": 540,
+      "identifierBytes": 30,
+      "name": "immutable_version_or_record_id",
+      "occurrenceCount": 18,
+      "oneCharacterRenameSavingsUpperBound": 522
+    },
+    {
+      "grossSourceBytes": 468,
+      "identifierBytes": 12,
+      "name": "authority_id",
+      "occurrenceCount": 39,
+      "oneCharacterRenameSavingsUpperBound": 429
+    },
+    {
+      "grossSourceBytes": 451,
+      "identifierBytes": 11,
+      "name": "evidence_id",
+      "occurrenceCount": 41,
+      "oneCharacterRenameSavingsUpperBound": 410
+    },
+    {
+      "grossSourceBytes": 432,
+      "identifierBytes": 18,
+      "name": "authority_revision",
+      "occurrenceCount": 24,
+      "oneCharacterRenameSavingsUpperBound": 408
+    },
+    {
+      "grossSourceBytes": 323,
+      "identifierBytes": 17,
+      "name": "review_generation",
+      "occurrenceCount": 19,
+      "oneCharacterRenameSavingsUpperBound": 304
+    },
+    {
+      "grossSourceBytes": 297,
+      "identifierBytes": 27,
+      "name": "repair_authorization_active",
+      "occurrenceCount": 11,
+      "oneCharacterRenameSavingsUpperBound": 286
+    },
+    {
+      "grossSourceBytes": 288,
+      "identifierBytes": 16,
+      "name": "canonical_source",
+      "occurrenceCount": 18,
+      "oneCharacterRenameSavingsUpperBound": 270
+    },
+    {
+      "grossSourceBytes": 280,
+      "identifierBytes": 20,
+      "name": "replaces_evidence_id",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 266
+    },
+    {
+      "grossSourceBytes": 252,
+      "identifierBytes": 28,
+      "name": "required_corroboration_count",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 243
+    },
+    {
+      "grossSourceBytes": 250,
+      "identifierBytes": 25,
+      "name": "absolute_dispute_deadline",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 240
+    },
+    {
+      "grossSourceBytes": 225,
+      "identifierBytes": 25,
+      "name": "repair_allowed_field_mask",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 216
+    },
+    {
+      "grossSourceBytes": 216,
+      "identifierBytes": 36,
+      "name": "challenged_criterion_ids_by_covenant",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 210
+    },
+    {
+      "grossSourceBytes": 209,
+      "identifierBytes": 11,
+      "name": "source_kind",
+      "occurrenceCount": 19,
+      "oneCharacterRenameSavingsUpperBound": 190
+    },
+    {
+      "grossSourceBytes": 198,
+      "identifierBytes": 22,
+      "name": "max_review_generations",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 189
+    },
+    {
+      "grossSourceBytes": 196,
+      "identifierBytes": 14,
+      "name": "content_digest",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 182
+    },
+    {
+      "grossSourceBytes": 196,
+      "identifierBytes": 14,
+      "name": "CovenantRecord",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 182
+    },
+    {
+      "grossSourceBytes": 192,
+      "identifierBytes": 12,
+      "name": "replay_scope",
+      "occurrenceCount": 16,
+      "oneCharacterRenameSavingsUpperBound": 176
+    },
+    {
+      "grossSourceBytes": 186,
+      "identifierBytes": 31,
+      "name": "active_evidence_ids_by_covenant",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 180
+    },
+    {
+      "grossSourceBytes": 168,
+      "identifierBytes": 28,
+      "name": "evidence_records_by_covenant",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 162
+    },
+    {
+      "grossSourceBytes": 165,
+      "identifierBytes": 33,
+      "name": "repair_authorizations_by_covenant",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 160
+    },
+    {
+      "grossSourceBytes": 160,
+      "identifierBytes": 20,
+      "name": "evidence_policy_hash",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 152
+    },
+    {
+      "grossSourceBytes": 160,
+      "identifierBytes": 20,
+      "name": "settlement_direction",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 152
+    },
+    {
+      "grossSourceBytes": 153,
+      "identifierBytes": 17,
+      "name": "total_outstanding",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 144
+    },
+    {
+      "grossSourceBytes": 150,
+      "identifierBytes": 10,
+      "name": "is_primary",
+      "occurrenceCount": 15,
+      "oneCharacterRenameSavingsUpperBound": 135
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 24,
+      "name": "total_closed_to_provider",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 138
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 12,
+      "name": "criterion_id",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 132
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 16,
+      "name": "AuthorityBinding",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 135
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 16,
+      "name": "canonical_origin",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 135
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 12,
+      "name": "published_at",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 132
+    },
+    {
+      "grossSourceBytes": 144,
+      "identifierBytes": 24,
+      "name": "active_evidence_set_hash",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 138
+    },
+    {
+      "grossSourceBytes": 140,
+      "identifierBytes": 14,
+      "name": "identity_value",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 130
+    },
+    {
+      "grossSourceBytes": 140,
+      "identifierBytes": 20,
+      "name": "evidence_replay_keys",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 133
+    },
+    {
+      "grossSourceBytes": 135,
+      "identifierBytes": 5,
+      "name": "state",
+      "occurrenceCount": 27,
+      "oneCharacterRenameSavingsUpperBound": 108
+    },
+    {
+      "grossSourceBytes": 132,
+      "identifierBytes": 11,
+      "name": "observed_at",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 130,
+      "identifierBytes": 13,
+      "name": "identity_kind",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 128,
+      "identifierBytes": 16,
+      "name": "delivery_payload",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 128,
+      "identifierBytes": 16,
+      "name": "max_evidence_age",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 128,
+      "identifierBytes": 32,
+      "name": "failed_criterion_ids_by_covenant",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 124
+    },
+    {
+      "grossSourceBytes": 126,
+      "identifierBytes": 14,
+      "name": "closure_reason",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 117
+    },
+    {
+      "grossSourceBytes": 126,
+      "identifierBytes": 14,
+      "name": "EvidenceRecord",
+      "occurrenceCount": 9,
+      "oneCharacterRenameSavingsUpperBound": 117
+    },
+    {
+      "grossSourceBytes": 126,
+      "identifierBytes": 9,
+      "name": "covenants",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 112
+    },
+    {
+      "grossSourceBytes": 126,
+      "identifierBytes": 21,
+      "name": "total_closed_to_buyer",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 126,
+      "identifierBytes": 9,
+      "name": "dataclass",
+      "occurrenceCount": 14,
+      "oneCharacterRenameSavingsUpperBound": 112
+    },
+    {
+      "grossSourceBytes": 125,
+      "identifierBytes": 25,
+      "name": "RepairAuthorizationRecord",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 124,
+      "identifierBytes": 31,
+      "name": "repair_authorization_generation",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 120
+    },
+    {
+      "grossSourceBytes": 120,
+      "identifierBytes": 30,
+      "name": "authority_bindings_by_covenant",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 116
+    },
+    {
+      "grossSourceBytes": 120,
+      "identifierBytes": 10,
+      "name": "expires_at",
+      "occurrenceCount": 12,
+      "oneCharacterRenameSavingsUpperBound": 108
+    },
+    {
+      "grossSourceBytes": 120,
+      "identifierBytes": 8,
+      "name": "provider",
+      "occurrenceCount": 15,
+      "oneCharacterRenameSavingsUpperBound": 105
+    },
+    {
+      "grossSourceBytes": 120,
+      "identifierBytes": 12,
+      "name": "service_spec",
+      "occurrenceCount": 10,
+      "oneCharacterRenameSavingsUpperBound": 110
+    },
+    {
+      "grossSourceBytes": 119,
+      "identifierBytes": 17,
+      "name": "service_spec_hash",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 112
+    },
+    {
+      "grossSourceBytes": 114,
+      "identifierBytes": 19,
+      "name": "acceptance_deadline",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 108
+    },
+    {
+      "grossSourceBytes": 112,
+      "identifierBytes": 28,
+      "name": "settlement_message_scheduled",
+      "occurrenceCount": 4,
+      "oneCharacterRenameSavingsUpperBound": 108
+    },
+    {
+      "grossSourceBytes": 110,
+      "identifierBytes": 22,
+      "name": "evidence_repair_window",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 105
+    },
+    {
+      "grossSourceBytes": 105,
+      "identifierBytes": 21,
+      "name": "adjudication_decision",
+      "occurrenceCount": 5,
+      "oneCharacterRenameSavingsUpperBound": 100
+    },
+    {
+      "grossSourceBytes": 105,
+      "identifierBytes": 15,
+      "name": "repair_deadline",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 98
+    },
+    {
+      "grossSourceBytes": 105,
+      "identifierBytes": 15,
+      "name": "CriterionRecord",
+      "occurrenceCount": 7,
+      "oneCharacterRenameSavingsUpperBound": 98
+    },
+    {
+      "grossSourceBytes": 104,
+      "identifierBytes": 13,
+      "name": "delivery_hash",
+      "occurrenceCount": 8,
+      "oneCharacterRenameSavingsUpperBound": 96
+    },
+    {
+      "grossSourceBytes": 102,
+      "identifierBytes": 17,
+      "name": "delivery_deadline",
+      "occurrenceCount": 6,
+      "oneCharacterRenameSavingsUpperBound": 96
+    }
+  ]
+}

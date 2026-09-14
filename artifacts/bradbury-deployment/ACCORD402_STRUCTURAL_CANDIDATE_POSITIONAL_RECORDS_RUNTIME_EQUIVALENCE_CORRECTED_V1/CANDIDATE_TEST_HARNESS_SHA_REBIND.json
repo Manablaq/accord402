@@ -1,0 +1,50 @@
+{
+  "candidateSourceSha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818",
+  "canonicalSourceSha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4",
+  "changedFiles": [
+    {
+      "file": "direct/test_accord402_direct_mode.py",
+      "replacementCount": 1
+    },
+    {
+      "file": "security/test_accord402_adversarial.py",
+      "replacementCount": 1
+    },
+    {
+      "file": "test_accord402_hash_vectors.py",
+      "replacementCount": 1
+    }
+  ],
+  "changedTestFileCount": 3,
+  "createdAtUtc": "2026-09-12T23:00:26Z",
+  "occurrences": [
+    {
+      "count": 1,
+      "file": "direct/test_accord402_direct_mode.py",
+      "line": 14,
+      "text": "EXPECTED_CONTRACT_SHA256 = \"d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4\""
+    },
+    {
+      "count": 1,
+      "file": "security/test_accord402_adversarial.py",
+      "line": 14,
+      "text": "EXPECTED_CONTRACT_SHA256 = \"d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4\""
+    },
+    {
+      "count": 1,
+      "file": "test_accord402_hash_vectors.py",
+      "line": 14,
+      "text": "EXPECTED_CONTRACT_SHA256 = \"d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4\""
+    }
+  ],
+  "realRepositoryTestsModified": false,
+  "replacementCount": 3,
+  "schema": "accord402.temporary-candidate-test-sha-rebind.v1",
+  "temporaryCandidateHarnessOnly": true,
+  "verification": {
+    "baselineAndCandidateTestsIdenticalBeforeRebind": true,
+    "onlyExpectedContractSha256AssignmentsRebound": true,
+    "reverseSubstitutionRestoresBaselineExactly": true,
+    "untouchedTestsRemainByteIdentical": true
+  }
+}

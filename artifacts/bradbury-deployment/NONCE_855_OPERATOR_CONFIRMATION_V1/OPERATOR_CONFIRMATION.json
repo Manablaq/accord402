@@ -1,0 +1,27 @@
+{
+  "accord402": {
+    "deploymentAuthorizedByThisStatement": false,
+    "transactionSigningAuthorizedByThisStatement": false
+  },
+  "classification": "OPERATOR_CONFIRMED_NONCE855_SELF_TRANSFER_AUTHORIZED",
+  "consumerBlock": 21491855,
+  "consumerTransactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee",
+  "evidenceId": "accord402-nonce855-operator-confirmation-v1",
+  "nextAction": "BUILD_FRESH_NONCE856_PREFLIGHT_WITHOUT_SIGNING",
+  "oldCancellation": {
+    "identifiedAsConsumer": false,
+    "state": "STALE_AND_NON_EXECUTABLE_AFTER_NONCE855_CONSUMPTION"
+  },
+  "operatorConfirmation": {
+    "knowinglyInitiatedOrAuthorized": true,
+    "nonce855SelfTransferAuthorized": true,
+    "unexplainedSecurityEvent": false,
+    "workerCompromiseClaimed": false
+  },
+  "operatorStatement": "I knowingly initiated or authorized the zero-value worker self-transfer that consumed nonce 855.",
+  "operatorStatementSha256": "f675b0d62e25e1366a6c1c17a9cec8a62fb6dcb28905431766659147fa9c9e64",
+  "recordedAtUtc": "2026-09-12T06:31:16Z",
+  "schema": "accord402.nonce855.operator-confirmation.v1",
+  "statementSource": "operator_statement_in_chat",
+  "worker": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+}

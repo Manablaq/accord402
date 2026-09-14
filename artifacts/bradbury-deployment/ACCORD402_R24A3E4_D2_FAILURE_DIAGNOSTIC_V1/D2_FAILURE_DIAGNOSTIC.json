@@ -1,0 +1,88 @@
+{
+  "classification": "D2_FAILURE_NOT_EXPLAINED_BY_EXPLICIT_PRIVATE_HELPER_TEST_BINDING",
+  "d1RemainsRuntimeVerifiedBase": true,
+  "d2RetainAsRuntimeVerifiedBase": false,
+  "explicitlyRequiredFunctionNames": [],
+  "findFunctionCalls": [
+    {
+      "line": 80,
+      "requestedFunction": null,
+      "source": "_find_function(tree, name)"
+    }
+  ],
+  "findFunctionDefinition": {
+    "endLine": 53,
+    "line": 49,
+    "source": "def _find_function(tree: ast.Module, name: str) -> ast.FunctionDef:\n    for node in tree.body:\n        if isinstance(node, ast.FunctionDef) and node.name == name:\n            return node\n    raise AssertionError(f\"contract helper missing: {name}\")"
+  },
+  "fixtureOrFunctionBlocksUsingFindFunction": [],
+  "removedAndExplicitlyRequiredTargetHelpers": [],
+  "schema": "accord402.d2-runtime-failure-diagnostic.v1",
+  "sourceModificationPerformed": false,
+  "targetHelpers": [
+    "_criterion_bytes",
+    "_authority_bytes",
+    "_evidence_bytes",
+    "_bool_byte"
+  ],
+  "targetPresence": {
+    "_authority_bytes": {
+      "canonical": true,
+      "d1": true,
+      "d2": false,
+      "testMentionCount": 1,
+      "testMentions": [
+        {
+          "line": 72,
+          "text": "        \"_authority_bytes\","
+        }
+      ]
+    },
+    "_bool_byte": {
+      "canonical": true,
+      "d1": true,
+      "d2": false,
+      "testMentionCount": 3,
+      "testMentions": [
+        {
+          "line": 68,
+          "text": "        \"_bool_byte\","
+        },
+        {
+          "line": 325,
+          "text": "    assert contract[\"_bool_byte\"](False) == b\"\\x00\""
+        },
+        {
+          "line": 326,
+          "text": "    assert contract[\"_bool_byte\"](True) == b\"\\x01\""
+        }
+      ]
+    },
+    "_criterion_bytes": {
+      "canonical": true,
+      "d1": true,
+      "d2": false,
+      "testMentionCount": 1,
+      "testMentions": [
+        {
+          "line": 71,
+          "text": "        \"_criterion_bytes\","
+        }
+      ]
+    },
+    "_evidence_bytes": {
+      "canonical": true,
+      "d1": true,
+      "d2": false,
+      "testMentionCount": 1,
+      "testMentions": [
+        {
+          "line": 73,
+          "text": "        \"_evidence_bytes\","
+        }
+      ]
+    }
+  },
+  "testModificationAuthorized": false,
+  "testsRerun": false
+}

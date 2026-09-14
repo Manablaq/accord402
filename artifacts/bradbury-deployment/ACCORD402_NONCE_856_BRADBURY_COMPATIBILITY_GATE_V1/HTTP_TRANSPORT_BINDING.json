@@ -1,0 +1,25 @@
+{
+  "classification": "KNOWN_GOOD_BRADBURY_HTTP_TRANSPORT_BOUND",
+  "createdAtUtc": "2026-09-12T14:44:34Z",
+  "curlBinary": "/usr/bin/curl",
+  "diagnosedFailureBeingAvoided": {
+    "classification": "PYTHON_URLLIB_DEFAULT_HTTP_FINGERPRINT_REJECTED_ALTERNATE_USER_AGENT_RECOVERS",
+    "client": "Python-urllib/3.9",
+    "endpoint": "https://rpc-bradbury.genlayer.com",
+    "httpStatus": 403,
+    "responseBody": "error code: 1010"
+  },
+  "explicitUserAgent": "curl/8.7.1",
+  "preflight": {
+    "chainBlock": 21523735,
+    "chainRpcSucceeded": true,
+    "genlayerBlock": 21523733,
+    "genlayerRpcSucceeded": true
+  },
+  "requestHeaders": {
+    "Accept": "application/json",
+    "Content-Type": "application/json"
+  },
+  "schema": "accord402.http-transport-binding.v1",
+  "selectedTransport": "CURL_WITH_EXPLICIT_PROVEN_USER_AGENT"
+}

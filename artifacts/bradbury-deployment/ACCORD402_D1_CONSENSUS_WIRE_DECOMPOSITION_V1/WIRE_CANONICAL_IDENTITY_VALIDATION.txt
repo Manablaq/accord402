@@ -1,0 +1,42 @@
+  1233		def _validate_consensus_wire(self,key:str,cov:CovenantRecord,wire_text:str,review_generation:int):
+  1234			q=cov
+  1235			r=wire_text
+  1236			try:
+  1237				b=aK(r)
+  1238			except Exception:
+  1239				_fail('MALFORMED_ADJUDICATION_WIRE')
+  1240			if set(b.keys())!=bT:
+  1241				_fail(bW)
+  1242			if _canonical_json(b)!=r:
+  1243				_fail(bW)
+  1244			if type(b[cl])is not int or b[cl]!=bw:
+  1245				_fail(bW)
+  1246			if type(b[b4])is not int or b[b4]!=int(q.covenant_id)or b[b4]<=0 or(b[b4]>MAX_U64):
+  1247				_fail(bW)
+  1248			if type(b[bZ])is not int or b[bZ]!=review_generation or b[bZ]<=0 or(b[bZ]>MAX_U32):
+  1249				_fail(bW)
+  1250			for o,m in((b9,q.service_spec_hash),(cf,q.delivery_hash),(b7,q.evidence_policy_hash),(b2,q.active_evidence_set_hash)):
+  1251				if not isinstance(b[o],str)or not _is_lower_hex64(b[o])or b[o]!=m:
+  1252					_fail(bW)
+  1253			challenged=[value for value in self.challenged_criterion_ids_by_covenant[key]]
+  1254			if b[b0]!=challenged or len(challenged)<1 or len(challenged)>ah:
+  1255				_fail(bW)
+  1256			if len(set(challenged))!=len(challenged):
+  1257				_fail(bW)
+  1258			failed=b[b1]
+  1259			if not isinstance(failed,list)or len(failed)>ah:
+  1260				_fail(bW)
+  1261			if any((not isinstance(x,str)for x in failed))or len(set(failed))!=len(failed):
+  1262				_fail(bW)
+  1263			n=[x for x in challenged if x in failed]
+  1264			if n!=failed:
+  1265				_fail(bW)
+  1266			f=b[co]
+  1267			if f not in(S,U,M,N,Z):
+  1268				_fail(bW)
+  1269			a=b[ca]
+  1270			if a not in(au,V,W,O):
+  1271				_fail(bW)
+  1272			d=b[cb]
+  1273			if not isinstance(d,list)or len(d)>aw:
+  1274				_fail(bW)

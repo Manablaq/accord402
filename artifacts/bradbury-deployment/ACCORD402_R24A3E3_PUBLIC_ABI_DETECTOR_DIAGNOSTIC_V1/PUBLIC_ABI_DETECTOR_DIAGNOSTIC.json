@@ -1,0 +1,540 @@
+{
+  "broadDecoratorPublicCount": 25,
+  "broadMatchedMethods": [
+    "open_covenant",
+    "accept_covenant",
+    "expire_unaccepted",
+    "submit_delivery",
+    "expire_non_delivery",
+    "challenge_delivery",
+    "authorize_unchallenged_settlement",
+    "adjudicate_challenge",
+    "submit_evidence_repair",
+    "expire_repair",
+    "retry_review",
+    "expire_review",
+    "claim_settlement",
+    "get_covenant_count",
+    "get_covenant",
+    "get_criteria",
+    "get_authority_bindings",
+    "get_evidence_history",
+    "get_active_evidence_ids",
+    "get_repair_authorizations",
+    "get_challenged_criterion_ids",
+    "get_failed_criterion_ids",
+    "get_provider_stats",
+    "get_buyer_stats",
+    "get_accounting_totals"
+  ],
+  "classification": "R24A3E3_AST_PUBLIC_DECORATOR_DETECTOR_UNDERCOUNT_CONFIRMED",
+  "d1RecordedPublicMethodCount": 25,
+  "linterPublicMethodCount": 25,
+  "linterViewCount": 12,
+  "linterWriteCount": 13,
+  "methodInventory": [
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 722,
+      "name": "__init__",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 724,
+      "name": "_require_covenant",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 733,
+      "name": "_o",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 738,
+      "name": "_n",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 743,
+      "name": "_q",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 748,
+      "name": "_j",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 750,
+      "name": "_f",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 765,
+      "name": "_i",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 770,
+      "name": "_s",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 775,
+      "name": "_r",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 780,
+      "name": "_b",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 787,
+      "name": "_h",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 796,
+      "name": "_m",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 805,
+      "name": "_g",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 813,
+      "name": "_a",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write.payable"
+      ],
+      "line": 820,
+      "name": "open_covenant",
+      "normalizedDecorators": [
+        "gl.public.write.payable"
+      ],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 945,
+      "name": "accept_covenant",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 958,
+      "name": "expire_unaccepted",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 966,
+      "name": "submit_delivery",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1014,
+      "name": "expire_non_delivery",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1022,
+      "name": "challenge_delivery",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1062,
+      "name": "authorize_unchallenged_settlement",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 1069,
+      "name": "_p",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 1085,
+      "name": "_execute_review_consensus",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 1233,
+      "name": "_validate_consensus_wire",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 1315,
+      "name": "_k",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1354,
+      "name": "adjudicate_challenge",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1368,
+      "name": "submit_evidence_repair",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1470,
+      "name": "expire_repair",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1481,
+      "name": "retry_review",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1498,
+      "name": "expire_review",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": false,
+      "decorators": [],
+      "line": 1516,
+      "name": "_c",
+      "normalizedDecorators": [],
+      "oldDetectorPublic": false
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write"
+      ],
+      "line": 1538,
+      "name": "claim_settlement",
+      "normalizedDecorators": [
+        "gl.public.write"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1575,
+      "name": "get_covenant_count",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1578,
+      "name": "get_covenant",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1582,
+      "name": "get_criteria",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1586,
+      "name": "get_authority_bindings",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1590,
+      "name": "get_evidence_history",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1594,
+      "name": "get_active_evidence_ids",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1598,
+      "name": "get_repair_authorizations",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1602,
+      "name": "get_challenged_criterion_ids",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1606,
+      "name": "get_failed_criterion_ids",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1610,
+      "name": "get_provider_stats",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1613,
+      "name": "get_buyer_stats",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    },
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.view"
+      ],
+      "line": 1616,
+      "name": "get_accounting_totals",
+      "normalizedDecorators": [
+        "gl.public.view"
+      ],
+      "oldDetectorPublic": true
+    }
+  ],
+  "missedByOldHeuristic": [
+    {
+      "broadPublic": true,
+      "decorators": [
+        "gl.public.write.payable"
+      ],
+      "line": 820,
+      "name": "open_covenant",
+      "normalizedDecorators": [
+        "gl.public.write.payable"
+      ],
+      "oldDetectorPublic": false
+    }
+  ],
+  "oldHeuristicMatchedMethods": [
+    "accept_covenant",
+    "expire_unaccepted",
+    "submit_delivery",
+    "expire_non_delivery",
+    "challenge_delivery",
+    "authorize_unchallenged_settlement",
+    "adjudicate_challenge",
+    "submit_evidence_repair",
+    "expire_repair",
+    "retry_review",
+    "expire_review",
+    "claim_settlement",
+    "get_covenant_count",
+    "get_covenant",
+    "get_criteria",
+    "get_authority_bindings",
+    "get_evidence_history",
+    "get_active_evidence_ids",
+    "get_repair_authorizations",
+    "get_challenged_criterion_ids",
+    "get_failed_criterion_ids",
+    "get_provider_stats",
+    "get_buyer_stats",
+    "get_accounting_totals"
+  ],
+  "oldHeuristicPublicCount": 24,
+  "publicAbiSemanticRegressionProven": false,
+  "schema": "accord402.r24a3e3-public-abi-detector-diagnostic.v1"
+}

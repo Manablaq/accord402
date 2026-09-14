@@ -1,0 +1,1069 @@
+{
+  "authorizationState": {
+    "broadcastPerformedByDiagnostic": false,
+    "furtherBroadcastAuthorized": false,
+    "furtherSigningAuthorized": false,
+    "initialBroadcastAuthorizationConsumed": true,
+    "signPerformedByDiagnostic": false,
+    "signingAuthorizationConsumed": true
+  },
+  "candidate": {
+    "blockGasLimitShareBps": 8082,
+    "gasLimit": 80825672,
+    "gasPriceWei": 187500000
+  },
+  "createdAtUtc": "2026-09-12T18:45:50Z",
+  "currentState": {
+    "chain": {
+      "gasPriceWei": 168776550,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    },
+    "chainSimulation": {
+      "estimateGas": {
+        "result": "0x2671a20",
+        "success": true
+      },
+      "ethCall": {
+        "result": "0x",
+        "success": true
+      }
+    },
+    "genlayer": {
+      "gasPriceWei": 168776550,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    },
+    "genlayerSimulation": {
+      "estimateGas": {
+        "result": "0x2671a20",
+        "success": true
+      },
+      "ethCall": {
+        "result": "0x",
+        "success": true
+      }
+    },
+    "maximumCurrentEstimateGas": 40311328
+  },
+  "diagnosticClassification": "CANDIDATE_GAS_LIMIT_EXCEEDS_ALL_RECENT_MINED_TX_LIMITS_HIGH_GAS_LIMIT_INCLUSION_FRICTION_HYPOTHESIS_STRENGTHENED_NOT_PROVEN",
+  "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "interpretation": "This is an observational recent-block inclusion profile. It can show whether gas limits comparable to the frozen 80,825,672 candidate are actually being mined. Absence of such transactions strengthens, but does not prove, a high-gas-limit inclusion-friction hypothesis.",
+  "recentCanonicalWindow": {
+    "blockCount": 96,
+    "blocks": [
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1188603,
+        "gasUsedBps": 118,
+        "hash": "0x1ec2c6126a328703a2b96ffd6f7751471dc013ae3b19c1e974edbb1db0806e6e",
+        "number": 21535753,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 781705,
+        "gasUsedBps": 78,
+        "hash": "0x3db49f6236bab1ea8d92e088f9b663d1776184c7103df78306ed74a5bb0f0831",
+        "number": 21535754,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 774014,
+        "gasUsedBps": 77,
+        "hash": "0x66c9181a71d9d4a8d17d8b3742a9b2a56ea406e61723425fd8c0703d4afa8690",
+        "number": 21535755,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1580561,
+        "gasUsedBps": 158,
+        "hash": "0x23065bfb82470b2e28371af97ac34cb03eb29c4f0d469f8e095b3055f5a8f330",
+        "number": 21535756,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 500363,
+        "gasUsedBps": 50,
+        "hash": "0xf4d89786265bdacd070df97711b7f3b1989f35a20845c598c3671247815312ab",
+        "number": 21535757,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 947383,
+        "gasUsedBps": 94,
+        "hash": "0x8c3531caef0494f39fd25e0992633287d4d9999445507f3b83f9fd2c40f62dd2",
+        "number": 21535758,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "gasUsedBps": 54,
+        "hash": "0x725dda9899344ab4749e08d894938d28c9058844356761b62f92587414e39896",
+        "number": 21535759,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 400431,
+        "gasUsedBps": 40,
+        "hash": "0xc792c681505c3a0e4b8cad9cafbb579b4dad723371ae6f74dea562e58aeb4963",
+        "number": 21535760,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 772660,
+        "gasUsedBps": 77,
+        "hash": "0x9362aa0edf3cd2e833c5f56530fb283de8876473c8752bc61d06cadf4a63465d",
+        "number": 21535761,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 738448,
+        "gasUsedBps": 73,
+        "hash": "0x01889d9a6bcd551039fd4a2a4e3e068eef718ec6ee49eb30c064eacba75755f0",
+        "number": 21535762,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 655782,
+        "gasUsedBps": 65,
+        "hash": "0xc3b2f8b13674fdfd16ab294e0db30db6e7befa6a62872948212241904626c4e0",
+        "number": 21535763,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 82048,
+        "gasUsedBps": 8,
+        "hash": "0x4923d949d35cd41cc89e464b1b5e50e7bd2dd4d276e8f9d7d322c89aa6d99bb7",
+        "number": 21535764,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 344800,
+        "gasUsedBps": 34,
+        "hash": "0xd92606f408af04b990cc94f41ba622af6163067a7e666ba2b72be66b4366397c",
+        "number": 21535765,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 901034,
+        "gasUsedBps": 90,
+        "hash": "0xe5c2e699439c703e24838e01e4c4d05a9073d46ea8893cabf340940ba7aa51f4",
+        "number": 21535766,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1407429,
+        "gasUsedBps": 140,
+        "hash": "0xe6edf18f158059534825ea89f6699ddc40dcbfdcbe404a8fb4d405df832215db",
+        "number": 21535767,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1275402,
+        "gasUsedBps": 127,
+        "hash": "0xcb0ad49af7062e0d3c32d53b0684566b769bf1e01132655c1a3f4e9ee80655d6",
+        "number": 21535768,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1082599,
+        "gasUsedBps": 108,
+        "hash": "0x68ac02b14b123a12d8d016323ffd7ad3517b6c55e4f9399d7aaa1d1b6dece4c5",
+        "number": 21535769,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 497974,
+        "gasUsedBps": 49,
+        "hash": "0xfa93b492e85f8e3c19d5b544801809e0579bb6d207a28ecfb5e19b182af1080d",
+        "number": 21535770,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1041737,
+        "gasUsedBps": 104,
+        "hash": "0xfbbeecf1bf278f542552a176985e8122540af86fcf065ae5c43426c02807f1fd",
+        "number": 21535771,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402663,
+        "gasUsedBps": 40,
+        "hash": "0xcfdabc7dcad240cb27dd8035bb880306068e34d2439c61cfd9efee196763ebad",
+        "number": 21535772,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 403430,
+        "gasUsedBps": 40,
+        "hash": "0x9089bd3d69efbf5021d08c4577279bbfab3a809780917f90fae3eb2a295e96b7",
+        "number": 21535773,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 369230,
+        "gasUsedBps": 36,
+        "hash": "0x7111b55e8123b894f62133964980dfe4af1ac2cbf6c894018925425d6f81ccfe",
+        "number": 21535774,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 369230,
+        "gasUsedBps": 36,
+        "hash": "0x2d73adea926baf62f4f5700fdaa8c6971df9dd54199da6ffb25f3a8d1a00d5fb",
+        "number": 21535775,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1025000,
+        "gasUsedBps": 102,
+        "hash": "0x980c0844f03d3a8a7b20d8c486d4552519bda2a8fe88ccc86c2b69e8c51f9d1d",
+        "number": 21535776,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 711941,
+        "gasUsedBps": 71,
+        "hash": "0x954c69b2d1d78996ce3632e62f42c605b7908c1b9f4411ac4c21b8e0bcbcb813",
+        "number": 21535777,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 917745,
+        "gasUsedBps": 91,
+        "hash": "0x3d50ca4152410b040ea4c9fd78fbe6916393f214efb8cb98ac2c0b0f7bfd5aae",
+        "number": 21535778,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1888378,
+        "gasUsedBps": 188,
+        "hash": "0x0b005b7e3d0c8efdc783ff5212857c9287dc7bd045b329c0c79a05f14891ef78",
+        "number": 21535779,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 576322,
+        "gasUsedBps": 57,
+        "hash": "0x8ae0153d8324e08d6b675859a3b7743ada69abdc4265932a2ea2d8aadc3a454b",
+        "number": 21535780,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1005771,
+        "gasUsedBps": 100,
+        "hash": "0x800c61cb27181e35e02cbe4e48947653dd3c59bd80fb0430736e3bdfa3ff6654",
+        "number": 21535781,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 514038,
+        "gasUsedBps": 51,
+        "hash": "0xbe4d0f815f1eba3d3d45c12f07c3417b6bb7ded96b13d8c9bddce1ae1dab08bb",
+        "number": 21535782,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 2080924,
+        "gasUsedBps": 208,
+        "hash": "0x3adbd767b56cc07e20f1b7f62c169cd05f01a06a0cdde48d5375da324c0ef9ba",
+        "number": 21535783,
+        "transactionCount": 4
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 516403,
+        "gasUsedBps": 51,
+        "hash": "0x6ec516fb0b969d0c90d422c8f3de7ce5f5ee97f171212a4501b78bf3dd18da8f",
+        "number": 21535784,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 779315,
+        "gasUsedBps": 77,
+        "hash": "0xf6cd98df8850a4e4ed23ecc4f65703bf54cd8fdebcd7615ec9b96cabc3a439cd",
+        "number": 21535785,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 541374,
+        "gasUsedBps": 54,
+        "hash": "0xe24c602dad7a3bdc118f3afe7f1bed328582ddb57f20a1386feb3cdb61d4cb08",
+        "number": 21535786,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402651,
+        "gasUsedBps": 40,
+        "hash": "0xe35235ce41609e4ce4f1c1e641e27b26ba52574d38a7522214dd05986a0014be",
+        "number": 21535787,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1141842,
+        "gasUsedBps": 114,
+        "hash": "0x3e77537263043e5247ff44c058061e90c4c416478f50947e493deea1e6047fb5",
+        "number": 21535788,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 369206,
+        "gasUsedBps": 36,
+        "hash": "0x2d6fc179159f7e7debbf719bcbfefa65942278984ac1bf5b98673afc47240e3c",
+        "number": 21535789,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 655758,
+        "gasUsedBps": 65,
+        "hash": "0x8303683fa9d1cb858ab49a6bd176bad782ade5eb7f55ff756f5cd4d09479119e",
+        "number": 21535790,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 840472,
+        "gasUsedBps": 84,
+        "hash": "0x140c3b606954d28d5b7c74cdbc59126faf33eb97af5a57e49dba7385c866fdd8",
+        "number": 21535791,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1259785,
+        "gasUsedBps": 125,
+        "hash": "0x0be3d5676efbaf953015b55bcba20550449c52f6a72f3d92ddbd225dbc6da4e0",
+        "number": 21535792,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1277792,
+        "gasUsedBps": 127,
+        "hash": "0x16df1a300d282e7e6aaf3ce9cd04fd79d1a10f967f23c174ec71cd2b738849c6",
+        "number": 21535793,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1082587,
+        "gasUsedBps": 108,
+        "hash": "0x6419b1e7437c76dd2eec78321791abd2097b9b1d85756340625daa4d5a2e52bd",
+        "number": 21535794,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 497974,
+        "gasUsedBps": 49,
+        "hash": "0x3028180ecfb964397696943212e76476907a50a19c05530da7dde64e97f63340",
+        "number": 21535795,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 21000,
+        "gasUsedBps": 2,
+        "hash": "0x290ac85f07375793a3ba176b35ef3c1900fd875cec68adb66042817bd8d30933",
+        "number": 21535796,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 500351,
+        "gasUsedBps": 50,
+        "hash": "0xd3c2f8c2bc5246575a1e9b5e27cf7c0461ab2f8abebdb2b51e36f044c3179f46",
+        "number": 21535797,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1081724,
+        "gasUsedBps": 108,
+        "hash": "0x76742fbf8b8c3807bc64918129cb2808317bc7900d76a46010f924e0530381c5",
+        "number": 21535798,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402675,
+        "gasUsedBps": 40,
+        "hash": "0x7448ba7f7d6d54d80d480c3d05a8a90331da2dbd1eee22d9502911107635ffe9",
+        "number": 21535799,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1141878,
+        "gasUsedBps": 114,
+        "hash": "0xc2609bc8e9a031e5cf49a9d93c509bd801301d5c99c638e3986166007d27e913",
+        "number": 21535800,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 82048,
+        "gasUsedBps": 8,
+        "hash": "0x1003da0ff795efb9f566b418c8b97070b2349f6c1fac89ef560454c96eebdadf",
+        "number": 21535801,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 419121,
+        "gasUsedBps": 41,
+        "hash": "0x83235870ec8006b03d4eedb1dd5f50c5d83ddf3f07cc3b57a871ff51382af50f",
+        "number": 21535802,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 874362,
+        "gasUsedBps": 87,
+        "hash": "0x26be74664c141d7f152d15817741bc45898e9c5bfc6ce772c0a9edeaa3677326",
+        "number": 21535803,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 789299,
+        "gasUsedBps": 78,
+        "hash": "0xe75d2333b816de3ee1eb81adcbf330b95c3df04d6ec532bf2c2f6cec6843e172",
+        "number": 21535804,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1075815,
+        "gasUsedBps": 107,
+        "hash": "0x08dacb0d196a7ecf7ce96ec7070679302e603012f6f96c8bd74c1089df1a6ca5",
+        "number": 21535805,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 884828,
+        "gasUsedBps": 88,
+        "hash": "0xf2f37e60110351da4e2abf5cccce2ed605880438ef43423f85827a1e1cb5d4eb",
+        "number": 21535806,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1560702,
+        "gasUsedBps": 156,
+        "hash": "0x6b315c57aeccf6f6a1624e26c0bb772518d4bb384e37c9093139f8702caa65fb",
+        "number": 21535807,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1336009,
+        "gasUsedBps": 133,
+        "hash": "0x1570ede40030f5befec74a19068c0e95a913c150d41d1e09d1d3c3b4752d487e",
+        "number": 21535808,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1003691,
+        "gasUsedBps": 100,
+        "hash": "0x2e81c7d295bc95603e29f5dc9c509e94c50044cd3e25ecca4b02eec083eb1374",
+        "number": 21535809,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1580561,
+        "gasUsedBps": 158,
+        "hash": "0x4e2ed8acd91450e139e942a9c4a0a79ab9ab68e52e3a7e4496306270283e4faf",
+        "number": 21535810,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1031491,
+        "gasUsedBps": 103,
+        "hash": "0xe37e1d954967526bcd59be8e2e7c68ba58392aecfb35eb5df3d084d9cded9227",
+        "number": 21535811,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "gasUsedBps": 54,
+        "hash": "0xe051dde979af4ecc60760972319d7af64d536a1a6c96d6bd44672516c589b6dd",
+        "number": 21535812,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402663,
+        "gasUsedBps": 40,
+        "hash": "0x07025fd38dd8234727e0f2058ee4d17f6e33de05194a2668c0eff5e8a57a8a49",
+        "number": 21535813,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1001002,
+        "gasUsedBps": 100,
+        "hash": "0x1c6ca50f06a282b672b6ef882c523e066f96609c2a63d2cb469a62e40df793c1",
+        "number": 21535814,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1511060,
+        "gasUsedBps": 151,
+        "hash": "0x6f8907dac4e19f57b59eb61914324bdeb486841110a1d9e001b6f2ecf1464728",
+        "number": 21535815,
+        "transactionCount": 4
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 504089,
+        "gasUsedBps": 50,
+        "hash": "0xc74e522da4f3a6f3242b5b8d2d30b93fe095704ce72d792e70482b53a24283d0",
+        "number": 21535816,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 655758,
+        "gasUsedBps": 65,
+        "hash": "0xa5b0ebf9816e9d767d04736a5e3a260f21ec9415a512ea94ce34acc7678bbdc7",
+        "number": 21535817,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 528000,
+        "gasUsedBps": 52,
+        "hash": "0x6987a40b4cb9be139c093e20fc0690d7e85105267b39d45eccbf006f2c1bec10",
+        "number": 21535818,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1014832,
+        "gasUsedBps": 101,
+        "hash": "0x56f70fad107fb5583d815d7eac2d8992867d25580fab82c8ee485186ba5db7ec",
+        "number": 21535819,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 406242,
+        "gasUsedBps": 40,
+        "hash": "0xa5923f18eb969f6c7590862e208a5f3a2a5c2a62091d193e59fc49f78ec91dca",
+        "number": 21535820,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1236645,
+        "gasUsedBps": 123,
+        "hash": "0xad562ecc987a4fd4288d1fdc9920c2e007eadadfd461dae832f1e576b11691b4",
+        "number": 21535821,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 494119,
+        "gasUsedBps": 49,
+        "hash": "0xffdd611ff8a82c6b6646382fd94362754d942146bb83173ec61a26079c57d9ab",
+        "number": 21535822,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1082587,
+        "gasUsedBps": 108,
+        "hash": "0x27de44f513da5cac4cfc54597a5f85869502fd804f518745ac01e329b83f9ffd",
+        "number": 21535823,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 774535,
+        "gasUsedBps": 77,
+        "hash": "0xbc95e89ee737ba16b9857c0552b9a8c678acac5928de3e23236bd198f071e6fd",
+        "number": 21535824,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 497974,
+        "gasUsedBps": 49,
+        "hash": "0xffa0c6a6836dcbe77127f2924f8913289a175a2c7af56af01210ee11c9be8dd9",
+        "number": 21535825,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1041749,
+        "gasUsedBps": 104,
+        "hash": "0x864f6cce6703c0ce94d382e024dafc83dbeb7900bbeb5333b04f48bb5a0c5c06",
+        "number": 21535826,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402675,
+        "gasUsedBps": 40,
+        "hash": "0x6ea4f20dab46aa4433b272f475c23bacd8b1c7f8a37b27d3dabbd8d830b08301",
+        "number": 21535827,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 772660,
+        "gasUsedBps": 77,
+        "hash": "0x21ecdcadd073c9641f7ea6c57cd96824f3c211288d6cc67aa7b5ae89976dcb26",
+        "number": 21535828,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 369218,
+        "gasUsedBps": 36,
+        "hash": "0x8abfa9e0cc4052ffbb959e84243d3bc1401a3d9ef13becfcf6e44b488b4fe192",
+        "number": 21535829,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1025012,
+        "gasUsedBps": 102,
+        "hash": "0x0514aad88af2211eb2c63cef2c449d314690dba1b18403c40290646e333154da",
+        "number": 21535830,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 850860,
+        "gasUsedBps": 85,
+        "hash": "0x17eba3d4a671cf0328c9cf6cb9896c4714d779d5060995e92c4dc77d0ce41b08",
+        "number": 21535831,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1484830,
+        "gasUsedBps": 148,
+        "hash": "0x12a0d65dbf71ec2f3cde723bc9450b57b50e1aeaea6c330af332122890192873",
+        "number": 21535832,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 494095,
+        "gasUsedBps": 49,
+        "hash": "0x9c078459bf426d3ae85f8cd18521390ce249b3ebbcbec70a6879e0853fcb36ab",
+        "number": 21535833,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 848066,
+        "gasUsedBps": 84,
+        "hash": "0x7bfe1d5b6d2b185c61de286909695c528d831feca05feb8af1357b5918824bc5",
+        "number": 21535834,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1580561,
+        "gasUsedBps": 158,
+        "hash": "0x81e3b1927bcf351f3af9fa6425fbd00120de1ab972689fd4e21733f8b349330c",
+        "number": 21535835,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 500363,
+        "gasUsedBps": 50,
+        "hash": "0xf66d9bc34972fae0e610534354a66c87583c47f54cfe05c3a4039c68ebe40399",
+        "number": 21535836,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1615155,
+        "gasUsedBps": 161,
+        "hash": "0x2ab1a00ab9549509727bc55f8b5cd4c4cda8cf90e8d2610a95032d2b4c85d6ba",
+        "number": 21535837,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402675,
+        "gasUsedBps": 40,
+        "hash": "0x9ffc3791ae2d0370590a296c96393be9b6e37d4bd6c5394144272c451b68b1ce",
+        "number": 21535838,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 897537,
+        "gasUsedBps": 89,
+        "hash": "0xbc518e9857bbabcd1048cbe3adb8e801bc3c677f9b02a9f3146d398e037868aa",
+        "number": 21535839,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1107690,
+        "gasUsedBps": 110,
+        "hash": "0xb88e1624ebe06d05f91ec4ae0faf26cc4757790f61bbf3af023fa1ac3568904a",
+        "number": 21535840,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1082599,
+        "gasUsedBps": 108,
+        "hash": "0xcae417cd041e3135d40aa4cd14c04777b85a102010f176ff7803d7fcdff5ac37",
+        "number": 21535841,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1153744,
+        "gasUsedBps": 115,
+        "hash": "0xa622fd8cf97538f11025cd14cbc0c39e55d67b6416255acc6ca3f467b60e83ec",
+        "number": 21535842,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 1214694,
+        "gasUsedBps": 121,
+        "hash": "0x2bb10bc417b37f16a8b684aa8cec48bee7f5d419c0e2c93bde71527e0b9f4058",
+        "number": 21535843,
+        "transactionCount": 3
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 541386,
+        "gasUsedBps": 54,
+        "hash": "0x3cbb8dab9e0eaf9bc2b4d39f63da6b8c8ff242d98acf2546b75a271063217ec2",
+        "number": 21535844,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 402640,
+        "gasUsedBps": 40,
+        "hash": "0x2ff13a1251f6a88a3aece6cfcf0d4ae35f20960befa77f3db5a55757af8bfbcb",
+        "number": 21535845,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 531237,
+        "gasUsedBps": 53,
+        "hash": "0xceb9d572d34e58117b7ad6a8ec54a2203ef8f2726fad33ccb0788324ee8205ad",
+        "number": 21535846,
+        "transactionCount": 2
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 369230,
+        "gasUsedBps": 36,
+        "hash": "0xde1c46d4b1d9879f5f4a1d9c5c9ed23afc02d3c437f028963d30a4b5b8b6b3ba",
+        "number": 21535847,
+        "transactionCount": 1
+      },
+      {
+        "gasLimit": 100000000,
+        "gasUsed": 82048,
+        "gasUsedBps": 8,
+        "hash": "0xee5a69250851c783b96e18ea11fc26b480118749db2512f48508e55040af2aa2",
+        "number": 21535848,
+        "transactionCount": 1
+      }
+    ],
+    "consensusMainMaximumGasLimit": 896725,
+    "consensusMainTransactionCount": 2,
+    "consensusMainTransactions": [
+      {
+        "blockNumber": 21535834,
+        "from": "0xeaadc287dba33381276db7e935e7d5bfee1d7be4",
+        "gasLimit": 896725,
+        "gasPriceWei": 168776550,
+        "hash": "0x8896b126929fb310324afbe4aeedd7689feb42d277318a2c7ebbfc3d4aed0370",
+        "nonce": 4,
+        "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535846,
+        "from": "0x5de073efed60a6a12f08f303b2da4caa9743442b",
+        "gasLimit": 200000,
+        "gasPriceWei": 168776550,
+        "hash": "0x79bfb7d2d9d6ce2379d63be3ca80ab96317c1d857e67f0724286ed5ce41af890",
+        "nonce": 102363,
+        "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+        "valueWei": 0
+      }
+    ],
+    "distinctBlockGasLimits": [
+      100000000
+    ],
+    "endBlock": 21535848,
+    "maximumBlockGasUsed": 2080924,
+    "maximumMinedGasPriceWei": 262188415,
+    "maximumMinedTransactionGasLimit": 3212076,
+    "medianBlockGasUsed": 776925,
+    "medianMinedGasPriceWei": 95535900,
+    "medianMinedTransactionGasLimit": 1086000,
+    "minedTransactionsPricedAboveCandidate": 1,
+    "minedTransactionsPricedAtOrBelowCandidate": 151,
+    "startBlock": 21535753,
+    "topGasLimitTransactions": [
+      {
+        "blockNumber": 21535832,
+        "from": "0x3d338dea364bdac3c4c3036a38766870b98c4320",
+        "gasLimit": 3212076,
+        "gasPriceWei": 112517700,
+        "hash": "0x9266c55f9a1e8fff45b24143d52cb515476c966b8659c64341446bd40bb9b78f",
+        "nonce": 1145934,
+        "to": "0x89b23e2e58a3e6a95a26133bda197e9a4607375c",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535767,
+        "from": "0x3d338dea364bdac3c4c3036a38766870b98c4320",
+        "gasLimit": 3044988,
+        "gasPriceWei": 95535900,
+        "hash": "0xf82d0617d2f059122843eb96ed06eb9a752ca96601d52acf0b124094f682cb14",
+        "nonce": 1145927,
+        "to": "0x89b23e2e58a3e6a95a26133bda197e9a4607375c",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535754,
+        "from": "0xd3cdb7993aef8a28b10ccbcd44faf4044113fc15",
+        "gasLimit": 3007394,
+        "gasPriceWei": 95535900,
+        "hash": "0x1da708b6293315aaa018431a74d2fd021af0c596add65198fa0ac6cdc48e2284",
+        "nonce": 999432,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535754,
+        "from": "0xd3cdb7993aef8a28b10ccbcd44faf4044113fc15",
+        "gasLimit": 3007394,
+        "gasPriceWei": 95535900,
+        "hash": "0xe778cd302e13d0bd82a7c51eaf123d7a39e636d8c4b6b6b1be8ba482d39978cd",
+        "nonce": 999433,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535808,
+        "from": "0xd3cdb7993aef8a28b10ccbcd44faf4044113fc15",
+        "gasLimit": 2890810,
+        "gasPriceWei": 95535900,
+        "hash": "0x30aff0cc53f500c973a7112fac8bf72fb7ecbfd249b54e04d3fe3a0a681ef9ab",
+        "nonce": 999443,
+        "to": "0x60ad187d999979fe756501df4860f23759e29077",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535779,
+        "from": "0x91ad4a8783a55828ade0c6993e54b5627e38bf21",
+        "gasLimit": 2747548,
+        "gasPriceWei": 95535900,
+        "hash": "0xe293b3fddc036a2e30a0f295db04628bcf0553dc7e8a3f12ed3e7d675e3d4c5e",
+        "nonce": 849750,
+        "to": "0x972c1ef624d4906e6388594c29fc676f507e7458",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535792,
+        "from": "0xd3cdb7993aef8a28b10ccbcd44faf4044113fc15",
+        "gasLimit": 2726266,
+        "gasPriceWei": 95535900,
+        "hash": "0xe0f3e02de910661fe536786a30d900587b7e706c2c58361f326f10e5112ebb67",
+        "nonce": 999438,
+        "to": "0x60ad187d999979fe756501df4860f23759e29077",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535821,
+        "from": "0xfc3981cb6ea576f3b3ab534d6d7e50485cb2ac77",
+        "gasLimit": 2680590,
+        "gasPriceWei": 112517700,
+        "hash": "0x44f1a9f25cfdcd49bd745854b743540c9187dcd921623e81e43b4a8945188953",
+        "nonce": 320542,
+        "to": "0xf8ca407a24aa1dd13386d0bd7a4969e212826574",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535837,
+        "from": "0x9a896287b4cdb94f56ea7645325edcf643f7e7ea",
+        "gasLimit": 2328984,
+        "gasPriceWei": 112517700,
+        "hash": "0xea57e216926bf735fc513c1283f43230b5b4023add5f490c3f1bb853cfd25d49",
+        "nonce": 416430,
+        "to": "0x422357d87b035e478777c84748bac834ce2a9597",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535843,
+        "from": "0xd2ed33b78af547a06f382703e977201948f22bfb",
+        "gasLimit": 2117704,
+        "gasPriceWei": 112517700,
+        "hash": "0x9d453872408d907731852e5f60c583410eaa6f3b2b35c3cb988e7b4b06210234",
+        "nonce": 1338491,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535843,
+        "from": "0xd2ed33b78af547a06f382703e977201948f22bfb",
+        "gasLimit": 2117704,
+        "gasPriceWei": 112517700,
+        "hash": "0x49edfe772e66aefeaa9e458557ea4ee037e6f589d1c187aeeb1aa2c34e29ad8a",
+        "nonce": 1338492,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535831,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1952018,
+        "gasPriceWei": 112517700,
+        "hash": "0x8049096306316a5973aa0acb3413ff1cebfec5654ebe47e5b15e6d6f1e5458e5",
+        "nonce": 558856,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535806,
+        "from": "0xafdd9d80b2bc36151cbbbd6b7f2e344534fc7364",
+        "gasLimit": 1929444,
+        "gasPriceWei": 95535900,
+        "hash": "0x6b198a0cd039d44bcced739d25824be849714b14e95d95a5540c0cbfda2fa8f1",
+        "nonce": 735703,
+        "to": "0xb93a46b843fb32e8ce392e68edfe93faa4a40817",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535778,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1888568,
+        "gasPriceWei": 95535900,
+        "hash": "0x7ac414024c25f827bfb83653bca655408c9d627d737c07332b6aade1f5b3c7e7",
+        "nonce": 558852,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535766,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1856848,
+        "gasPriceWei": 95535900,
+        "hash": "0x3b5e52e82fbf486d0c0b5f47ac1b12153a8705f85a48d8bacb2e62885012fa7e",
+        "nonce": 558851,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535791,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1825122,
+        "gasPriceWei": 95535900,
+        "hash": "0x251675abec768e0f97737d6d01fc05a6510d17f86fc90b1b727daa2709265a12",
+        "nonce": 558853,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535807,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1815166,
+        "gasPriceWei": 95535900,
+        "hash": "0x9e45fbb37d60c344a2fe27c01bb64d051cb831de54005ad061467b4111592ea4",
+        "nonce": 558854,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535819,
+        "from": "0xc02246062979123653ef02f8c9ba0793bab3a9de",
+        "gasLimit": 1809262,
+        "gasPriceWei": 112517700,
+        "hash": "0x3c80260261b0dcc04dc8e29d39089aa141aa3aab1026614df21b7fe0fe4384ac",
+        "nonce": 558855,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535758,
+        "from": "0xafdd9d80b2bc36151cbbbd6b7f2e344534fc7364",
+        "gasLimit": 1733380,
+        "gasPriceWei": 95535900,
+        "hash": "0x63abc386fedb3085daacce98f915629c64d4dd64643907f1f83ae2a0931ca024",
+        "nonce": 735701,
+        "to": "0xb93a46b843fb32e8ce392e68edfe93faa4a40817",
+        "valueWei": 0
+      },
+      {
+        "blockNumber": 21535777,
+        "from": "0x56f66a6ad96acd0c640d90707761a26efeb81ac2",
+        "gasLimit": 1634624,
+        "gasPriceWei": 95535900,
+        "hash": "0x9599807a49d37aca3ae281ba5a23fb970772beaaf7159611aeca09b3025e58ec",
+        "nonce": 1691493,
+        "to": "0x6caff6769d70824745ad895663409dc70ab5b28e",
+        "valueWei": 0
+      }
+    ],
+    "transactionCount": 152,
+    "transactionsAtOrAbove40M": 0,
+    "transactionsAtOrAbove60M": 0,
+    "transactionsAtOrAboveCandidate": 0
+  },
+  "schema": "accord402.attempt2.pending-inclusion-profile.v1"
+}

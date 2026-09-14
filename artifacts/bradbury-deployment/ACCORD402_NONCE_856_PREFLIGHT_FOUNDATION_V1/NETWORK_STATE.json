@@ -1,0 +1,38 @@
+{
+  "capturedAtUtc": "2026-09-12T06:31:30Z",
+  "classification": "WORKER_FRESHLY_FREE_AT_NONCE856",
+  "network": {
+    "chainRpc": "https://rpc.testnet-chain.genlayer.com",
+    "expectedChainId": 4221,
+    "genlayerRpc": "https://rpc-bradbury.genlayer.com",
+    "name": "Bradbury Testnet"
+  },
+  "nonce855Consumer": {
+    "blockNumber": 21491855,
+    "finalizedBlock": 21498059,
+    "receiptStatus": 1,
+    "transactionHash": "0xf746bb969bed1db3af5b4c08080c5714712f22d0bc63597bacd84a0fc95783ee"
+  },
+  "nonce856PendingTransactionVisible": false,
+  "oldEvidenceboundReceiptsAbsent": true,
+  "rpcStates": {
+    "chain": {
+      "balanceWei": 7530431203937238246,
+      "blockNumber": 21499219,
+      "chainId": 4221,
+      "gasPriceWei": 173961300,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    },
+    "genlayer": {
+      "balanceWei": 7530431203937238246,
+      "blockNumber": 21499216,
+      "chainId": 4221,
+      "gasPriceWei": 173961300,
+      "latestNonce": 856,
+      "pendingNonce": 856
+    }
+  },
+  "schema": "accord402.nonce856.preflight-network.v1",
+  "worker": "0x1f87ae197af539253978d435ad45ccf28fb95024"
+}

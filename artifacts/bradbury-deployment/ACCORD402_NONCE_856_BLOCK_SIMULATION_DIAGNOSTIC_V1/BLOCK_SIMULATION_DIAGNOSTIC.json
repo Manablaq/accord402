@@ -1,0 +1,226 @@
+{
+  "authorizationState": {
+    "broadcastPerformedByDiagnostic": false,
+    "furtherBroadcastAuthorized": false,
+    "furtherSigningAuthorized": false,
+    "initialBroadcastAuthorizationConsumed": true,
+    "signPerformedByDiagnostic": false,
+    "signingAuthorizationConsumed": true
+  },
+  "classification": "EXACT_80M_AND_40M_CONTROL_BOTH_ACCEPTED_BY_BLOCK_LEVEL_SIMULATION_HIGH_GAS_LIMIT_BARRIER_NOT_REPRODUCED",
+  "controlGasSimulation": {
+    "bothEndpointsNormalResult": true,
+    "chain": {
+      "body": {
+        "id": 3001,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "baseFeePerGas": "0x738def0",
+            "calls": [
+              {
+                "error": {
+                  "code": -32015,
+                  "message": "vm execution error: CallerGasLimitMoreThanTxLimit"
+                },
+                "gasUsed": "0x0",
+                "logs": [],
+                "returnData": "0x",
+                "status": "0x0"
+              }
+            ],
+            "difficulty": "0x0",
+            "extraData": "0x",
+            "gasLimit": "0x5f5e100",
+            "gasUsed": "0x0",
+            "hash": "0x0c94555cba2c04ab79eb940df61c5f2cd09f4b5ac2d0b7333d9a2ba7aab75ff8",
+            "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+            "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x0000000000000000",
+            "number": "0x148a095",
+            "parentHash": "0xc269b7a35ec1b47e9cace30222e88c7a1cc56151214cc69885de2d771738f8be",
+            "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+            "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "timestamp": "0x6aa5a2a7",
+            "totalDifficulty": "0x0",
+            "transactions": [],
+            "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "uncles": []
+          }
+        ]
+      },
+      "decodeOk": true,
+      "transportOk": true
+    },
+    "errors": {
+      "CHAIN": null,
+      "GL": null
+    },
+    "genlayer": {
+      "body": {
+        "id": 3001,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "baseFeePerGas": "0x738def0",
+            "calls": [
+              {
+                "error": {
+                  "code": -32015,
+                  "message": "vm execution error: CallerGasLimitMoreThanTxLimit"
+                },
+                "gasUsed": "0x0",
+                "logs": [],
+                "returnData": "0x",
+                "status": "0x0"
+              }
+            ],
+            "difficulty": "0x0",
+            "extraData": "0x",
+            "gasLimit": "0x5f5e100",
+            "gasUsed": "0x0",
+            "hash": "0x8b3ffc9953be04a715c6da8fabe4bf38cee68ee9d7edee2905da658658a96019",
+            "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+            "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x0000000000000000",
+            "number": "0x148a094",
+            "parentHash": "0xeb4a27cb8a766bc0dfbc6a724edc624007787ac91ca9a7476abe0af199753f8f",
+            "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+            "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "timestamp": "0x6aa5a2a5",
+            "totalDifficulty": "0x0",
+            "transactions": [],
+            "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "uncles": []
+          }
+        ]
+      },
+      "decodeOk": true,
+      "transportOk": true
+    }
+  },
+  "createdAtUtc": "2026-09-12T19:06:15Z",
+  "exactGasSimulation": {
+    "bothEndpointsNormalResult": true,
+    "chain": {
+      "body": {
+        "id": 3001,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "baseFeePerGas": "0x738def0",
+            "calls": [
+              {
+                "error": {
+                  "code": -32015,
+                  "message": "vm execution error: CallerGasLimitMoreThanTxLimit"
+                },
+                "gasUsed": "0x0",
+                "logs": [],
+                "returnData": "0x",
+                "status": "0x0"
+              }
+            ],
+            "difficulty": "0x0",
+            "extraData": "0x",
+            "gasLimit": "0x5f5e100",
+            "gasUsed": "0x0",
+            "hash": "0xaf7f94ca7c7ca39b21b8471822b2637db53cf74a5e542b4366e7ee4467992bd7",
+            "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+            "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x0000000000000000",
+            "number": "0x148a093",
+            "parentHash": "0x360f07012d558836473db3cc3968757b166225b93921532da88156a0cd71d91f",
+            "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+            "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "timestamp": "0x6aa5a2a4",
+            "totalDifficulty": "0x0",
+            "transactions": [],
+            "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "uncles": []
+          }
+        ]
+      },
+      "decodeOk": true,
+      "transportOk": true
+    },
+    "errors": {
+      "CHAIN": null,
+      "GL": null
+    },
+    "genlayer": {
+      "body": {
+        "id": 3001,
+        "jsonrpc": "2.0",
+        "result": [
+          {
+            "baseFeePerGas": "0x738def0",
+            "calls": [
+              {
+                "error": {
+                  "code": -32015,
+                  "message": "vm execution error: CallerGasLimitMoreThanTxLimit"
+                },
+                "gasUsed": "0x0",
+                "logs": [],
+                "returnData": "0x",
+                "status": "0x0"
+              }
+            ],
+            "difficulty": "0x0",
+            "extraData": "0x",
+            "gasLimit": "0x5f5e100",
+            "gasUsed": "0x0",
+            "hash": "0x3ea103c2b1b25798d146e65a0d544a0de3be157244b30c2cdd1ede536ff50d12",
+            "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+            "miner": "0xf51b92325d0661018fc792454ce6be5c588dadd0",
+            "mixHash": "0x0000000000000000000000000000000000000000000000000000000000000001",
+            "nonce": "0x0000000000000000",
+            "number": "0x148a092",
+            "parentHash": "0xf6fe2ca24a36ae7e405d734712a4717eb7b26e56aa942afea4c8142a41ca8bbf",
+            "receiptsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "sha3Uncles": "0x1dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347",
+            "stateRoot": "0x0000000000000000000000000000000000000000000000000000000000000000",
+            "timestamp": "0x6aa5a2a2",
+            "totalDifficulty": "0x0",
+            "transactions": [],
+            "transactionsRoot": "0x56e81f171bcc55a6ff8345e692c0f86e5b48e01b996cadc001622fb5e363b421",
+            "uncles": []
+          }
+        ]
+      },
+      "decodeOk": true,
+      "transportOk": true
+    }
+  },
+  "exactSignedHash": "0x04727db3ea50616a727fd51bf8c4281c0f6d87d42f3a812a94c5d15eef9e303e",
+  "interpretationLimits": "eth_simulateV1 is a read-only block execution diagnostic. Passing does not guarantee sequencer inclusion and does not prove mempool scheduling behavior. The 40,500,000 gas control is diagnostic only and is not a certified replacement transaction gas limit.",
+  "preSimulationState": {
+    "CHAIN": {
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "receipt": null
+    },
+    "GL": {
+      "latestNonce": 856,
+      "pendingNonce": 857,
+      "receipt": null
+    }
+  },
+  "schema": "accord402.attempt2.block-simulation-diagnostic.v1",
+  "simulationInputs": {
+    "chainId": 4221,
+    "diagnosticControlGasLimit": 40500000,
+    "exactSignedGasLimit": 80825672,
+    "nonce": 856,
+    "signedGasPriceWei": 187500000,
+    "to": "0x0112bf6e83497965a5fdd6dad1e447a6e004271d",
+    "valueWei": "0"
+  }
+}

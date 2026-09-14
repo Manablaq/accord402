@@ -1,0 +1,41 @@
+{
+  "accord402ProjectPolicy": {
+    "formula": "gasLimit = 2 * maximumBlockPinnedEstimate",
+    "multiplier": 2,
+    "policySource": "Explicit Accord402 project policy adopting the pinned genlayer-js 1.1.8 staking EVM 2x buffer as conservative precedent; not the Consensus deployment path default."
+  },
+  "candidateCapValidatedAtEveryPinnedBlock": true,
+  "candidateCapValidationSampleCount": 25,
+  "certifiedGasBelowEveryObservedBlockGasLimit": true,
+  "certifiedGasLimit": 80825672,
+  "certifiedHeadroomAboveObservedMaximum": 40412836,
+  "classification": "ACCORD402_NONCE856_GAS_ENVELOPE_CERTIFIED_BY_BLOCK_PINNED_V2_POLICY",
+  "createdAtUtc": "2026-09-12T14:00:18Z",
+  "currentAccountSafety": {
+    "balanceSufficient": true,
+    "balanceWei": 7530431203937238246,
+    "latestNonce": 856,
+    "maximumCandidateCostWei": 14449205383440000,
+    "maximumCurrentObservedGasPriceWei": 178770000,
+    "pendingNonce": 856
+  },
+  "deploymentAuthorized": false,
+  "deriveSampleCount": 25,
+  "endpointAgreementRequired": true,
+  "finalUnsignedSigningHashFrozen": false,
+  "gasEstimateInvariantAcrossPriceProbes": true,
+  "gasLimitCertified": true,
+  "gasPriceFinalized": false,
+  "historicalHighGasWitnessReproduced": true,
+  "historicalHighGasWitnessRequired": true,
+  "maximumPinnedEstimate": 40412836,
+  "method": "EXPLICIT_HISTORICAL_BLOCK_PINNED_ETH_ESTIMATEGAS",
+  "minimumObservedBlockGasLimit": 100000000,
+  "minimumPinnedEstimate": 40390666,
+  "nextAction": "RECAPTURE_FRESH_GAS_PRICE_AND_FREEZE_FINAL_UNSIGNED_NONCE856_TRANSACTION",
+  "oldGasLimit": 40390666,
+  "oldGasLimitCertified": false,
+  "oldGasLimitRejected": true,
+  "schema": "accord402.nonce856.gas-envelope-certification.v2",
+  "transactionSigningAuthorized": false
+}

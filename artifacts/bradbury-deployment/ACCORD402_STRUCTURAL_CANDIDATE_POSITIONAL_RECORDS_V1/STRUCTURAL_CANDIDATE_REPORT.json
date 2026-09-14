@@ -1,0 +1,487 @@
+{
+  "authorizationState": {
+    "broadcastAuthorized": false,
+    "candidatePromotionAuthorized": false,
+    "canonicalSourceModificationAuthorized": false,
+    "signingAuthorized": false
+  },
+  "candidate": {
+    "bytes": 49246,
+    "savedBytes": 1428,
+    "savedPercent": 2.8180131823025616,
+    "sha256": "6f048999c2cf7b9d87fe142ae2d9d25a78627d772fd8faf0be9f9606d9a2e818"
+  },
+  "canonical": {
+    "bytes": 50674,
+    "sha256": "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+  },
+  "createdAtUtc": "2026-09-12T20:02:07Z",
+  "dataclassFieldOrder": {
+    "AccountingTotalsView": [
+      "total_funded",
+      "total_closed_to_provider",
+      "total_closed_to_buyer",
+      "total_outstanding"
+    ],
+    "AuthorityBinding": [
+      "covenant_id",
+      "authority_id",
+      "authority_revision",
+      "role",
+      "identity_kind",
+      "identity_value",
+      "canonical_origin"
+    ],
+    "AuthorityBindingInput": [
+      "authority_id",
+      "authority_revision",
+      "role",
+      "identity_kind",
+      "identity_value",
+      "canonical_origin"
+    ],
+    "BuyerStats": [
+      "funded_covenants",
+      "challenges_filed",
+      "valid_challenges",
+      "invalid_challenges"
+    ],
+    "CovenantRecord": [
+      "covenant_id",
+      "buyer",
+      "provider",
+      "funded_amount",
+      "outstanding_amount",
+      "provider_settlement",
+      "buyer_settlement",
+      "state",
+      "service_spec",
+      "service_spec_hash",
+      "opened_at",
+      "acceptance_deadline",
+      "delivery_deadline",
+      "challenge_duration",
+      "absolute_dispute_deadline",
+      "evidence_repair_window",
+      "review_retry_window",
+      "max_review_generations",
+      "evidence_policy_version",
+      "evidence_policy_hash",
+      "max_evidence_age",
+      "required_corroboration_count",
+      "repair_policy_version",
+      "repair_allowed_field_mask",
+      "replay_scope",
+      "adjudication_criteria_version",
+      "settlement_rule_version",
+      "accepted_at",
+      "delivered_at",
+      "challenge_deadline",
+      "challenged_at",
+      "repair_deadline",
+      "retry_deadline",
+      "closed_at",
+      "delivery_payload",
+      "delivery_hash",
+      "active_evidence_set_hash",
+      "repair_authorization_generation",
+      "repair_authorization_active",
+      "challenge_claim",
+      "review_generation",
+      "adjudication_decision",
+      "failure_classification",
+      "closure_reason",
+      "settlement_direction",
+      "settlement_message_scheduled"
+    ],
+    "CriterionInput": [
+      "criterion_id",
+      "criterion_text"
+    ],
+    "CriterionRecord": [
+      "covenant_id",
+      "criterion_id",
+      "criterion_text"
+    ],
+    "EvidenceInput": [
+      "evidence_id",
+      "authority_id",
+      "authority_revision",
+      "subject",
+      "kind",
+      "source_kind",
+      "canonical_source",
+      "immutable_version_or_record_id",
+      "published_at",
+      "observed_at",
+      "expires_at",
+      "content_digest",
+      "is_primary"
+    ],
+    "EvidenceRecord": [
+      "covenant_id",
+      "generation",
+      "evidence_id",
+      "authority_id",
+      "authority_revision",
+      "subject",
+      "kind",
+      "source_kind",
+      "canonical_source",
+      "immutable_version_or_record_id",
+      "published_at",
+      "observed_at",
+      "expires_at",
+      "content_digest",
+      "is_primary",
+      "replaces_evidence_id"
+    ],
+    "EvidenceReplacementInput": [
+      "replaces_evidence_id",
+      "evidence_id",
+      "authority_id",
+      "authority_revision",
+      "subject",
+      "kind",
+      "source_kind",
+      "canonical_source",
+      "immutable_version_or_record_id",
+      "published_at",
+      "observed_at",
+      "expires_at",
+      "content_digest",
+      "is_primary"
+    ],
+    "OpenCovenantInput": [
+      "provider",
+      "principal",
+      "service_spec",
+      "acceptance_deadline",
+      "delivery_deadline",
+      "challenge_duration",
+      "absolute_dispute_deadline",
+      "evidence_repair_window",
+      "review_retry_window",
+      "max_review_generations",
+      "max_evidence_age",
+      "required_corroboration_count",
+      "repair_allowed_field_mask",
+      "replay_scope",
+      "criteria",
+      "authority_bindings"
+    ],
+    "ProviderStats": [
+      "accepted_covenants",
+      "deliveries",
+      "non_deliveries",
+      "disputes_won",
+      "disputes_lost"
+    ],
+    "RepairAuthorizationRecord": [
+      "covenant_id",
+      "generation",
+      "evidence_id",
+      "field_mask"
+    ]
+  },
+  "eligibleRewriteCount": 5,
+  "eligibleRewrites": [
+    {
+      "class": "CovenantRecord",
+      "end": 27380,
+      "fieldCount": 46,
+      "fieldOrder": [
+        "covenant_id",
+        "buyer",
+        "provider",
+        "funded_amount",
+        "outstanding_amount",
+        "provider_settlement",
+        "buyer_settlement",
+        "state",
+        "service_spec",
+        "service_spec_hash",
+        "opened_at",
+        "acceptance_deadline",
+        "delivery_deadline",
+        "challenge_duration",
+        "absolute_dispute_deadline",
+        "evidence_repair_window",
+        "review_retry_window",
+        "max_review_generations",
+        "evidence_policy_version",
+        "evidence_policy_hash",
+        "max_evidence_age",
+        "required_corroboration_count",
+        "repair_policy_version",
+        "repair_allowed_field_mask",
+        "replay_scope",
+        "adjudication_criteria_version",
+        "settlement_rule_version",
+        "accepted_at",
+        "delivered_at",
+        "challenge_deadline",
+        "challenged_at",
+        "repair_deadline",
+        "retry_deadline",
+        "closed_at",
+        "delivery_payload",
+        "delivery_hash",
+        "active_evidence_set_hash",
+        "repair_authorization_generation",
+        "repair_authorization_active",
+        "challenge_claim",
+        "review_generation",
+        "adjudication_decision",
+        "failure_classification",
+        "closure_reason",
+        "settlement_direction",
+        "settlement_message_scheduled"
+      ],
+      "line": 935,
+      "original": "CovenantRecord(covenant_id=f,buyer=gl.message.sender_address,provider=J.provider,funded_amount=u256(h),outstanding_amount=u256(h),provider_settlement=u256(0),buyer_settlement=u256(0),state=a7,service_spec=J.service_spec,service_spec_hash=C,opened_at=u64(E),acceptance_deadline=u64(o),delivery_deadline=u64(p),challenge_duration=u64(d),absolute_dispute_deadline=u64(w),evidence_repair_window=u64(n),review_retry_window=u64(r),max_review_generations=u32(j),evidence_policy_version=u32(EVIDENCE_POLICY_VERSION),evidence_policy_hash=D,max_evidence_age=u64(y),required_corroboration_count=u32(g),repair_policy_version=u32(REPAIR_POLICY_VERSION),repair_allowed_field_mask=u32(u),replay_scope=J.replay_scope,adjudication_criteria_version=u32(ADJUDICATION_CRITERIA_VERSION),settlement_rule_version=u32(SETTLEMENT_RULE_VERSION),accepted_at=u64(0),delivered_at=u64(0),challenge_deadline=u64(0),challenged_at=u64(0),repair_deadline=u64(0),retry_deadline=u64(0),closed_at=u64(0),delivery_payload='',delivery_hash='',active_evidence_set_hash='',repair_authorization_generation=u32(0),repair_authorization_active=False,challenge_claim='',review_generation=u32(0),adjudication_decision='',failure_classification='',closure_reason='',settlement_direction='',settlement_message_scheduled=False)",
+      "originalBytes": 1277,
+      "replacement": "CovenantRecord(f,gl.message.sender_address,J.provider,u256(h),u256(h),u256(0),u256(0),a7,J.service_spec,C,u64(E),u64(o),u64(p),u64(d),u64(w),u64(n),u64(r),u32(j),u32(EVIDENCE_POLICY_VERSION),D,u64(y),u32(g),u32(REPAIR_POLICY_VERSION),u32(u),J.replay_scope,u32(ADJUDICATION_CRITERIA_VERSION),u32(SETTLEMENT_RULE_VERSION),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),'','','',u32(0),False,'',u32(0),'','','','',False)",
+      "replacementBytes": 419,
+      "savedBytes": 858,
+      "start": 26103
+    },
+    {
+      "class": "AccountingTotalsView",
+      "end": 50673,
+      "fieldCount": 4,
+      "fieldOrder": [
+        "total_funded",
+        "total_closed_to_provider",
+        "total_closed_to_buyer",
+        "total_outstanding"
+      ],
+      "line": 1617,
+      "original": "AccountingTotalsView(total_funded=self.total_funded,total_closed_to_provider=self.total_closed_to_provider,total_closed_to_buyer=self.total_closed_to_buyer,total_outstanding=self.total_outstanding)",
+      "originalBytes": 197,
+      "replacement": "AccountingTotalsView(self.total_funded,self.total_closed_to_provider,self.total_closed_to_buyer,self.total_outstanding)",
+      "replacementBytes": 119,
+      "savedBytes": 78,
+      "start": 50476
+    },
+    {
+      "class": "EvidenceRecord",
+      "end": 44606,
+      "fieldCount": 16,
+      "fieldOrder": [
+        "covenant_id",
+        "generation",
+        "evidence_id",
+        "authority_id",
+        "authority_revision",
+        "subject",
+        "kind",
+        "source_kind",
+        "canonical_source",
+        "immutable_version_or_record_id",
+        "published_at",
+        "observed_at",
+        "expires_at",
+        "content_digest",
+        "is_primary",
+        "replaces_evidence_id"
+      ],
+      "line": 1436,
+      "original": "EvidenceRecord(covenant_id=u64(int(d.covenant_id)),generation=u32(k),evidence_id=a.evidence_id,authority_id=a.authority_id,authority_revision=u32(int(a.authority_revision)),subject=a.subject,kind=a.kind,source_kind=a.source_kind,canonical_source=a.canonical_source,immutable_version_or_record_id=a.immutable_version_or_record_id,published_at=u64(int(a.published_at)),observed_at=u64(int(a.observed_at)),expires_at=u64(int(a.expires_at)),content_digest=a.content_digest,is_primary=bool(a.is_primary),replaces_evidence_id=a.replaces_evidence_id)",
+      "originalBytes": 543,
+      "replacement": "EvidenceRecord(u64(int(d.covenant_id)),u32(k),a.evidence_id,a.authority_id,u32(int(a.authority_revision)),a.subject,a.kind,a.source_kind,a.canonical_source,a.immutable_version_or_record_id,u64(int(a.published_at)),u64(int(a.observed_at)),u64(int(a.expires_at)),a.content_digest,bool(a.is_primary),a.replaces_evidence_id)",
+      "replacementBytes": 320,
+      "savedBytes": 223,
+      "start": 44063
+    },
+    {
+      "class": "EvidenceRecord",
+      "end": 29556,
+      "fieldCount": 16,
+      "fieldOrder": [
+        "covenant_id",
+        "generation",
+        "evidence_id",
+        "authority_id",
+        "authority_revision",
+        "subject",
+        "kind",
+        "source_kind",
+        "canonical_source",
+        "immutable_version_or_record_id",
+        "published_at",
+        "observed_at",
+        "expires_at",
+        "content_digest",
+        "is_primary",
+        "replaces_evidence_id"
+      ],
+      "line": 994,
+      "original": "EvidenceRecord(covenant_id=u64(int(b.covenant_id)),generation=u32(0),evidence_id=a.evidence_id,authority_id=a.authority_id,authority_revision=u32(int(a.authority_revision)),subject=a.subject,kind=a.kind,source_kind=a.source_kind,canonical_source=a.canonical_source,immutable_version_or_record_id=a.immutable_version_or_record_id,published_at=u64(int(a.published_at)),observed_at=u64(int(a.observed_at)),expires_at=u64(int(a.expires_at)),content_digest=a.content_digest,is_primary=bool(a.is_primary),replaces_evidence_id='')",
+      "originalBytes": 523,
+      "replacement": "EvidenceRecord(u64(int(b.covenant_id)),u32(0),a.evidence_id,a.authority_id,u32(int(a.authority_revision)),a.subject,a.kind,a.source_kind,a.canonical_source,a.immutable_version_or_record_id,u64(int(a.published_at)),u64(int(a.observed_at)),u64(int(a.expires_at)),a.content_digest,bool(a.is_primary),'')",
+      "replacementBytes": 300,
+      "savedBytes": 223,
+      "start": 29033
+    },
+    {
+      "class": "RepairAuthorizationRecord",
+      "end": 40558,
+      "fieldCount": 4,
+      "fieldOrder": [
+        "covenant_id",
+        "generation",
+        "evidence_id",
+        "field_mask"
+      ],
+      "line": 1338,
+      "original": "RepairAuthorizationRecord(covenant_id=u64(int(d.covenant_id)),generation=u32(e),evidence_id=c[b8],field_mask=u32(c[cq]))",
+      "originalBytes": 120,
+      "replacement": "RepairAuthorizationRecord(u64(int(d.covenant_id)),u32(e),c[b8],u32(c[cq]))",
+      "replacementBytes": 74,
+      "savedBytes": 46,
+      "start": 40438
+    }
+  ],
+  "interpretationLimits": "Static equivalence proves the candidate differs only in complete dataclass constructor argument spelling where keyword order exactly matches declaration order. Runtime verification remains mandatory before this candidate can be considered semantically equivalent.",
+  "rewritesByClass": {
+    "AccountingTotalsView": {
+      "rewriteCount": 1,
+      "savedBytes": 78,
+      "sites": [
+        {
+          "fieldCount": 4,
+          "line": 1617,
+          "originalBytes": 197,
+          "replacementBytes": 119,
+          "savedBytes": 78
+        }
+      ]
+    },
+    "CovenantRecord": {
+      "rewriteCount": 1,
+      "savedBytes": 858,
+      "sites": [
+        {
+          "fieldCount": 46,
+          "line": 935,
+          "originalBytes": 1277,
+          "replacementBytes": 419,
+          "savedBytes": 858
+        }
+      ]
+    },
+    "EvidenceRecord": {
+      "rewriteCount": 2,
+      "savedBytes": 446,
+      "sites": [
+        {
+          "fieldCount": 16,
+          "line": 1436,
+          "originalBytes": 543,
+          "replacementBytes": 320,
+          "savedBytes": 223
+        },
+        {
+          "fieldCount": 16,
+          "line": 994,
+          "originalBytes": 523,
+          "replacementBytes": 300,
+          "savedBytes": 223
+        }
+      ]
+    },
+    "RepairAuthorizationRecord": {
+      "rewriteCount": 1,
+      "savedBytes": 46,
+      "sites": [
+        {
+          "fieldCount": 4,
+          "line": 1338,
+          "originalBytes": 120,
+          "replacementBytes": 74,
+          "savedBytes": 46
+        }
+      ]
+    }
+  },
+  "runtimeVerification": {
+    "BradburyDeployabilityCertified": false,
+    "BradburyGasMeasured": false,
+    "directModeExecuted": false,
+    "lintExecuted": false,
+    "typecheckExecuted": false
+  },
+  "schema": "accord402.structural-positional-record-candidate.v1",
+  "skippedDataclassCalls": [
+    {
+      "class": "ProviderStats",
+      "declaredFieldOrder": [
+        "accepted_covenants",
+        "deliveries",
+        "non_deliveries",
+        "disputes_won",
+        "disputes_lost"
+      ],
+      "keywordNames": [],
+      "line": 697,
+      "positionalArgumentCount": 5,
+      "reason": "NOT_COMPLETE_EXACT_DECLARATION_ORDER_KEYWORD_CALL"
+    },
+    {
+      "class": "BuyerStats",
+      "declaredFieldOrder": [
+        "funded_covenants",
+        "challenges_filed",
+        "valid_challenges",
+        "invalid_challenges"
+      ],
+      "keywordNames": [],
+      "line": 699,
+      "positionalArgumentCount": 4,
+      "reason": "NOT_COMPLETE_EXACT_DECLARATION_ORDER_KEYWORD_CALL"
+    },
+    {
+      "class": "CriterionRecord",
+      "declaredFieldOrder": [
+        "covenant_id",
+        "criterion_id",
+        "criterion_text"
+      ],
+      "keywordNames": [],
+      "line": 929,
+      "positionalArgumentCount": 3,
+      "reason": "NOT_COMPLETE_EXACT_DECLARATION_ORDER_KEYWORD_CALL"
+    },
+    {
+      "class": "AuthorityBinding",
+      "declaredFieldOrder": [
+        "covenant_id",
+        "authority_id",
+        "authority_revision",
+        "role",
+        "identity_kind",
+        "identity_value",
+        "canonical_origin"
+      ],
+      "keywordNames": [],
+      "line": 932,
+      "positionalArgumentCount": 7,
+      "reason": "NOT_COMPLETE_EXACT_DECLARATION_ORDER_KEYWORD_CALL"
+    }
+  ],
+  "verification": {
+    "candidateCompiles": true,
+    "candidateParses": true,
+    "constantMultisetEquivalent": true,
+    "constructorStyleNormalizedWholeAstEquivalent": true,
+    "controlFlowRewritePerformed": false,
+    "functionDeletionPerformed": false,
+    "functionTopologyEquivalent": true,
+    "identifierRenamingPerformed": false,
+    "literalChangePerformed": false,
+    "publicAbiEquivalent": true,
+    "publicAbiMethodCount": 25,
+    "storageAndClassSchemaEquivalent": true
+  }
+}

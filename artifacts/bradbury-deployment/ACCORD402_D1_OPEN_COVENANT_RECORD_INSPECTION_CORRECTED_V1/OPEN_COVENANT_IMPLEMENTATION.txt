@@ -1,0 +1,124 @@
+   820		def open_covenant(self,terms:OpenCovenantInput)->u64:
+   821			J=terms
+   822			E=P()
+   823			L(J.service_spec,bB,'SERVICE_SPEC_TOO_LONG',True)
+   824			L(J.replay_scope,bC,'REPLAY_SCOPE_TOO_LONG',True)
+   825			if J.replay_scope not in(ba,bo):
+   826				_fail(cG)
+   827			if len(J.criteria)<1 or len(J.criteria)>bP:
+   828				_fail('INVALID_CRITERIA_COUNT')
+   829			if len(J.authority_bindings)<1 or len(J.authority_bindings)>bd:
+   830				_fail('INVALID_AUTHORITY_COUNT')
+   831			x=K(J.service_spec)+K(J.replay_scope)
+   832			e=[]
+   833			m=[]
+   834			for a in J.criteria:
+   835				L(a.criterion_id,a5,'CRITERION_ID_TOO_LONG',True)
+   836				L(a.criterion_text,bt,'CRITERION_TEXT_TOO_LONG',True)
+   837				x+=K(a.criterion_id)+K(a.criterion_text)
+   838				if a.criterion_id in m:
+   839					_fail('DUPLICATE_CRITERION_ID')
+   840				m.append(a.criterion_id)
+   841			v=[]
+   842			B=[]
+   843			b=[]
+   844			c=[]
+   845			for a in J.authority_bindings:
+   846				L(a.authority_id,a6,cF,True)
+   847				L(a.role,bU,'ROLE_TOO_LONG',True)
+   848				L(a.identity_kind,bz,'IDENTITY_KIND_TOO_LONG',True)
+   849				L(a.identity_value,bu,'IDENTITY_VALUE_TOO_LONG',True)
+   850				L(a.canonical_origin,aG,cy,True)
+   851				bG(a.authority_id,cL)
+   852				x+=K(a.authority_id)+K(a.role)+K(a.identity_kind)+K(a.identity_value)+K(a.canonical_origin)
+   853				G=(a.authority_id,_int_u32(a.authority_revision))
+   854				if G in B:
+   855					_fail('DUPLICATE_AUTHORITY_BINDING')
+   856				B.append(G)
+   857			if x>bS:
+   858				_fail('OPEN_DYNAMIC_BUDGET_EXCEEDED')
+   859			for a in J.authority_bindings:
+   860				if a.role not in(av,al):
+   861					_fail(cE)
+   862				if a.identity_kind!=bH:
+   863					_fail('INVALID_IDENTITY_KIND')
+   864				H=bE(a.canonical_origin)
+   865				if a.identity_value!=H:
+   866					_fail('DOMAIN_IDENTITY_MISMATCH')
+   867				l=(a.identity_kind,a.identity_value)
+   868				if a.role==av:
+   869					if l not in b:
+   870						b.append(l)
+   871				elif l not in c:
+   872					c.append(l)
+   873				v.append(a)
+   874			if len(b)<1:
+   875				_fail('PRIMARY_AUTHORITY_REQUIRED')
+   876			g=_int_u32(J.required_corroboration_count)
+   877			if g>aT:
+   878				_fail('INVALID_CORROBORATION_COUNT')
+   879			k=[]
+   880			for A in c:
+   881				if A not in b and A not in k:
+   882					k.append(A)
+   883			if g>len(k):
+   884				_fail('INSUFFICIENT_CORROBORATION_CAPACITY')
+   885			j=_int_u32(J.max_review_generations)
+   886			if j<1 or j>be:
+   887				_fail('INVALID_MAX_REVIEW_GENERATIONS')
+   888			u=_int_u32(J.repair_allowed_field_mask)
+   889			if u&~ap:
+   890				_fail('INVALID_REPAIR_MASK')
+   891			y=_int_u64(J.max_evidence_age)
+   892			if y<=0 or y>a3:
+   893				_fail('INVALID_MAX_EVIDENCE_AGE')
+   894			o=_int_u64(J.acceptance_deadline)
+   895			p=_int_u64(J.delivery_deadline)
+   896			d=_int_u64(J.challenge_duration)
+   897			w=_int_u64(J.absolute_dispute_deadline)
+   898			n=_int_u64(J.evidence_repair_window)
+   899			r=_int_u64(J.review_retry_window)
+   900			if o<Q(E,aP,'ACCEPTANCE_DEADLINE_OVERFLOW'):
+   901				_fail('ACCEPTANCE_DEADLINE_TOO_SOON')
+   902			if o>Q(E,aD,'ACCEPTANCE_HORIZON_OVERFLOW'):
+   903				_fail('ACCEPTANCE_DEADLINE_TOO_FAR')
+   904			if p<=o or p>Q(E,aN,'DELIVERY_HORIZON_OVERFLOW'):
+   905				_fail('INVALID_DELIVERY_DEADLINE')
+   906			if d<aE or d>aF:
+   907				_fail('INVALID_CHALLENGE_DURATION')
+   908			if n<aX or n>aY:
+   909				_fail('INVALID_REPAIR_WINDOW')
+   910			if r<a1 or r>a2:
+   911				_fail('INVALID_RETRY_WINDOW')
+   912			q=Q(p,d,cx)
+   913			q=Q(q,ax,cx)
+   914			if w<=p or w<q:
+   915				_fail('ABSOLUTE_DEADLINE_TOO_SOON')
+   916			if w>Q(E,ar,'ABSOLUTE_HORIZON_OVERFLOW'):
+   917				_fail('ABSOLUTE_DEADLINE_TOO_FAR')
+   918			h=by(J.principal)
+   919			if h<=0 or int(gl.message.value)!=h:
+   920				_fail('INVALID_FUNDING_AMOUNT')
+   921			z=am(self.total_funded,h,'TOTAL_FUNDED_OVERFLOW')
+   922			t=am(self.total_outstanding,h,'TOTAL_OUTSTANDING_OVERFLOW')
+   923			if int(self.covenant_count)>=MAX_U64:
+   924				_fail('COVENANT_ID_OVERFLOW')
+   925			s=int(self.covenant_count)+1
+   926			f=u64(s)
+   927			F=str(s)
+   928			for a in J.criteria:
+   929				e.append(CriterionRecord(f,a.criterion_id,a.criterion_text))
+   930			i=[]
+   931			for a in v:
+   932				i.append(AuthorityBinding(f,a.authority_id,u32(int(a.authority_revision)),a.role,a.identity_kind,a.identity_value,a.canonical_origin))
+   933			C=_service_hash(J.service_spec,e)
+   934			D=_policy_hash(y,g,u,J.replay_scope,i)
+   935			I=CovenantRecord(f,gl.message.sender_address,J.provider,u256(h),u256(h),u256(0),u256(0),a7,J.service_spec,C,u64(E),u64(o),u64(p),u64(d),u64(w),u64(n),u64(r),u32(j),u32(EVIDENCE_POLICY_VERSION),D,u64(y),u32(g),u32(REPAIR_POLICY_VERSION),u32(u),J.replay_scope,u32(ADJUDICATION_CRITERIA_VERSION),u32(SETTLEMENT_RULE_VERSION),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),u64(0),'','','',u32(0),False,'',u32(0),'','','','',False)
+   936			self.covenants[F]=I
+   937			self._s(F,e)
+   938			self._r(F,i)
+   939			self._b(F)
+   940			self.covenant_count=f
+   941			self.total_funded=u256(z)
+   942			self.total_outstanding=u256(t)
+   943			return f

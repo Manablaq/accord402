@@ -1,0 +1,19 @@
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/genvm_linter/cli.py:458:            ["pyright", "--project", config_path, str(contract_path.absolute()), "--outputjson"],
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/genvm_linter/cli.py:501:        msg = "pyright not found. Install with: pip install pyright"
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/click/shell_completion.py:400:        bash_exe = shutil.which("bash")
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/click/_termui_impl.py:426:    The command is looked up with :func:`shutil.which`, which the
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/click/_termui_impl.py:438:    cmd_filepath = shutil.which(cmd_parts[0])
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py:202:        cli = shutil.which("keyring")
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py:204:            # all code within this function is stolen from shutil.which implementation
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/network/auth.py:232:            cli = shutil.which("keyring", path=path)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/network/session.py:154:    if shutil.which("rustc") is not None:
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/utils/entrypoints.py:58:            found_executable = shutil.which(exe_name)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pip/_internal/utils/entrypoints.py:80:    found_executable = shutil.which(exe_name)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/nodeenv.py:722:        python2_path = shutil.which('python2')
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/nodeenv.py:939:            shim_node = shutil.which(candidate, path=path_var)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pyright/__init__.py:4:__title__ = 'pyright'
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pyright/__init__.py:22:    logging.getLogger('pyright').setLevel(logging.DEBUG)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pyright/node.py:70:    which = shutil.which(path)
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pyright/_utils.py:38:        version = node.latest('pyright')
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pyright/_utils.py:55:    pkg_dir = cache_dir / 'node_modules' / 'pyright'
+/Users/mralbert/Downloads/accord402/.venv/lib/python3.12/site-packages/pydantic/version.py:50:        'pyright',
