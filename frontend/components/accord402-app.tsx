@@ -87,6 +87,7 @@ export function Accord402App({
 }: Accord402AppProps) {
   const [liveCovenant, setLiveCovenant] = useState<Covenant | null>(null);
   const [submittedTxId, setSubmittedTxId] = useState("");
+  const [covenantRefreshToken, setCovenantRefreshToken] = useState(0);
   const steps = [
     ["01", "Fund the covenant", "The buyer locks the required GEN escrow against immutable terms."],
     ["02", "Deliver evidence", "The provider submits issuer-bound records before the SLA deadline."],
@@ -199,7 +200,12 @@ export function Accord402App({
             <p className="stack-note">The interface exposes addresses as references. Authority remains in the deployed Intelligent Contracts.</p>
           </Reveal>
         </div>
-        <Reveal><CaseLookup onCovenantLoaded={setLiveCovenant} /></Reveal>
+        <Reveal>
+          <CaseLookup
+            onCovenantLoaded={setLiveCovenant}
+            refreshToken={covenantRefreshToken}
+          />
+        </Reveal>
         <Reveal>
           <WalletActionPanel
             covenantId={liveCovenant?.covenantId || ""}
@@ -208,7 +214,12 @@ export function Accord402App({
             onTransactionSubmitted={setSubmittedTxId}
           />
         </Reveal>
-        <Reveal><TransactionObserver submittedTxId={submittedTxId} /></Reveal>
+        <Reveal>
+          <TransactionObserver
+            submittedTxId={submittedTxId}
+            onCanonicalSuccess={() => setCovenantRefreshToken((value) => value + 1)}
+          />
+        </Reveal>
       </section>
 
       <section id="proof" className="proof-section shell">

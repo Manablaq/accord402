@@ -35,6 +35,7 @@ const GEN_UNIT = BigInt("1000000000000000000");
 
 type CaseLookupProps = {
   onCovenantLoaded: (covenant: Covenant | null) => void;
+  refreshToken?: number;
 };
 
 function formatGen(wei: string) {
@@ -74,7 +75,7 @@ function shorten(value: string) {
   return value ? value.slice(0, 8) + "…" + value.slice(-6) : "Not recorded";
 }
 
-export function CaseLookup({ onCovenantLoaded }: CaseLookupProps) {
+export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupProps) {
   const [id, setId] = useState(DEFAULT_ID);
   const [covenant, setCovenant] = useState<Covenant | null>(null);
   const [error, setError] = useState("");
@@ -128,6 +129,10 @@ export function CaseLookup({ onCovenantLoaded }: CaseLookupProps) {
   useEffect(() => {
     void loadCase(DEFAULT_ID);
   }, []);
+
+  useEffect(() => {
+    if (refreshToken > 0) void loadCase(id, false);
+  }, [refreshToken]);
 
   return (
     <section className="case-lookup panel" aria-labelledby="case-lookup-title">

@@ -26,6 +26,7 @@ const TX_ID = /^0x[0-9a-fA-F]{64}$/;
 
 type TransactionObserverProps = {
   submittedTxId?: string;
+  onCanonicalSuccess?: () => void;
 };
 
 function statusTone(result: Observation) {
@@ -38,6 +39,7 @@ function statusTone(result: Observation) {
 
 export function TransactionObserver({
   submittedTxId = "",
+  onCanonicalSuccess,
 }: TransactionObserverProps) {
   const [txId, setTxId] = useState("");
   const [result, setResult] = useState<Observation | null>(null);
@@ -45,6 +47,7 @@ export function TransactionObserver({
   const [loading, setLoading] = useState(false);
   const [lastChecked, setLastChecked] = useState("");
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const notifiedTxRef = useRef("");
 
   async function loadObservation(normalized: string, showLoading = true) {
     if (showLoading) setLoading(true);
@@ -62,7 +65,12 @@ export function TransactionObserver({
         );
       }
 
-      setResult(payload as Observation);
+      const observation = payload as Observation;
+      setResult(observation);
+      if (observation.canonicalSuccess && notifiedTxRef.current !== normalized) {
+        notifiedTxRef.current = normalized;
+        onCanonicalSuccess?.();
+      }
       setLastChecked(
         new Intl.DateTimeFormat(undefined, {
           hour: "numeric",
