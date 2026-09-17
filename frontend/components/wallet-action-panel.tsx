@@ -49,7 +49,8 @@ type ActionName =
   | "expireUnaccepted"
   | "expireNonDelivery"
   | "expireRepair"
-  | "expireReview";
+  | "expireReview"
+  | "challengeDelivery";
 
 type Action = {
   label: string;
@@ -75,6 +76,8 @@ export function WalletActionPanel({
   const [busy, setBusy] = useState(false);
   const [submittedHash, setSubmittedHash] = useState("");
   const [now, setNow] = useState(() => Math.floor(Date.now() / 1000));
+  const [challengeClaim, setChallengeClaim] = useState("");
+  const [criterionIds, setCriterionIds] = useState("");
 
   const covenantId = covenant?.covenantId || "";
   const state = covenant?.state || "";
@@ -89,7 +92,7 @@ export function WalletActionPanel({
     } else if (state === "DELIVERED") {
       action = Number(covenant.challengeDeadline) <= now
         ? { label: "Authorize unchallenged settlement", functionName: "authorizeUnchallengedSettlement", hint: "the challenge window has closed" }
-        : null;
+        : { label: "Challenge delivery", functionName: "challengeDelivery", hint: remaining(covenant.challengeDeadline, now) };
     } else if (state === "FUNDED") {
       action = Number(covenant.acceptanceDeadline) <= now
         ? { label: "Expire unaccepted covenant", functionName: "expireUnaccepted", hint: "the acceptance deadline has passed" }
@@ -192,12 +195,31 @@ export function WalletActionPanel({
         chain: testnetBradbury,
         transport: custom(provider),
       });
-      const hash = await wallet.writeContract({
-        address: coreAddress as Address,
-        abi: accord402WriteAbi,
-        functionName: action.functionName,
-        args: [BigInt(covenantId)],
-      });
+      let hash: `0x${string}`;
+      if (action.functionName === "challengeDelivery") {
+        const challengedCriterionIds = criterionIds
+          .split(/[\n,]/)
+          .map((value) => value.trim())
+          .filter(Boolean);
+        if (!challengeClaim.trim()) throw new Error("Write the reason for the challenge before continuing.");
+        if (!challengedCriterionIds.length) throw new Error("Add at least one criterion ID to challenge.");
+        if (new Set(challengedCriterionIds).size !== challengedCriterionIds.length) {
+          throw new Error("Each challenged criterion ID must appear only once.");
+        }
+        hash = await wallet.writeContract({
+          address: coreAddress as Address,
+          abi: accord402WriteAbi,
+          functionName: "challengeDelivery",
+          args: [BigInt(covenantId), challengeClaim.trim(), challengedCriterionIds],
+        });
+      } else {
+        hash = await wallet.writeContract({
+          address: coreAddress as Address,
+          abi: accord402WriteAbi,
+          functionName: action.functionName,
+          args: [BigInt(covenantId)],
+        });
+      }
       setAddress(selected);
       setSubmittedHash(hash);
       onTransactionSubmitted(hash);
@@ -206,6 +228,14 @@ export function WalletActionPanel({
     } finally {
       setBusy(false);
     }
+  }
+
+  function toggleCriterion(criterionId: string) {
+    const current = criterionIds.split(/[\n,]/).map((value) => value.trim()).filter(Boolean);
+    const next = current.includes(criterionId)
+      ? current.filter((value) => value !== criterionId)
+      : [...current, criterionId];
+    setCriterionIds(next.join(", "));
   }
 
   return (
@@ -233,7 +263,49 @@ export function WalletActionPanel({
             {busy ? "Connecting…" : "Connect wallet"} <span>↗</span>
           </button>
         )}
-        {action ? (
+        {action?.functionName === "challengeDelivery" ? (
+          <form className="wallet-form" onSubmit={(event) => { event.preventDefault(); void performAction(); }}>
+            <label htmlFor="challenge-claim">Challenge claim</label>
+            <textarea
+              id="challenge-claim"
+              value={challengeClaim}
+              onChange={(event) => setChallengeClaim(event.target.value)}
+              placeholder="Describe the specific delivery failure to review."
+              maxLength={8192}
+              rows={4}
+            />
+            <label htmlFor="criterion-ids">Criterion IDs to review</label>
+            <input
+              id="criterion-ids"
+              value={criterionIds}
+              onChange={(event) => setCriterionIds(event.target.value)}
+              placeholder="criterion-id-1, criterion-id-2"
+              aria-describedby="criterion-help"
+            />
+            {covenant?.criteria?.length ? (
+              <div className="criterion-picker" aria-label="Available covenant criteria">
+                {covenant.criteria.map((criterion) => {
+                  const selected = criterionIds.split(/[\n,]/).map((value) => value.trim()).includes(criterion.criterionId);
+                  return (
+                    <button
+                      key={criterion.criterionId}
+                      type="button"
+                      className={selected ? "criterion-chip selected" : "criterion-chip"}
+                      onClick={() => toggleCriterion(criterion.criterionId)}
+                      title={criterion.criterionText}
+                    >
+                      {criterion.criterionId}
+                    </button>
+                  );
+                })}
+              </div>
+            ) : null}
+            <span id="criterion-help" className="form-help">Use IDs defined by this covenant’s evidence policy.</span>
+            <button type="submit" className="action-button" disabled={busy || !address}>
+              {busy ? "Waiting for wallet…" : action.label}
+            </button>
+          </form>
+        ) : action ? (
           <button type="button" className="action-button" onClick={() => void performAction()} disabled={busy || !address}>
             {busy ? "Waiting for wallet…" : action.label}
           </button>

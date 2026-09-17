@@ -2,6 +2,11 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
+export type Criterion = {
+  criterionId: string;
+  criterionText: string;
+};
+
 export type Covenant = {
   covenantId: string;
   buyer: string;
@@ -25,10 +30,12 @@ export type Covenant = {
   deliveryPayload: string;
   challengeClaim: string;
   requiredCorroborationCount: number;
+  criteria?: Criterion[];
 };
 
 type ApiResponse = {
   covenant?: Covenant;
+  criteria?: Criterion[];
   error?: string;
   message?: string;
 };
@@ -100,8 +107,11 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
               : "Could not read this covenant from Bradbury."),
         );
       }
-      setCovenant(payload.covenant || null);
-      onCovenantLoaded(payload.covenant || null);
+      const loaded = payload.covenant
+        ? { ...payload.covenant, criteria: payload.criteria || [] }
+        : null;
+      setCovenant(loaded);
+      onCovenantLoaded(loaded);
       setLastRead(
         new Intl.DateTimeFormat(undefined, {
           hour: "numeric",

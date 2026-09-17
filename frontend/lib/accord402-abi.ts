@@ -59,6 +59,30 @@ export const accord402ReadAbi = [
   },
 ] as const;
 
+export const accord402RegistryReadAbi = [
+  {
+    type: "function",
+    name: "getCriterionCount",
+    stateMutability: "view",
+    inputs: [
+      { name: "core", type: "address" },
+      { name: "covenantId", type: "uint64" },
+    ],
+    outputs: [{ name: "", type: "uint256" }],
+  },
+  {
+    type: "function",
+    name: "getCriterionPacked",
+    stateMutability: "view",
+    inputs: [
+      { name: "core", type: "address" },
+      { name: "covenantId", type: "uint64" },
+      { name: "index", type: "uint256" },
+    ],
+    outputs: [{ name: "", type: "string" }],
+  },
+] as const;
+
 export const accord402WriteAbi = [
   {
     type: "function",
@@ -107,6 +131,17 @@ export const accord402WriteAbi = [
     name: "expireReview",
     stateMutability: "nonpayable",
     inputs: [{ name: "covenantId", type: "uint64" }],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "challengeDelivery",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "covenantId", type: "uint64" },
+      { name: "challengeClaim", type: "string" },
+      { name: "challengedCriterionIds", type: "string[]" },
+    ],
     outputs: [],
   },
 ] as const;
