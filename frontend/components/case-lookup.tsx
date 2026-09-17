@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-type Covenant = {
+export type Covenant = {
   covenantId: string;
   buyer: string;
   provider: string;
@@ -32,6 +32,10 @@ type ApiResponse = {
 
 const DEFAULT_ID = process.env.NEXT_PUBLIC_ACCORD402_COVENANT_ID?.trim() || "1";
 const GEN_UNIT = BigInt("1000000000000000000");
+
+type CaseLookupProps = {
+  onCovenantLoaded: (covenant: Covenant | null) => void;
+};
 
 function formatGen(wei: string) {
   try {
@@ -70,7 +74,7 @@ function shorten(value: string) {
   return value ? value.slice(0, 8) + "…" + value.slice(-6) : "Not recorded";
 }
 
-export function CaseLookup() {
+export function CaseLookup({ onCovenantLoaded }: CaseLookupProps) {
   const [id, setId] = useState(DEFAULT_ID);
   const [covenant, setCovenant] = useState<Covenant | null>(null);
   const [error, setError] = useState("");
@@ -93,6 +97,7 @@ export function CaseLookup() {
         );
       }
       setCovenant(payload.covenant || null);
+      onCovenantLoaded(payload.covenant || null);
       setLastRead(
         new Intl.DateTimeFormat(undefined, {
           hour: "numeric",
@@ -103,6 +108,7 @@ export function CaseLookup() {
       setError("");
     } catch (caught) {
       setCovenant(null);
+      onCovenantLoaded(null);
       setError(caught instanceof Error ? caught.message : "Covenant read failed.");
     } finally {
       if (showLoading) setLoading(false);

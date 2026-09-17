@@ -24,6 +24,10 @@ type ApiError = {
 
 const TX_ID = /^0x[0-9a-fA-F]{64}$/;
 
+type TransactionObserverProps = {
+  submittedTxId?: string;
+};
+
 function statusTone(result: Observation) {
   return result.canonicalSuccess
     ? "success"
@@ -32,7 +36,9 @@ function statusTone(result: Observation) {
       : "pending";
 }
 
-export function TransactionObserver() {
+export function TransactionObserver({
+  submittedTxId = "",
+}: TransactionObserverProps) {
   const [txId, setTxId] = useState("");
   const [result, setResult] = useState<Observation | null>(null);
   const [error, setError] = useState("");
@@ -102,6 +108,14 @@ export function TransactionObserver() {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [result, txId]);
+
+  useEffect(() => {
+    if (!TX_ID.test(submittedTxId)) return;
+    setTxId(submittedTxId);
+    setResult(null);
+    setError("");
+    void loadObservation(submittedTxId);
+  }, [submittedTxId]);
 
   const tone = result ? statusTone(result) : "pending";
 

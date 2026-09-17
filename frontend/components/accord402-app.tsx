@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
+import { CaseLookup, type Covenant } from "@/components/case-lookup";
 import { TransactionObserver } from "@/components/transaction-observer";
-import { CaseLookup } from "@/components/case-lookup";
+import { WalletActionPanel } from "@/components/wallet-action-panel";
 
 type Accord402AppProps = {
   contractAddress: string;
@@ -84,6 +85,8 @@ export function Accord402App({
   contractReady,
   contractSha,
 }: Accord402AppProps) {
+  const [liveCovenant, setLiveCovenant] = useState<Covenant | null>(null);
+  const [submittedTxId, setSubmittedTxId] = useState("");
   const steps = [
     ["01", "Fund the covenant", "The buyer locks the required GEN escrow against immutable terms."],
     ["02", "Deliver evidence", "The provider submits issuer-bound records before the SLA deadline."],
@@ -196,8 +199,16 @@ export function Accord402App({
             <p className="stack-note">The interface exposes addresses as references. Authority remains in the deployed Intelligent Contracts.</p>
           </Reveal>
         </div>
-        <Reveal><CaseLookup /></Reveal>
-        <Reveal><TransactionObserver /></Reveal>
+        <Reveal><CaseLookup onCovenantLoaded={setLiveCovenant} /></Reveal>
+        <Reveal>
+          <WalletActionPanel
+            covenantId={liveCovenant?.covenantId || ""}
+            state={liveCovenant?.state || ""}
+            coreAddress={contractAddress}
+            onTransactionSubmitted={setSubmittedTxId}
+          />
+        </Reveal>
+        <Reveal><TransactionObserver submittedTxId={submittedTxId} /></Reveal>
       </section>
 
       <section id="proof" className="proof-section shell">

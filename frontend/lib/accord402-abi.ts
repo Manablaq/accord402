@@ -58,3 +58,20 @@ export const accord402ReadAbi = [
     ],
   },
 ] as const;
+
+export const accord402WriteAbi = [
+  {
+    type: "function",
+    name: "retryReview",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "covenantId", type: "uint64" }],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "claimSettlement",
+    stateMutability: "nonpayable",
+    inputs: [{ name: "covenantId", type: "uint64" }],
+    outputs: [],
+  },
+] as const;

@@ -122,3 +122,21 @@ button, input { font: inherit; }
 .case-callout strong { font: 700 17px Georgia, serif; letter-spacing: -.03em; }
 .case-callout small { color: var(--ink-soft); font-size: 10px; }
 @media (max-width: 650px) { .case-lookup { padding: 21px; }.case-form-row, .case-metrics, .case-details { grid-template-columns: 1fr; }.case-form-row button { min-height: 44px; }.case-status-row { align-items: flex-start; flex-direction: column; } }
+
+.wallet-actions { display: grid; grid-template-columns: 1fr .9fr; gap: 45px; margin-top: 12px; padding: 29px; }
+.wallet-copy h2 { margin: 0; font: 700 29px Georgia, serif; letter-spacing: -.055em; }
+.wallet-copy .muted { max-width: 570px; margin: 17px 0 0; font-size: 12px; line-height: 1.65; }
+.wallet-controls { display: grid; align-content: center; gap: 10px; }
+.wallet-button { border: 0; cursor: pointer; }
+.wallet-button:disabled, .action-button:disabled { cursor: wait; opacity: .55; }
+.connected-wallet { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; background: var(--paper-strong); }
+.connected-wallet > span:nth-child(2) { display: grid; flex: 1; gap: 5px; }
+.connected-wallet small { color: var(--ink-soft); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.connected-wallet code { color: var(--ink); font: 11px "SFMono-Regular", Consolas, monospace; }
+.disconnect-button { border: 0; color: var(--orange); background: none; cursor: pointer; font-size: 10px; font-weight: 800; }
+.action-button { min-height: 44px; border: 1px solid var(--orange); border-radius: 6px; color: var(--orange-deep); background: transparent; cursor: pointer; font-size: 11px; font-weight: 800; }
+.action-button:hover { color: var(--paper-strong); background: var(--orange); }
+.action-hint { padding: 12px 14px; border-radius: 6px; color: var(--ink-soft); background: rgba(127,154,99,.1); font-size: 10px; line-height: 1.5; }
+.wallet-success { margin: 0; padding: 12px 14px; border-radius: 6px; color: var(--moss); background: rgba(127,154,99,.12); font-size: 10px; line-height: 1.5; }
+@media (max-width: 900px) { .wallet-actions { grid-template-columns: 1fr; gap: 20px; } }
+@media (max-width: 650px) { .wallet-actions { padding: 21px; }.wallet-copy h2 { font-size: 25px; } }
