@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   createWalletClient,
   custom,
@@ -9,14 +9,14 @@ import {
 import { testnetBradbury } from "genlayer-js/chains";
 
 import { accord402WriteAbi } from "@/lib/accord402-abi";
+import type { Covenant } from "@/components/case-lookup";
 
 type WalletProvider = {
   request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
 };
 
 type WalletActionPanelProps = {
-  covenantId: string;
-  state: string;
+  covenant: Covenant | null;
   coreAddress: string;
   onTransactionSubmitted: (hash: string) => void;
 };
@@ -42,9 +42,31 @@ function friendlyWalletError(error: unknown) {
   return message || "Wallet action failed. No transaction was confirmed.";
 }
 
+type ActionName =
+  | "retryReview"
+  | "claimSettlement"
+  | "authorizeUnchallengedSettlement"
+  | "expireUnaccepted"
+  | "expireNonDelivery"
+  | "expireRepair"
+  | "expireReview";
+
+type Action = {
+  label: string;
+  functionName: ActionName;
+  hint: string;
+};
+
+function remaining(deadline: string, now: number) {
+  const seconds = Number(deadline) - now;
+  if (!Number.isFinite(seconds) || seconds <= 0) return "deadline passed";
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.max(1, Math.floor((seconds % 3600) / 60));
+  return hours ? `available for about ${hours}h ${minutes}m` : `available for about ${minutes}m`;
+}
+
 export function WalletActionPanel({
-  covenantId,
-  state,
+  covenant,
   coreAddress,
   onTransactionSubmitted,
 }: WalletActionPanelProps) {
@@ -52,14 +74,43 @@ export function WalletActionPanel({
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [submittedHash, setSubmittedHash] = useState("");
+  const [now, setNow] = useState(() => Math.floor(Date.now() / 1000));
 
-  const action =
-    state === "REVIEW_RETRY_REQUIRED"
-      ? { label: "Retry review", functionName: "retryReview" as const }
-      : state === "SETTLEMENT_AUTHORIZED_PROVIDER" ||
-          state === "SETTLEMENT_AUTHORIZED_BUYER"
-        ? { label: "Claim settlement", functionName: "claimSettlement" as const }
+  const covenantId = covenant?.covenantId || "";
+  const state = covenant?.state || "";
+  let action: Action | null = null;
+  if (covenant) {
+    if (state === "REVIEW_RETRY_REQUIRED") {
+      action = Number(covenant.retryDeadline) > now && covenant.reviewGeneration < 4
+        ? { label: "Retry review", functionName: "retryReview", hint: remaining(covenant.retryDeadline, now) }
+        : { label: "Expire review", functionName: "expireReview", hint: "the retry window has closed" };
+    } else if (state === "SETTLEMENT_AUTHORIZED_PROVIDER" || state === "SETTLEMENT_AUTHORIZED_BUYER") {
+      action = { label: "Claim settlement", functionName: "claimSettlement", hint: "final settlement is authorized" };
+    } else if (state === "DELIVERED") {
+      action = Number(covenant.challengeDeadline) <= now
+        ? { label: "Authorize unchallenged settlement", functionName: "authorizeUnchallengedSettlement", hint: "the challenge window has closed" }
         : null;
+    } else if (state === "FUNDED") {
+      action = Number(covenant.acceptanceDeadline) <= now
+        ? { label: "Expire unaccepted covenant", functionName: "expireUnaccepted", hint: "the acceptance deadline has passed" }
+        : null;
+    } else if (state === "SERVICE_ACCEPTED") {
+      action = Number(covenant.deliveryDeadline) <= now
+        ? { label: "Expire non-delivery", functionName: "expireNonDelivery", hint: "the delivery deadline has passed" }
+        : null;
+    } else if (state === "EVIDENCE_REPAIR_REQUIRED") {
+      action = Number(covenant.repairDeadline) <= now && covenant.reviewGeneration < 4
+        ? { label: "Expire repair window", functionName: "expireRepair", hint: "the repair deadline has passed" }
+        : null;
+    } else if (state === "CHALLENGED" && Number(covenant.absoluteDisputeDeadline) <= now) {
+      action = { label: "Expire review", functionName: "expireReview", hint: "the absolute dispute deadline has passed" };
+    }
+  }
+
+  useEffect(() => {
+    const timer = setInterval(() => setNow(Math.floor(Date.now() / 1000)), 15000);
+    return () => clearInterval(timer);
+  }, []);
 
   async function getProvider() {
     const provider = (window as Window & { ethereum?: WalletProvider }).ethereum;
@@ -188,9 +239,14 @@ export function WalletActionPanel({
           </button>
         ) : (
           <span className="action-hint">
-            {covenantId ? "No user action is available for " + state.toLowerCase().replaceAll("_", " ") + "." : "Load a covenant to see available actions."}
+            {covenantId
+              ? state === "DELIVERED"
+                ? "The challenge window is still open; settlement cannot be authorized yet."
+                : "No user action is available for " + state.toLowerCase().replaceAll("_", " ") + "."
+              : "Load a covenant to see available actions."}
           </span>
         )}
+        {action ? <span className="action-hint">{action.hint}.</span> : null}
         {submittedHash ? (
           <p className="wallet-success" role="status">
             Submitted safely. Finality is still pending; the observer is tracking {shorten(submittedHash)}.

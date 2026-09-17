@@ -13,6 +13,8 @@ export type Covenant = {
   acceptanceDeadline: string;
   deliveryDeadline: string;
   challengeDeadline: string;
+  repairDeadline: string;
+  retryDeadline: string;
   absoluteDisputeDeadline: string;
   reviewGeneration: number;
   adjudicationDecision: string;

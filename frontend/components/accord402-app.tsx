@@ -208,8 +208,7 @@ export function Accord402App({
         </Reveal>
         <Reveal>
           <WalletActionPanel
-            covenantId={liveCovenant?.covenantId || ""}
-            state={liveCovenant?.state || ""}
+            covenant={liveCovenant}
             coreAddress={contractAddress}
             onTransactionSubmitted={setSubmittedTxId}
           />
