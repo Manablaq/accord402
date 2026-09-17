@@ -18,7 +18,8 @@
     "genlayer-js": "1.1.8",
     "next": "16.3.5",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "viem": "2.56.3"
   },
   "devDependencies": {
     "@types/node": "24.9.1",

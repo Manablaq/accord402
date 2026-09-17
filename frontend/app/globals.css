@@ -93,3 +93,32 @@ button, input { font: inherit; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; }.reveal { opacity: 1; transform: none; transition: none; }.step-card, .button, .theme-toggle { transition: none; } }
 @media (max-width: 900px) { .hero { grid-template-columns: 1fr; gap: 45px; padding-top: 60px; }.hero-map-wrap { justify-self: center; }.section-intro, .console-heading, .proof-layout { grid-template-columns: 1fr; gap: 25px; }.steps-grid { grid-template-columns: repeat(2, 1fr); }.console-grid { grid-template-columns: 1fr; } }
 @media (max-width: 650px) { .shell { width: min(100% - 30px, 1220px); }.site-header { min-height: 75px; }.desktop-nav, .live-indicator { display: none; }.theme-toggle { padding: 8px 10px; }.hero { min-height: auto; padding: 70px 0 75px; }.hero h1 { font-size: clamp(67px, 20vw, 100px); }.hero-copy { font-size: 14px; }.hero-map { min-height: 390px; }.signal-strip { grid-template-columns: 1fr; }.signal-strip > div, .signal-strip > div:first-child { padding: 18px 0; border-right: 0; border-bottom: 1px solid var(--line); }.section { padding: 100px 0 80px; }.steps-grid { grid-template-columns: 1fr; margin-top: 42px; }.step-card { min-height: 180px; }.step-card h3 { margin-top: 28px; }.console-section { padding-bottom: 85px; }.contract-card, .stack-card, .observer { padding: 21px; }.section-heading { flex-direction: column; }.observer-row, .result-grid { grid-template-columns: 1fr; }.observer-row button { min-height: 44px; }.proof-layout { gap: 52px; padding: 50px 0; }.site-footer { align-items: flex-start; flex-direction: column; }.map-stamp { bottom: 70px; } }
+
+.case-lookup { margin-top: 12px; padding: 29px; }
+.case-intro { max-width: 690px; margin: 17px 0 0; font-size: 12px; line-height: 1.65; }
+.case-form { display: grid; gap: 8px; margin-top: 25px; }
+.case-form label { color: var(--ink); font-size: 11px; font-weight: 800; }
+.case-form-row { display: grid; grid-template-columns: 180px auto; gap: 9px; }
+.case-form-row input { min-width: 0; border: 1px solid var(--line); border-radius: 6px; outline: none; padding: 13px 14px; color: var(--ink); background: var(--paper-strong); font-size: 12px; }
+.case-form-row input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(215,101,50,.1); }
+.case-form-row button { border: 0; border-radius: 6px; padding: 0 19px; color: #fffaf0; background: var(--forest); font-size: 11px; font-weight: 800; cursor: pointer; }
+.case-form-row button:disabled { opacity: .55; cursor: wait; }
+.case-result { margin-top: 20px; }
+.case-status-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+.case-status-row > div { display: grid; gap: 6px; }
+.case-label { color: var(--ink-soft); font-size: 10px; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.case-status-row strong { font: 700 24px Georgia, serif; letter-spacing: -.045em; }
+.state-badge { padding: 7px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; }
+.state-badge.open { color: var(--moss); background: rgba(127,154,99,.14); }
+.state-badge.closed { color: var(--orange-deep); background: rgba(215,101,50,.12); }
+.case-metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin-top: 15px; }
+.case-metrics > div { display: grid; gap: 7px; padding: 14px; border: 1px solid var(--line); border-radius: 6px; }
+.case-metrics span, .case-details span, .case-callout span { color: var(--ink-soft); font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.case-metrics strong { font-size: 12px; }
+.case-details { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; padding-top: 18px; }
+.case-details > div { display: grid; gap: 6px; }
+.case-details code, .case-details strong { overflow-wrap: anywhere; color: var(--ink); font: 11px "SFMono-Regular", Consolas, monospace; }
+.case-callout { display: grid; gap: 5px; margin-top: 18px; padding: 14px; border-left: 3px solid var(--orange); background: rgba(215,101,50,.08); }
+.case-callout strong { font: 700 17px Georgia, serif; letter-spacing: -.03em; }
+.case-callout small { color: var(--ink-soft); font-size: 10px; }
+@media (max-width: 650px) { .case-lookup { padding: 21px; }.case-form-row, .case-metrics, .case-details { grid-template-columns: 1fr; }.case-form-row button { min-height: 44px; }.case-status-row { align-items: flex-start; flex-direction: column; } }

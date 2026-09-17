@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { TransactionObserver } from "@/components/transaction-observer";
+import { CaseLookup } from "@/components/case-lookup";
 
 type Accord402AppProps = {
   contractAddress: string;
@@ -195,6 +196,7 @@ export function Accord402App({
             <p className="stack-note">The interface exposes addresses as references. Authority remains in the deployed Intelligent Contracts.</p>
           </Reveal>
         </div>
+        <Reveal><CaseLookup /></Reveal>
         <Reveal><TransactionObserver /></Reveal>
       </section>
 

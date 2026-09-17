@@ -64,3 +64,5 @@ supports light/dark mode and scroll reveals, and continuously observes the
 exact transaction ID entered by the user. It reports canonical success only
 when Bradbury returns finalized status plus execution result
 `FINISHED_WITH_RETURN`.
+The console also reads live covenant records from the deployed Core, including
+state, escrow, deadlines, participants, review round, and the latest decision.
