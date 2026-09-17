@@ -14,10 +14,10 @@ consensus: semantic adjudication of disputed service delivery.
 - `contracts/Accord402Core.sol` — escrow, lifecycle, accounting, repair/retry, and finality-gated settlement.
 - `contracts/Accord402Adjudicator.py` — narrow GenLayer Intelligent Contract that reads a frozen snapshot, independently fetches approved evidence, and sends one finalized callback.
 
-The historical `contracts/accord402.py` and the existing frontend are preserved
-for reference/differential work. They are not the V2 deployment artifact. The
-frontend remains intentionally untouched until the contract and Bradbury gates
-are complete.
+The historical `contracts/accord402.py` is preserved for reference/differential
+work and is not the V2 deployment artifact. The `frontend/` directory is the
+read-only Bradbury console for the deployed V2 graph; it does not replace
+contract authority.
 
 ## Local verification
 
@@ -53,4 +53,14 @@ reproduce those bundles through the public chain RPC before it emits the
 finalized callback. The corrected graph has passed local Solidity tests and a
 live Bradbury open/accept/deliver/challenge run. The adjudication transaction
 reached `AGREE / FINISHED_WITH_RETURN`; Bradbury finalization and callback
-processing remain pending. Frontend integration remains deferred by design.
+processing remain pending.
+
+## Frontend
+
+From `frontend/`, copy `.env.example` to `.env.local` when environment
+overrides are needed, then run `npm run dev`. The Accord402 landing console
+uses the hiking-template direction as an original contour-map visual system,
+supports light/dark mode and scroll reveals, and continuously observes the
+exact transaction ID entered by the user. It reports canonical success only
+when Bradbury returns finalized status plus execution result
+`FINISHED_WITH_RETURN`.
