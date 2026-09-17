@@ -11,7 +11,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 CONTRACT = ROOT / "contracts" / "accord402.py"
 
-EXPECTED_CONTRACT_SHA256 = "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+EXPECTED_CONTRACT_SHA256 = "0099183d8285f84f0b858269b72d7ec742f906f7f3c94c934024850f0cd5bdf6"
 
 SERVICE_DOMAIN = b"ACCORD402:SERVICE_SPEC:V1\x00"
 POLICY_DOMAIN = b"ACCORD402:EVIDENCE_POLICY:V1\x00"
@@ -86,7 +86,7 @@ def _contract_runtime() -> dict[str, object]:
         raise ContractReject(code)
 
     runtime: dict[str, object] = {
-        "_fail": fail,
+        "_A": fail,
         "hashlib": hashlib,
         "MAX_U32": MAX_U32,
         "MAX_U64": MAX_U64,

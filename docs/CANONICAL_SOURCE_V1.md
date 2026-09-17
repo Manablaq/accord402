@@ -1,5 +1,7 @@
 # Accord402 V1 — Frozen Canonical Source Normalization
 
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 ## 1. Scope
 
 This document freezes the exact V1 grammar and validation rules for `AuthorityBinding.canonical_origin` and `EvidenceRecord.canonical_source`.

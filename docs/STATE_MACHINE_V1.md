@@ -1,5 +1,11 @@
 # Accord402 V1 — State Machine
 
+> **Payout-liveness amendment:** `docs/SECURITY_HARDENING_V4.md` supersedes conflicting persistent-credit and payout-withdrawal semantics.
+
+> **Settlement-liveness amendment:** `docs/SECURITY_HARDENING_V3.md` supersedes conflicting payout-recipient and vault-withdrawal semantics.
+
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 ## Purpose
 
 This document freezes the deterministic covenant lifecycle that `contracts/accord402.py` must implement. The Intelligent Contract may not invent additional value-bearing paths outside this state machine without first revising the specification and reviewer gates.

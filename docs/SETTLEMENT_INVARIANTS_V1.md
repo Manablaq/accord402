@@ -1,5 +1,11 @@
 # Accord402 V1 — Settlement and Accounting Invariants
 
+> **Payout-liveness amendment:** `docs/SECURITY_HARDENING_V4.md` supersedes conflicting persistent-credit and payout-withdrawal semantics.
+
+> **Settlement-liveness amendment:** `docs/SECURITY_HARDENING_V3.md` supersedes conflicting payout-recipient and vault-withdrawal semantics.
+
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 ## Purpose
 
 GEN escrow is the highest-risk deterministic subsystem in Accord402. This document freezes economic invariants before implementation syntax is chosen.

@@ -1,5 +1,7 @@
 # Accord402 V1 — Evidence Model
 
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 ## Goal
 
 Accord402 does not treat a URL, page hash, LLM output, or provider assertion as trustworthy merely because it exists.

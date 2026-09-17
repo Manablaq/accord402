@@ -1,5 +1,11 @@
 # Accord402 V1 — Storage and Public ABI Freeze
 
+> **Payout-liveness amendment:** `docs/SECURITY_HARDENING_V4.md` supersedes conflicting persistent-credit and payout-withdrawal semantics.
+
+> **Settlement-liveness amendment:** `docs/SECURITY_HARDENING_V3.md` supersedes conflicting payout-recipient and vault-withdrawal semantics.
+
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 Status: STORAGE TYPES AND ROOT SCHEMA FROZEN; PUBLIC ABI, INPUT CAPS, HASH PREIMAGES, AND TOOLCHAIN PIN NOT YET FROZEN
 
 This document freezes the persistent storage model before contract implementation.

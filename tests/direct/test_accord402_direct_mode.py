@@ -3,6 +3,7 @@ from __future__ import annotations
 from datetime import datetime, timezone
 from pathlib import Path
 import hashlib
+import json
 import re
 import sys
 
@@ -11,15 +12,41 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "contracts" / "accord402.py"
-EXPECTED_CONTRACT_SHA256 = "d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4"
+EXPECTED_CONTRACT_SHA256 = "0099183d8285f84f0b858269b72d7ec742f906f7f3c94c934024850f0cd5bdf6"
 
 BASE = 1_700_000_000
 PRINCIPAL = 1_000_000
 
-PRIMARY_URL = "https://example.com/evidence/v1/report"
-CORR_URL = "https://example.org/evidence/v2/report"
-PRIMARY_BODY = b'{"authority":"primary","fact":"pricing-current"}'
-CORR_BODY = b'{"authority":"corroborator","fact":"pricing-current"}'
+RAW_ORIGIN = "https://raw.githubusercontent.com"
+PRIMARY_REPO = "accord402-primary/evidence"
+CORR_REPO = "accord402-corroborator/evidence"
+PRIMARY_COMMIT = "1" * 40
+CORR_COMMIT = "2" * 40
+PRIMARY_URL = f"{RAW_ORIGIN}/{PRIMARY_REPO}/{PRIMARY_COMMIT}/pricing.json"
+CORR_URL = f"{RAW_ORIGIN}/{CORR_REPO}/{CORR_COMMIT}/pricing.json"
+PRIMARY_PAYLOAD = '{"authority":"primary","fact":"pricing-current"}'
+CORR_PAYLOAD = '{"authority":"corroborator","fact":"pricing-current"}'
+
+def _manifest_body(repo, url, commit, published_at, expires_at, payload):
+    return json.dumps(
+        {
+            "schema": "ACCORD402_EVIDENCE_MANIFEST_V1",
+            "authority_identity": repo,
+            "canonical_source": url,
+            "record_id": commit,
+            "subject": "pricing",
+            "kind": "PAGE",
+            "published_at": int(published_at),
+            "expires_at": int(expires_at),
+            "payload": payload,
+        },
+        sort_keys=True,
+        separators=(",", ":"),
+    ).encode("utf-8")
+
+PRIMARY_BODY = _manifest_body(PRIMARY_REPO, PRIMARY_URL, PRIMARY_COMMIT, BASE, BASE + 5120, PRIMARY_PAYLOAD)
+CORR_BODY = _manifest_body(CORR_REPO, CORR_URL, CORR_COMMIT, BASE, BASE + 5120, CORR_PAYLOAD)
+_CURRENT_BODIES = {PRIMARY_URL: PRIMARY_BODY, CORR_URL: CORR_BODY}
 
 
 def _sha256(path: Path) -> str:
@@ -215,21 +242,51 @@ def _install_frozen_dynarray_inmem_compat(contract):
     storage.inmem_allocate = compat
 
 
-class _TransferCapture:
-    transfers: list[tuple[object, int]] = []
+class _VaultEmission:
+    def __init__(self, sink, details, amount):
+        self.sink = sink
+        self.details = details
+        self.amount = int(amount)
+
+    def credit(self, covenant_id, beneficiary, recipient):
+        recipient_bytes = _address_bytes(recipient)
+        beneficiary_bytes = _address_bytes(beneficiary)
+        self.sink.append((recipient_bytes, self.amount))
+        self.details.append(
+            (int(covenant_id), beneficiary_bytes, recipient_bytes, self.amount)
+        )
+
+
+class _VaultCapture:
+    credits: list[tuple[object, int]] = []
+    details: list[tuple[int, object, object, int]] = []
+    unregistered: set[bytes] = set()
 
     def __init__(self, address):
         self.address = address
 
-    def emit_transfer(self, *, value):
-        type(self).transfers.append((_address_bytes(self.address), int(value)))
+    def view(self):
+        return self
+
+    def is_registered_payout(self, recipient):
+        raw = _address_bytes(recipient)
+        return raw != b"\x00" * 20 and raw not in type(self).unregistered
+
+    def emit(self, *, value):
+        return _VaultEmission(
+            type(self).credits,
+            type(self).details,
+            value,
+        )
 
 
 def _install_transfer_capture(contract):
     mod = _module(contract)
-    _TransferCapture.transfers = []
-    mod._Recipient = _TransferCapture
-    return _TransferCapture.transfers
+    _VaultCapture.credits = []
+    _VaultCapture.details = []
+    _VaultCapture.unregistered = set()
+    mod._SettlementVault = _VaultCapture
+    return _VaultCapture.credits
 
 
 def _deploy(direct_vm, direct_deploy, buyer):
@@ -237,7 +294,7 @@ def _deploy(direct_vm, direct_deploy, buyer):
     direct_vm.sender = buyer
     direct_vm.value = 0
     direct_vm.warp(_iso(BASE))
-    contract = direct_deploy(str(CONTRACT))
+    contract = direct_deploy(str(CONTRACT), buyer)
     _install_frozen_raw_llm_mock_compat(contract, direct_vm)
     _install_frozen_message_datetime_compat(contract, direct_vm)
     _install_frozen_dynarray_inmem_compat(contract)
@@ -264,17 +321,17 @@ def _bindings(mod):
             authority_id="primary",
             authority_revision=1,
             role="PRIMARY",
-            identity_kind="DOMAIN",
-            identity_value="example.com",
-            canonical_origin="https://example.com",
+            identity_kind="GITHUB_REPOSITORY",
+            identity_value=PRIMARY_REPO,
+            canonical_origin=RAW_ORIGIN,
         ),
         mod.AuthorityBindingInput(
             authority_id="corroborator",
             authority_revision=1,
             role="CORROBORATOR",
-            identity_kind="DOMAIN",
-            identity_value="example.org",
-            canonical_origin="https://example.org",
+            identity_kind="GITHUB_REPOSITORY",
+            identity_value=CORR_REPO,
+            canonical_origin=RAW_ORIGIN,
         ),
     ]
 
@@ -302,7 +359,7 @@ def _terms(
         max_review_generations=max_review_generations,
         max_evidence_age=max_evidence_age,
         required_corroboration_count=required_corroboration_count,
-        repair_allowed_field_mask=255,
+        repair_allowed_field_mask=252,
         replay_scope="COVENANT",
         criteria=_criteria(mod),
         authority_bindings=_bindings(mod),
@@ -331,17 +388,7 @@ def _open(
     _assert_contract_clock(contract, vm, now)
     vm.sender = buyer
     vm.value = principal
-    covenant_id = _structured_call(
-        contract,
-        "open_covenant",
-        _terms(
-            mod,
-            provider,
-            now,
-            principal=principal,
-            max_evidence_age=max_evidence_age,
-        ),
-    )
+    covenant_id = _structured_call(contract, 'open_covenant', _terms(mod, provider, now, principal=principal, max_evidence_age=max_evidence_age), _as_address(mod, buyer))
     vm.value = 0
     return int(covenant_id)
 
@@ -350,44 +397,32 @@ def _evidence(
     mod,
     at: int,
     *,
-    primary_body: bytes = PRIMARY_BODY,
-    corr_body: bytes = CORR_BODY,
+    primary_body: bytes | None = None,
+    corr_body: bytes | None = None,
     observed_at: int | None = None,
     expires_at: int | None = None,
 ):
-    observed = at - 30 if observed_at is None else observed_at
+    observed = at if observed_at is None else observed_at
     expires = at + 5000 if expires_at is None else expires_at
     published = min(at - 120, observed)
+    pbody = primary_body or _manifest_body(PRIMARY_REPO, PRIMARY_URL, PRIMARY_COMMIT, published, expires, PRIMARY_PAYLOAD)
+    cbody = corr_body or _manifest_body(CORR_REPO, CORR_URL, CORR_COMMIT, published, expires, CORR_PAYLOAD)
+    _CURRENT_BODIES[PRIMARY_URL] = pbody
+    _CURRENT_BODIES[CORR_URL] = cbody
     return [
         mod.EvidenceInput(
-            evidence_id="ev-primary",
-            authority_id="primary",
-            authority_revision=1,
-            subject="pricing",
-            kind="PAGE",
-            source_kind="IMMUTABLE",
-            canonical_source=PRIMARY_URL,
-            immutable_version_or_record_id="v1",
-            published_at=published,
-            observed_at=observed,
-            expires_at=expires,
-            content_digest=hashlib.sha256(primary_body).hexdigest(),
-            is_primary=True,
+            evidence_id="ev-primary", authority_id="primary", authority_revision=1,
+            subject="pricing", kind="PAGE", source_kind="IMMUTABLE",
+            canonical_source=PRIMARY_URL, immutable_version_or_record_id=PRIMARY_COMMIT,
+            published_at=published, observed_at=observed, expires_at=expires,
+            content_digest=hashlib.sha256(pbody).hexdigest(), is_primary=True,
         ),
         mod.EvidenceInput(
-            evidence_id="ev-corr",
-            authority_id="corroborator",
-            authority_revision=1,
-            subject="pricing",
-            kind="PAGE",
-            source_kind="VERSIONED",
-            canonical_source=CORR_URL,
-            immutable_version_or_record_id="v2",
-            published_at=published,
-            observed_at=observed,
-            expires_at=expires,
-            content_digest=hashlib.sha256(corr_body).hexdigest(),
-            is_primary=False,
+            evidence_id="ev-corr", authority_id="corroborator", authority_revision=1,
+            subject="pricing", kind="PAGE", source_kind="IMMUTABLE",
+            canonical_source=CORR_URL, immutable_version_or_record_id=CORR_COMMIT,
+            published_at=published, observed_at=observed, expires_at=expires,
+            content_digest=hashlib.sha256(cbody).hexdigest(), is_primary=False,
         ),
     ]
 
@@ -399,39 +434,26 @@ def _replacement_evidence(
     observed_at: int,
     expires_at: int,
 ):
-    published = published_at
+    pbody = _manifest_body(PRIMARY_REPO, PRIMARY_URL, PRIMARY_COMMIT, published_at, expires_at, PRIMARY_PAYLOAD)
+    cbody = _manifest_body(CORR_REPO, CORR_URL, CORR_COMMIT, published_at, expires_at, CORR_PAYLOAD)
+    _CURRENT_BODIES[PRIMARY_URL] = pbody
+    _CURRENT_BODIES[CORR_URL] = cbody
     return [
         mod.EvidenceReplacementInput(
-            replaces_evidence_id="ev-primary",
-            evidence_id="ev-primary-r1",
-            authority_id="primary",
-            authority_revision=1,
-            subject="pricing",
-            kind="PAGE",
-            source_kind="IMMUTABLE",
-            canonical_source=PRIMARY_URL,
-            immutable_version_or_record_id="v1",
-            published_at=published,
-            observed_at=observed_at,
-            expires_at=expires_at,
-            content_digest=hashlib.sha256(PRIMARY_BODY).hexdigest(),
-            is_primary=True,
+            replaces_evidence_id="ev-primary", evidence_id="ev-primary-r1",
+            authority_id="primary", authority_revision=1, subject="pricing", kind="PAGE",
+            source_kind="IMMUTABLE", canonical_source=PRIMARY_URL,
+            immutable_version_or_record_id=PRIMARY_COMMIT, published_at=published_at,
+            observed_at=observed_at, expires_at=expires_at,
+            content_digest=hashlib.sha256(pbody).hexdigest(), is_primary=True,
         ),
         mod.EvidenceReplacementInput(
-            replaces_evidence_id="ev-corr",
-            evidence_id="ev-corr-r1",
-            authority_id="corroborator",
-            authority_revision=1,
-            subject="pricing",
-            kind="PAGE",
-            source_kind="VERSIONED",
-            canonical_source=CORR_URL,
-            immutable_version_or_record_id="v2",
-            published_at=published,
-            observed_at=observed_at,
-            expires_at=expires_at,
-            content_digest=hashlib.sha256(CORR_BODY).hexdigest(),
-            is_primary=False,
+            replaces_evidence_id="ev-corr", evidence_id="ev-corr-r1",
+            authority_id="corroborator", authority_revision=1, subject="pricing", kind="PAGE",
+            source_kind="IMMUTABLE", canonical_source=CORR_URL,
+            immutable_version_or_record_id=CORR_COMMIT, published_at=published_at,
+            observed_at=observed_at, expires_at=expires_at,
+            content_digest=hashlib.sha256(cbody).hexdigest(), is_primary=False,
         ),
     ]
 
@@ -441,7 +463,7 @@ def _accept(contract, vm, provider, covenant_id: int, at: int = BASE + 60):
     _assert_contract_clock(contract, vm, at)
     vm.sender = provider
     vm.value = 0
-    contract.accept_covenant(covenant_id)
+    contract.accept_covenant(covenant_id, _as_address(_module(contract), provider))
 
 
 def _deliver(
@@ -490,32 +512,30 @@ def _challenge(
     )
 
 
-def _web_mock(vm, url: str, status: int, body: bytes):
+def _http_date(epoch: int) -> str:
+    return datetime.fromtimestamp(epoch, tz=timezone.utc).strftime("%a, %d %b %Y %H:%M:%S GMT")
+
+
+def _web_mock(vm, url: str, status: int, body: bytes, *, fetch_at: int = BASE + 500):
+    actual_status = 206 if status == 200 else status
+    headers = {}
+    if actual_status == 206:
+        headers = {
+            "date": _http_date(fetch_at),
+            "content-range": f"bytes 0-{len(body)-1}/{len(body)}",
+        }
     vm.mock_web(
         rf"^{re.escape(url)}$",
-        {
-            "response": {
-                "status": status,
-                "headers": {},
-                "body": body,
-            },
-            "method": "GET",
-        },
+        {"response": {"status": actual_status, "headers": headers, "body": body}, "method": "GET"},
     )
 
 
-def _mock_success(vm, failed_ids):
-    _web_mock(vm, PRIMARY_URL, 200, PRIMARY_BODY)
-    _web_mock(vm, CORR_URL, 200, CORR_BODY)
-    import json
-
+def _mock_success(vm, failed_ids, *, fetch_at: int = BASE + 500):
+    _web_mock(vm, PRIMARY_URL, 200, _CURRENT_BODIES[PRIMARY_URL], fetch_at=fetch_at)
+    _web_mock(vm, CORR_URL, 200, _CURRENT_BODIES[CORR_URL], fetch_at=fetch_at)
     vm.mock_llm(
         r".*",
-        json.dumps(
-            {"failed_criterion_ids": list(failed_ids)},
-            sort_keys=True,
-            separators=(",", ":"),
-        ),
+        json.dumps({"failed_criterion_ids": list(failed_ids)}, sort_keys=True, separators=(",", ":")),
     )
 
 
@@ -576,20 +596,12 @@ def test_zero_and_wrong_funding_revert_atomically(
     direct_vm.sender = direct_alice
     direct_vm.value = 0
     with pytest.raises(Exception) as zero_exc:
-        _structured_call(
-            contract,
-            "open_covenant",
-            _terms(mod, direct_bob, BASE, principal=0),
-        )
+        _structured_call(contract, 'open_covenant', _terms(mod, direct_bob, BASE, principal=0), _as_address(mod, buyer))
     assert not isinstance(zero_exc.value, (AttributeError, TypeError))
 
     direct_vm.value = PRINCIPAL - 1
     with pytest.raises(Exception) as wrong_value_exc:
-        _structured_call(
-            contract,
-            "open_covenant",
-            _terms(mod, direct_bob, BASE, principal=PRINCIPAL),
-        )
+        _structured_call(contract, 'open_covenant', _terms(mod, direct_bob, BASE, principal=PRINCIPAL), _as_address(mod, buyer))
     assert not isinstance(wrong_value_exc.value, (AttributeError, TypeError))
     direct_vm.value = 0
 
@@ -612,7 +624,7 @@ def test_provider_only_acceptance_delivery_and_buyer_only_challenge(
 
     direct_vm.sender = buyer
     with direct_vm.expect_revert():
-        contract.accept_covenant(covenant_id)
+        contract.accept_covenant(covenant_id, _as_address(_module(contract), provider))
 
     _accept(contract, direct_vm, provider, covenant_id)
 

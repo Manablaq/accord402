@@ -1,5 +1,11 @@
 # Accord402 V1 — Threat Model
 
+> **Payout-liveness amendment:** `docs/SECURITY_HARDENING_V4.md` supersedes conflicting persistent-credit and payout-withdrawal semantics.
+
+> **Settlement-liveness amendment:** `docs/SECURITY_HARDENING_V3.md` supersedes conflicting payout-recipient and vault-withdrawal semantics.
+
+> **Security amendment:** `docs/SECURITY_HARDENING_V2.md` supersedes any conflicting weaker V1 rule in this document.
+
 ## Security objective
 
 Accord402 must ensure that a service covenant can transfer its escrow only according to the immutable agreement and a deterministic deadline or finalized GenLayer adjudication outcome.
