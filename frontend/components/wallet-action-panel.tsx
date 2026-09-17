@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import {
   createWalletClient,
   custom,
+  isAddress,
   type Address,
 } from "viem";
 import { testnetBradbury } from "genlayer-js/chains";
@@ -43,6 +44,8 @@ function friendlyWalletError(error: unknown) {
 }
 
 type ActionName =
+  | "acceptCovenant"
+  | "submitDelivery"
   | "retryReview"
   | "claimSettlement"
   | "authorizeUnchallengedSettlement"
@@ -66,6 +69,61 @@ function remaining(deadline: string, now: number) {
   return hours ? `available for about ${hours}h ${minutes}m` : `available for about ${minutes}m`;
 }
 
+function parseEvidenceJson(raw: string, requiredCorroborationCount: number) {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error("Evidence must be valid JSON.");
+  }
+  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.length > 16) {
+    throw new Error("Evidence must be a JSON array with 1 to 16 records.");
+  }
+  const records = parsed.map((value, index) => {
+    if (!value || typeof value !== "object") throw new Error(`Evidence record ${index + 1} is not an object.`);
+    const item = value as Record<string, unknown>;
+    const required = [
+      "evidenceId", "authorityId", "authorityRevision", "subject", "kind",
+      "sourceKind", "canonicalSource", "immutableVersionOrRecordId",
+      "publishedAt", "observedAt", "expiresAt", "contentDigest", "isPrimary",
+    ];
+    for (const field of required) {
+      if (item[field] === undefined || item[field] === null || item[field] === "") {
+        throw new Error(`Evidence record ${index + 1} is missing ${field}.`);
+      }
+    }
+    const digest = String(item.contentDigest);
+    if (!/^0x[0-9a-fA-F]{64}$/.test(digest)) {
+      throw new Error(`Evidence record ${index + 1} needs a 32-byte contentDigest.`);
+    }
+    const authorityRevision = Number(item.authorityRevision);
+    if (!Number.isSafeInteger(authorityRevision) || authorityRevision < 0) {
+      throw new Error(`Evidence record ${index + 1} has an invalid authorityRevision.`);
+    }
+    return {
+      evidenceId: String(item.evidenceId),
+      authorityId: String(item.authorityId),
+      authorityRevision,
+      subject: String(item.subject),
+      kind: String(item.kind),
+      sourceKind: String(item.sourceKind),
+      canonicalSource: String(item.canonicalSource),
+      immutableVersionOrRecordId: String(item.immutableVersionOrRecordId),
+      publishedAt: BigInt(String(item.publishedAt)),
+      observedAt: BigInt(String(item.observedAt)),
+      expiresAt: BigInt(String(item.expiresAt)),
+      contentDigest: digest as `0x${string}`,
+      isPrimary: item.isPrimary === true,
+    };
+  });
+  if (!records.some((record) => record.isPrimary)) throw new Error("Evidence needs one primary record.");
+  const corroborators = records.filter((record) => !record.isPrimary);
+  if (corroborators.length < requiredCorroborationCount) {
+    throw new Error(`Add at least ${requiredCorroborationCount} corroborating record(s).`);
+  }
+  return records;
+}
+
 export function WalletActionPanel({
   covenant,
   coreAddress,
@@ -78,6 +136,9 @@ export function WalletActionPanel({
   const [now, setNow] = useState(() => Math.floor(Date.now() / 1000));
   const [challengeClaim, setChallengeClaim] = useState("");
   const [criterionIds, setCriterionIds] = useState("");
+  const [providerPayoutRecipient, setProviderPayoutRecipient] = useState("");
+  const [deliveryPayload, setDeliveryPayload] = useState("");
+  const [evidenceJson, setEvidenceJson] = useState("");
 
   const covenantId = covenant?.covenantId || "";
   const state = covenant?.state || "";
@@ -96,11 +157,15 @@ export function WalletActionPanel({
     } else if (state === "FUNDED") {
       action = Number(covenant.acceptanceDeadline) <= now
         ? { label: "Expire unaccepted covenant", functionName: "expireUnaccepted", hint: "the acceptance deadline has passed" }
-        : null;
+        : address.toLowerCase() === covenant.provider.toLowerCase()
+          ? { label: "Accept covenant", functionName: "acceptCovenant", hint: "provider wallet connected" }
+          : null;
     } else if (state === "SERVICE_ACCEPTED") {
       action = Number(covenant.deliveryDeadline) <= now
         ? { label: "Expire non-delivery", functionName: "expireNonDelivery", hint: "the delivery deadline has passed" }
-        : null;
+        : address.toLowerCase() === covenant.provider.toLowerCase()
+          ? { label: "Submit delivery", functionName: "submitDelivery", hint: remaining(covenant.deliveryDeadline, now) }
+          : null;
     } else if (state === "EVIDENCE_REPAIR_REQUIRED") {
       action = Number(covenant.repairDeadline) <= now && covenant.reviewGeneration < covenant.maxReviewGenerations
         ? { label: "Expire repair window", functionName: "expireRepair", hint: "the repair deadline has passed" }
@@ -196,7 +261,25 @@ export function WalletActionPanel({
         transport: custom(provider),
       });
       let hash: `0x${string}`;
-      if (action.functionName === "challengeDelivery") {
+      if (action.functionName === "acceptCovenant") {
+        const recipient = providerPayoutRecipient.trim() || selected;
+        if (!isAddress(recipient)) throw new Error("Enter a valid registered provider payout address.");
+        hash = await wallet.writeContract({
+          address: coreAddress as Address,
+          abi: accord402WriteAbi,
+          functionName: "acceptCovenant",
+          args: [BigInt(covenantId), recipient as Address],
+        });
+      } else if (action.functionName === "submitDelivery") {
+        if (!deliveryPayload.trim()) throw new Error("Add the delivery payload before continuing.");
+        const evidence = parseEvidenceJson(evidenceJson, covenant?.requiredCorroborationCount || 1);
+        hash = await wallet.writeContract({
+          address: coreAddress as Address,
+          abi: accord402WriteAbi,
+          functionName: "submitDelivery",
+          args: [BigInt(covenantId), deliveryPayload.trim(), evidence],
+        });
+      } else if (action.functionName === "challengeDelivery") {
         const challengedCriterionIds = criterionIds
           .split(/[\n,]/)
           .map((value) => value.trim())
@@ -263,7 +346,50 @@ export function WalletActionPanel({
             {busy ? "Connecting…" : "Connect wallet"} <span>↗</span>
           </button>
         )}
-        {action?.functionName === "challengeDelivery" ? (
+        {action?.functionName === "acceptCovenant" ? (
+          <form className="wallet-form" onSubmit={(event) => { event.preventDefault(); void performAction(); }}>
+            <label htmlFor="provider-payout-recipient">Registered provider payout address</label>
+            <input
+              id="provider-payout-recipient"
+              value={providerPayoutRecipient}
+              onChange={(event) => setProviderPayoutRecipient(event.target.value)}
+              placeholder="0x…"
+              spellCheck={false}
+              autoComplete="off"
+              aria-describedby="provider-payout-help"
+            />
+            <span id="provider-payout-help" className="form-help">This address must already be registered in the Bradbury Settlement Vault.</span>
+            <button type="submit" className="action-button" disabled={busy || !address}>
+              {busy ? "Waiting for wallet…" : action.label}
+            </button>
+          </form>
+        ) : action?.functionName === "submitDelivery" ? (
+          <form className="wallet-form" onSubmit={(event) => { event.preventDefault(); void performAction(); }}>
+            <label htmlFor="delivery-payload">Delivery payload</label>
+            <textarea
+              id="delivery-payload"
+              value={deliveryPayload}
+              onChange={(event) => setDeliveryPayload(event.target.value)}
+              placeholder="The provider’s service result, bounded by the covenant policy."
+              maxLength={65536}
+              rows={4}
+            />
+            <label htmlFor="evidence-json">Evidence records (JSON array)</label>
+            <textarea
+              id="evidence-json"
+              value={evidenceJson}
+              onChange={(event) => setEvidenceJson(event.target.value)}
+              placeholder={'[{"evidenceId":"…","authorityId":"…","authorityRevision":1,"subject":"…","kind":"…","sourceKind":"IMMUTABLE","canonicalSource":"https://…","immutableVersionOrRecordId":"…","publishedAt":0,"observedAt":0,"expiresAt":0,"contentDigest":"0x…","isPrimary":true}]'}
+              rows={7}
+              spellCheck={false}
+              aria-describedby="evidence-help"
+            />
+            <span id="evidence-help" className="form-help">Include one primary record and at least {covenant?.requiredCorroborationCount || 1} corroborating record(s). The contract validates authorities, timestamps, sources, and replay rules.</span>
+            <button type="submit" className="action-button" disabled={busy || !address}>
+              {busy ? "Waiting for wallet…" : action.label}
+            </button>
+          </form>
+        ) : action?.functionName === "challengeDelivery" ? (
           <form className="wallet-form" onSubmit={(event) => { event.preventDefault(); void performAction(); }}>
             <label htmlFor="challenge-claim">Challenge claim</label>
             <textarea
@@ -314,6 +440,10 @@ export function WalletActionPanel({
             {covenantId
               ? state === "DELIVERED"
                 ? "The challenge window is still open; settlement cannot be authorized yet."
+                : state === "FUNDED"
+                  ? "Connect the provider wallet to accept this covenant, or wait for the acceptance deadline."
+                  : state === "SERVICE_ACCEPTED"
+                    ? "Connect the provider wallet to submit delivery before the deadline."
                 : "No user action is available for " + state.toLowerCase().replaceAll("_", " ") + "."
               : "Load a covenant to see available actions."}
           </span>

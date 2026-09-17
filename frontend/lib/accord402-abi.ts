@@ -83,7 +83,119 @@ export const accord402RegistryReadAbi = [
   },
 ] as const;
 
+export const accord402VaultAbi = [
+  {
+    type: "function",
+    name: "is_registered_payout",
+    stateMutability: "view",
+    inputs: [{ name: "recipient", type: "address" }],
+    outputs: [{ name: "", type: "bool" }],
+  },
+  {
+    type: "function",
+    name: "begin_payout_registration",
+    stateMutability: "nonpayable",
+    inputs: [],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "confirm_payout_registration",
+    stateMutability: "nonpayable",
+    inputs: [],
+    outputs: [],
+  },
+] as const;
+
 export const accord402WriteAbi = [
+  {
+    type: "function",
+    name: "openCovenant",
+    stateMutability: "payable",
+    inputs: [
+      {
+        name: "terms",
+        type: "tuple",
+        components: [
+          { name: "provider", type: "address" },
+          { name: "principal", type: "uint256" },
+          { name: "serviceSpec", type: "string" },
+          { name: "acceptanceDeadline", type: "uint64" },
+          { name: "deliveryDeadline", type: "uint64" },
+          { name: "challengeDuration", type: "uint64" },
+          { name: "absoluteDisputeDeadline", type: "uint64" },
+          { name: "evidenceRepairWindow", type: "uint64" },
+          { name: "reviewRetryWindow", type: "uint64" },
+          { name: "maxReviewGenerations", type: "uint32" },
+          { name: "maxEvidenceAge", type: "uint64" },
+          { name: "requiredCorroborationCount", type: "uint32" },
+          { name: "repairAllowedFieldMask", type: "uint32" },
+          { name: "replayScope", type: "string" },
+          {
+            name: "criteria",
+            type: "tuple[]",
+            components: [
+              { name: "criterionId", type: "string" },
+              { name: "criterionText", type: "string" },
+            ],
+          },
+          {
+            name: "authorityBindings",
+            type: "tuple[]",
+            components: [
+              { name: "authorityId", type: "string" },
+              { name: "authorityRevision", type: "uint32" },
+              { name: "role", type: "string" },
+              { name: "identityKind", type: "string" },
+              { name: "identityValue", type: "string" },
+              { name: "canonicalOrigin", type: "string" },
+            ],
+          },
+        ],
+      },
+      { name: "buyerSettlementRecipient", type: "address" },
+    ],
+    outputs: [{ name: "covenantId", type: "uint64" }],
+  },
+  {
+    type: "function",
+    name: "acceptCovenant",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "covenantId", type: "uint64" },
+      { name: "providerSettlementRecipient", type: "address" },
+    ],
+    outputs: [],
+  },
+  {
+    type: "function",
+    name: "submitDelivery",
+    stateMutability: "nonpayable",
+    inputs: [
+      { name: "covenantId", type: "uint64" },
+      { name: "deliveryPayload", type: "string" },
+      {
+        name: "evidence",
+        type: "tuple[]",
+        components: [
+          { name: "evidenceId", type: "string" },
+          { name: "authorityId", type: "string" },
+          { name: "authorityRevision", type: "uint32" },
+          { name: "subject", type: "string" },
+          { name: "kind", type: "string" },
+          { name: "sourceKind", type: "string" },
+          { name: "canonicalSource", type: "string" },
+          { name: "immutableVersionOrRecordId", type: "string" },
+          { name: "publishedAt", type: "uint64" },
+          { name: "observedAt", type: "uint64" },
+          { name: "expiresAt", type: "uint64" },
+          { name: "contentDigest", type: "bytes32" },
+          { name: "isPrimary", type: "bool" },
+        ],
+      },
+    ],
+    outputs: [],
+  },
   {
     type: "function",
     name: "retryReview",

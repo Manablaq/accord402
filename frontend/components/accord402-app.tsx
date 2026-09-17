@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 import { CaseLookup, type Covenant } from "@/components/case-lookup";
+import { OpenCovenantPanel } from "@/components/open-covenant-panel";
 import { TransactionObserver } from "@/components/transaction-observer";
 import { WalletActionPanel } from "@/components/wallet-action-panel";
 
@@ -200,6 +201,13 @@ export function Accord402App({
             <p className="stack-note">The interface exposes addresses as references. Authority remains in the deployed Intelligent Contracts.</p>
           </Reveal>
         </div>
+        <Reveal>
+          <OpenCovenantPanel
+            coreAddress={contractAddress}
+            vaultAddress={vaultAddress}
+            onTransactionSubmitted={setSubmittedTxId}
+          />
+        </Reveal>
         <Reveal>
           <CaseLookup
             onCovenantLoaded={setLiveCovenant}

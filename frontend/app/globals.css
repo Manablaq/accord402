@@ -147,3 +147,23 @@ button, input { font: inherit; }
 .wallet-success { margin: 0; padding: 12px 14px; border-radius: 6px; color: var(--moss); background: rgba(127,154,99,.12); font-size: 10px; line-height: 1.5; }
 @media (max-width: 900px) { .wallet-actions { grid-template-columns: 1fr; gap: 20px; } }
 @media (max-width: 650px) { .wallet-actions { padding: 21px; }.wallet-copy h2 { font-size: 25px; } }
+
+.open-covenant { margin-top: 12px; padding: 29px; }
+.open-intro { max-width: 760px; margin: 17px 0 0; font-size: 12px; line-height: 1.65; }
+.open-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 22px; }
+.open-toolbar .connected-wallet { min-height: 42px; }
+.secondary-button { min-height: 42px; border: 1px solid var(--line); border-radius: 6px; padding: 0 13px; color: var(--ink); background: var(--paper-strong); cursor: pointer; font-size: 10px; font-weight: 800; }
+.secondary-button:hover { border-color: var(--orange); color: var(--orange-deep); }
+.secondary-button:disabled { cursor: wait; opacity: .55; }
+.registration-ok, .registration-warn { padding: 8px 10px; border-radius: 999px; font-size: 10px; font-weight: 800; }
+.registration-ok { color: var(--moss); background: rgba(127,154,99,.14); }
+.registration-warn { color: var(--orange-deep); background: rgba(215,101,50,.12); }
+.open-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 25px; }
+.open-grid label { display: grid; gap: 7px; color: var(--ink); font-size: 11px; font-weight: 800; }
+.open-grid input, .open-grid textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; outline: none; padding: 13px 14px; color: var(--ink); background: var(--paper-strong); font: inherit; font-size: 12px; resize: vertical; }
+.open-grid input:focus, .open-grid textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(215,101,50,.1); }
+.open-span { grid-column: 1 / -1; }
+.open-submit { display: flex; flex-wrap: wrap; align-items: center; gap: 13px; margin-top: 20px; }
+.open-submit .button { border: 0; cursor: pointer; }
+.open-submit .button:disabled { cursor: wait; opacity: .55; }
+@media (max-width: 650px) { .open-covenant { padding: 21px; }.open-grid { grid-template-columns: 1fr; }.open-span { grid-column: auto; }.open-submit { align-items: stretch; flex-direction: column; }.open-submit .button { width: 100%; } }
