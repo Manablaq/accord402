@@ -1,0 +1,35 @@
+{
+  "network": "Bradbury",
+  "chain_id": 4221,
+  "core": "0x8f873003abe60b6686f479d12b0d564e572a6a24",
+  "registry": "0x47421510b7Fdf6A893d9A304B4A61f326928556D",
+  "settlement_vault": "0xeECBE158401B932fec22e61dd0A336638D7A574a",
+  "covenant_id": 1,
+  "principal_wei": "100000000000000000",
+  "transactions": {
+    "open": "0x063f3b0db047d1dc73ba6eccd43dbf905747c2ca31b999c9876466a538387d23",
+    "accept": "0x88033caaee7e50d01f94c8db70d4a473f0662a52f7572e492d4f8f48c086b211",
+    "submit_delivery": "0x1e534c3b585ace627586d5fdb5a1d63259adc06015fe81e8a9817ce5529e24c2",
+    "authorize_settlement": "0x7d175dd948ff4de2f5fe8ef6112f300223f00ed3d4a6721cf4bc32bcc410acbb",
+    "claim_settlement": "0x179c266c25e23ff76fbe5ec4ecb3e57d2fa86eac3c1c0c06fed59cd451e7d017"
+  },
+  "evidence": {
+    "primary_sha256": "fdda02368016da6b9f2345af541168ba7db69fb917d6aa8cff309dfc9d199226",
+    "corroborator_sha256": "8a27d310a5cb52ac358eb5d7796d427c5143a45b5acde9c32d58e04dfeff3274",
+    "required_corroboration_count": 1,
+    "observed_at": 1789641987
+  },
+  "post_state": {
+    "review_state": "CLOSED_PROVIDER",
+    "total_funded_wei": "100000000000000000",
+    "total_closed_to_provider_wei": "100000000000000000",
+    "total_closed_to_buyer_wei": "0",
+    "total_outstanding_wei": "0",
+    "vault_delivery_marker": true,
+    "provider_balance_before_wei": "7831920525477794",
+    "provider_balance_after_wei": "107831920525477794",
+    "provider_balance_delta_wei": "100000000000000000",
+    "duplicate_claim": "reverted: SettlementAlreadyClaimed (0x3eed0c7d)"
+  },
+  "frontend_bound": false
+}

@@ -1,0 +1,30 @@
+{
+  "canonical_success": "0xb2fd78c8d7b169bb99ba57ea799cdc01e76329a1efe443b4b9d1292503009c75",
+  "attempts": [
+    {
+      "canonical": false,
+      "status": "failed",
+      "deployment_transaction": "0xb8176204322da6a740ca59315cc241be0b860fa3e7bc82a94676ac81217c6797",
+      "provisional_contract_address": "0x8632Da96a94B01e15FFBC0ABB7e7C6142E0BA016",
+      "execution_result": "FINISHED_WITH_ERROR",
+      "error_class": "GenLayerEvmInterfaceGeneration",
+      "error": "EVM interface parameters were not positional-only"
+    },
+    {
+      "canonical": false,
+      "status": "failed",
+      "deployment_transaction": "0xaeeb0a7e306ad580aeb272488914e15bf3b34c499a3e323aec69aa9444a14d50",
+      "provisional_contract_address": "0x7473c17Bc515923E6b02269957769ABA326400fA",
+      "execution_result": "FINISHED_WITH_ERROR",
+      "error_class": "GenLayerEvmInterfaceGeneration",
+      "error": "RegistryEvm lacked the required Write interface section"
+    },
+    {
+      "canonical": true,
+      "status": "success",
+      "deployment_transaction": "0xb2fd78c8d7b169bb99ba57ea799cdc01e76329a1efe443b4b9d1292503009c75",
+      "contract_address": "0x5c800FD855196e8a52768782B2C77F120a5228bC",
+      "execution_result": "FINISHED_WITH_RETURN"
+    }
+  ]
+}

@@ -15,3 +15,5 @@ coverage/
 .vercel/
 *.log
 .gltest-artifacts/
+out/
+cache/

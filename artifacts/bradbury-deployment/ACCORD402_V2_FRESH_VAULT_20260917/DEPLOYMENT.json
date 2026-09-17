@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "network": "Bradbury",
+  "chain_id": 4221,
+  "deployer": "0x1f87Ae197af539253978d435aD45cCf28Fb95024",
+  "contract": "Accord402SettlementVault",
+  "contract_address": "0xeECBE158401B932fec22e61dd0A336638D7A574a",
+  "constructor_args": [],
+  "deployment_transaction": "0x9f5c8929e06d6b912f4376a13c3f08aa1290bc00a854d38a70e0fd2be73eb797",
+  "block_number": 22087364,
+  "execution_status": 1,
+  "gas_used": 319338,
+  "source_sha256": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6",
+  "runtime_bytecode_bytes": 1231,
+  "runtime_bytecode_keccak256": "0x512a218b25c07dd464d3b37db5ec167b991bfc544683606ae50dfb1b2ac5929d",
+  "runtime_bytecode_verified_against_local_artifact": true,
+  "frontend_bound": false
+}

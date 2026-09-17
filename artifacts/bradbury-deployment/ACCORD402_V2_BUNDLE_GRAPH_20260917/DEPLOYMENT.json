@@ -1,0 +1,52 @@
+{
+  "status": "deployed",
+  "network": "Bradbury",
+  "chain_id": 4221,
+  "frontend_bound": false,
+  "components": {
+    "settlement_vault": {
+      "address": "0xeECBE158401B932fec22e61dd0A336638D7A574a",
+      "source_sha256": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6"
+    },
+    "registry": {
+      "address": "0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7",
+      "deployment_transaction": "0x214effaebe9266ca774dbde847f6685c35857d04e12d334c05be1f8468b1cbc3",
+      "source_sha256": "2de2243c2851928061b15a736519a29f4d5aacee588ae950daee6bcc4b3cff71",
+      "runtime_bytes": 23074
+    },
+    "adjudicator": {
+      "address": "0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4",
+      "deployment_transaction": "0xe6104b952b0b52868a4482697f0d913b0843a2b0f4dce73f561ab18cb96bbde2",
+      "registry": "0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7",
+      "source_sha256": "b567e61c472cc65205537e1b52c06f8ac33b7446f67b03dd1eb4b2279a777607",
+      "consensus_result": "AGREE",
+      "execution_status": "FINISHED_WITH_RETURN",
+      "runner": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6"
+    },
+    "core": {
+      "address": "0xA1a2125B3C7D03b868628B4C79832B33B7af4923",
+      "deployment_transaction": "0x396c79b12210c9df51eef97f8ff9ca2463b8003731b6dae5eb256e862060254f",
+      "registry": "0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7",
+      "adjudicator": "0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4",
+      "settlement_vault": "0xeECBE158401B932fec22e61dd0A336638D7A574a",
+      "source_sha256": "adf2fd45281b8a5fb110fa789233c58e9e283360664cae274ce13ffec05b0cf5",
+      "runtime_bytes": 24242
+    }
+  },
+  "live_smoke": {
+    "covenant_id": 1,
+    "open_transaction": "0xd21e25b027122e26c00c55511857305254a8bf627ab98b8ba5a0254370416e74",
+    "accept_transaction": "0x6d747f981c8ab73d2985c64cf43aa1ec0a677f4c3eb405026da6eb4652a229a2",
+    "delivery_transaction": "0x6e382cc633546262058de263a2610b3906cc7f0323b07f10bba30a59e78f08ea",
+    "delivery_status": "SUCCESS",
+    "challenge_transaction": "0xe1c719c1182fb5a072eb64468a1d25c0a33676686cc37c88c5543df9f272b066",
+    "adjudication_transaction": "0x950a062059753b286174ab003e2bcb474857cc5c44a410dd46233f9e54b05d5d",
+    "adjudication_consensus": "AGREE",
+    "adjudication_execution": "FINISHED_WITH_RETURN",
+    "adjudication_decision": "REVIEW_RETRY_REQUIRED",
+    "callback_processing": "PENDING_BRADBURY_FINALIZATION",
+    "core_state_at_capture": "CHALLENGED",
+    "bundle_reads": "Core and Registry compact snapshots decoded successfully"
+  },
+  "remaining_gate": "Bradbury finalization and processing of the emitted Core callback, followed by retry/repair-path verification."
+}
