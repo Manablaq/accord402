@@ -81,7 +81,7 @@ export function WalletActionPanel({
   let action: Action | null = null;
   if (covenant) {
     if (state === "REVIEW_RETRY_REQUIRED") {
-      action = Number(covenant.retryDeadline) > now && covenant.reviewGeneration < 4
+      action = Number(covenant.retryDeadline) > now && covenant.reviewGeneration < covenant.maxReviewGenerations
         ? { label: "Retry review", functionName: "retryReview", hint: remaining(covenant.retryDeadline, now) }
         : { label: "Expire review", functionName: "expireReview", hint: "the retry window has closed" };
     } else if (state === "SETTLEMENT_AUTHORIZED_PROVIDER" || state === "SETTLEMENT_AUTHORIZED_BUYER") {
@@ -99,7 +99,7 @@ export function WalletActionPanel({
         ? { label: "Expire non-delivery", functionName: "expireNonDelivery", hint: "the delivery deadline has passed" }
         : null;
     } else if (state === "EVIDENCE_REPAIR_REQUIRED") {
-      action = Number(covenant.repairDeadline) <= now && covenant.reviewGeneration < 4
+      action = Number(covenant.repairDeadline) <= now && covenant.reviewGeneration < covenant.maxReviewGenerations
         ? { label: "Expire repair window", functionName: "expireRepair", hint: "the repair deadline has passed" }
         : null;
     } else if (state === "CHALLENGED" && Number(covenant.absoluteDisputeDeadline) <= now) {
