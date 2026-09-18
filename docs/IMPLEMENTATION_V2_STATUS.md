@@ -1,16 +1,13 @@
-# Accord402 V2 Implementation Status
+# Accord402 V2 implementation status
 
-Status: **BUNDLE GRAPH DEPLOYED — ADJUDICATION ACCEPTED, BRADBURY FINALIZATION PENDING**
+**Status: Bradbury graph deployed; production console live; final settlement certification remains.**
 
 Branch: `refactor/hybrid-architecture-v1`
 
-Base checkpoint: `a534591b8a88d5ad8f00b70de2339ffe6bd00948`
-
 ## Implemented
 
-- deterministic Registry and Core contracts;
-- immutable constructor binding between Registry, Adjudicator, Core, and the
-  fresh SettlementVault;
+- deterministic Registry, Core, and SettlementVault contracts;
+- immutable constructor binding between Registry, Adjudicator, Core, and Vault;
 - exact native GEN funding and global/per-covenant accounting;
 - provider acceptance and evidence delivery;
 - buyer challenge with ordered criterion binding;
@@ -22,15 +19,14 @@ Base checkpoint: `a534591b8a88d5ad8f00b70de2339ffe6bd00948`
 - explicit repair masks that cannot mutate delivery, policy, or payout fields;
 - retry and repair generation limits with an absolute dispute deadline;
 - strict canonical adjudication wire and independent validator recomputation;
-- GenLayer schema validation and legacy-runner compatibility probe;
-- Bradbury Adjudicator deployment with `AGREE` consensus and
-  `FINISHED_WITH_RETURN` execution;
+- GenLayer schema validation and legacy-runner compatibility probing;
+- Bradbury Adjudicator deployment with `AGREE` and `FINISHED_WITH_RETURN` observed;
 - Bradbury Core deployment with live immutable dependency verification;
-- live Core/Registry compact-bundle reads on a newly opened covenant;
-- live funding, acceptance, timestamp-exact delivery, and buyer challenge on
-  Bradbury;
-- live corrected adjudication with all five validators agreeing on the exact
-  wire result.
+- live Core/Registry reads from a newly opened covenant;
+- live Bradbury open/fund/accept/deliver/challenge lifecycle smoke run;
+- production Next.js console with configuration validation, live covenant reads,
+  wallet actions, and exact-transaction finality observation;
+- Vercel production deployment at [accord402.vercel.app](https://accord402.vercel.app).
 
 ## Verification completed
 
@@ -40,23 +36,27 @@ Base checkpoint: `a534591b8a88d5ad8f00b70de2339ffe6bd00948`
 - `py_compile` for the adjudicator and historical contract: pass;
 - GenLayer linter/schema validation: pass;
 - Registry/Core deployment-size measurement under the pinned optimizer/via-IR
-  profile: pass.
+  profile: pass;
+- frontend typecheck and production build: pass;
+- live production homepage, covenant API route, and browser smoke check: pass.
 
 Measured local runtime bytecode for the current graph: SettlementVault `1,231`
-bytes, Registry `23,074` bytes, and Core `24,243` bytes. Core remains below the
-EIP-170 limit by 334 bytes under the pinned optimizer/via-IR profile.
+bytes, Registry `23,074` bytes, and Core `24,243` bytes. Core remains below
+the EIP-170 limit by 334 bytes under the pinned optimizer/via-IR profile.
 
-## Remaining hard gates
+## Remaining certification gates
 
-The fresh SettlementVault is live at
-`0xeECBE158401B932fec22e61dd0A336638D7A574a`. The current Registry,
-Adjudicator, and Core are live at `0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7`,
-`0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4`, and
-`0xA1a2125B3C7D03b868628B4C79832B33B7af4923`. Deployment and live-test
-evidence is recorded under `artifacts/bradbury-deployment/`.
+The following are intentionally not marked complete until fresh Bradbury
+evidence exists for the exact deployed graph:
 
-The adjudication transaction is accepted and waiting for Bradbury’s protocol
-finalization window. Core will remain `CHALLENGED` until the emitted callback
-is finalized and processed; the accepted transaction and callback payload are
-recorded in the deployment manifest. Frontend integration remains deferred by
-design.
+1. A settlement authorization transaction finalized with
+   `FINISHED_WITH_RETURN`.
+2. The expected recipient GEN balance delta and corresponding protocol
+   accounting delta.
+3. A repeated settlement attempt that proves duplicate-claim resistance.
+4. Recovery/expiry paths exercised with finalized balance outcomes.
+
+The live review-retry path is implemented and observable. `REVIEW_RETRY_REQUIRED`
+is a non-economic intermediate state, not a payout failure or a claim that a
+settlement already occurred. See [`OPERATIONS.md`](OPERATIONS.md) for the exact
+evidence sequence required to close these gates.
