@@ -7,9 +7,8 @@ import {
   isAddress,
   type Address,
 } from "viem";
-import { testnetBradbury } from "genlayer-js/chains";
-
 import { accord402WriteAbi } from "@/lib/accord402-abi";
+import { accord402Chain, accord402Config, protocolLimits } from "@/lib/config";
 import type { Covenant } from "@/components/case-lookup";
 
 type WalletProvider = {
@@ -19,10 +18,11 @@ type WalletProvider = {
 type WalletActionPanelProps = {
   covenant: Covenant | null;
   coreAddress: string;
+  configReady: boolean;
   onTransactionSubmitted: (hash: string) => void;
 };
 
-const chainIdHex = "0x" + testnetBradbury.id.toString(16);
+const chainIdHex = accord402Config.chainIdHex;
 
 function shorten(value: string) {
   return value.slice(0, 8) + "…" + value.slice(-6);
@@ -38,9 +38,20 @@ function friendlyWalletError(error: unknown) {
     return "This wallet does not have enough GEN for the network fee.";
   }
   if (lower.includes("chain") || lower.includes("network")) {
-    return "Switch the wallet to GenLayer Bradbury (chain 4221) and try again.";
+    return `Switch the wallet to ${accord402Config.networkName} (chain ${accord402Config.chainId}) and try again.`;
   }
   return message || "Wallet action failed. No transaction was confirmed.";
+}
+
+function isValidCanonicalSource(value: string) {
+  if (!value.startsWith("https://") || value.length < "https://a.b/c".length) return false;
+  if (/[?#%\\]/.test(value) || /[^\x20-\x7e]/.test(value)) return false;
+  const separator = value.indexOf("/", "https://".length);
+  if (separator < 0 || separator === value.length - 1 || value.includes("//", separator)) return false;
+  const host = value.slice("https://".length, separator);
+  if (!host.includes(".") || host.startsWith(".") || host.endsWith(".")) return false;
+  if (!/^[a-z0-9.-]+$/.test(host)) return false;
+  return !value.endsWith("/");
 }
 
 type ActionName =
@@ -64,8 +75,10 @@ type Action = {
 function remaining(deadline: string, now: number) {
   const seconds = Number(deadline) - now;
   if (!Number.isFinite(seconds) || seconds <= 0) return "deadline passed";
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.max(1, Math.floor((seconds % 3600) / 60));
+  const secondsPerMinute = 60;
+  const secondsPerHour = 60 * secondsPerMinute;
+  const hours = Math.floor(seconds / secondsPerHour);
+  const minutes = Math.max(1, Math.floor((seconds % secondsPerHour) / secondsPerMinute));
   return hours ? `available for about ${hours}h ${minutes}m` : `available for about ${minutes}m`;
 }
 
@@ -76,8 +89,8 @@ function parseEvidenceJson(raw: string, requiredCorroborationCount: number) {
   } catch {
     throw new Error("Evidence must be valid JSON.");
   }
-  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.length > 16) {
-    throw new Error("Evidence must be a JSON array with 1 to 16 records.");
+  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.length > protocolLimits.maxEvidence) {
+    throw new Error(`Evidence must be a JSON array with 1 to ${protocolLimits.maxEvidence} records.`);
   }
   const records = parsed.map((value, index) => {
     if (!value || typeof value !== "object") throw new Error(`Evidence record ${index + 1} is not an object.`);
@@ -99,6 +112,26 @@ function parseEvidenceJson(raw: string, requiredCorroborationCount: number) {
     const authorityRevision = Number(item.authorityRevision);
     if (!Number.isSafeInteger(authorityRevision) || authorityRevision < 0) {
       throw new Error(`Evidence record ${index + 1} has an invalid authorityRevision.`);
+    }
+    const lengths: Array<[string, number]> = [
+      ["evidenceId", protocolLimits.maxEvidenceIdBytes],
+      ["authorityId", protocolLimits.maxAuthorityIdBytes],
+      ["subject", protocolLimits.maxStringBytes],
+      ["kind", protocolLimits.maxStringBytes],
+      ["sourceKind", protocolLimits.maxStringBytes],
+      ["canonicalSource", protocolLimits.maxSourceBytes],
+      ["immutableVersionOrRecordId", protocolLimits.maxVersionBytes],
+    ];
+    for (const [field, maximum] of lengths) {
+      if (new TextEncoder().encode(String(item[field])).length > maximum) {
+        throw new Error(`Evidence record ${index + 1} has an oversized ${field}.`);
+      }
+    }
+    if (!["LIVE", "IMMUTABLE", "VERSIONED"].includes(String(item.sourceKind))) {
+      throw new Error(`Evidence record ${index + 1} has an invalid sourceKind.`);
+    }
+    if (!isValidCanonicalSource(String(item.canonicalSource))) {
+      throw new Error(`Evidence record ${index + 1} needs an HTTPS canonicalSource with a non-empty path and no query or fragment.`);
     }
     return {
       evidenceId: String(item.evidenceId),
@@ -127,6 +160,7 @@ function parseEvidenceJson(raw: string, requiredCorroborationCount: number) {
 export function WalletActionPanel({
   covenant,
   coreAddress,
+  configReady,
   onTransactionSubmitted,
 }: WalletActionPanelProps) {
   const [address, setAddress] = useState("");
@@ -194,6 +228,7 @@ export function WalletActionPanel({
     setBusy(true);
     setError("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const provider = await getProvider();
       const accounts = (await provider.request({
         method: "eth_requestAccounts",
@@ -221,12 +256,14 @@ export function WalletActionPanel({
             params: [
               {
                 chainId: chainIdHex,
-                chainName: "GenLayer Bradbury",
-                rpcUrls: [testnetBradbury.rpcUrls.default.http[0]],
-                nativeCurrency: testnetBradbury.nativeCurrency,
-                blockExplorerUrls: [
-                  "https://explorer-bradbury.genlayer.com",
-                ],
+                chainName: accord402Config.networkName,
+                rpcUrls: [accord402Config.rpcUrl],
+                nativeCurrency: {
+                  name: accord402Config.nativeCurrencyName,
+                  symbol: accord402Config.nativeCurrencySymbol,
+                  decimals: accord402Config.nativeCurrencyDecimals,
+                },
+                blockExplorerUrls: accord402Config.explorerUrl ? [accord402Config.explorerUrl] : undefined,
               },
             ],
           });
@@ -250,6 +287,7 @@ export function WalletActionPanel({
     setError("");
     setSubmittedHash("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const provider = await getProvider();
       const selected = address || ((await provider.request({
         method: "eth_requestAccounts",
@@ -257,7 +295,7 @@ export function WalletActionPanel({
       if (!selected) throw new Error("Connect a wallet before continuing.");
       const wallet = createWalletClient({
         account: selected as Address,
-        chain: testnetBradbury,
+        chain: accord402Chain,
         transport: custom(provider),
       });
       let hash: `0x${string}`;
@@ -272,6 +310,9 @@ export function WalletActionPanel({
         });
       } else if (action.functionName === "submitDelivery") {
         if (!deliveryPayload.trim()) throw new Error("Add the delivery payload before continuing.");
+        if (new TextEncoder().encode(deliveryPayload.trim()).length > protocolLimits.maxDeliveryPayloadBytes) {
+          throw new Error("Delivery payload is longer than the Core limit.");
+        }
         const evidence = parseEvidenceJson(evidenceJson, covenant?.requiredCorroborationCount || 1);
         hash = await wallet.writeContract({
           address: coreAddress as Address,
@@ -285,9 +326,17 @@ export function WalletActionPanel({
           .map((value) => value.trim())
           .filter(Boolean);
         if (!challengeClaim.trim()) throw new Error("Write the reason for the challenge before continuing.");
+        if (new TextEncoder().encode(challengeClaim.trim()).length > protocolLimits.maxStringBytes) {
+          throw new Error("Challenge claim is longer than the Core limit.");
+        }
         if (!challengedCriterionIds.length) throw new Error("Add at least one criterion ID to challenge.");
+        if (challengedCriterionIds.length > protocolLimits.maxCriteria) throw new Error("Too many challenged criteria.");
         if (new Set(challengedCriterionIds).size !== challengedCriterionIds.length) {
           throw new Error("Each challenged criterion ID must appear only once.");
+        }
+        const knownCriteria = new Set(covenant?.criteria?.map((criterion) => criterion.criterionId) || []);
+        if (knownCriteria.size > 0 && challengedCriterionIds.some((criterionId) => !knownCriteria.has(criterionId))) {
+          throw new Error("Every challenged criterion ID must belong to this covenant.");
         }
         hash = await wallet.writeContract({
           address: coreAddress as Address,
@@ -342,7 +391,7 @@ export function WalletActionPanel({
             <button type="button" className="disconnect-button" onClick={() => setAddress("")}>Disconnect</button>
           </div>
         ) : (
-          <button type="button" className="button button-primary wallet-button" onClick={() => void connectWallet()} disabled={busy}>
+          <button type="button" className="button button-primary wallet-button" onClick={() => void connectWallet()} disabled={busy || !configReady}>
             {busy ? "Connecting…" : "Connect wallet"} <span>↗</span>
           </button>
         )}
@@ -358,8 +407,8 @@ export function WalletActionPanel({
               autoComplete="off"
               aria-describedby="provider-payout-help"
             />
-            <span id="provider-payout-help" className="form-help">This address must already be registered in the Bradbury Settlement Vault.</span>
-            <button type="submit" className="action-button" disabled={busy || !address}>
+            <span id="provider-payout-help" className="form-help">This address must already be registered in the {accord402Config.networkName} Settlement Vault.</span>
+            <button type="submit" className="action-button" disabled={busy || !address || !configReady}>
               {busy ? "Waiting for wallet…" : action.label}
             </button>
           </form>
@@ -371,7 +420,7 @@ export function WalletActionPanel({
               value={deliveryPayload}
               onChange={(event) => setDeliveryPayload(event.target.value)}
               placeholder="The provider’s service result, bounded by the covenant policy."
-              maxLength={65536}
+              maxLength={protocolLimits.maxDeliveryPayloadBytes}
               rows={4}
             />
             <label htmlFor="evidence-json">Evidence records (JSON array)</label>
@@ -385,7 +434,7 @@ export function WalletActionPanel({
               aria-describedby="evidence-help"
             />
             <span id="evidence-help" className="form-help">Include one primary record and at least {covenant?.requiredCorroborationCount || 1} corroborating record(s). The contract validates authorities, timestamps, sources, and replay rules.</span>
-            <button type="submit" className="action-button" disabled={busy || !address}>
+            <button type="submit" className="action-button" disabled={busy || !address || !configReady}>
               {busy ? "Waiting for wallet…" : action.label}
             </button>
           </form>
@@ -397,7 +446,7 @@ export function WalletActionPanel({
               value={challengeClaim}
               onChange={(event) => setChallengeClaim(event.target.value)}
               placeholder="Describe the specific delivery failure to review."
-              maxLength={8192}
+              maxLength={protocolLimits.maxStringBytes}
               rows={4}
             />
             <label htmlFor="criterion-ids">Criterion IDs to review</label>
@@ -427,12 +476,12 @@ export function WalletActionPanel({
               </div>
             ) : null}
             <span id="criterion-help" className="form-help">Use IDs defined by this covenant’s evidence policy.</span>
-            <button type="submit" className="action-button" disabled={busy || !address}>
+            <button type="submit" className="action-button" disabled={busy || !address || !configReady}>
               {busy ? "Waiting for wallet…" : action.label}
             </button>
           </form>
         ) : action ? (
-          <button type="button" className="action-button" onClick={() => void performAction()} disabled={busy || !address}>
+          <button type="button" className="action-button" onClick={() => void performAction()} disabled={busy || !address || !configReady}>
             {busy ? "Waiting for wallet…" : action.label}
           </button>
         ) : (

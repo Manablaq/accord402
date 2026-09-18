@@ -26,6 +26,9 @@ const TX_ID = /^0x[0-9a-fA-F]{64}$/;
 
 type TransactionObserverProps = {
   submittedTxId?: string;
+  networkName: string;
+  chainId: number;
+  configReady: boolean;
   onCanonicalSuccess?: () => void;
 };
 
@@ -39,6 +42,9 @@ function statusTone(result: Observation) {
 
 export function TransactionObserver({
   submittedTxId = "",
+  networkName,
+  chainId,
+  configReady,
   onCanonicalSuccess,
 }: TransactionObserverProps) {
   const [txId, setTxId] = useState("");
@@ -134,14 +140,14 @@ export function TransactionObserver({
           <p className="eyebrow">Canonical transaction observer</p>
           <h2 id="observer-title">Follow the exact transaction to finality.</h2>
         </div>
-        <span className="network-pill">
-          <span className="status-dot" /> Bradbury · 4221
+          <span className="network-pill">
+          <span className="status-dot" /> {networkName} · {chainId}
         </span>
       </div>
 
       <p className="muted observer-intro">
         Accord402 never treats <strong>Accepted</strong> as payment proof. A
-        consequential write is canonical only when Bradbury reports
+        consequential write is canonical only when {networkName} reports
         <strong> Finalized</strong> and the receipt reports
         <strong> FINISHED_WITH_RETURN</strong>.
       </p>
@@ -153,12 +159,12 @@ export function TransactionObserver({
             id="tx-id"
             value={txId}
             onChange={(event) => setTxId(event.target.value)}
-            placeholder="0x… paste a Bradbury transaction hash"
+            placeholder={`0x… paste a ${networkName} transaction hash`}
             spellCheck={false}
             autoComplete="off"
             aria-describedby="observer-help"
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading || !configReady}>
             {loading ? "Reading…" : "Observe transaction"}
           </button>
         </div>
@@ -188,7 +194,7 @@ export function TransactionObserver({
                     : "Consensus is still being observed"}
               </strong>
               <span>
-                {lastChecked ? "Last checked " + lastChecked : "Checking Bradbury"}
+                {lastChecked ? "Last checked " + lastChecked : `Checking ${networkName}`}
               </span>
             </div>
           </div>

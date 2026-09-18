@@ -1,20 +1,19 @@
-import { createClient } from "genlayer-js";
-import { testnetBradbury } from "genlayer-js/chains";
+export {
+  accord402Chain,
+  accord402Config,
+  configurationErrorMessage,
+  isConfigured,
+  protocolLimits,
+} from "@/lib/config";
 
-export const bradburyClient = createClient({
-  chain: testnetBradbury,
-});
+import { accord402Config, isConfigured } from "@/lib/config";
 
-export const bradburyRpc =
-  process.env.NEXT_PUBLIC_GENLAYER_RPC?.trim() ||
-  "https://rpc-bradbury.genlayer.com";
-
-export const configuredContractAddress =
-  process.env.NEXT_PUBLIC_ACCORD402_CONTRACT_ADDRESS?.trim() ||
-  "0xA1a2125B3C7D03b868628B4C79832B33B7af4923";
-
-export const configuredTransactionId =
-  process.env.NEXT_PUBLIC_ACCORD402_TRANSACTION_ID?.trim() || "";
-
-export const isConfiguredContractAddress =
-  /^0x[0-9a-fA-F]{40}$/.test(configuredContractAddress);
+export const bradburyRpc = accord402Config.rpcUrl;
+export const configuredContractAddress = accord402Config.coreAddress;
+export const configuredRegistryAddress = accord402Config.registryAddress;
+export const configuredAdjudicatorAddress = accord402Config.adjudicatorAddress;
+export const configuredVaultAddress = accord402Config.vaultAddress;
+export const configuredExplorerUrl = accord402Config.explorerUrl;
+export const configuredCovenantId = accord402Config.defaultCovenantId;
+export const configuredContractSha = accord402Config.sourceFingerprint;
+export const isConfiguredContractAddress = isConfigured;

@@ -2,6 +2,8 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
+import { configuredCovenantId } from "@/lib/client";
+
 export type Criterion = {
   criterionId: string;
   criterionText: string;
@@ -40,12 +42,14 @@ type ApiResponse = {
   message?: string;
 };
 
-const DEFAULT_ID = process.env.NEXT_PUBLIC_ACCORD402_COVENANT_ID?.trim() || "1";
+const DEFAULT_ID = configuredCovenantId;
 const GEN_UNIT = BigInt("1000000000000000000");
 
 type CaseLookupProps = {
   onCovenantLoaded: (covenant: Covenant | null) => void;
   refreshToken?: number;
+  networkName: string;
+  configReady: boolean;
 };
 
 function formatGen(wei: string) {
@@ -85,7 +89,7 @@ function shorten(value: string) {
   return value ? value.slice(0, 8) + "…" + value.slice(-6) : "Not recorded";
 }
 
-export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupProps) {
+export function CaseLookup({ onCovenantLoaded, refreshToken = 0, networkName, configReady }: CaseLookupProps) {
   const [id, setId] = useState(DEFAULT_ID);
   const [covenant, setCovenant] = useState<Covenant | null>(null);
   const [error, setError] = useState("");
@@ -104,7 +108,7 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
           payload.message ||
             (payload.error === "COVENANT_NOT_FOUND"
               ? "No covenant exists with that ID."
-              : "Could not read this covenant from Bradbury."),
+              : `Could not read this covenant from ${networkName}.`),
         );
       }
       const loaded = payload.covenant
@@ -132,6 +136,10 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const normalized = id.trim();
+    if (!configReady) {
+      setError("Frontend configuration is incomplete. Add the required public environment variables before reading a covenant.");
+      return;
+    }
     if (!/^[1-9][0-9]*$/.test(normalized)) {
       setError("Enter a covenant number, such as 1.");
       return;
@@ -140,12 +148,12 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
   }
 
   useEffect(() => {
-    void loadCase(DEFAULT_ID);
-  }, []);
+    if (configReady && DEFAULT_ID) void loadCase(DEFAULT_ID);
+  }, [configReady]);
 
   useEffect(() => {
-    if (refreshToken > 0) void loadCase(id, false);
-  }, [refreshToken]);
+    if (configReady && refreshToken > 0 && id) void loadCase(id, false);
+  }, [configReady, id, refreshToken]);
 
   return (
     <section className="case-lookup panel" aria-labelledby="case-lookup-title">
@@ -158,7 +166,7 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
       </div>
       <p className="muted case-intro">
         Search the deployed Core by covenant number. Every value below comes
-        from Bradbury and refreshes only when you ask for a new read.
+        from {networkName} and refreshes only when you ask for a new read.
       </p>
       <form className="case-form" onSubmit={submit}>
         <label htmlFor="covenant-id">Covenant number</label>
@@ -171,12 +179,12 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0 }: CaseLookupPro
             onChange={(event) => setId(event.target.value)}
             aria-describedby="case-help"
           />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading || !configReady}>
             {loading ? "Reading…" : "Load covenant"}
           </button>
         </div>
         <span id="case-help" className="form-help">
-          {lastRead ? "Last read " + lastRead : "Try covenant 1 from the live Bradbury deployment."}
+          {lastRead ? "Last read " + lastRead : "Enter a covenant number to read the live deployment."}
         </span>
       </form>
       {error ? <p className="result-card danger" role="alert">{error}</p> : null}

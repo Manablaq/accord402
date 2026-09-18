@@ -9,9 +9,8 @@ import {
   isAddress,
   type Address,
 } from "viem";
-import { testnetBradbury } from "genlayer-js/chains";
-
 import { accord402VaultAbi, accord402WriteAbi } from "@/lib/accord402-abi";
+import { accord402Chain, accord402Config, protocolLimits } from "@/lib/config";
 
 type WalletProvider = {
   request: (args: { method: string; params?: unknown[] }) => Promise<unknown>;
@@ -20,36 +19,35 @@ type WalletProvider = {
 type OpenCovenantPanelProps = {
   coreAddress: string;
   vaultAddress: string;
+  networkName: string;
+  chainId: number;
+  configReady: boolean;
   onTransactionSubmitted: (hash: string) => void;
 };
 
-const chainIdHex = "0x" + testnetBradbury.id.toString(16);
-const RPC_URL = process.env.NEXT_PUBLIC_GENLAYER_RPC?.trim() || "https://rpc-bradbury.genlayer.com";
-const DEFAULT_CRITERIA = JSON.stringify([
-  { criterionId: "service-complete", criterionText: "The provider completes the agreed service." },
-], null, 2);
-const DEFAULT_AUTHORITIES = JSON.stringify([
-  { authorityId: "primary-source", authorityRevision: 1, role: "PRIMARY", identityKind: "publisher", identityValue: "primary.example", canonicalOrigin: "https://primary.example" },
-  { authorityId: "corroborator-source", authorityRevision: 1, role: "CORROBORATOR", identityKind: "publisher", identityValue: "corroborator.example", canonicalOrigin: "https://corroborator.example" },
-], null, 2);
+const chainIdHex = accord402Config.chainIdHex;
 
 const initialForm = {
   provider: "",
   buyerPayout: "",
-  principal: "1",
-  serviceSpec: "Deliver the agreed service with verifiable evidence.",
-  acceptanceLeadMinutes: "60",
-  deliveryLeadMinutes: "1440",
-  challengeDurationMinutes: "60",
-  absoluteHorizonHours: "72",
-  evidenceRepairWindowMinutes: "60",
-  reviewRetryWindowMinutes: "60",
-  maxReviewGenerations: "3",
-  maxEvidenceAgeMinutes: "15",
-  requiredCorroborationCount: "1",
-  criteriaJson: DEFAULT_CRITERIA,
-  authoritiesJson: DEFAULT_AUTHORITIES,
+  principal: "",
+  serviceSpec: "",
+  acceptanceLeadMinutes: "",
+  deliveryLeadMinutes: "",
+  challengeDurationMinutes: "",
+  absoluteHorizonHours: "",
+  evidenceRepairWindowMinutes: "",
+  reviewRetryWindowMinutes: "",
+  maxReviewGenerations: "",
+  maxEvidenceAgeMinutes: "",
+  requiredCorroborationCount: "",
+  criteriaJson: "",
+  authoritiesJson: "",
 };
+
+function byteLength(value: string) {
+  return new TextEncoder().encode(value).length;
+}
 
 function getProvider() {
   const provider = (window as Window & { ethereum?: WalletProvider }).ethereum;
@@ -68,19 +66,25 @@ function parseGen(value: string) {
 function parseRecords(raw: string, kind: "criteria" | "authorities") {
   let parsed: unknown;
   try { parsed = JSON.parse(raw); } catch { throw new Error(`${kind === "criteria" ? "Criteria" : "Authorities"} must be valid JSON.`); }
-  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.length > 16) throw new Error(`${kind === "criteria" ? "Criteria" : "Authorities"} must contain 1 to 16 records.`);
+  const maximum = kind === "criteria" ? protocolLimits.maxCriteria : protocolLimits.maxAuthorities;
+  if (!Array.isArray(parsed) || parsed.length === 0 || parsed.length > maximum) throw new Error(`${kind === "criteria" ? "Criteria" : "Authorities"} must contain 1 to ${maximum} records.`);
   return parsed;
 }
 
 function parseCriteria(raw: string) {
-  return parseRecords(raw, "criteria").map((value, index) => {
+  const criteria = parseRecords(raw, "criteria").map((value, index) => {
     if (!value || typeof value !== "object") throw new Error(`Criterion ${index + 1} is not an object.`);
     const item = value as Record<string, unknown>;
     const criterionId = String(item.criterionId || "").trim();
     const criterionText = String(item.criterionText || "").trim();
     if (!criterionId || !criterionText) throw new Error(`Criterion ${index + 1} needs criterionId and criterionText.`);
+    if (byteLength(criterionId) > protocolLimits.maxCriterionIdBytes || byteLength(criterionText) > protocolLimits.maxCriterionTextBytes) {
+      throw new Error(`Criterion ${index + 1} is longer than the Core limits.`);
+    }
     return { criterionId, criterionText };
   });
+  if (new Set(criteria.map((criterion) => criterion.criterionId)).size !== criteria.length) throw new Error("Criterion IDs must be unique.");
+  return criteria;
 }
 
 function parseAuthorities(raw: string, requiredCorroborationCount: number) {
@@ -93,8 +97,20 @@ function parseAuthorities(raw: string, requiredCorroborationCount: number) {
     const identityValue = String(item.identityValue || "").trim();
     const canonicalOrigin = String(item.canonicalOrigin || "").trim();
     const authorityRevision = Number(item.authorityRevision);
-    if (!authorityId || !identityKind || !identityValue || !/^https:\/\//.test(canonicalOrigin) || (role !== "PRIMARY" && role !== "CORROBORATOR")) {
+    if (!authorityId || !identityKind || !identityValue || (role !== "PRIMARY" && role !== "CORROBORATOR")) {
       throw new Error(`Authority ${index + 1} has invalid required fields or origin.`);
+    }
+    if (byteLength(authorityId) > protocolLimits.maxAuthorityIdBytes || byteLength(role) > protocolLimits.maxRoleBytes || byteLength(identityKind) > protocolLimits.maxIdentityKindBytes || byteLength(identityValue) > protocolLimits.maxIdentityValueBytes || byteLength(canonicalOrigin) > protocolLimits.maxSourceBytes) {
+      throw new Error(`Authority ${index + 1} is longer than the Core limits.`);
+    }
+    let origin: URL;
+    try {
+      origin = new URL(canonicalOrigin);
+    } catch {
+      throw new Error(`Authority ${index + 1} needs a bare HTTPS origin such as https://publisher.example.`);
+    }
+    if (origin.protocol !== "https:" || origin.username || origin.password || origin.port || origin.pathname !== "/" || origin.search || origin.hash || !origin.hostname.includes(".")) {
+      throw new Error(`Authority ${index + 1} needs a bare HTTPS origin such as https://publisher.example.`);
     }
     if (!Number.isSafeInteger(authorityRevision) || authorityRevision < 0) throw new Error(`Authority ${index + 1} has an invalid revision.`);
     return { authorityId, authorityRevision, role, identityKind, identityValue, canonicalOrigin };
@@ -118,7 +134,14 @@ function friendlyError(error: unknown) {
   return message || "The covenant transaction failed before confirmation.";
 }
 
-export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubmitted }: OpenCovenantPanelProps) {
+export function OpenCovenantPanel({
+  coreAddress,
+  vaultAddress,
+  networkName,
+  chainId,
+  configReady,
+  onTransactionSubmitted,
+}: OpenCovenantPanelProps) {
   const [form, setForm] = useState(initialForm);
   const [account, setAccount] = useState("");
   const [registered, setRegistered] = useState<boolean | null>(null);
@@ -134,6 +157,7 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
   async function connect() {
     setBusy(true); setError("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const provider = getProvider();
       const accounts = (await provider.request({ method: "eth_requestAccounts" })) as string[];
       const selected = accounts[0];
@@ -148,10 +172,14 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
             method: "wallet_addEthereumChain",
             params: [{
               chainId: chainIdHex,
-              chainName: "GenLayer Bradbury",
-              rpcUrls: [testnetBradbury.rpcUrls.default.http[0]],
-              nativeCurrency: testnetBradbury.nativeCurrency,
-              blockExplorerUrls: testnetBradbury.blockExplorers?.default?.url ? [testnetBradbury.blockExplorers.default.url] : undefined,
+              chainName: accord402Config.networkName,
+              rpcUrls: [accord402Config.rpcUrl],
+              nativeCurrency: {
+                name: accord402Config.nativeCurrencyName,
+                symbol: accord402Config.nativeCurrencySymbol,
+                decimals: accord402Config.nativeCurrencyDecimals,
+              },
+              blockExplorerUrls: accord402Config.explorerUrl ? [accord402Config.explorerUrl] : undefined,
             }],
           });
           await provider.request({ method: "wallet_switchEthereumChain", params: [{ chainId: chainIdHex }] });
@@ -165,9 +193,10 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
   async function checkRegistration() {
     setBusy(true); setError("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const recipient = form.buyerPayout.trim();
       if (!isAddress(recipient)) throw new Error("Enter a valid buyer payout address first.");
-      const client = createPublicClient({ chain: testnetBradbury, transport: http(RPC_URL) });
+      const client = createPublicClient({ chain: accord402Chain, transport: http(accord402Config.rpcUrl) });
       const result = await client.readContract({ address: vaultAddress as Address, abi: accord402VaultAbi, functionName: "is_registered_payout", args: [recipient as Address] });
       setRegistered(result); setMessage(result ? "Buyer payout recipient is registered." : "This recipient is not registered yet.");
     } catch (caught) { setError(friendlyError(caught)); } finally { setBusy(false); }
@@ -176,10 +205,11 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
   async function registrationAction(functionName: "begin_payout_registration" | "confirm_payout_registration") {
     setBusy(true); setError("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const provider = getProvider();
       const selected = account || ((await provider.request({ method: "eth_requestAccounts" })) as string[])[0];
       if (!selected) throw new Error("Connect the wallet that owns the payout address.");
-      const wallet = createWalletClient({ account: selected as Address, chain: testnetBradbury, transport: custom(provider) });
+      const wallet = createWalletClient({ account: selected as Address, chain: accord402Chain, transport: custom(provider) });
       const hash = await wallet.writeContract({ address: vaultAddress as Address, abi: accord402VaultAbi, functionName, args: [] });
       onTransactionSubmitted(hash); setMessage(functionName === "begin_payout_registration" ? "Registration started. Wait for the next block, then confirm registration." : "Registration confirmation submitted; check registration again after finality.");
     } catch (caught) { setError(friendlyError(caught)); } finally { setBusy(false); }
@@ -188,6 +218,7 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
   async function openAndFund() {
     setBusy(true); setError(""); setMessage("");
     try {
+      if (!configReady) throw new Error("Frontend configuration is incomplete. Add the required public environment variables before using wallet actions.");
       const provider = getProvider();
       const selected = account || ((await provider.request({ method: "eth_requestAccounts" })) as string[])[0];
       if (!selected) throw new Error("Connect the buyer wallet before funding.");
@@ -197,20 +228,23 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
       if (registered !== true) throw new Error("Verify a registered buyer payout recipient before funding.");
       const principal = parseGen(form.principal);
       const now = Math.floor(Date.now() / 1000);
-      const acceptanceLead = Number(form.acceptanceLeadMinutes) * 60;
-      const deliveryLead = Number(form.deliveryLeadMinutes) * 60;
-      const challengeDuration = Number(form.challengeDurationMinutes) * 60;
-      const absoluteHorizon = Number(form.absoluteHorizonHours) * 3600;
-      const repairWindow = Number(form.evidenceRepairWindowMinutes) * 60;
-      const retryWindow = Number(form.reviewRetryWindowMinutes) * 60;
+      const secondsPerMinute = 60;
+      const secondsPerHour = 60 * secondsPerMinute;
+      const acceptanceLead = Number(form.acceptanceLeadMinutes) * secondsPerMinute;
+      const deliveryLead = Number(form.deliveryLeadMinutes) * secondsPerMinute;
+      const challengeDuration = Number(form.challengeDurationMinutes) * secondsPerMinute;
+      const absoluteHorizon = Number(form.absoluteHorizonHours) * secondsPerHour;
+      const repairWindow = Number(form.evidenceRepairWindowMinutes) * secondsPerMinute;
+      const retryWindow = Number(form.reviewRetryWindowMinutes) * secondsPerMinute;
       const maxGenerations = Number(form.maxReviewGenerations);
-      const maxEvidenceAge = Number(form.maxEvidenceAgeMinutes) * 60;
+      const maxEvidenceAge = Number(form.maxEvidenceAgeMinutes) * secondsPerMinute;
       const corroborationCount = Number(form.requiredCorroborationCount);
       if (!form.serviceSpec.trim()) throw new Error("Service specification is required.");
-      if (acceptanceLead < 60 || acceptanceLead > 604800 || deliveryLead <= acceptanceLead || deliveryLead > 1209600) throw new Error("Acceptance and delivery windows are outside the Core limits.");
-      if (challengeDuration < 60 || challengeDuration > 604800 || repairWindow < 60 || repairWindow > 86400 || retryWindow < 60 || retryWindow > 86400) throw new Error("Challenge, repair, and retry windows are outside the Core limits.");
-      if (absoluteHorizon <= deliveryLead + challengeDuration + 3600 || absoluteHorizon > 2592000) throw new Error("Absolute dispute horizon must leave the required review guard time.");
-      if (!Number.isInteger(maxGenerations) || maxGenerations < 1 || maxGenerations > 4 || !Number.isInteger(maxEvidenceAge) || maxEvidenceAge < 60 || maxEvidenceAge > 2592000 || !Number.isInteger(corroborationCount) || corroborationCount < 1 || corroborationCount > 8) throw new Error("Review, freshness, or corroboration settings are outside the Core limits.");
+      if (byteLength(form.serviceSpec.trim()) > protocolLimits.maxStringBytes) throw new Error("Service specification is longer than the Core limit.");
+      if (acceptanceLead < protocolLimits.minAcceptanceLeadSeconds || acceptanceLead > protocolLimits.maxAcceptanceLeadSeconds || deliveryLead <= acceptanceLead || deliveryLead > protocolLimits.maxDeliveryLeadSeconds) throw new Error("Acceptance and delivery windows are outside the Core limits.");
+      if (challengeDuration < protocolLimits.minChallengeDurationSeconds || challengeDuration > protocolLimits.maxChallengeDurationSeconds || repairWindow < protocolLimits.minRepairWindowSeconds || repairWindow > protocolLimits.maxRepairWindowSeconds || retryWindow < protocolLimits.minRetryWindowSeconds || retryWindow > protocolLimits.maxRetryWindowSeconds) throw new Error("Challenge, repair, and retry windows are outside the Core limits.");
+      if (absoluteHorizon <= deliveryLead + challengeDuration + protocolLimits.reviewGuardSeconds || absoluteHorizon > protocolLimits.maxAbsoluteHorizonSeconds) throw new Error("Absolute dispute horizon must leave the required review guard time.");
+      if (!Number.isInteger(maxGenerations) || maxGenerations < 1 || maxGenerations > protocolLimits.maxReviewGenerations || !Number.isInteger(maxEvidenceAge) || maxEvidenceAge < protocolLimits.minEvidenceAgeSeconds || maxEvidenceAge > protocolLimits.maxEvidenceAgeSeconds || !Number.isInteger(corroborationCount) || corroborationCount < 1 || corroborationCount > protocolLimits.maxCorroborators) throw new Error("Review, freshness, or corroboration settings are outside the Core limits.");
       const criteria = parseCriteria(form.criteriaJson);
       const authorityBindings = parseAuthorities(form.authoritiesJson, corroborationCount);
       const terms = {
@@ -226,12 +260,12 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
         maxReviewGenerations: maxGenerations,
         maxEvidenceAge: BigInt(maxEvidenceAge),
         requiredCorroborationCount: corroborationCount,
-        repairAllowedFieldMask: 252,
-        replayScope: "COVENANT",
+        repairAllowedFieldMask: accord402Config.repairAllowedFieldMask,
+        replayScope: accord402Config.replayScope,
         criteria,
         authorityBindings,
       };
-      const wallet = createWalletClient({ account: selected as Address, chain: testnetBradbury, transport: custom(provider) });
+      const wallet = createWalletClient({ account: selected as Address, chain: accord402Chain, transport: custom(provider) });
       const hash = await wallet.writeContract({ address: coreAddress as Address, abi: accord402WriteAbi, functionName: "openCovenant", args: [terms, recipient as Address], value: principal });
       setAccount(selected); onTransactionSubmitted(hash); setMessage("Funding submitted. The covenant ID will be assigned by Core; finality and the exact transaction hash are being observed.");
     } catch (caught) { setError(friendlyError(caught)); } finally { setBusy(false); }
@@ -241,14 +275,14 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
     <section className="open-covenant panel" aria-labelledby="open-covenant-title">
       <div className="section-heading">
         <div><p className="eyebrow">Buyer workspace</p><h2 id="open-covenant-title">Open and fund a covenant.</h2></div>
-        <span className="network-pill"><span className="status-dot" /> Bradbury · 4221</span>
+        <span className="network-pill"><span className="status-dot" /> {networkName} · {chainId}</span>
       </div>
       <p className="muted open-intro">Create a new Core covenant with exact GEN escrow, bounded deadlines, frozen criteria, and approved evidence authorities. The form validates the protocol limits before your wallet is asked to sign.</p>
       <div className="open-toolbar">
-        {account ? <span className="connected-wallet"><span className="status-dot" /><code>{account.slice(0, 8)}…{account.slice(-6)}</code></span> : <button type="button" className="button button-primary wallet-button" onClick={() => void connect()} disabled={busy}>{busy ? "Connecting…" : "Connect buyer wallet"}</button>}
-        <button type="button" className="secondary-button" onClick={() => void checkRegistration()} disabled={busy}>Check payout registration</button>
-        <button type="button" className="secondary-button" onClick={() => void registrationAction("begin_payout_registration")} disabled={busy}>Begin registration</button>
-        <button type="button" className="secondary-button" onClick={() => void registrationAction("confirm_payout_registration")} disabled={busy}>Confirm registration</button>
+        {account ? <span className="connected-wallet"><span className="status-dot" /><code>{account.slice(0, 8)}…{account.slice(-6)}</code></span> : <button type="button" className="button button-primary wallet-button" onClick={() => void connect()} disabled={busy || !configReady}>{busy ? "Connecting…" : "Connect buyer wallet"}</button>}
+        <button type="button" className="secondary-button" onClick={() => void checkRegistration()} disabled={busy || !configReady}>Check payout registration</button>
+        <button type="button" className="secondary-button" onClick={() => void registrationAction("begin_payout_registration")} disabled={busy || !configReady}>Begin registration</button>
+        <button type="button" className="secondary-button" onClick={() => void registrationAction("confirm_payout_registration")} disabled={busy || !configReady}>Confirm registration</button>
         {registered === true ? <span className="registration-ok">✓ payout registered</span> : registered === false ? <span className="registration-warn">Register before funding</span> : null}
       </div>
       <div className="open-grid">
@@ -264,11 +298,11 @@ export function OpenCovenantPanel({ coreAddress, vaultAddress, onTransactionSubm
         <label>Maximum review generations<input value={form.maxReviewGenerations} onChange={(event) => update("maxReviewGenerations", event.target.value)} inputMode="numeric" /></label>
         <label>Maximum evidence age (minutes)<input value={form.maxEvidenceAgeMinutes} onChange={(event) => update("maxEvidenceAgeMinutes", event.target.value)} inputMode="numeric" /></label>
         <label>Required corroborators<input value={form.requiredCorroborationCount} onChange={(event) => update("requiredCorroborationCount", event.target.value)} inputMode="numeric" /></label>
-        <label className="open-span">Service specification<textarea value={form.serviceSpec} onChange={(event) => update("serviceSpec", event.target.value)} rows={3} maxLength={8192} /></label>
+        <label className="open-span">Service specification<textarea value={form.serviceSpec} onChange={(event) => update("serviceSpec", event.target.value)} rows={3} maxLength={protocolLimits.maxStringBytes} /></label>
         <label className="open-span">Criteria JSON<textarea value={form.criteriaJson} onChange={(event) => update("criteriaJson", event.target.value)} rows={7} spellCheck={false} /></label>
         <label className="open-span">Authority bindings JSON<textarea value={form.authoritiesJson} onChange={(event) => update("authoritiesJson", event.target.value)} rows={9} spellCheck={false} /></label>
       </div>
-      <div className="open-submit"><button type="button" className="button button-primary" onClick={() => void openAndFund()} disabled={busy || registered !== true}>{busy ? "Waiting for wallet…" : "Open and fund covenant"}<span>↗</span></button><span className="form-help">Requires a registered buyer payout recipient and exact GEN value equal to the principal.</span></div>
+      <div className="open-submit"><button type="button" className="button button-primary" onClick={() => void openAndFund()} disabled={busy || !configReady || registered !== true}>{busy ? "Waiting for wallet…" : "Open and fund covenant"}<span>↗</span></button><span className="form-help">Requires a registered buyer payout recipient and exact GEN value equal to the principal.</span></div>
       {message ? <p className="wallet-success" role="status">{message}</p> : null}
       {error ? <p className="result-card danger" role="alert">{error}</p> : null}
     </section>

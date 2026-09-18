@@ -10,12 +10,15 @@ import { WalletActionPanel } from "@/components/wallet-action-panel";
 type Accord402AppProps = {
   contractAddress: string;
   contractReady: boolean;
+  configurationError: string;
   contractSha: string;
+  networkName: string;
+  chainId: number;
+  explorerUrl: string;
+  registryAddress: string;
+  adjudicatorAddress: string;
+  vaultAddress: string;
 };
-
-const registryAddress = "0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7";
-const adjudicatorAddress = "0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4";
-const vaultAddress = "0xeECBE158401B932fec22e61dd0A336638D7A574a";
 
 function shorten(value: string) {
   return `${value.slice(0, 8)}…${value.slice(-6)}`;
@@ -84,7 +87,14 @@ function ThemeToggle() {
 export function Accord402App({
   contractAddress,
   contractReady,
+  configurationError,
   contractSha,
+  networkName,
+  chainId,
+  explorerUrl,
+  registryAddress,
+  adjudicatorAddress,
+  vaultAddress,
 }: Accord402AppProps) {
   const [liveCovenant, setLiveCovenant] = useState<Covenant | null>(null);
   const [submittedTxId, setSubmittedTxId] = useState("");
@@ -118,7 +128,7 @@ export function Accord402App({
           <a href="#proof">Why it holds</a>
         </nav>
         <div className="header-actions">
-          <span className="live-indicator"><span className="status-dot" /> Bradbury live</span>
+          <span className="live-indicator"><span className="status-dot" /> {networkName} live</span>
           <ThemeToggle />
         </div>
       </header>
@@ -132,12 +142,12 @@ export function Accord402App({
             <a className="button button-primary" href="#console">Open live console <span>↗</span></a>
             <a className="button button-quiet" href="#protocol">See how it works <span>↓</span></a>
           </div>
-          <div className="hero-proof"><span className="proof-avatar">◎</span><span>Built for finality-first operations</span><span className="proof-line" /><strong>Bradbury / 4221</strong></div>
+          <div className="hero-proof"><span className="proof-avatar">◎</span><span>Built for finality-first operations</span><span className="proof-line" /><strong>{networkName} / {chainId}</strong></div>
         </Reveal>
 
         <Reveal className="hero-map-wrap">
           <div className="hero-map">
-            <div className="map-topline"><span>FIELD NOTE 04</span><span>09.05.26</span></div>
+            <div className="map-topline"><span>FIELD NOTE 04</span><span>LIVE</span></div>
             <svg className="contours" viewBox="0 0 560 520" aria-hidden="true">
               <path d="M-20 432c76-70 140-89 201-54 75 43 103 37 152-5 73-63 136-77 253-20" />
               <path d="M-24 384c74-69 139-84 195-52 73 42 105 34 159-8 76-59 144-65 250-12" />
@@ -180,19 +190,19 @@ export function Accord402App({
       <section id="console" className="console-section shell">
         <Reveal className="console-heading">
           <div><p className="eyebrow">Live protocol console</p><h2>See the chain’s answer.</h2></div>
-          <p className="muted">Read-only by design. Use the exact Bradbury transaction hash you want to certify; the console keeps watching until the outcome is canonical.</p>
+          <p className="muted">Read-only by design. Use the exact {networkName} transaction hash you want to certify; the console keeps watching until the outcome is canonical.</p>
         </Reveal>
         <div className="console-grid">
           <Reveal className="contract-card panel">
             <div className="card-kicker"><span className="live-indicator"><span className="status-dot" /> Network online</span><span className="card-index">A402 / 01</span></div>
             <h3>Accord402 Core</h3>
             <p className="muted">The deployed V2 covenant engine coordinating registry, adjudication, evidence, and settlement paths.</p>
-            <div className="address-row"><span>Canonical Bradbury address</span><code>{contractReady ? shorten(contractAddress) : "not bound"}</code></div>
+            <div className="address-row"><span>Canonical {networkName} address</span><code>{contractReady ? shorten(contractAddress) : "not bound"}</code></div>
             <div className="address-row"><span>Source fingerprint</span><code>{contractSha.slice(0, 10)}…</code></div>
-            <a className="text-link" href={`https://explorer-bradbury.genlayer.com/address/${contractAddress}`} target="_blank" rel="noreferrer">Open in explorer ↗</a>
+            <a className="text-link" href={`${explorerUrl}/address/${contractAddress}`} target="_blank" rel="noreferrer">Open in explorer ↗</a>
           </Reveal>
           <Reveal className="stack-card panel">
-            <div className="card-kicker"><span className="eyebrow">Live deployment map</span><span className="card-index">BRADBURY</span></div>
+            <div className="card-kicker"><span className="eyebrow">Live deployment map</span><span className="card-index">{networkName.toUpperCase()}</span></div>
             <div className="contract-stack">
               {contracts.map(([label, address]) => (
                 <div className="stack-row" key={label}><span className="stack-dot" /><div><strong>{label}</strong><code>{shorten(address)}</code></div><span className="stack-state">verified</span></div>
@@ -202,9 +212,13 @@ export function Accord402App({
           </Reveal>
         </div>
         <Reveal>
+          {!contractReady ? <p className="result-card danger" role="alert">Frontend configuration is incomplete. {configurationError}</p> : null}
           <OpenCovenantPanel
             coreAddress={contractAddress}
             vaultAddress={vaultAddress}
+            networkName={networkName}
+            chainId={chainId}
+            configReady={contractReady}
             onTransactionSubmitted={setSubmittedTxId}
           />
         </Reveal>
@@ -212,18 +226,24 @@ export function Accord402App({
           <CaseLookup
             onCovenantLoaded={setLiveCovenant}
             refreshToken={covenantRefreshToken}
+            networkName={networkName}
+            configReady={contractReady}
           />
         </Reveal>
         <Reveal>
           <WalletActionPanel
             covenant={liveCovenant}
             coreAddress={contractAddress}
+            configReady={contractReady}
             onTransactionSubmitted={setSubmittedTxId}
           />
         </Reveal>
         <Reveal>
           <TransactionObserver
             submittedTxId={submittedTxId}
+            networkName={networkName}
+            chainId={chainId}
+            configReady={contractReady}
             onCanonicalSuccess={() => setCovenantRefreshToken((value) => value + 1)}
           />
         </Reveal>
@@ -242,8 +262,8 @@ export function Accord402App({
 
       <footer className="site-footer shell">
         <a className="brand" href="#top"><span className="brand-mark">A4<span>02</span></span><span className="brand-name">Accord<span>402</span></span></a>
-        <span>Proof-bound agreements on GenLayer Bradbury.</span>
-        <span>V2 release surface · 2026</span>
+        <span>Proof-bound agreements on {networkName}.</span>
+        <span>V2 release surface</span>
       </footer>
     </main>
   );

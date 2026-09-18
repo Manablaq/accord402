@@ -66,3 +66,11 @@ when Bradbury returns finalized status plus execution result
 `FINISHED_WITH_RETURN`.
 The console also reads live covenant records from the deployed Core, including
 state, escrow, deadlines, participants, review round, and the latest decision.
+
+Before a Vercel deployment, populate every variable in `frontend/.env.example`
+for the target network in both Preview and Production. The frontend has no
+deployment-value fallbacks: if a public variable is missing or inconsistent
+with the configured Core limits, it disables wallet actions and shows the
+configuration error instead of sending a transaction. These are public runtime
+configuration values only; never place wallet keys or issuer private keys in
+the frontend environment.

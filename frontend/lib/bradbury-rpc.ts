@@ -1,4 +1,4 @@
-const DEFAULT_RPC = "https://rpc-bradbury.genlayer.com";
+import { accord402Config, assertConfiguration } from "@/lib/config";
 
 type JsonRpcError = {
   code: number;
@@ -8,7 +8,7 @@ type JsonRpcError = {
 
 type JsonRpcEnvelope<T> = {
   jsonrpc: "2.0";
-  id: number;
+  id: string | number;
   result?: T;
   error?: JsonRpcError;
 };
@@ -17,11 +17,9 @@ export async function bradburyRpcRequest<T>(
   method: string,
   params: unknown[],
 ): Promise<T> {
-  const rpc =
-    process.env.NEXT_PUBLIC_GENLAYER_RPC?.trim() ||
-    DEFAULT_RPC;
+  assertConfiguration();
 
-  const response = await fetch(rpc, {
+  const response = await fetch(accord402Config.rpcUrl, {
     method: "POST",
     headers: {
       "content-type": "application/json",
@@ -30,14 +28,14 @@ export async function bradburyRpcRequest<T>(
       jsonrpc: "2.0",
       method,
       params,
-      id: 19,
+      id: crypto.randomUUID(),
     }),
     cache: "no-store",
   });
 
   if (!response.ok) {
     throw new Error(
-      `Bradbury RPC HTTP ${response.status}`,
+      `${accord402Config.networkName} RPC HTTP ${response.status}`,
     );
   }
 
@@ -46,13 +44,13 @@ export async function bradburyRpcRequest<T>(
 
   if (payload.error) {
     throw new Error(
-      `Bradbury RPC ${payload.error.code}: ${payload.error.message}`,
+      `${accord402Config.networkName} RPC ${payload.error.code}: ${payload.error.message}`,
     );
   }
 
   if (payload.result === undefined) {
     throw new Error(
-      `Bradbury RPC ${method} returned no result`,
+      `${accord402Config.networkName} RPC ${method} returned no result`,
     );
   }
 

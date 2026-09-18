@@ -6,6 +6,7 @@ import {
   type TransactionReceipt,
   type TransactionStatusResult,
 } from "@/lib/transaction";
+import { accord402Config } from "@/lib/config";
 
 const TX_ID = /^0x[0-9a-fA-F]{64}$/;
 
@@ -60,11 +61,11 @@ export async function GET(
   } catch (error) {
     return NextResponse.json(
       {
-        error: "BRADBURY_OBSERVATION_FAILED",
+        error: "GENLAYER_OBSERVATION_FAILED",
         message:
           error instanceof Error
             ? error.message
-            : "Unknown Bradbury observation failure",
+            : `Unknown ${accord402Config.networkName} observation failure`,
       },
       {
         status: 502,

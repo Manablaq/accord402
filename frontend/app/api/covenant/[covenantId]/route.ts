@@ -1,12 +1,15 @@
 import { createPublicClient, http, type Address } from "viem";
-import { testnetBradbury } from "genlayer-js/chains";
 import { NextResponse } from "next/server";
 
 import { accord402ReadAbi, accord402RegistryReadAbi } from "@/lib/accord402-abi";
-import { configuredContractAddress } from "@/lib/client";
+import {
+  accord402Chain,
+  accord402Config,
+  assertConfiguration,
+  protocolLimits,
+} from "@/lib/config";
 
-const COVENANT_ID = /^(?:0|[1-9][0-9]*)$/;
-const REGISTRY_ADDRESS = "0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7" as Address;
+const COVENANT_ID = /^[1-9][0-9]*$/;
 
 function jsonSafe(value: unknown): unknown {
   if (typeof value === "bigint") return value.toString();
@@ -45,15 +48,13 @@ export async function GET(
   }
 
   try {
+    assertConfiguration();
     const client = createPublicClient({
-      chain: testnetBradbury,
-      transport: http(
-        process.env.NEXT_PUBLIC_GENLAYER_RPC?.trim() ||
-          "https://rpc-bradbury.genlayer.com",
-      ),
+      chain: accord402Chain,
+      transport: http(accord402Config.rpcUrl),
     });
     const covenant = await client.readContract({
-      address: configuredContractAddress as Address,
+      address: accord402Config.coreAddress as Address,
       abi: accord402ReadAbi,
       functionName: "getCovenant",
       args: [BigInt(covenantId)],
@@ -68,17 +69,17 @@ export async function GET(
 
     let criteria: Array<{ criterionId: string; criterionText: string }> = [];
     try {
-      const count = Number(await client.readContract({
-        address: REGISTRY_ADDRESS,
+      const count = Math.min(protocolLimits.maxCriteria, Number(await client.readContract({
+        address: accord402Config.registryAddress as Address,
         abi: accord402RegistryReadAbi,
         functionName: "getCriterionCount",
-        args: [configuredContractAddress as Address, BigInt(covenantId)],
-      }));
+        args: [accord402Config.coreAddress as Address, BigInt(covenantId)],
+      })));
       const packed = await Promise.all(Array.from({ length: count }, (_, index) => client.readContract({
-        address: REGISTRY_ADDRESS,
+        address: accord402Config.registryAddress as Address,
         abi: accord402RegistryReadAbi,
         functionName: "getCriterionPacked",
-        args: [configuredContractAddress as Address, BigInt(covenantId), BigInt(index)],
+        args: [accord402Config.coreAddress as Address, BigInt(covenantId), BigInt(index)],
       })));
       criteria = packed.map((record) => {
         const [criterionId, criterionText] = unpackFields(record, 2);
@@ -95,11 +96,11 @@ export async function GET(
   } catch (error) {
     return NextResponse.json(
       {
-        error: "BRADBURY_COVENANT_READ_FAILED",
+        error: "GENLAYER_COVENANT_READ_FAILED",
         message:
           error instanceof Error
             ? error.message
-            : "Unknown Bradbury covenant read failure",
+            : `Unknown ${accord402Config.networkName} covenant read failure`,
       },
       { status: 502 },
     );
