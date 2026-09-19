@@ -1,0 +1,22 @@
+# Accord402 repository-default gltest configuration.
+#
+# Safety boundary:
+# - localnet is explicitly retained and remains the default for ordinary repository test collection/execution;
+# - Bradbury metadata is explicit, but no signing account is committed here;
+# - a Bradbury run therefore fails closed unless the dedicated guarded runner
+#   creates its ephemeral out-of-repository config after explicit authorization.
+networks:
+  default: localnet
+  localnet:
+  testnet_bradbury:
+    id: 4221
+    url: https://rpc-bradbury.genlayer.com
+    chain_type: testnet_bradbury
+    default_wait_interval: 3000
+    default_wait_retries: 240
+
+paths:
+  contracts: contracts
+  artifacts: .gltest-artifacts
+
+environment: .env

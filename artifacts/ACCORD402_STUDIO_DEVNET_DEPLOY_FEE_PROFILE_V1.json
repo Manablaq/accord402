@@ -1,0 +1,70 @@
+{
+  "candidate": {
+    "path": "contracts/Accord402Adjudicator.py",
+    "sha256": "4e3d3fabce4563f660eb10b4328b805c1cbeea92f83ecd047add00f1b01a1775"
+  },
+  "claims_not_made": [
+    "This is not a Bradbury deployment.",
+    "This is not Bradbury settlement certification.",
+    "This does not certify the historical Bradbury graph as current.",
+    "No Studio-dev explorer transaction or contract identity is claimed."
+  ],
+  "classification": "DEPLOYMENT_ADMISSION_EVIDENCE_NOT_BRADBURY_CERTIFICATION",
+  "execution": {
+    "authorization_consumed": true,
+    "explicit_deploy_fees": true,
+    "gltest_log_sha256": "eedaf0f92764f2715bc87016c5ef22c49a7de31d47e776f2513b6fdd4b97bf41",
+    "live_fee_estimation": true,
+    "maximum_profiling_deployments": 1,
+    "profiling_test_sha256": "58b0bae8f3446f6a3bc269299f8c51701b6310704b555da13bfd88cb6d123f5f",
+    "result": "PASS",
+    "retry_or_rebroadcast_authorized": false,
+    "second_profiling_deployment_authorized": false,
+    "wait_retries": 240,
+    "wait_until": "finalized"
+  },
+  "finality_evidence": {
+    "exact_contract_address_persisted": false,
+    "exact_tx_id_persisted": false,
+    "explorer_link_claimed": false,
+    "fee_profile_derived_after_finalized_wait": true,
+    "finalized_receipt_semantic_evidence": true,
+    "note": "The successful one-shot waited for stored finalization and the fee profile was derived from the returned finalized deployment receipt. The exact Studio-dev transaction ID and deployed contract address were not persisted, so no explorer identity is claimed.",
+    "provenance_gap_acknowledged": true
+  },
+  "measurement": {
+    "measured_at": "2026-09-19T00:14:11Z",
+    "profile": {
+      "chainId": 61997,
+      "deploy": {
+        "executionBudgetPerRound": "98466250000000",
+        "leaderTimeunitsAllocation": "125",
+        "rotationsPerRound": "3",
+        "totalMessageFees": "0",
+        "validatorTimeunitsAllocation": "250"
+      },
+      "measuredAt": "2026-09-19T00:14:11Z",
+      "methods": {},
+      "network": "studio_devnet",
+      "version": 1
+    },
+    "source_fee_profile_sha256": "d461023eff9e6cc8ca35bf09482e7084c9559163bb429a589c82a27dcfe0693b"
+  },
+  "network": {
+    "chain_id": 61997,
+    "name": "studio_devnet",
+    "rpc": "https://studio-dev.genlayer.com/api"
+  },
+  "rc2_runtime_implementation": {
+    "genlayer_py_transactions_actions_sha256": "cef7a4d712e643e5dbf9dea2a9487fbfdd7cbe6cfe26ac43154a7a35d6b4c680",
+    "gltest_contract_factory_sha256": "146426d8e2d2f174cca76cffe310bb7c387a8832e8a081dbe06bcbd47c356a1f",
+    "gltest_fee_profile_sha256": "e286287b618cc5f837a2b864cd21a3a522f8e283a49f26f1838e1f3d8320e502"
+  },
+  "schema": "accord402-studio-devnet-deploy-fee-profile-v1",
+  "toolchain": {
+    "genlayer_py": "0.19.0rc2",
+    "genlayer_test": "0.30.0rc2",
+    "pytest": "9.1.1",
+    "python": "3.12.14"
+  }
+}

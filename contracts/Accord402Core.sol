@@ -13,36 +13,36 @@ interface IAccord402SettlementVault {
 /// @dev Semantic adjudication is deliberately outside this contract. Only the
 ///      immutable Adjudicator address may submit a finalized result.
 contract Accord402Core {
-    string public constant FUNDED = "FUNDED";
-    string public constant SERVICE_ACCEPTED = "SERVICE_ACCEPTED";
-    string public constant DELIVERED = "DELIVERED";
-    string public constant CHALLENGED = "CHALLENGED";
-    string public constant EVIDENCE_REPAIR_REQUIRED = "EVIDENCE_REPAIR_REQUIRED";
-    string public constant REVIEW_RETRY_REQUIRED = "REVIEW_RETRY_REQUIRED";
-    string public constant SETTLEMENT_AUTHORIZED_PROVIDER = "SETTLEMENT_AUTHORIZED_PROVIDER";
-    string public constant SETTLEMENT_AUTHORIZED_BUYER = "SETTLEMENT_AUTHORIZED_BUYER";
-    string public constant CLOSED_PROVIDER = "CLOSED_PROVIDER";
-    string public constant CLOSED_BUYER = "CLOSED_BUYER";
+    string internal constant FUNDED = "FUNDED";
+    string internal constant SERVICE_ACCEPTED = "SERVICE_ACCEPTED";
+    string internal constant DELIVERED = "DELIVERED";
+    string internal constant CHALLENGED = "CHALLENGED";
+    string internal constant EVIDENCE_REPAIR_REQUIRED = "EVIDENCE_REPAIR_REQUIRED";
+    string internal constant REVIEW_RETRY_REQUIRED = "REVIEW_RETRY_REQUIRED";
+    string internal constant SETTLEMENT_AUTHORIZED_PROVIDER = "SETTLEMENT_AUTHORIZED_PROVIDER";
+    string internal constant SETTLEMENT_AUTHORIZED_BUYER = "SETTLEMENT_AUTHORIZED_BUYER";
+    string internal constant CLOSED_PROVIDER = "CLOSED_PROVIDER";
+    string internal constant CLOSED_BUYER = "CLOSED_BUYER";
 
-    string public constant SERVICE_VERIFIED = "SERVICE_VERIFIED";
-    string public constant PROVIDER_BREACH = "PROVIDER_BREACH";
-    string public constant BUYER_CLAIM_INVALID = "BUYER_CLAIM_INVALID";
-    string public constant REPAIRABLE_EVIDENCE_DEFECT = "REPAIRABLE_EVIDENCE_DEFECT";
-    string public constant TRANSIENT_REVIEW_FAILURE = "TRANSIENT_REVIEW_FAILURE";
+    string internal constant SERVICE_VERIFIED = "SERVICE_VERIFIED";
+    string internal constant PROVIDER_BREACH = "PROVIDER_BREACH";
+    string internal constant BUYER_CLAIM_INVALID = "BUYER_CLAIM_INVALID";
+    string internal constant REPAIRABLE_EVIDENCE_DEFECT = "REPAIRABLE_EVIDENCE_DEFECT";
+    string internal constant TRANSIENT_REVIEW_FAILURE = "TRANSIENT_REVIEW_FAILURE";
 
-    uint64 public constant MIN_ACCEPTANCE_LEAD = 60;
-    uint64 public constant MAX_ACCEPTANCE_LEAD = 604800;
-    uint64 public constant MAX_DELIVERY_LEAD = 1209600;
-    uint64 public constant MIN_CHALLENGE_DURATION = 60;
-    uint64 public constant MAX_CHALLENGE_DURATION = 604800;
-    uint64 public constant MIN_REPAIR_WINDOW = 60;
-    uint64 public constant MAX_REPAIR_WINDOW = 86400;
-    uint64 public constant MIN_RETRY_WINDOW = 60;
-    uint64 public constant MAX_RETRY_WINDOW = 86400;
-    uint64 public constant MIN_MAX_EVIDENCE_AGE = 1;
-    uint64 public constant MAX_MAX_EVIDENCE_AGE = 2592000;
-    uint64 public constant MAX_ABSOLUTE_HORIZON = 2592000;
-    uint64 public constant REVIEW_GUARD_TIME = 3600;
+    uint64 internal constant MIN_ACCEPTANCE_LEAD = 60;
+    uint64 internal constant MAX_ACCEPTANCE_LEAD = 604800;
+    uint64 internal constant MAX_DELIVERY_LEAD = 1209600;
+    uint64 internal constant MIN_CHALLENGE_DURATION = 60;
+    uint64 internal constant MAX_CHALLENGE_DURATION = 604800;
+    uint64 internal constant MIN_REPAIR_WINDOW = 60;
+    uint64 internal constant MAX_REPAIR_WINDOW = 86400;
+    uint64 internal constant MIN_RETRY_WINDOW = 60;
+    uint64 internal constant MAX_RETRY_WINDOW = 86400;
+    uint64 internal constant MIN_MAX_EVIDENCE_AGE = 1;
+    uint64 internal constant MAX_MAX_EVIDENCE_AGE = 2592000;
+    uint64 internal constant MAX_ABSOLUTE_HORIZON = 2592000;
+    uint64 internal constant REVIEW_GUARD_TIME = 3600;
 
     struct OpenCovenantParams {
         address provider;
@@ -420,8 +420,8 @@ contract Accord402Core {
     /// @notice Sole authenticated entry point for a finalized Adjudicator result.
     function applyAdjudicationResult(
         uint64 covenantId,
-        string calldata serviceSpecHash,
-        string calldata deliveryHash,
+        string calldata coreSnapshotHash,
+        string calldata registrySnapshotHash,
         string calldata evidencePolicyHash,
         string calldata activeEvidenceSetHash,
         uint32 reviewGeneration,
@@ -436,9 +436,11 @@ contract Accord402Core {
         Covenant storage covenant = _requireCovenant(covenantId);
         if (!_same(covenant.state, CHALLENGED)) revert InvalidState();
         if (
-            reviewGeneration != covenant.reviewGeneration || !_hashMatches(covenant.serviceSpecHash, serviceSpecHash)
-                || !_hashMatches(covenant.deliveryHash, deliveryHash)
-                || !_hashMatches(covenant.evidencePolicyHash, evidencePolicyHash)
+            reviewGeneration != covenant.reviewGeneration
+                || !_hashMatches(sha256(bytes(getAdjudicationSnapshot(covenantId))), coreSnapshotHash)
+                || !_hashMatches(
+                    sha256(bytes(registry.getAdjudicationSnapshot(address(this), covenantId))), registrySnapshotHash
+                ) || !_hashMatches(covenant.evidencePolicyHash, evidencePolicyHash)
                 || !_hashMatches(covenant.activeEvidenceSetHash, activeEvidenceSetHash)
         ) revert StaleAdjudicationResult();
         if (
@@ -551,7 +553,7 @@ contract Accord402Core {
 
     /// @notice Compact deterministic review bundle for the GenLayer adjudicator.
     /// @dev Every value is length-prefixed; the final count delimits challenged IDs.
-    function getAdjudicationSnapshot(uint64 covenantId) external view returns (string memory) {
+    function getAdjudicationSnapshot(uint64 covenantId) public view returns (string memory) {
         Covenant storage covenant = _covenants[covenantId];
         bytes memory encoded = abi.encodePacked(
             _packField(covenant.state),
@@ -575,26 +577,6 @@ contract Accord402Core {
         return _covenants[covenantId].state;
     }
 
-    function getReviewHashes(uint64 covenantId)
-        external
-        view
-        returns (
-            bytes32 serviceSpecHash,
-            bytes32 deliveryHash,
-            bytes32 evidencePolicyHash,
-            bytes32 activeEvidenceSetHash
-        )
-    {
-        Covenant storage covenant = _covenants[covenantId];
-        return
-            (
-                covenant.serviceSpecHash,
-                covenant.deliveryHash,
-                covenant.evidencePolicyHash,
-                covenant.activeEvidenceSetHash
-            );
-    }
-
     function getServiceSpecHash(uint64 covenantId) external view returns (bytes32) {
         return _covenants[covenantId].serviceSpecHash;
     }
@@ -603,48 +585,12 @@ contract Accord402Core {
         return _covenants[covenantId].deliveryHash;
     }
 
-    function getEvidencePolicyHash(uint64 covenantId) external view returns (bytes32) {
-        return _covenants[covenantId].evidencePolicyHash;
-    }
-
-    function getActiveEvidenceSetHash(uint64 covenantId) external view returns (bytes32) {
-        return _covenants[covenantId].activeEvidenceSetHash;
-    }
-
-    function getServiceSpecHashHex(uint64 covenantId) external view returns (string memory) {
-        return _bytes32Hex(_covenants[covenantId].serviceSpecHash);
-    }
-
-    function getDeliveryHashHex(uint64 covenantId) external view returns (string memory) {
-        return _bytes32Hex(_covenants[covenantId].deliveryHash);
-    }
-
     function getEvidencePolicyHashHex(uint64 covenantId) external view returns (string memory) {
         return _bytes32Hex(_covenants[covenantId].evidencePolicyHash);
     }
 
     function getActiveEvidenceSetHashHex(uint64 covenantId) external view returns (string memory) {
         return _bytes32Hex(_covenants[covenantId].activeEvidenceSetHash);
-    }
-
-    function getReviewGeneration(uint64 covenantId) external view returns (uint32) {
-        return _covenants[covenantId].reviewGeneration;
-    }
-
-    function getDeliveryPayload(uint64 covenantId) external view returns (string memory) {
-        return _covenants[covenantId].deliveryPayload;
-    }
-
-    function getChallengeClaim(uint64 covenantId) external view returns (string memory) {
-        return _covenants[covenantId].challengeClaim;
-    }
-
-    function getAbsoluteDisputeDeadline(uint64 covenantId) external view returns (uint64) {
-        return _covenants[covenantId].absoluteDisputeDeadline;
-    }
-
-    function getRepairAuthorizations(uint64 covenantId) external view returns (RepairAuthorization[] memory) {
-        return _repairAuthorizations[covenantId];
     }
 
     function getAccountingTotals() external view returns (uint256, uint256, uint256, uint256) {

@@ -20,6 +20,9 @@ contract Accord402Registry {
     uint256 public constant MAX_SOURCE_BYTES = 2048;
     uint256 public constant MAX_VERSION_BYTES = 128;
     uint32 public constant MAX_REPAIR_MASK = 252;
+    string public constant EVIDENCE_IDENTITY_KIND = "GITHUB_REPOSITORY";
+    string public constant EVIDENCE_SOURCE_KIND = "IMMUTABLE";
+    string public constant EVIDENCE_ORIGIN = "https://raw.githubusercontent.com";
 
     uint32 public constant MASK_CANONICAL_SOURCE = 4;
     uint32 public constant MASK_VERSION = 8;
@@ -153,6 +156,7 @@ contract Accord402Registry {
     error DuplicateAuthorityIdentity();
     error InvalidAuthorityRole();
     error InvalidAuthorityOrigin();
+    error InvalidAuthorityIdentity();
     error InvalidEvidenceAuthority();
     error InvalidEvidenceRole();
     error DuplicateEvidenceId();
@@ -207,7 +211,7 @@ contract Accord402Registry {
         uint256 primaryCount;
         uint256 distinctCorroboratorCount;
         bytes32[] memory seenAuthorityPairs = new bytes32[](authorities.length);
-        bytes32[] memory seenIdentities = new bytes32[](authorities.length);
+        bytes32[] memory seenOwners = new bytes32[](authorities.length);
 
         for (uint256 i; i < criteria.length; ++i) {
             _requireNonEmpty(criteria[i].criterionId, MAX_CRITERION_ID_BYTES);
@@ -227,7 +231,10 @@ contract Accord402Registry {
             _requireNonEmpty(input.identityKind, MAX_IDENTITY_KIND_BYTES);
             _requireNonEmpty(input.identityValue, MAX_IDENTITY_VALUE_BYTES);
             if (!_same(input.role, "PRIMARY") && !_same(input.role, "CORROBORATOR")) revert InvalidAuthorityRole();
-            if (!_validHttpsOrigin(input.canonicalOrigin)) revert InvalidAuthorityOrigin();
+            if (!_same(input.identityKind, EVIDENCE_IDENTITY_KIND) || !_validGithubIdentity(input.identityValue)) {
+                revert InvalidAuthorityIdentity();
+            }
+            if (!_same(input.canonicalOrigin, EVIDENCE_ORIGIN)) revert InvalidAuthorityOrigin();
 
             bytes32 pair = keccak256(abi.encode(input.authorityId, input.authorityRevision));
             for (uint256 j; j < i; ++j) {
@@ -235,17 +242,15 @@ contract Accord402Registry {
             }
             seenAuthorityPairs[i] = pair;
 
-            bytes32 identity = keccak256(abi.encode(input.identityKind, input.identityValue));
-            bool seenIdentity;
+            bytes32 ownerKey = keccak256(bytes(_githubOwner(input.identityValue)));
             for (uint256 j; j < i; ++j) {
-                if (seenIdentities[j] == identity) seenIdentity = true;
+                if (seenOwners[j] == ownerKey) revert DuplicateAuthorityIdentity();
             }
-            if (seenIdentity) revert DuplicateAuthorityIdentity();
-            seenIdentities[i] = identity;
+            seenOwners[i] = ownerKey;
 
             if (_same(input.role, "PRIMARY")) {
                 ++primaryCount;
-            } else if (!seenIdentity) {
+            } else {
                 ++distinctCorroboratorCount;
             }
 
@@ -492,7 +497,9 @@ contract Accord402Registry {
         bytes memory encoded = abi.encodePacked(
             _packField(policy.serviceSpec),
             _packField(_uintToString(policy.maxEvidenceAge)),
+            _packField(_uintToString(policy.requiredCorroborationCount)),
             _packField(_uintToString(policy.repairAllowedFieldMask)),
+            _packField(policy.replayScope),
             _packField(_uintToString(_criteria[core][covenantId].length))
         );
         for (uint256 i; i < _criteria[core][covenantId].length; ++i) {
@@ -534,13 +541,19 @@ contract Accord402Registry {
             revert InvalidEvidenceTimes();
         }
         if (input.observedAt - input.publishedAt > policy.maxEvidenceAge) revert InvalidEvidenceTimes();
-        if (!_validSource(input.sourceKind, input.canonicalSource, input.immutableVersionOrRecordId)) {
-            revert InvalidEvidenceSource();
-        }
         (AuthorityBinding memory authority, bool found) =
             _authority(core, covenantId, input.authorityId, input.authorityRevision);
         if (!found) revert InvalidEvidenceAuthority();
-        if (!_sameOrigin(input.canonicalSource, authority.canonicalOrigin)) revert InvalidEvidenceSource();
+        if (
+            !_same(input.sourceKind, EVIDENCE_SOURCE_KIND)
+                || !_same(authority.identityKind, EVIDENCE_IDENTITY_KIND)
+                || !_same(authority.canonicalOrigin, EVIDENCE_ORIGIN)
+                || !_validGithubSource(
+                    input.canonicalSource,
+                    authority.identityValue,
+                    input.immutableVersionOrRecordId
+                )
+        ) revert InvalidEvidenceSource();
     }
 
     function _validateRepairSet(
@@ -805,15 +818,91 @@ contract Accord402Registry {
         return changed;
     }
 
-    function _validSource(string memory sourceKind, string memory source, string memory versionId)
+    function _validGithubIdentity(string memory identity) internal pure returns (bool) {
+        bytes memory value = bytes(identity);
+        uint256 slash = type(uint256).max;
+        for (uint256 i; i < value.length; ++i) {
+            if (value[i] == "/") {
+                if (slash != type(uint256).max) return false;
+                slash = i;
+            }
+        }
+        if (slash == type(uint256).max || slash == 0 || slash + 1 >= value.length) return false;
+        uint256 ownerLength = slash;
+        uint256 repoLength = value.length - slash - 1;
+        if (ownerLength > 39 || repoLength > 100) return false;
+        if (value[0] == "-" || value[slash - 1] == "-") return false;
+        for (uint256 i; i < ownerLength; ++i) {
+            uint8 ch = uint8(value[i]);
+            if (!((ch >= 48 && ch <= 57) || (ch >= 97 && ch <= 122) || ch == 45)) return false;
+        }
+        if (repoLength == 1 && value[slash + 1] == ".") return false;
+        if (repoLength == 2 && value[slash + 1] == "." && value[slash + 2] == ".") return false;
+        for (uint256 i = slash + 1; i < value.length; ++i) {
+            uint8 ch = uint8(value[i]);
+            if (
+                !((ch >= 48 && ch <= 57) || (ch >= 97 && ch <= 122) || ch == 45 || ch == 46 || ch == 95)
+            ) return false;
+        }
+        return true;
+    }
+
+    function _githubOwner(string memory identity) internal pure returns (string memory) {
+        bytes memory value = bytes(identity);
+        uint256 slash;
+        while (slash < value.length && value[slash] != "/") ++slash;
+        bytes memory owner = new bytes(slash);
+        for (uint256 i; i < slash; ++i) owner[i] = value[i];
+        return string(owner);
+    }
+
+    function _isLowerHex40(string memory value) internal pure returns (bool) {
+        bytes memory chars = bytes(value);
+        if (chars.length != 40) return false;
+        for (uint256 i; i < 40; ++i) {
+            uint8 ch = uint8(chars[i]);
+            if (!((ch >= 48 && ch <= 57) || (ch >= 97 && ch <= 102))) return false;
+        }
+        return true;
+    }
+
+    function _validGithubPathSegment(bytes memory source, uint256 start, uint256 end) internal pure returns (bool) {
+        if (start >= end) return false;
+        if (end - start == 1 && source[start] == ".") return false;
+        if (end - start == 2 && source[start] == "." && source[start + 1] == ".") return false;
+        for (uint256 i = start; i < end; ++i) {
+            uint8 ch = uint8(source[i]);
+            if (
+                !((ch >= 48 && ch <= 57) || (ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122)
+                    || ch == 45 || ch == 46 || ch == 95 || ch == 126)
+            ) return false;
+        }
+        return true;
+    }
+
+    function _validGithubSource(string memory source, string memory identity, string memory versionId)
         internal
         pure
         returns (bool)
     {
-        if (!_validCanonicalSource(source)) return false;
-        if (_same(sourceKind, "LIVE")) return bytes(versionId).length == 0;
-        if (!_same(sourceKind, "IMMUTABLE") && !_same(sourceKind, "VERSIONED")) return false;
-        return bytes(versionId).length != 0 && bytes(versionId).length <= 128;
+        if (!_validGithubIdentity(identity) || !_isLowerHex40(versionId)) return false;
+        bytes memory raw = bytes(source);
+        bytes memory prefix = bytes(string.concat(EVIDENCE_ORIGIN, "/", identity, "/", versionId, "/"));
+        if (raw.length <= prefix.length) return false;
+        for (uint256 i; i < prefix.length; ++i) {
+            if (raw[i] != prefix[i]) return false;
+        }
+        uint256 segmentStart = prefix.length;
+        for (uint256 i = segmentStart; i <= raw.length; ++i) {
+            if (i == raw.length || raw[i] == "/") {
+                if (!_validGithubPathSegment(raw, segmentStart, i)) return false;
+                segmentStart = i + 1;
+            } else {
+                uint8 ch = uint8(raw[i]);
+                if (ch <= 32 || ch == 127 || ch == 35 || ch == 37 || ch == 63 || ch == 92) return false;
+            }
+        }
+        return segmentStart == raw.length + 1;
     }
 
     function _validHttpsOrigin(string memory origin) internal pure returns (bool) {

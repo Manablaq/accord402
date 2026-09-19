@@ -1,6 +1,8 @@
 # Accord402 V2 implementation status
 
-**Status: Bradbury graph deployed; production console live; final settlement certification remains.**
+**Status: SECURITY REMEDIATION CANDIDATE — current deployed graph is historical until the hardened source is recompiled, size-certified, redeployed, finalized, and live-certified.**
+
+Security Hardening V6 binds the exact Core and Registry adjudication snapshots into the finalized callback, eliminating the single-RPC semantic-substitution boundary.
 
 Branch: `refactor/hybrid-architecture-v1`
 
@@ -27,6 +29,39 @@ Branch: `refactor/hybrid-architecture-v1`
 - production Next.js console with configuration validation, live covenant reads,
   wallet actions, and exact-transaction finality observation;
 - Vercel production deployment at [accord402.vercel.app](https://accord402.vercel.app).
+
+## Studio-dev deployment fee profile
+
+A one-shot finalized deployment profile has been measured for the exact current
+hardened Adjudicator source SHA-256
+`4e3d3fabce4563f660eb10b4328b805c1cbeea92f83ecd047add00f1b01a1775`.
+
+- network: `studio_devnet`;
+- chain ID: `61997`;
+- toolchain: `genlayer-py 0.19.0rc2`, `genlayer-test 0.30.0rc2`,
+  Python `3.12.14`;
+- live fee estimation: yes;
+- explicit deployment fees: yes;
+- finality requirement: `wait_until="finalized"`;
+- wait retries: `240`;
+- measured deploy values: leader `125`, validator `250`,
+  execution budget per round `98466250000000`, total message fees `0`,
+  rotations per round `3`;
+- source fee-profile SHA-256:
+  `d461023eff9e6cc8ca35bf09482e7084c9559163bb429a589c82a27dcfe0693b`;
+- canonical repository artifact:
+  `artifacts/ACCORD402_STUDIO_DEVNET_DEPLOY_FEE_PROFILE_V1.json`;
+- canonical artifact SHA-256: `a9a120391392f5e66c6d9008d7a50c474d76e9bea7f1cfdfcee0d60a4fd16f02`.
+
+The test completed only after the RC2 finalization waiter returned a stored
+`finalized` lifecycle, and the deploy observation was then derived from that
+returned receipt. The exact Studio-dev transaction ID and deployed contract
+address were not persisted. That provenance limitation is recorded explicitly;
+no transaction hash, contract address, or Explorer link is inferred.
+
+This result is deployment-admission evidence only. It does not make the
+historical Bradbury graph current, and fresh Bradbury deployment, finality,
+live settlement, and reviewer certification remain separate gates.
 
 ## Verification completed
 
@@ -60,3 +95,28 @@ The live review-retry path is implemented and observable. `REVIEW_RETRY_REQUIRED
 is a non-economic intermediate state, not a payout failure or a claim that a
 settlement already occurred. See [`OPERATIONS.md`](OPERATIONS.md) for the exact
 evidence sequence required to close these gates.
+
+
+Core size remediation removes only the redundant aggregate `getReviewHashes()` view; the four individual hash getters and all settlement/adjudication semantics remain unchanged.
+
+Core bytecode compaction also removes the legacy string wrappers `getServiceSpecHashHex()` and `getDeliveryHashHex()`. The canonical `bytes32` getters remain, and finalized adjudication is bound to the stronger full Core/Registry snapshot hashes defined by Security Hardening V6.
+
+## Reproducible Bradbury runtime integration
+
+A guarded Bradbury runtime deployment test is now part of the release
+candidate:
+
+- `gltest.config.yaml` is secret-free, explicitly retains preconfigured `localnet`, and defaults to local execution;
+- `tests/integration/test_accord402_adjudicator_bradbury_runtime.py` is skipped
+  unless a fresh live-write authorization gate is supplied;
+- `scripts/run_bradbury_runtime_integration.sh` requires a clean immutable
+  release commit, exact source hash, explicit Registry address, private key in
+  process environment, and a one-shot authorization ID;
+- the live test persists the GenLayer transaction ID before finality polling,
+  waits for exact `FINALIZED`, requires execution success, and persists the
+  deployed address plus finalized receipt.
+
+The harness has **not** been executed for the current hardened release. It
+does not certify a fresh Bradbury graph, settlement, repair/recovery, balance
+consequence, frontend E2E, or reviewer completion. Those remain live release
+gates.

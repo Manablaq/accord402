@@ -1,0 +1,56 @@
+name: verify
+
+on:
+  pull_request:
+  push:
+    branches: [main, refactor/hybrid-architecture-v1]
+
+permissions:
+  contents: read
+
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: foundry-rs/foundry-toolchain@v1
+        with:
+          version: v1.8.1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -r requirements-dev.txt
+      - run: forge build --root .
+      - run: forge test --root .
+      - run: python -m pytest -q
+      - run: python -m py_compile contracts/Accord402Adjudicator.py contracts/accord402.py
+      - run: genvm-lint check contracts/Accord402Adjudicator.py --json
+      - name: Runtime-size hard gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          registry="$(forge inspect contracts/Accord402Registry.sol:Accord402Registry deployedBytecode)"
+          core="$(forge inspect contracts/Accord402Core.sol:Accord402Core deployedBytecode)"
+          registry_bytes=$(( (${#registry} - 2) / 2 ))
+          core_bytes=$(( (${#core} - 2) / 2 ))
+          echo "REGISTRY_RUNTIME_BYTES=$registry_bytes"
+          echo "CORE_RUNTIME_BYTES=$core_bytes"
+          test "$registry_bytes" -lt 24576
+          test "$core_bytes" -lt 24576
+
+  frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24.20.0"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm install --global npm@11.19.0
+      - run: npm ci
+      - run: npm run check

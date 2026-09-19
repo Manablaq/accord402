@@ -1,5 +1,7 @@
 # Accord402
 
+> **Security remediation candidate:** the current branch source has been hardened beyond the Bradbury addresses listed below. Those addresses remain historical evidence until this exact source passes local/CI size gates and a fresh canonical graph is deployed and certified.
+
 **Proof-bound service agreements for agent-to-agent commerce.**
 
 Accord402 is a GenLayer-native warranty protocol for autonomous services. A
@@ -42,6 +44,55 @@ remain auditable and deployable under Bradbury limits.
 
 `contracts/accord402.py` is retained as historical/reference material. It is
 not the V2 deployment artifact.
+
+## Studio-dev finalized deployment fee profile
+
+The current hardened `contracts/Accord402Adjudicator.py` source
+(`4e3d3fabce4563f660eb10b4328b805c1cbeea92f83ecd047add00f1b01a1775`)
+was profiled exactly once on GenLayer `studio_devnet` (chain `61997`) with
+`genlayer-py 0.19.0rc2` and `genlayer-test 0.30.0rc2`. The frozen test used
+live fee estimation, explicit deployment fees, and `wait_until="finalized"`.
+
+The measured deployment recommendation is:
+
+- `leaderTimeunitsAllocation`: `125`
+- `validatorTimeunitsAllocation`: `250`
+- `executionBudgetPerRound`: `98466250000000`
+- `totalMessageFees`: `0`
+- `rotationsPerRound`: `3`
+
+Canonical evidence is frozen in
+[`artifacts/ACCORD402_STUDIO_DEVNET_DEPLOY_FEE_PROFILE_V1.json`](artifacts/ACCORD402_STUDIO_DEVNET_DEPLOY_FEE_PROFILE_V1.json)
+with SHA-256 `a9a120391392f5e66c6d9008d7a50c474d76e9bea7f1cfdfcee0d60a4fd16f02`.
+
+This profile is deployment-admission evidence for the exact hardened
+Adjudicator source. It is **not** a Bradbury deployment or settlement
+certification. The one-shot did not persist the exact Studio-dev transaction
+ID or deployed contract address, so Accord402 does not claim an Explorer link
+for that profiling deployment. The profiling authorization is consumed; no
+second profiling deployment, retry, or rebroadcast is authorized.
+
+
+## Reproducible Bradbury runtime integration
+
+The repository now contains a guarded supported-runtime deployment harness for
+the exact hardened Adjudicator source:
+
+- tracked safe-default configuration: [`gltest.config.yaml`](gltest.config.yaml);
+- live test: [`tests/integration/test_accord402_adjudicator_bradbury_runtime.py`](tests/integration/test_accord402_adjudicator_bradbury_runtime.py);
+- one-shot guarded runner: [`scripts/run_bradbury_runtime_integration.sh`](scripts/run_bradbury_runtime_integration.sh);
+- evidence and authorization boundary: [`docs/BRADBURY_RUNTIME_INTEGRATION_V1.md`](docs/BRADBURY_RUNTIME_INTEGRATION_V1.md);
+- baseline/RC2/Foundry role reconciliation: [`docs/TOOLCHAIN_RELEASE_RECONCILIATION_V1.md`](docs/TOOLCHAIN_RELEASE_RECONCILIATION_V1.md).
+
+The tracked configuration contains **no Bradbury signing account** and keeps
+`localnet` as the default. The live test is skipped unless the guarded runner
+sets a fresh explicit authorization gate. A live run persists the submitted
+GenLayer transaction ID before finality polling, waits for exact `Finalized`,
+requires successful GenVM execution, and persists the resulting contract
+address and finalized receipt.
+
+This harness has not yet been executed for the current hardened release and
+does not make the historical Bradbury graph current.
 
 ## Bradbury deployment
 

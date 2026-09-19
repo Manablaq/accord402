@@ -100,7 +100,7 @@ contract Accord402CoreTest {
             1,
             "report",
             "PAGE",
-            "VERSIONED",
+            "IMMUTABLE",
             "https://raw.githubusercontent.com/owner-primary/repo/1111111111111111111111111111111111111111/report.json",
             "1111111111111111111111111111111111111111",
             observedAt - 10,
@@ -115,7 +115,7 @@ contract Accord402CoreTest {
             1,
             "report",
             "PAGE",
-            "VERSIONED",
+            "IMMUTABLE",
             "https://raw.githubusercontent.com/owner-corroborator/repo/2222222222222222222222222222222222222222/report.json",
             "2222222222222222222222222222222222222222",
             observedAt - 10,
@@ -155,8 +155,8 @@ contract Accord402CoreTest {
         uint32[] memory repairMasks = new uint32[](0);
         core.applyAdjudicationResult(
             covenantId,
-            core.getServiceSpecHashHex(covenantId),
-            core.getDeliveryHashHex(covenantId),
+            _coreSnapshotHash(covenantId),
+            _registrySnapshotHash(covenantId),
             core.getEvidencePolicyHashHex(covenantId),
             core.getActiveEvidenceSetHashHex(covenantId),
             1,
@@ -201,8 +201,8 @@ contract Accord402CoreTest {
                 abi.encodeWithSelector(
                     core.applyAdjudicationResult.selector,
                     covenantId,
-                    core.getServiceSpecHashHex(covenantId),
-                    core.getDeliveryHashHex(covenantId),
+                    _hex(core.getServiceSpecHash(covenantId)),
+                    _hex(core.getDeliveryHash(covenantId)),
                     core.getEvidencePolicyHashHex(covenantId),
                     core.getActiveEvidenceSetHashHex(covenantId),
                     2,
@@ -224,8 +224,8 @@ contract Accord402CoreTest {
         vm.prank(BUYER);
         core.challengeDelivery(covenantId, "unauthorized callback", challenged);
         string[] memory empty = new string[](0);
-        string memory serviceHash = core.getServiceSpecHashHex(covenantId);
-        string memory deliveryHash = core.getDeliveryHashHex(covenantId);
+        string memory serviceHash = _hex(core.getServiceSpecHash(covenantId));
+        string memory deliveryHash = _hex(core.getDeliveryHash(covenantId));
         string memory policyHash = core.getEvidencePolicyHashHex(covenantId);
         string memory evidenceSetHash = core.getActiveEvidenceSetHashHex(covenantId);
         vm.prank(BUYER);
@@ -340,8 +340,8 @@ contract Accord402CoreTest {
         string[] memory empty = new string[](0);
         core.applyAdjudicationResult(
             covenantId,
-            core.getServiceSpecHashHex(covenantId),
-            core.getDeliveryHashHex(covenantId),
+            _coreSnapshotHash(covenantId),
+            _registrySnapshotHash(covenantId),
             core.getEvidencePolicyHashHex(covenantId),
             core.getActiveEvidenceSetHashHex(covenantId),
             1,
@@ -379,8 +379,8 @@ contract Accord402CoreTest {
         repairMasks[0] = 160;
         core.applyAdjudicationResult(
             covenantId,
-            core.getServiceSpecHashHex(covenantId),
-            core.getDeliveryHashHex(covenantId),
+            _coreSnapshotHash(covenantId),
+            _registrySnapshotHash(covenantId),
             core.getEvidencePolicyHashHex(covenantId),
             core.getActiveEvidenceSetHashHex(covenantId),
             1,
@@ -401,7 +401,7 @@ contract Accord402CoreTest {
             1,
             "report",
             "PAGE",
-            "VERSIONED",
+            "IMMUTABLE",
             "https://raw.githubusercontent.com/owner-primary/repo/1111111111111111111111111111111111111111/report.json",
             "1111111111111111111111111111111111111111",
             uint64(1_699_999_990),
@@ -417,6 +417,25 @@ contract Accord402CoreTest {
         require(repaired.reviewGeneration == 2, "generation not incremented");
         require(repaired.deliveryHash == deliveryHashBefore, "delivery hash mutated");
         require(repaired.activeEvidenceSetHash != bytes32(0), "missing active evidence hash");
+    }
+
+    function _coreSnapshotHash(uint64 covenantId) private view returns (string memory) {
+        return _hex(sha256(bytes(core.getAdjudicationSnapshot(covenantId))));
+    }
+
+    function _registrySnapshotHash(uint64 covenantId) private view returns (string memory) {
+        return _hex(sha256(bytes(registry.getAdjudicationSnapshot(address(core), covenantId))));
+    }
+
+    function _hex(bytes32 value) private pure returns (string memory) {
+        bytes16 symbols = "0123456789abcdef";
+        bytes memory out = new bytes(64);
+        for (uint256 i; i < 32; ++i) {
+            uint8 b = uint8(value[i]);
+            out[i * 2] = symbols[b >> 4];
+            out[i * 2 + 1] = symbols[b & 0x0f];
+        }
+        return string(out);
     }
 
     function _same(string memory a, string memory b) private pure returns (bool) {
