@@ -25,8 +25,9 @@ jobs:
       - run: forge build --root .
       - run: forge test --root .
       - run: python -m pytest -q
-      - run: python -m py_compile contracts/Accord402Adjudicator.py contracts/accord402.py
+      - run: python -m py_compile contracts/Accord402Adjudicator.py contracts/accord402.py contracts/accord402_core_chunk_deployer.py
       - run: genvm-lint check contracts/Accord402Adjudicator.py --json
+      - run: genvm-lint check contracts/accord402_core_chunk_deployer.py --json
       - name: Runtime-size hard gate
         shell: bash
         run: |
