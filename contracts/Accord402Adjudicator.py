@@ -1,10 +1,9 @@
 # v0.3.0
-# { "Depends": "py-genlayer:5jycge4q8k23462jtb0b9fyey1s9qz928sz2nbrd9mg4sxqg2qng" }
+# { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
 from datetime import datetime, timezone
 import hashlib
 import json
-import genlayer as gl
-from genlayer.types import *
+from genlayer import *
 zaa = isinstance
 qa = 'evidence_id'
 qb = 'challenged_criterion_ids'
@@ -400,7 +399,7 @@ def s(snapshot, now):
  all_criteria = [item[q5] for item in snapshot[q12]]
  decision = q13 if challenged == all_criteria else q11
  return _canonical_json(r(snapshot, decision, [], '', []))
-class Accord402Adjudicator(gl.contract.Contract):
+class Accord402Adjudicator(gl.Contract):
  registry: Address
  def __init__(self, registry: str) -> None:
   self.registry = Address(registry)
