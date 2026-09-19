@@ -21,7 +21,6 @@ import pytest
 
 from gltest import get_contract_factory, get_default_account, get_gl_client
 from gltest.types import TransactionStatus
-from gltest.utils import extract_contract_address
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -81,6 +80,33 @@ def _hex_text(value: Any) -> str:
         if isinstance(result, str):
             return result if result.startswith("0x") else "0x" + result
     return str(value)
+
+
+def _extract_deployment_address(receipt: dict[str, Any]) -> str:
+    # Accept legacy decoded deployment data, but support Bradbury / v0.6
+    # receipts where tx_data_decoded is null and recipient is the deployed IC.
+    candidate: Any = None
+
+    decoded = receipt.get("tx_data_decoded")
+    if isinstance(decoded, dict):
+        candidate = decoded.get("contract_address")
+        if candidate is None:
+            candidate = decoded.get("contractAddress")
+
+    if candidate is None:
+        data = receipt.get("data")
+        if isinstance(data, dict):
+            candidate = data.get("contract_address")
+            if candidate is None:
+                candidate = data.get("contractAddress")
+
+    if candidate is None:
+        candidate = receipt.get("recipient")
+
+    assert isinstance(candidate, str), receipt
+    assert candidate.startswith("0x"), receipt
+    assert len(candidate) == 42, receipt
+    return candidate
 
 
 def _required_env(name: str) -> str:
@@ -171,10 +197,7 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
     receipt_tx_id = _hex_text(receipt.get("tx_id"))
     assert receipt_tx_id.lower() == tx_id_text.lower(), receipt
 
-    contract_address = extract_contract_address(receipt)
-    assert isinstance(contract_address, str)
-    assert contract_address.startswith("0x")
-    assert len(contract_address) == 42
+    contract_address = _extract_deployment_address(receipt)
 
     _atomic_json(
         evidence_dir / "deployment-result.json",

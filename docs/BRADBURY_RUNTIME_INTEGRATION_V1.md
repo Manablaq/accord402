@@ -51,6 +51,13 @@ does not rely on the pinned legacy `gltest.tx_execution_succeeded` helper
 because that helper requires `leader_receipt`, which is not the authoritative
 v0.6 execution-success field.
 
+Bradbury / Consensus v0.6 deployment receipts can also expose
+`tx_data_decoded: null`. For deployment-address provenance, the harness therefore
+accepts a decoded `contract_address` / `contractAddress` when present and
+otherwise requires the finalized transaction `recipient` as the deployed
+Intelligent Contract address. The fallback is covered by a no-write regression
+test and does not authorize another deployment.
+
 ## What it does not prove
 
 A successful Adjudicator deployment test is not, by itself:
