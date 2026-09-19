@@ -20,7 +20,6 @@ from typing import Any
 import pytest
 
 from gltest import get_contract_factory, get_default_account, get_gl_client
-from gltest.assertions import tx_execution_succeeded
 from gltest.types import TransactionStatus
 from gltest.utils import extract_contract_address
 
@@ -29,7 +28,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "contracts" / "Accord402Adjudicator.py"
 
 EXPECTED_SOURCE_SHA256 = (
-    "4e3d3fabce4563f660eb10b4328b805c1cbeea92f83ecd047add00f1b01a1775"
+    "9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3"
 )
 EXPECTED_NETWORK = "testnet_bradbury"
 EXPECTED_CHAIN_ID = 4221
@@ -158,7 +157,16 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
 
     assert str(receipt.get("status")) == "7", receipt
     assert receipt.get("status_name") == "FINALIZED", receipt
-    assert tx_execution_succeeded(receipt), receipt
+
+    # Bradbury / Consensus v0.6 success requires both terminal finality and a
+    # successful GenVM execution result. Do not use gltest's legacy
+    # tx_execution_succeeded() helper here: the pinned helper depends on
+    # leader_receipt, while v0.6 exposes the consequential execution outcome
+    # directly as tx_execution_result / tx_execution_result_name.
+    execution_result = receipt.get("tx_execution_result")
+    execution_result_name = receipt.get("tx_execution_result_name")
+    assert int(execution_result) == 1, receipt
+    assert execution_result_name == "FINISHED_WITH_RETURN", receipt
 
     receipt_tx_id = _hex_text(receipt.get("tx_id"))
     assert receipt_tx_id.lower() == tx_id_text.lower(), receipt
@@ -183,6 +191,8 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
             "sender_address": account.address,
             "transaction_id": tx_id_text,
             "finalized_status": 7,
+            "execution_result": int(execution_result),
+            "execution_result_name": execution_result_name,
             "execution_success": True,
             "contract_address": contract_address,
         },

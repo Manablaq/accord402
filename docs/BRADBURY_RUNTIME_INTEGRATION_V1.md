@@ -11,6 +11,8 @@ The harness is bound to current GenLayer Bradbury:
 - chain ID: `4221`
 - GenLayer RPC: `https://rpc-bradbury.genlayer.com`
 - explorer: `https://explorer-bradbury.genlayer.com`
+- exact Adjudicator source SHA-256:
+  `9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3`
 
 The tracked `gltest.config.yaml` intentionally contains no signing account.
 It explicitly retains the pinned suite's preconfigured `localnet` entry and
@@ -34,7 +36,8 @@ When, and only when, the guarded live runner is explicitly authorized, it:
 7. persists the returned GenLayer consensus transaction ID immediately after
    the SDK returns it and before finality polling;
 8. waits specifically for `TransactionStatus.FINALIZED`;
-9. requires `tx_execution_succeeded(receipt)`;
+9. requires `tx_execution_result == 1` and
+   `tx_execution_result_name == "FINISHED_WITH_RETURN"`;
 10. requires the finalized receipt transaction ID to match the submitted ID;
 11. extracts and persists the deployed contract address; and
 12. preserves the finalized receipt and release/source binding in a dedicated
@@ -42,6 +45,11 @@ When, and only when, the guarded live runner is explicitly authorized, it:
 
 The pinned `genlayer-py 0.18.0` wait implementation requires exact
 `FINALIZED`; `ACCEPTED` is not treated as satisfying a finalized wait.
+Bradbury / Consensus v0.6 success is checked independently from status using
+the receipt's explicit execution-result fields. The runtime test deliberately
+does not rely on the pinned legacy `gltest.tx_execution_succeeded` helper
+because that helper requires `leader_receipt`, which is not the authoritative
+v0.6 execution-success field.
 
 ## What it does not prove
 
