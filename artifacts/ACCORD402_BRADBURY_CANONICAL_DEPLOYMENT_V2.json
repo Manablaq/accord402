@@ -1,0 +1,89 @@
+{
+  "components": {
+    "Adjudicator": {
+      "address": "0x5c958e498C3109922AFAc661EB466628Fe521CB6",
+      "consensus_result": "AGREE",
+      "execution_result": "FINISHED_WITH_RETURN",
+      "execution_result_code": 1,
+      "genlayer_tx_id": "0x202b98d47307c95098e00f410f351db86f904358651de03ba8b7d55b8d620f38",
+      "outer_evm_nonce": 1228,
+      "outer_evm_receipt_status": 1,
+      "outer_evm_tx_hash": "0x6ceef29669a2d888c22455555735352315bcdcf0274164f9b2307378e7421a50",
+      "status": "FINALIZED",
+      "status_code": 7
+    },
+    "Core": {
+      "address": "0x3eA9E19531a59BA31C2E4f396Ab2b0256304e835",
+      "creation_input_matches_frozen_init_and_constructor": true,
+      "dependency_getters": {
+        "adjudicator": "0x5c958e498C3109922AFAc661EB466628Fe521CB6",
+        "registry": "0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C",
+        "settlementVault": "0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5"
+      },
+      "deployment_nonce": 1236,
+      "evm_tx_hash": "0x86d5c73db9388b0df8de4753cf5c06751c3f6ec3b7fdfcdd60c1f4cb225e116e",
+      "predicted_address_match": true,
+      "receipt_status": 1,
+      "runtime_sha256": "0ebc776ad0c6fc0a9d8918206357fd626116f2011b13fda08a48e4e6972972cd"
+    },
+    "Registry": {
+      "address": "0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C",
+      "deployment_nonce": 1227,
+      "evm_tx_hash": "0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608",
+      "receipt_status": 1,
+      "runtime_sha256": "25b850052c2d02c202262fcff7216363fcffdf6cb7fc6d533268a1842a008d7c"
+    },
+    "SettlementVault": {
+      "address": "0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5",
+      "deployment_nonce": 1226,
+      "evm_tx_hash": "0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7",
+      "receipt_status": 1,
+      "runtime_sha256": "f45144f43ba992191aa6d3e9dde401a42ee828cdb72149b570a962a1103c7e6f"
+    }
+  },
+  "independent_readonly_audit": {
+    "adjudicator_execution_success": true,
+    "adjudicator_finalized": true,
+    "blockchain_write_performed": false,
+    "core_creation_input_match": true,
+    "core_dependency_getters_match": true,
+    "core_predicted_address_match": true,
+    "core_runtime_code_present": true,
+    "old_partial_address_reuse": false,
+    "r36_evidence_manifest_integrity": true,
+    "registry_runtime_parity": true,
+    "result": "PASS",
+    "source_evidence_sha256": {
+      "authorization-sentinels.json": "259795caa0472ea9a67d3b7fb15f81c6c963a409e0aec8669264dc84c88fbf3c",
+      "core-creation-input-audit.json": "65a4df1f07618d23d663c8b2dee93ef9c1c47d765a8c99e703f50ffa08798c8f",
+      "deployment-evidence-audit.json": "f9a8e324399f44a455085ca63163d669b3d3a3316bec862a2be3113f106d53ad",
+      "source-bindings.json": "3dbb95f28a3cc905647c4c2f24a6fdd438181298ca3755afbd476a2167da7142"
+    },
+    "vault_runtime_parity": true
+  },
+  "network": {
+    "chain_id": 4221,
+    "chain_rpc": "https://rpc.testnet-chain.genlayer.com",
+    "explorer": "https://explorer-bradbury.genlayer.com",
+    "genlayer_rpc": "https://rpc-bradbury.genlayer.com",
+    "name": "Bradbury"
+  },
+  "release": {
+    "commit": "2c025294c66ade0c54b6d494bd5136490b9d1b3c",
+    "tree": "5de6c7a50c3ec7568cf4b6bce54383b51fd7b5df"
+  },
+  "schema": "accord402-bradbury-canonical-deployment-v2",
+  "scope_limitations": [
+    "The tracked Bradbury supported-runtime reproducibility harness remains a separate release gate.",
+    "This artifact does not prove finalized settlement recipient balance consequence.",
+    "This artifact does not prove duplicate-claim resistance.",
+    "This artifact does not prove recovery/expiry balance outcomes.",
+    "This artifact does not prove frontend E2E or final reviewer certification."
+  ],
+  "source_sha256": {
+    "Adjudicator": "9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3",
+    "Core": "ee8d58f6693c16c22eb610140570e0c92a0c923482f154e886f9ae25a7d3c289",
+    "Registry": "bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae",
+    "SettlementVault": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6"
+  }
+}

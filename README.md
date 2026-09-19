@@ -1,6 +1,6 @@
 # Accord402
 
-> **Security remediation candidate:** the current branch source has been hardened beyond the Bradbury addresses listed below. Those addresses remain historical evidence until this exact source passes local/CI size gates and a fresh canonical graph is deployed and certified.
+> **Canonical Bradbury release:** the hardened V2 source at release commit `2c025294c66ade0c54b6d494bd5136490b9d1b3c` / tree `5de6c7a50c3ec7568cf4b6bce54383b51fd7b5df` is deployed as the four-component graph below and independently re-audited against live Bradbury state. Deployment finality is complete; settlement/balance-consequence certification remains a separate release gate.
 
 **Proof-bound service agreements for agent-to-agent commerce.**
 
@@ -15,12 +15,12 @@ GenLayer Intelligent Contract.
 
 | Surface | Status |
 | --- | --- |
-| Bradbury V2 contract graph | Deployed |
+| Bradbury V2 contract graph | Deployed and independently audited |
 | Local Solidity lifecycle/security suite | Passing (11 tests) |
 | Python regression suite | Passing (75 tests) |
 | GenLayer schema/linter checks | Passing |
 | Bradbury lifecycle smoke run | Open → fund → accept → deliver → challenge completed |
-| Bradbury adjudication | `AGREE / FINISHED_WITH_RETURN` observed |
+| Canonical Bradbury Adjudicator deployment | `FINALIZED / AGREE / FINISHED_WITH_RETURN` |
 | Production console | Live at [accord402.vercel.app](https://accord402.vercel.app) |
 | Full settlement certification | Remaining: finalized recipient balance and duplicate-claim proof |
 
@@ -47,7 +47,7 @@ not the V2 deployment artifact.
 
 ## Studio-dev finalized deployment fee profile
 
-The current hardened `contracts/Accord402Adjudicator.py` source
+An earlier hardened `contracts/Accord402Adjudicator.py` source
 (`4e3d3fabce4563f660eb10b4328b805c1cbeea92f83ecd047add00f1b01a1775`)
 was profiled exactly once on GenLayer `studio_devnet` (chain `61997`) with
 `genlayer-py 0.19.0rc2` and `genlayer-test 0.30.0rc2`. The frozen test used
@@ -65,12 +65,14 @@ Canonical evidence is frozen in
 [`artifacts/ACCORD402_STUDIO_DEVNET_DEPLOY_FEE_PROFILE_V1.json`](artifacts/ACCORD402_STUDIO_DEVNET_DEPLOY_FEE_PROFILE_V1.json)
 with SHA-256 `a9a120391392f5e66c6d9008d7a50c474d76e9bea7f1cfdfcee0d60a4fd16f02`.
 
-This profile is deployment-admission evidence for the exact hardened
-Adjudicator source. It is **not** a Bradbury deployment or settlement
-certification. The one-shot did not persist the exact Studio-dev transaction
-ID or deployed contract address, so Accord402 does not claim an Explorer link
-for that profiling deployment. The profiling authorization is consumed; no
-second profiling deployment, retry, or rebroadcast is authorized.
+This profile is historical deployment-admission evidence for that earlier
+Adjudicator source. It is **not** the canonical Bradbury deployment or
+settlement certification. The canonical Bradbury Adjudicator source is now
+`9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3` and is bound to the live graph documented below.
+The Studio-dev one-shot did not persist the exact transaction ID or deployed
+contract address, so Accord402 does not claim an Explorer link for that
+profiling deployment. The profiling authorization is consumed; no second
+profiling deployment, retry, or rebroadcast is authorized.
 
 
 ## Reproducible Bradbury runtime integration
@@ -91,23 +93,49 @@ GenLayer transaction ID before finality polling, waits for exact `Finalized`,
 requires successful GenVM execution, and persists the resulting contract
 address and finalized receipt.
 
-This harness has not yet been executed for the current hardened release and
-does not make the historical Bradbury graph current.
+This tracked harness has not yet been executed for the current hardened
+release and remains a separate supported-runtime certification gate. The
+canonical graph below was deployed and independently audited through the
+guarded release-deployment path; that does not substitute for executing this
+specific reproducibility harness.
 
-## Bradbury deployment
+## Canonical Bradbury deployment
 
-The current immutable dependency graph is:
+The hardened V2 release is deployed on Bradbury chain `4221` as one immutable
+four-component dependency graph:
 
-- Settlement Vault: [`0xeECBE158401B932fec22e61dd0A336638D7A574a`](https://explorer-bradbury.genlayer.com/address/0xeECBE158401B932fec22e61dd0A336638D7A574a)
-- Registry: [`0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7`](https://explorer-bradbury.genlayer.com/address/0x5A622C41BAe12c4BFB1B6465af5ac1a3087497D7)
-- Adjudicator: [`0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4`](https://explorer-bradbury.genlayer.com/address/0xEa6BB1a8Ed637cDF319455A718A18a449ACbe8c4)
-- Core: [`0xA1a2125B3C7D03b868628B4C79832B33B7af4923`](https://explorer-bradbury.genlayer.com/address/0xA1a2125B3C7D03b868628B4C79832B33B7af4923)
+| Component | Canonical address | Deployment evidence |
+| --- | --- | --- |
+| Settlement Vault | [`0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5`](https://explorer-bradbury.genlayer.com/address/0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5) | EVM tx [`0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7`](https://explorer-bradbury.genlayer.com/tx/0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7) |
+| Registry | [`0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C`](https://explorer-bradbury.genlayer.com/address/0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C) | EVM tx [`0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608`](https://explorer-bradbury.genlayer.com/tx/0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608) |
+| Adjudicator | [`0x5c958e498C3109922AFAc661EB466628Fe521CB6`](https://explorer-bradbury.genlayer.com/address/0x5c958e498C3109922AFAc661EB466628Fe521CB6) | GenLayer tx [`0x202b98d47307c95098e00f410f351db86f904358651de03ba8b7d55b8d620f38`](https://explorer-bradbury.genlayer.com/transactions/0x202b98d47307c95098e00f410f351db86f904358651de03ba8b7d55b8d620f38) |
+| Core | [`0x3eA9E19531a59BA31C2E4f396Ab2b0256304e835`](https://explorer-bradbury.genlayer.com/address/0x3eA9E19531a59BA31C2E4f396Ab2b0256304e835) | EVM tx [`0x86d5c73db9388b0df8de4753cf5c06751c3f6ec3b7fdfcdd60c1f4cb225e116e`](https://explorer-bradbury.genlayer.com/tx/0x86d5c73db9388b0df8de4753cf5c06751c3f6ec3b7fdfcdd60c1f4cb225e116e) |
 
-The deployed graph is bound to the canonical Accord402 source fingerprint:
+The Adjudicator outer EVM submission is `0x6ceef29669a2d888c22455555735352315bcdcf0274164f9b2307378e7421a50`. Its GenLayer
+transaction is `FINALIZED`, consensus result `AGREE`, and execution result
+`FINISHED_WITH_RETURN`.
+
+The live graph is bound to release commit `2c025294c66ade0c54b6d494bd5136490b9d1b3c` and tree
+`5de6c7a50c3ec7568cf4b6bce54383b51fd7b5df`. Exact component source SHA-256 values are:
 
 ```text
-d6f52562d0686ff213eb33773f201441f50f15a15190533306afd0a91ccf50c4
+SettlementVault  e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6
+Registry         bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae
+Adjudicator      9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3
+Core             ee8d58f6693c16c22eb610140570e0c92a0c923482f154e886f9ae25a7d3c289
 ```
+
+Independent read-only deployment evidence re-verified Vault/Registry runtime
+parity, exact frozen Core creation input, predicted Core address, non-empty
+Core runtime code, Core dependency getters, Adjudicator finality/execution,
+and zero reuse of the failed partial-deployment addresses.
+
+See [`docs/BRADBURY_CANONICAL_DEPLOYMENT_V2.md`](docs/BRADBURY_CANONICAL_DEPLOYMENT_V2.md)
+and [`artifacts/ACCORD402_BRADBURY_CANONICAL_DEPLOYMENT_V2.json`](artifacts/ACCORD402_BRADBURY_CANONICAL_DEPLOYMENT_V2.json).
+
+This deployment evidence does **not** claim the remaining settlement
+recipient-balance, duplicate-claim, recovery/expiry, frontend-E2E, or final
+reviewer-certification gates are complete.
 
 ## Repository layout
 

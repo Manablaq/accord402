@@ -59,9 +59,30 @@ returned receipt. The exact Studio-dev transaction ID and deployed contract
 address were not persisted. That provenance limitation is recorded explicitly;
 no transaction hash, contract address, or Explorer link is inferred.
 
-This result is deployment-admission evidence only. It does not make the
-historical Bradbury graph current, and fresh Bradbury deployment, finality,
-live settlement, and reviewer certification remain separate gates.
+This result remains deployment-admission evidence only and does not itself
+certify Bradbury. Since that profile was recorded, the hardened V2 graph at
+release commit `2c025294c66ade0c54b6d494bd5136490b9d1b3c` / tree `5de6c7a50c3ec7568cf4b6bce54383b51fd7b5df` has been freshly
+deployed on Bradbury and independently audited. Canonical deployment finality
+is therefore complete; live settlement consequence and reviewer certification
+remain separate gates.
+
+## Canonical Bradbury deployment (2026-09-19)
+
+- SettlementVault: `0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5` — EVM tx `0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7`;
+- Registry: `0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C` — EVM tx `0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608`;
+- Adjudicator: `0x5c958e498C3109922AFAc661EB466628Fe521CB6` — GenLayer tx `0x202b98d47307c95098e00f410f351db86f904358651de03ba8b7d55b8d620f38`;
+- Core: `0x3eA9E19531a59BA31C2E4f396Ab2b0256304e835` — EVM tx `0x86d5c73db9388b0df8de4753cf5c06751c3f6ec3b7fdfcdd60c1f4cb225e116e`;
+- Adjudicator result: `FINALIZED / AGREE / FINISHED_WITH_RETURN`;
+- Core creation input: exact frozen init bytecode plus bound
+  Registry/Adjudicator/SettlementVault constructor values;
+- Core dependency getters: exact match to the canonical Registry,
+  Adjudicator, and SettlementVault;
+- old failed partial-deployment address reuse: none.
+
+Reviewer-facing details and source bindings are frozen in
+[`BRADBURY_CANONICAL_DEPLOYMENT_V2.md`](BRADBURY_CANONICAL_DEPLOYMENT_V2.md)
+and
+[`../artifacts/ACCORD402_BRADBURY_CANONICAL_DEPLOYMENT_V2.json`](../artifacts/ACCORD402_BRADBURY_CANONICAL_DEPLOYMENT_V2.json).
 
 ## Verification completed
 
@@ -116,7 +137,9 @@ candidate:
   waits for exact `FINALIZED`, requires execution success, and persists the
   deployed address plus finalized receipt.
 
-The harness has **not** been executed for the current hardened release. It
-does not certify a fresh Bradbury graph, settlement, repair/recovery, balance
-consequence, frontend E2E, or reviewer completion. Those remain live release
-gates.
+The harness has **not** been executed for the current hardened release and
+remains a separate supported-runtime reproducibility gate. The canonical
+Bradbury graph has now been freshly deployed and independently audited through
+the guarded release-deployment path, but that does not substitute for this
+specific harness. Settlement, repair/recovery, balance consequence, frontend
+E2E, and reviewer completion remain live release gates.
