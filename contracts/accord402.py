@@ -173,7 +173,7 @@ MAX_U64=(1<<64)-1
 MAX_U256=(1<<256)-1
 bj=65536
 db='https://raw.githubusercontent.com'
-de='ACCORD402_EVIDENCE_MANIFEST_V1'
+de='ACCORD402_EVIDENCE_MANIFEST_V2'
 da=8192
 dd=2048
 dg=600
@@ -741,7 +741,7 @@ class Accord402(gl.Contract):
 						try:
 							body_text=C.decode('utf-8',errors='strict');manifest=aK(body_text)
 							if _canonical_json(manifest)!=body_text:raise gl.vm.UserError('noncanonical manifest')
-							required={'schema','authority_identity','canonical_source','record_id','subject','kind','published_at','expires_at','payload'}
+							required={'schema','authority_identity','subject','kind','published_at','expires_at','payload'}
 							if set(manifest.keys())!=required:raise gl.vm.UserError('manifest shape')
 							if manifest['schema']!=de:raise gl.vm.UserError('manifest schema')
 							if not isinstance(manifest['payload'],str)or K(manifest['payload'])>dd:raise gl.vm.UserError('manifest payload')
@@ -752,9 +752,6 @@ class Accord402(gl.Contract):
 							manifest=None
 						if manifest is not None:
 							if manifest['authority_identity']!=i[ce]:
-								if snapshot[bY]&ap==ap:s|=ap
-								else:a=True
-							if manifest['canonical_source']!=b[cp] or manifest['record_id']!=b[b6]:
 								if snapshot[bY]&ap==ap:s|=ap
 								else:a=True
 							if manifest['subject']!=b[cR] or manifest['kind']!=b[cX]:a=True

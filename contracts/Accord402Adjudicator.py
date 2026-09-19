@@ -334,8 +334,8 @@ def _fetch_evidence(snapshot, now):
     continue
    text = body.decode(qs, errors=q4)
    manifest = c(text)
-   required = {q34, qy, qj, q29, q9, q23, qq, qo, q0}
-   if set(manifest) != required or manifest[q34] != 'ACCORD402_EVIDENCE_MANIFEST_V1':
+   required = {q34, qy, q9, q23, qq, qo, q0}
+   if set(manifest) != required or manifest[q34] != 'ACCORD402_EVIDENCE_MANIFEST_V2':
     repairs.append(evidence[qa])
     continue
    if _canonical_json(manifest) != text:
@@ -344,7 +344,7 @@ def _fetch_evidence(snapshot, now):
    if not zaa(manifest[q0], str) or len(manifest[q0].encode(qs)) > MAX_EVIDENCE_PAYLOAD_BYTES:
     repairs.append(evidence[qa])
     continue
-   if type(manifest[qq]) is not int or type(manifest[qo]) is not int or manifest[qj] != evidence[qj] or (manifest[q29] != evidence[q20]) or (manifest[q9] != evidence[q9]) or (manifest[q23] != evidence[q23]) or (manifest[qy] != authority[qu]) or (manifest[qq] != evidence[qq]) or (manifest[qo] != evidence[qo]) or (effective_time - evidence[q26] > snapshot[q16]) or (evidence[qo] <= effective_time):
+   if type(manifest[qq]) is not int or type(manifest[qo]) is not int or (manifest[q9] != evidence[q9]) or (manifest[q23] != evidence[q23]) or (manifest[qy] != authority[qu]) or (manifest[qq] != evidence[qq]) or (manifest[qo] != evidence[qo]) or (effective_time - evidence[q26] > snapshot[q16]) or (evidence[qo] <= effective_time):
     repairs.append(evidence[qa])
     continue
    role = authority['role']

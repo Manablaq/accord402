@@ -33,14 +33,17 @@ publicly squattable.
 
 Fetched evidence is canonical UTF-8 JSON with exactly:
 
-`schema`, `authority_identity`, `canonical_source`, `record_id`, `subject`,
-`kind`, `published_at`, `expires_at`, `payload`.
+`schema`, `authority_identity`, `subject`, `kind`, `published_at`,
+`expires_at`, `payload`.
 
-`schema = ACCORD402_EVIDENCE_MANIFEST_V1`.
+`schema = ACCORD402_EVIDENCE_MANIFEST_V2`.
 
-The complete manifest is SHA-256 bound. Authority/source/record/subject/kind/
-publication/expiry exact-match the stored record. Only the bounded `payload`
-enters semantic adjudication.
+The complete manifest is SHA-256 bound. Authority/subject/kind/publication/
+expiry exact-match the stored evidence record. The immutable Git commit stays
+bound by the on-chain evidence record and raw GitHub URL, but `canonical_source`
+and `record_id` are intentionally absent from the committed manifest bytes so
+the manifest is non-self-referential. Only the bounded `payload` enters semantic
+adjudication.
 
 ## Bounded retrieval and time
 

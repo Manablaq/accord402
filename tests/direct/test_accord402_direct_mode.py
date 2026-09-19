@@ -12,7 +12,7 @@ import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "contracts" / "accord402.py"
-EXPECTED_CONTRACT_SHA256 = "0099183d8285f84f0b858269b72d7ec742f906f7f3c94c934024850f0cd5bdf6"
+EXPECTED_CONTRACT_SHA256 = "60ac857d566e49ae912a384c7ce0a11da3bc3201d7349de3fe24bee0cd095692"
 
 BASE = 1_700_000_000
 PRINCIPAL = 1_000_000
@@ -30,10 +30,8 @@ CORR_PAYLOAD = '{"authority":"corroborator","fact":"pricing-current"}'
 def _manifest_body(repo, url, commit, published_at, expires_at, payload):
     return json.dumps(
         {
-            "schema": "ACCORD402_EVIDENCE_MANIFEST_V1",
+            "schema": "ACCORD402_EVIDENCE_MANIFEST_V2",
             "authority_identity": repo,
-            "canonical_source": url,
-            "record_id": commit,
             "subject": "pricing",
             "kind": "PAGE",
             "published_at": int(published_at),

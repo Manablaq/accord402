@@ -146,8 +146,8 @@ def _load():
 
 def _manifest(identity, url, commit, payload="qualified evidence"):
     value = {
-        "schema": "ACCORD402_EVIDENCE_MANIFEST_V1",
-        "authority_identity": identity, "canonical_source": url, "record_id": commit,
+        "schema": "ACCORD402_EVIDENCE_MANIFEST_V2",
+        "authority_identity": identity,
         "subject": "report", "kind": "PAGE", "published_at": NOW - 100,
         "expires_at": NOW + 900, "payload": payload,
     }
@@ -208,6 +208,61 @@ def test_valid_primary_and_independent_corroborator_pass():
     _DummyWeb.responses = {PRIMARY_URL: _valid_response(primary), CORR_URL: _valid_response(corr)}
     payloads, repairs, transient = module._fetch_evidence(_snapshot(module, primary, corr), NOW)
     assert transient is False and repairs == [] and len(payloads) == 2
+
+
+def test_manifest_v1_schema_requires_repair():
+    module = _load()
+
+    primary_obj = json.loads(
+        _manifest(PRIMARY_IDENTITY, PRIMARY_URL, PRIMARY_COMMIT).decode()
+    )
+    primary_obj["schema"] = "ACCORD402_EVIDENCE_MANIFEST_V1"
+    primary = json.dumps(
+        primary_obj, sort_keys=True, separators=(",", ":")
+    ).encode()
+
+    corr = _manifest(CORR_IDENTITY, CORR_URL, CORR_COMMIT)
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(primary),
+        CORR_URL: _valid_response(corr),
+    }
+
+    _, repairs, transient = module._fetch_evidence(
+        _snapshot(module, primary, corr), NOW
+    )
+
+    assert transient is False
+    assert repairs == ["primary-v1"]
+
+
+def test_manifest_v2_rejects_self_referential_keys():
+    module = _load()
+
+    primary_obj = json.loads(
+        _manifest(PRIMARY_IDENTITY, PRIMARY_URL, PRIMARY_COMMIT).decode()
+    )
+    primary_obj["canonical_source"] = PRIMARY_URL
+    primary_obj["record_id"] = PRIMARY_COMMIT
+
+    primary = json.dumps(
+        primary_obj, sort_keys=True, separators=(",", ":")
+    ).encode()
+
+    corr = _manifest(CORR_IDENTITY, CORR_URL, CORR_COMMIT)
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(primary),
+        CORR_URL: _valid_response(corr),
+    }
+
+    _, repairs, transient = module._fetch_evidence(
+        _snapshot(module, primary, corr), NOW
+    )
+
+    assert transient is False
+    assert repairs == ["primary-v1"]
+
 
 def test_http_200_is_retry_not_terminal_evidence():
     module = _load()

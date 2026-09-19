@@ -12,7 +12,7 @@ The harness is bound to current GenLayer Bradbury:
 - GenLayer RPC: `https://rpc-bradbury.genlayer.com`
 - explorer: `https://explorer-bradbury.genlayer.com`
 - exact Adjudicator source SHA-256:
-  `9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3`
+  `35d8beeb2dedb9b2d6839c3237ad839d85a0a788abb80adbc0557ed15b07a271`
 
 The tracked `gltest.config.yaml` intentionally contains no signing account.
 It explicitly retains the pinned suite's preconfigured `localnet` entry and

@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 CONTRACT = ROOT / "contracts" / "Accord402Adjudicator.py"
 
 EXPECTED_SOURCE_SHA256 = (
-    "9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3"
+    "35d8beeb2dedb9b2d6839c3237ad839d85a0a788abb80adbc0557ed15b07a271"
 )
 EXPECTED_NETWORK = "testnet_bradbury"
 EXPECTED_CHAIN_ID = 4221
