@@ -72,6 +72,8 @@ done
 need_env ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZED
 need_env ACCORD402_AUTHORIZED_RELEASE_COMMIT
 need_env ACCORD402_AUTHORIZED_CORE_SHA256
+need_env ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS
+need_env ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE
 need_env ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZATION_ID
 need_env ACCORD402_BRADBURY_PRIVATE_KEY
 need_env ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS
@@ -92,20 +94,32 @@ case "$ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZATION_ID" in
     ;;
 esac
 
-"$PY" - "$ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS" <<'PY'
+"$PY" - \
+  "$ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS" \
+  "$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS" \
+  "$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE" <<'PY'
 import re
 import sys
 
-value = sys.argv[1]
+vault, worker, nonce = sys.argv[1:]
+
+for label, value in (
+    ("SettlementVault", vault),
+    ("worker", worker),
+):
+    assert re.fullmatch(
+        r"0x[0-9a-fA-F]{40}",
+        value,
+    ), f"invalid {label} address"
+
+    assert int(value, 16) != 0, (
+        f"{label} address must be nonzero"
+    )
 
 assert re.fullmatch(
-    r"0x[0-9a-fA-F]{40}",
-    value,
-), "invalid SettlementVault address"
-
-assert (
-    int(value, 16) != 0
-), "SettlementVault address must be nonzero"
+    r"[0-9]+",
+    nonce,
+), "authorized preflight nonce must be a nonnegative integer"
 PY
 
 EVIDENCE="$ACCORD402_BRADBURY_CORE_EVIDENCE_DIR"
@@ -157,6 +171,57 @@ test "$(
 )" = "$EXPECTED_CHAIN_ID_HEX" ||
   fail "LIVE RPC CHAIN ID MISMATCH"
 
+LATEST_NONCE_RESPONSE="$(
+  curl \
+    --fail \
+    --silent \
+    --show-error \
+    -H 'content-type: application/json' \
+    --data \
+    "{\"jsonrpc\":\"2.0\",\"id\":2,\"method\":\"eth_getTransactionCount\",\"params\":[\"$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS\",\"latest\"]}" \
+    "$EXPECTED_RPC"
+)"
+
+PENDING_NONCE_RESPONSE="$(
+  curl \
+    --fail \
+    --silent \
+    --show-error \
+    -H 'content-type: application/json' \
+    --data \
+    "{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"eth_getTransactionCount\",\"params\":[\"$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS\",\"pending\"]}" \
+    "$EXPECTED_RPC"
+)"
+
+printf '%s' "$LATEST_NONCE_RESPONSE" \
+  > "$EVIDENCE/worker_nonce_latest.raw.json"
+
+printf '%s' "$PENDING_NONCE_RESPONSE" \
+  > "$EVIDENCE/worker_nonce_pending.raw.json"
+
+LATEST_NONCE="$(
+  printf '%s' "$LATEST_NONCE_RESPONSE" |
+  "$PY" -c 'import json,sys; print(int(json.load(sys.stdin)["result"],16))'
+)"
+
+PENDING_NONCE="$(
+  printf '%s' "$PENDING_NONCE_RESPONSE" |
+  "$PY" -c 'import json,sys; print(int(json.load(sys.stdin)["result"],16))'
+)"
+
+echo "AUTHORIZED_CORE_WORKER=$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS"
+echo "AUTHORIZED_PREFLIGHT_NONCE=$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE"
+echo "IMMEDIATE_WORKER_NONCE_LATEST=$LATEST_NONCE"
+echo "IMMEDIATE_WORKER_NONCE_PENDING=$PENDING_NONCE"
+
+test "$LATEST_NONCE" = "$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE" ||
+  fail "WORKER LATEST NONCE DRIFTED FROM AUTHORIZED PREFLIGHT"
+
+test "$PENDING_NONCE" = "$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE" ||
+  fail "WORKER PENDING NONCE DRIFTED FROM AUTHORIZED PREFLIGHT"
+
+echo "IMMEDIATE_NONCE_BINDING=PASS"
+
 AUTH_DIR="$HOME/.accord402-write-authorizations"
 
 mkdir -m 700 -p "$AUTH_DIR"
@@ -197,6 +262,8 @@ cat > "$EVIDENCE/release-binding.json" <<EOF_BINDING
   "source_path": "contracts/accord402.py",
   "source_sha256": "$SOURCE_SHA",
   "settlement_vault_address": "$ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS",
+  "worker_address": "$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS",
+  "authorized_preflight_nonce": $ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE,
   "authorization_id": "$ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZATION_ID"
 }
 EOF_BINDING
@@ -211,6 +278,8 @@ EOF_BINDING
     "release_commit=$RELEASE_COMMIT" \
     "source_sha256=$SOURCE_SHA" \
     "network=$EXPECTED_NETWORK" \
+    "worker_address=$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS" \
+    "authorized_preflight_nonce=$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE" \
     "authorization_id=$ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZATION_ID" \
     > "$AUTH_SENTINEL"
 ) ||
@@ -235,6 +304,8 @@ echo "ACCORD402_BRADBURY_CORE_RUNTIME_INTEGRATION=PASS"
 echo "RELEASE_COMMIT=$RELEASE_COMMIT"
 echo "CORE_SHA256=$SOURCE_SHA"
 echo "SETTLEMENT_VAULT=$ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS"
+echo "AUTHORIZED_CORE_WORKER=$ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS"
+echo "AUTHORIZED_PREFLIGHT_NONCE=$ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE"
 echo "EVIDENCE_DIR=$EVIDENCE"
 echo "AUTHORIZATION_ID=$ACCORD402_BRADBURY_CORE_WRITE_AUTHORIZATION_ID"
 echo "BRADBURY_CORE_WRITE_AUTHORIZATION_CONSUMED=YES"

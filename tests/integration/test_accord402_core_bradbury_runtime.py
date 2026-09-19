@@ -235,6 +235,16 @@ def test_core_deploys_finalized_with_persisted_provenance() -> None:
         "ACCORD402_BRADBURY_SETTLEMENT_VAULT_ADDRESS"
     )
 
+    authorized_worker = _required_env(
+        "ACCORD402_AUTHORIZED_CORE_WORKER_ADDRESS"
+    )
+
+    authorized_preflight_nonce = int(
+        _required_env(
+            "ACCORD402_AUTHORIZED_CORE_PREFLIGHT_NONCE"
+        )
+    )
+
     evidence_dir = Path(
         _required_env(
             "ACCORD402_BRADBURY_CORE_EVIDENCE_DIR"
@@ -264,6 +274,37 @@ def test_core_deploys_finalized_with_persisted_provenance() -> None:
         == EXPECTED_CHAIN_ID
     )
 
+    assert (
+        account.address.lower()
+        == authorized_worker.lower()
+    )
+
+    latest_nonce = int(
+        client.get_transaction_count(
+            account.address,
+            "latest",
+        )
+    )
+
+    pending_nonce = int(
+        client.get_transaction_count(
+            account.address,
+            "pending",
+        )
+    )
+
+    assert (
+        latest_nonce
+        == authorized_preflight_nonce
+    )
+
+    assert (
+        pending_nonce
+        == authorized_preflight_nonce
+    )
+
+    # A second nonce gate lives inside the test immediately before the
+    # deployment path. Nonce drift therefore fails closed before the write.
     # Use the low-level SDK deployment call so the GenLayer transaction ID is
     # persisted immediately after submission and before finality polling.
     tx_id = client.deploy_contract(
@@ -301,6 +342,12 @@ def test_core_deploys_finalized_with_persisted_provenance() -> None:
             ),
             "sender_address": (
                 account.address
+            ),
+            "authorized_preflight_nonce": (
+                authorized_preflight_nonce
+            ),
+            "observed_predeploy_nonce": (
+                latest_nonce
             ),
             "transaction_id": tx_id_text,
         },
@@ -387,6 +434,12 @@ def test_core_deploys_finalized_with_persisted_provenance() -> None:
             ),
             "sender_address": (
                 account.address
+            ),
+            "authorized_preflight_nonce": (
+                authorized_preflight_nonce
+            ),
+            "observed_predeploy_nonce": (
+                latest_nonce
             ),
             "transaction_id": tx_id_text,
             "finalized_status": 7,
