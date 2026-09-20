@@ -7,7 +7,8 @@ what it guarantees, and how to operate or verify it.
 
 1. [`../README.md`](../README.md) — product overview, deployment addresses, quickstart, and current status.
 2. [`OPERATIONS.md`](OPERATIONS.md) — local verification, frontend configuration, deployment, and live Bradbury checks.
-3. [`IMPLEMENTATION_V2_STATUS.md`](IMPLEMENTATION_V2_STATUS.md) — implementation inventory and remaining certification work.
+3. [`IMPLEMENTATION_V2_STATUS.md`](IMPLEMENTATION_V2_STATUS.md) — implementation inventory and current verification status.
+4. [`SUBMISSION_HANDOFF_R149.md`](SUBMISSION_HANDOFF_R149.md) — compact frozen R149 Project Explorer handoff and reviewer references.
 
 ## Current Bradbury R149 evidence
 

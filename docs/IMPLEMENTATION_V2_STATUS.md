@@ -6,6 +6,13 @@ Security Hardening V6 binds the exact Core and Registry adjudication snapshots i
 
 Branch: `refactor/hybrid-architecture-v1`
 
+Exact current R149 deployed source binding:
+
+- SettlementVault SHA-256: `e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6`
+- Registry SHA-256: `bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae`
+- Adjudicator SHA-256: `575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198`
+- Core SHA-256: `ee8d58f6693c16c22eb610140570e0c92a0c923482f154e886f9ae25a7d3c289`
+
 ## R149 current canonical release
 
 - source release commit: `ebfe5ce3be305de360bcf86dde05c55936f8b637`

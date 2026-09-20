@@ -240,6 +240,7 @@ economic and finality requirements.
 Start with [`docs/README.md`](docs/README.md), then use the operational guide
 for local checks, deployment, live reads, and evidence capture:
 
+- [`docs/SUBMISSION_HANDOFF_R149.md`](docs/SUBMISSION_HANDOFF_R149.md) — compact frozen Project Explorer submission reference and verification handoff
 - [`docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md`](docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md) — current R149 Bradbury graph and source binding
 - [`docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md`](docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md) — current Core non-delivery economic proof
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md) — contributor and deployment runbook

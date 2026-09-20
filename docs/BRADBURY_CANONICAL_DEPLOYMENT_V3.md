@@ -94,6 +94,9 @@ recovery, Vault routing, and duplicate-claim resistance.
 It does not claim that Covenant `1` exercised delivery, challenge,
 repair/retry, or semantic adjudication.
 
-Remaining gates are publication/CI, the separately tracked supported-runtime
-reproducibility gate if required, production frontend R149 rebinding/E2E, and
-the final reviewer-readiness audit.
+Publication with green CI and production frontend R149 rebinding/E2E are
+complete. The guarded supported-runtime deployment harness remains available
+as supplemental reproducibility evidence if a reviewer explicitly requests
+that specific harness; it has not been executed for R149 and no additional
+Bradbury write is authorized by this release record. Submission readiness is
+determined by the final no-write repository/evidence/production audit.

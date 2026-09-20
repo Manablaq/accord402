@@ -85,6 +85,22 @@
     "release_reconciliation": "e298b12a6d4baeb674abab9b9d215910f238aba8a7b3a440d08c4fc70757ba86"
   },
   "historical_v1_v2_evidence_preserved": true,
+  "post_submission_maintenance": {
+    "blockchain_write_performed": false,
+    "implementation_changed": false,
+    "production_url_changed": false,
+    "purpose": "documentation_and_evidence_consistency_closeout"
+  },
+  "production_r149": {
+    "covenant_1_state": "CLOSED_BUYER",
+    "environment_binding": "R149",
+    "homepage_binding": "PASS",
+    "production_result_sha256": "73fb57cc6cffff3871dd172e4834e203754b69d46af4fc9b7e8b5fe152e9d366",
+    "stable_url": "https://accord402.vercel.app",
+    "transaction_observer_canonical_success": true,
+    "transaction_observer_consensus": "FINALIZED",
+    "transaction_observer_execution_result": 1
+  },
   "proof_scope": {
     "does_not_claim_for_covenant_1": [
       "provider delivery",
@@ -106,19 +122,14 @@
     ]
   },
   "publication_files_sha256": {
-    "README.md": "45c484852144d1ab4584fa368add5d1a023519746d5d649cd264de18621d9bc8",
-    "docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md": "5312c45898b768dfe42d412ec77ea316bd53b14026152e9a15223b7fa4da6568",
+    "README.md": "7f2c3d57834e5060206020723ea928ca872947e70e0390e54529bea591ab3d1f",
+    "docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md": "a9320aea8bd23190570a8079d08a6b7ca168480ee1738f6eac320bdc40439e31",
     "docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md": "f9f7fcce76abdbe39c3f4733e98edb18cfe9b8a0abdfc773ece8e49baff9e003",
-    "docs/IMPLEMENTATION_V2_STATUS.md": "e544f9f16f7cd16ad7352f9b6920b17354914cda4a4ac4773c84f1107f0f9fca",
-    "docs/README.md": "649d344f28c3a58bc6f138dba6596f1241a8e60e1774324899a22d62697d6f32"
+    "docs/IMPLEMENTATION_V2_STATUS.md": "cf204cc81c5a0c704d2932deccfa9c3b106adf35e0670728dcf91f2efc27a68e",
+    "docs/README.md": "0df626c253141020a8e5c449a14d15474e3eecebd92f45ad5fa765b7ec3e0854",
+    "docs/SUBMISSION_HANDOFF_R149.md": "993aa641b651433b81683965255643877d4783b60423ab6216bc684843d42153"
   },
-  "remaining_release_gates": [
-    "commit/push publication patch and green CI",
-    "supported-runtime reproducibility gate if required",
-    "production Vercel R149 rebinding and redeploy",
-    "production frontend/API E2E",
-    "final reviewer-readiness audit"
-  ],
+  "remaining_release_gates": [],
   "schema": "accord402-canonical-r149-certification-v1",
   "source_sha256": {
     "adjudicator": "575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198",
@@ -126,5 +137,20 @@
     "registry": "bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae",
     "settlement_vault": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6"
   },
-  "status": "CURRENT_CANONICAL_R149_GRAPH_WITH_NONDELIVERY_BUYER_RECOVERY_ECONOMIC_PROOF"
+  "status": "CURRENT_CANONICAL_R149_GRAPH_WITH_NONDELIVERY_BUYER_RECOVERY_ECONOMIC_PROOF_PRODUCTION_E2E_AND_FROZEN_SUBMISSION_REFERENCE",
+  "submission_reference": {
+    "certified_production_deployment_url": "https://accord402-py5jvd2ly-mr-albert-s-projects.vercel.app",
+    "exact_commit_ci_conclusion": "success",
+    "exact_commit_ci_run_id": 35541490960,
+    "immutable_commit": "ca83530866c6dbd3a73e908715349fce1c8b45e9",
+    "immutable_tree": "bf64130bcf18aeb3f070cc5b8ef7939e8e1e0325",
+    "repository": "https://github.com/Manablaq/accord402",
+    "stable_production_url": "https://accord402.vercel.app"
+  },
+  "supported_runtime_reproducibility": {
+    "additional_bradbury_write_authorized": false,
+    "classification": "SUPPLEMENTAL_IF_EXPLICITLY_REQUESTED",
+    "executed_for_r149": false,
+    "harness_tracked": true
+  }
 }
