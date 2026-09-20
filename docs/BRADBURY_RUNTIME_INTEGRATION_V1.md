@@ -19,7 +19,7 @@ The harness is bound to current GenLayer Bradbury:
 - expected signing address:
   `0x1f87Ae197af539253978d435aD45cCf28Fb95024`
 - exact Adjudicator source SHA-256:
-  `35d8beeb2dedb9b2d6839c3237ad839d85a0a788abb80adbc0557ed15b07a271`
+  `575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198`
 
 The live runner checks the official Bradbury deployment manifest before
 authorization consumption. If its version or ConsensusMain changes, execution

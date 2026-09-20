@@ -4,7 +4,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PY="$REPO/.venv/bin/python"
 
-EXPECTED_SOURCE_SHA="35d8beeb2dedb9b2d6839c3237ad839d85a0a788abb80adbc0557ed15b07a271"
+EXPECTED_SOURCE_SHA="575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198"
 EXPECTED_NETWORK="testnet_bradbury"
 EXPECTED_CHAIN_ID="4221"
 EXPECTED_CHAIN_ID_HEX="0x107d"
