@@ -48,7 +48,9 @@ When, and only when, the guarded live runner is explicitly authorized, it:
 1. verifies the repository is an immutable clean Git commit;
 2. verifies the exact Adjudicator source SHA-256;
 3. verifies both configured RPCs report Bradbury chain ID `4221`;
-4. verifies Bradbury is synced;
+4. waits within a bounded pre-authorization readiness window until
+   `gen_syncing` reports the exact fully-synced condition
+   `blocksBehind == 0` and `syncedBlock == latestBlock`;
 5. verifies the official Bradbury deployment manifest still matches the
    release-bound version and ConsensusMain;
 6. verifies the supplied Registry equals the release-bound Registry and its
@@ -141,7 +143,11 @@ It refuses to run unless all of the following are true:
 - `ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID` is supplied and has not already
   been consumed locally;
 - both live RPC chain IDs are exactly `4221`;
-- the Bradbury node reports zero blocks behind;
+- within the bounded pre-authorization readiness window, the Bradbury node
+  reports the exact fully-synced condition `blocksBehind == 0` with
+  `syncedBlock == latestBlock`; each attempted sync response is persisted as
+  evidence and the exact successful response is retained as
+  `gen_syncing.raw.json`;
 - the Bradbury deployment manifest version and ConsensusMain match the
   release-bound values;
 - both live `latest` and `pending` signer nonce equal the exact authorized
@@ -158,6 +164,13 @@ and authorization ID. Reusing that authorization ID is refused.
 
 The private key is never printed and is not written into the repository or
 the generated ephemeral config.
+
+The bounded sync loop does not relax GenLayer's definition of full sync. It
+does not authorize submission while `blocksBehind` is nonzero. Its only
+purpose is to tolerate a moving public Bradbury tip by waiting, before
+authorization consumption, for one exact `blocksBehind == 0` observation.
+If that exact state is not observed within the bounded window, execution
+stops before authorization consumption.
 
 ## Current authorization state
 

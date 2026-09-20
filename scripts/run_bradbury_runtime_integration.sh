@@ -17,6 +17,13 @@ EXPECTED_MANIFEST_URL="https://raw.githubusercontent.com/genlayerlabs/genlayer-n
 EXPECTED_MANIFEST_VERSION="v0.5:9c68608"
 EXPECTED_CONSENSUS_MAIN="0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D"
 
+# gen_syncing defines blocksBehind == 0 as the exact fully-synced state.
+# Bradbury's moving tip can oscillate by a few blocks between observations,
+# so wait for one exact zero-lag observation inside this bounded pre-write
+# readiness window instead of weakening the zero-lag requirement.
+BRADBURY_SYNC_WAIT_ATTEMPTS="120"
+BRADBURY_SYNC_POLL_SECONDS="1"
+
 fail() {
   echo "STOP: $*" >&2
   exit 1
@@ -164,21 +171,75 @@ test "$(printf '%s' "$GEN_CHAIN_HEX" | tr '[:upper:]' '[:lower:]')" = "$EXPECTED
 test "$(printf '%s' "$EVM_CHAIN_HEX" | tr '[:upper:]' '[:lower:]')" = "$EXPECTED_CHAIN_ID_HEX" \
   || fail "LIVE EVM RPC CHAIN ID MISMATCH"
 
-SYNC_RESPONSE="$(
-  curl --fail --silent --show-error \
-    -H 'content-type: application/json' \
-    --data '{"jsonrpc":"2.0","id":3,"method":"gen_syncing","params":[]}' \
-    "$EXPECTED_RPC"
-)"
-printf '%s' "$SYNC_RESPONSE" > "$EVIDENCE/gen_syncing.raw.json"
+BRADBURY_SYNC_READY="NO"
 
-BLOCKS_BEHIND="$(
-  printf '%s' "$SYNC_RESPONSE" |
-  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(o["result"]["blocksBehind"])'
-)"
+for SYNC_ATTEMPT in $(seq 1 "$BRADBURY_SYNC_WAIT_ATTEMPTS"); do
+  SYNC_RESPONSE="$(
+    curl --fail --silent --show-error \
+      -H 'content-type: application/json' \
+      --data "{\"jsonrpc\":\"2.0\",\"id\":$SYNC_ATTEMPT,\"method\":\"gen_syncing\",\"params\":[]}" \
+      "$EXPECTED_RPC"
+  )"
 
-echo "LIVE_BRADBURY_BLOCKS_BEHIND=$BLOCKS_BEHIND"
-test "$BLOCKS_BEHIND" = "0" || fail "BRADBURY RPC IS NOT SYNCED"
+  SYNC_ATTEMPT_FILE="$(
+    printf '%s/gen_syncing.attempt-%03d.raw.json' \
+      "$EVIDENCE" \
+      "$SYNC_ATTEMPT"
+  )"
+
+  printf '%s' "$SYNC_RESPONSE" > "$SYNC_ATTEMPT_FILE"
+
+  SYNC_VALUES="$(
+    printf '%s' "$SYNC_RESPONSE" |
+    "$PY" -c '
+import json
+import sys
+
+o = json.load(sys.stdin)
+assert o.get("error") is None, o
+
+r = o["result"]
+
+def number(value):
+    if isinstance(value, int):
+        return value
+    if isinstance(value, str):
+        return int(value, 16) if value.startswith("0x") else int(value)
+    raise TypeError(value)
+
+synced = number(r["syncedBlock"])
+latest = number(r["latestBlock"])
+behind = number(r["blocksBehind"])
+
+print(f"{synced}|{latest}|{behind}")
+'
+  )"
+
+  IFS='|' read -r SYNCED_BLOCK LATEST_BLOCK BLOCKS_BEHIND <<< "$SYNC_VALUES"
+
+  echo "BRADBURY_SYNC_ATTEMPT=$SYNC_ATTEMPT"
+  echo "LIVE_BRADBURY_SYNCED_BLOCK=$SYNCED_BLOCK"
+  echo "LIVE_BRADBURY_LATEST_BLOCK=$LATEST_BLOCK"
+  echo "LIVE_BRADBURY_BLOCKS_BEHIND=$BLOCKS_BEHIND"
+
+  if \
+    [ "$BLOCKS_BEHIND" = "0" ] && \
+    [ "$SYNCED_BLOCK" = "$LATEST_BLOCK" ]
+  then
+    printf '%s' "$SYNC_RESPONSE" > "$EVIDENCE/gen_syncing.raw.json"
+    BRADBURY_SYNC_READY="YES"
+    break
+  fi
+
+  if [ "$SYNC_ATTEMPT" -lt "$BRADBURY_SYNC_WAIT_ATTEMPTS" ]; then
+    sleep "$BRADBURY_SYNC_POLL_SECONDS"
+  fi
+done
+
+test "$BRADBURY_SYNC_READY" = "YES" \
+  || fail "BRADBURY RPC DID NOT REACH EXACT FULL SYNC WITHIN BOUNDED READINESS WINDOW"
+
+echo "BRADBURY_EXACT_ZERO_SYNC_GATE=PASS"
 
 MANIFEST_RESPONSE="$(
   curl --fail --silent --show-error "$EXPECTED_MANIFEST_URL"

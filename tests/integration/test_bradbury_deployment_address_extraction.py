@@ -236,3 +236,62 @@ def test_outer_submission_rejects_created_transaction_without_address() -> None:
             to_block=601,
             expected_tx_id=tx_id,
         )
+
+
+def test_bradbury_runner_uses_bounded_exact_zero_sync_wait() -> None:
+    runner = (
+        ROOT
+        / "scripts"
+        / "run_bradbury_runtime_integration.sh"
+    )
+
+    text = runner.read_text(
+        encoding="utf-8"
+    )
+
+    assert (
+        'BRADBURY_SYNC_WAIT_ATTEMPTS="120"'
+        in text
+    )
+
+    assert (
+        'BRADBURY_SYNC_POLL_SECONDS="1"'
+        in text
+    )
+
+    assert (
+        'BRADBURY_SYNC_READY="NO"'
+        in text
+    )
+
+    assert (
+        'gen_syncing.attempt-%03d.raw.json'
+        in text
+    )
+
+    assert (
+        '[ "$BLOCKS_BEHIND" = "0" ]'
+        in text
+    )
+
+    assert (
+        '[ "$SYNCED_BLOCK" = "$LATEST_BLOCK" ]'
+        in text
+    )
+
+    assert (
+        'BRADBURY_EXACT_ZERO_SYNC_GATE=PASS'
+        in text
+    )
+
+    assert (
+        "BRADBURY RPC DID NOT REACH EXACT FULL SYNC "
+        "WITHIN BOUNDED READINESS WINDOW"
+        in text
+    )
+
+    assert (
+        'test "$BLOCKS_BEHIND" = "0" '
+        '|| fail "BRADBURY RPC IS NOT SYNCED"'
+        not in text
+    )
