@@ -1,7 +1,6 @@
 # Accord402 Bradbury Runtime Integration V1
 
-Status: reproducible live-runtime harness present; **not yet executed for the
-current hardened release**.
+Status: reproducible split-phase live-runtime harness present; **not yet executed for the current hardened release**. The authorized write phase submits and persists the deployment without waiting for GenLayer finality; finality is verified later by a dedicated read-only verifier.
 
 ## Network binding
 
@@ -70,18 +69,21 @@ When, and only when, the guarded live runner is explicitly authorized, it:
     the pinned repository runtime;
 17. requires the signer nonce to advance from `N` to exactly `N + 1` after
     submission;
-18. persists the returned GenLayer consensus transaction ID immediately after
-    the SDK returns it and before finality polling;
-19. waits specifically for `TransactionStatus.FINALIZED`;
-20. requires `tx_execution_result == 1` and
-    `tx_execution_result_name == "FINISHED_WITH_RETURN"`;
-21. requires the finalized receipt transaction ID to match the submitted ID;
-22. extracts and persists the deployed contract address; and
-23. preserves the finalized receipt and release/source/signer/nonce binding in
-    a dedicated evidence directory.
+18. immediately persists the returned GenLayer consensus transaction ID;
+19. binds the exact outer EVM transaction and its creation event;
+20. requires `NewTransaction` so a provisional Intelligent Contract address
+    is available for the dependent Core submission;
+21. persists that provisional contract address and returns from the authorized
+    submission phase **without waiting for GenLayer finality**;
+22. performs no retry, replacement, rebroadcast, appeal, or finalization write;
+    and
+23. later uses `scripts/verify_bradbury_runtime_finality.sh` as a read-only
+    verifier for exact `FINALIZED`, `FINISHED_WITH_RETURN`, transaction-ID
+    identity, and provisional-to-final contract-address identity.
 
-The pinned `genlayer-py 0.18.0` wait implementation requires exact
-`FINALIZED`; `ACCEPTED` is not treated as satisfying a finalized wait.
+The later read-only finality verifier uses the pinned `genlayer-py 0.18.0`
+wait implementation and requires exact `FINALIZED`; `ACCEPTED` is not treated
+as satisfying a finalized wait.
 Execution success is checked independently from consensus status using the
 receipt's explicit `tx_execution_result` and `tx_execution_result_name`
 fields. The runtime test deliberately does not rely on the pinned legacy
@@ -112,9 +114,13 @@ Those remain separate release gates.
 
 ## Guarded execution contract
 
-The live runner is:
+The write-authorized submission runner is:
 
 `scripts/run_bradbury_runtime_integration.sh`
+
+The later read-only finality verifier is:
+
+`scripts/verify_bradbury_runtime_finality.sh`
 
 It refuses to run unless all of the following are true:
 

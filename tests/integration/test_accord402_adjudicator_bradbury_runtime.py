@@ -19,6 +19,9 @@ from typing import Any
 
 import pytest
 from web3 import Web3
+from web3.logs import DISCARD
+
+from genlayer_py.chains.testnet_bradbury import CONSENSUS_MAIN_CONTRACT
 
 from gltest import get_contract_factory, get_default_account, get_gl_client
 from gltest.types import TransactionStatus
@@ -36,6 +39,7 @@ EXPECTED_RPC = "https://rpc-bradbury.genlayer.com"
 EXPECTED_EVM_RPC = "https://rpc.testnet-chain.genlayer.com"
 EXPECTED_MANIFEST_VERSION = "v0.5:9c68608"
 EXPECTED_SENDER = "0x1f87Ae197af539253978d435aD45cCf28Fb95024"
+EXPECTED_CONSENSUS_MAIN = "0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D"
 
 pytestmark = pytest.mark.skipif(
     os.environ.get("ACCORD402_BRADBURY_WRITE_AUTHORIZED") != "YES",
@@ -111,6 +115,107 @@ def _extract_deployment_address(receipt: dict[str, Any]) -> str:
     assert candidate.startswith("0x"), receipt
     assert len(candidate) == 42, receipt
     return candidate
+
+
+
+def _find_outer_submission(
+    evm_client: Web3,
+    *,
+    sender: str,
+    nonce: int,
+    from_block: int,
+    to_block: int,
+    expected_tx_id: str,
+) -> dict[str, Any]:
+    consensus = evm_client.eth.contract(
+        address=Web3.to_checksum_address(EXPECTED_CONSENSUS_MAIN),
+        abi=CONSENSUS_MAIN_CONTRACT["abi"],
+    )
+
+    matches: list[dict[str, Any]] = []
+
+    for block_number in range(max(0, from_block), to_block + 1):
+        block = evm_client.eth.get_block(
+            block_number,
+            full_transactions=True,
+        )
+
+        for tx in block["transactions"]:
+            if str(tx.get("from", "")).lower() != sender.lower():
+                continue
+            if int(tx["nonce"]) != nonce:
+                continue
+
+            assert tx.get("to") is not None, tx
+            assert (
+                str(tx["to"]).lower()
+                == EXPECTED_CONSENSUS_MAIN.lower()
+            ), tx
+
+            receipt = evm_client.eth.get_transaction_receipt(tx["hash"])
+            assert int(receipt["status"]) == 1, receipt
+
+            new_events = (
+                consensus.events.NewTransaction()
+                .process_receipt(receipt, errors=DISCARD)
+            )
+            created_events = (
+                consensus.events.CreatedTransaction()
+                .process_receipt(receipt, errors=DISCARD)
+            )
+
+            assert len(new_events) + len(created_events) == 1, {
+                "new_transaction_events": len(new_events),
+                "created_transaction_events": len(created_events),
+                "receipt": dict(receipt),
+            }
+
+            if created_events:
+                raise AssertionError(
+                    "deployment submission is queued as CreatedTransaction; "
+                    "a deployed address is not available yet, so the dependent "
+                    "Core must not be submitted"
+                )
+
+            event = new_events[0]
+            event_tx_id = _hex_text(event["args"]["txId"])
+
+            assert event_tx_id.lower() == expected_tx_id.lower(), {
+                "sdk_tx_id": expected_tx_id,
+                "event_tx_id": event_tx_id,
+            }
+
+            recipient = str(event["args"]["recipient"])
+            activator = str(event["args"]["activator"])
+
+            assert recipient.startswith("0x")
+            assert len(recipient) == 42
+            assert int(recipient, 16) != 0
+
+            outer_hash = _hex_text(tx["hash"])
+
+            matches.append(
+                {
+                    "outer_evm_tx_hash": outer_hash,
+                    "outer_evm_block_number": int(receipt["blockNumber"]),
+                    "outer_evm_receipt_status": int(receipt["status"]),
+                    "creation_event_type": "NewTransaction",
+                    "transaction_id": event_tx_id,
+                    "provisional_contract_address": recipient,
+                    "event_activator": activator,
+                }
+            )
+
+    assert len(matches) == 1, {
+        "sender": sender,
+        "nonce": nonce,
+        "from_block": from_block,
+        "to_block": to_block,
+        "matches": matches,
+    }
+
+    return matches[0]
+
 
 
 def _required_env(name: str) -> str:
@@ -199,9 +304,11 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
         },
     )
 
-    # Low-level send is intentional: deploy_contract_tx() waits before
-    # returning and therefore cannot persist the submitted GenLayer tx id
-    # before finality polling begins.
+    # Capture the EVM height immediately before submission so the exact
+    # outer EVM transaction can be bound after deploy_contract() returns.
+    # deploy_contract() waits for the outer EVM receipt, not GenLayer finality.
+    pre_submit_evm_block = int(evm_client.eth.block_number)
+
     tx_id = client.deploy_contract(
         code=factory.contract_code,
         account=account,
@@ -220,33 +327,73 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
     assert post_submit_pending_nonce == expected_start_nonce + 1
 
     tx_id_text = _hex_text(tx_id)
+    post_submit_evm_block = int(evm_client.eth.block_number)
 
-    # Provenance is persisted immediately after the SDK returns the GenLayer
-    # transaction id and before finality polling.
+    # Persist the SDK-returned GenLayer transaction id immediately. If any
+    # later provenance extraction fails, the submitted write is still recorded.
+    submission_payload: dict[str, Any] = {
+        "schema": "accord402-bradbury-adjudicator-runtime-submission-v2",
+        "submitted_at": datetime.now(timezone.utc).isoformat(),
+        "network": EXPECTED_NETWORK,
+        "chain_id": EXPECTED_CHAIN_ID,
+        "rpc": EXPECTED_RPC,
+        "evm_rpc": EXPECTED_EVM_RPC,
+        "manifest_version": EXPECTED_MANIFEST_VERSION,
+        "release_commit": release_commit,
+        "source_path": "contracts/Accord402Adjudicator.py",
+        "source_sha256": source_sha,
+        "registry_address": registry_address,
+        "sender_address": account.address,
+        "authorized_sender_address": expected_sender,
+        "authorized_start_nonce": expected_start_nonce,
+        "pre_submit_latest_nonce": pre_submit_latest_nonce,
+        "pre_submit_pending_nonce": pre_submit_pending_nonce,
+        "post_submit_latest_nonce": post_submit_latest_nonce,
+        "post_submit_pending_nonce": post_submit_pending_nonce,
+        "pre_submit_evm_block": pre_submit_evm_block,
+        "post_submit_evm_block": post_submit_evm_block,
+        "transaction_id": tx_id_text,
+        "outer_evm_tx_hash": None,
+        "outer_evm_block_number": None,
+        "outer_evm_receipt_status": None,
+        "creation_event_type": None,
+        "provisional_contract_address": None,
+        "event_activator": None,
+        "finality_wait_performed": False,
+    }
+
     _atomic_json(
         evidence_dir / "deployment-submission.json",
-        {
-            "schema": "accord402-bradbury-adjudicator-runtime-submission-v1",
-            "submitted_at": datetime.now(timezone.utc).isoformat(),
-            "network": EXPECTED_NETWORK,
-            "chain_id": EXPECTED_CHAIN_ID,
-            "rpc": EXPECTED_RPC,
-            "evm_rpc": EXPECTED_EVM_RPC,
-            "manifest_version": EXPECTED_MANIFEST_VERSION,
-            "release_commit": release_commit,
-            "source_path": "contracts/Accord402Adjudicator.py",
-            "source_sha256": source_sha,
-            "registry_address": registry_address,
-            "sender_address": account.address,
-            "authorized_sender_address": expected_sender,
-            "authorized_start_nonce": expected_start_nonce,
-            "pre_submit_latest_nonce": pre_submit_latest_nonce,
-            "pre_submit_pending_nonce": pre_submit_pending_nonce,
-            "post_submit_latest_nonce": post_submit_latest_nonce,
-            "post_submit_pending_nonce": post_submit_pending_nonce,
-            "transaction_id": tx_id_text,
-        },
+        submission_payload,
     )
+
+    outer = _find_outer_submission(
+        evm_client,
+        sender=expected_sender,
+        nonce=expected_start_nonce,
+        from_block=max(0, pre_submit_evm_block - 2),
+        to_block=post_submit_evm_block,
+        expected_tx_id=tx_id_text,
+    )
+
+    submission_payload.update(outer)
+
+    _atomic_json(
+        evidence_dir / "deployment-submission.json",
+        submission_payload,
+    )
+
+    defer_finality = os.environ.get(
+        "ACCORD402_BRADBURY_DEFER_FINALITY",
+        "NO",
+    )
+    assert defer_finality in {"YES", "NO"}
+
+    if defer_finality == "YES":
+        # Stage-2 batch workflow stops here deliberately. The transaction ID,
+        # outer EVM transaction, and provisional IC address are all persisted.
+        # Finality is verified later by the dedicated read-only finalizer.
+        return
 
     receipt = client.wait_for_transaction_receipt(
         transaction_hash=tx_id,

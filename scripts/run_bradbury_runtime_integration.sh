@@ -34,7 +34,8 @@ need_env() {
 cd "$REPO"
 
 echo "================================================================"
-echo "ACCORD402 GUARDED BRADBURY ADJUDICATOR RUNTIME INTEGRATION"
+echo "ACCORD402 GUARDED BRADBURY ADJUDICATOR SUBMISSION"
+echo "PROGRESS=2/6 — SUBMIT NOW, VERIFY FINALITY LATER"
 echo "LIVE BLOCKCHAIN WRITE — FRESH EXPLICIT AUTHORIZATION REQUIRED"
 echo "================================================================"
 
@@ -53,6 +54,7 @@ for f in \
   docs/BRADBURY_RUNTIME_INTEGRATION_V1.md \
   tests/integration/test_accord402_adjudicator_bradbury_runtime.py \
   scripts/run_bradbury_runtime_integration.sh \
+  scripts/verify_bradbury_runtime_finality.sh \
   .github/workflows/verify.yml
 do
   git ls-files --error-unmatch "$f" >/dev/null 2>&1 \
@@ -374,6 +376,7 @@ export ACCORD402_BRADBURY_EVM_RPC="$EXPECTED_EVM_RPC"
 export ACCORD402_BRADBURY_EXPECTED_SENDER="$AUTH_SENDER"
 export ACCORD402_BRADBURY_EXPECTED_START_NONCE="$AUTH_START_NONCE"
 export ACCORD402_BRADBURY_MANIFEST_VERSION="$MANIFEST_VERSION"
+export ACCORD402_BRADBURY_DEFER_FINALITY="YES"
 
 cd "$RUNTIME_DIR"
 
@@ -383,7 +386,8 @@ cd "$RUNTIME_DIR"
 
 echo
 echo "================================================================"
-echo "ACCORD402_BRADBURY_ADJUDICATOR_RUNTIME_INTEGRATION=PASS"
+echo "ACCORD402_BRADBURY_ADJUDICATOR_SUBMISSION=PASS"
+echo "PROGRESS=2/6"
 echo "RELEASE_COMMIT=$RELEASE_COMMIT"
 echo "ADJUDICATOR_SHA256=$SOURCE_SHA"
 echo "EVIDENCE_DIR=$EVIDENCE"
@@ -392,5 +396,7 @@ echo "AUTHORIZED_SENDER=$AUTH_SENDER"
 echo "AUTHORIZED_START_NONCE=$AUTH_START_NONCE"
 echo "BRADBURY_MANIFEST_VERSION=$MANIFEST_VERSION"
 echo "BRADBURY_WRITE_AUTHORIZATION_CONSUMED=YES"
+echo "FINALITY_WAIT_PERFORMED=NO"
 echo "RETRY_OR_REBROADCAST_AUTHORIZED=NO"
+echo "NEXT=SUBMIT_DEPENDENT_CORE_WITHOUT_WAITING_FOR_GENLAYER_FINALITY"
 echo "================================================================"
