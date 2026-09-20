@@ -40,109 +40,133 @@ class _DummyReturn:
     def __init__(self, calldata=None): self.calldata = calldata
 
 def _load():
-    fake = ModuleType("genlayer")
-    fake.Address = _DummyAddress
-    fake.u64 = int
-    fake.u32 = int
-    fake.gl = SimpleNamespace(
-        Contract=object, evm=_DummyEvm(), public=_DummyPublic(),
-        nondet=SimpleNamespace(web=_DummyWeb, exec_prompt=lambda _: '{"failed_criterion_ids":[]}'),
-        vm=SimpleNamespace(UserError=ValueError, Return=_DummyReturn, run_nondet_unsafe=lambda l, v: l()),
-        message_raw={"datetime": datetime.fromtimestamp(NOW, tz=timezone.utc).isoformat().replace("+00:00", "Z")},
-    )
-    sys.modules["genlayer"] = fake
-    spec = importlib.util.spec_from_file_location("accord402_v2_adjudicator_test_module", MODULE_PATH)
-    module = importlib.util.module_from_spec(spec)
-    assert spec and spec.loader
-    # E23-R3-R7 TEMP-MIRROR-ONLY v0.3 compatibility bridge.
-    import types as _accord402_types
-
-    _accord402_root = sys.modules.get("genlayer")
-    if not isinstance(_accord402_root, _accord402_types.ModuleType):
-        raise RuntimeError("E23_R3_R7_ROOT_GENLAYER_NOT_MODULE")
-
-    _accord402_child = getattr(_accord402_root, "gl", None)
-    if _accord402_child is None:
-        raise RuntimeError("E23_R3_R7_ROOT_GL_CHILD_MISSING")
-
-    for _name in ("Contract", "evm", "nondet"):
-        if not hasattr(_accord402_child, _name):
-            raise RuntimeError("E23_R3_R7_CHILD_SURFACE_MISSING_" + _name)
-
-    _accord402_conflicts = []
-    for _name in dir(_accord402_child):
-        if _name.startswith("__") or _name == "contract":
-            continue
-        _value = getattr(_accord402_child, _name)
-        if hasattr(_accord402_root, _name):
-            _existing = getattr(_accord402_root, _name)
-            if _existing is not _value and _existing != _value:
-                _accord402_conflicts.append(_name)
-        else:
-            setattr(_accord402_root, _name, _value)
-
-    if _accord402_conflicts:
-        raise RuntimeError(
-            "E23_R3_R7_ROOT_SURFACE_CONFLICTS="
-            + ",".join(sorted(_accord402_conflicts))
+    _saved_genlayer_modules = {
+        _module_name: _module
+        for _module_name, _module in sys.modules.items()
+        if (
+            _module_name == "genlayer"
+            or _module_name.startswith("genlayer.")
         )
+    }
 
-    _accord402_contract_mod = _accord402_types.ModuleType("genlayer.contract")
-    _accord402_contract_mod.Contract = getattr(_accord402_child, "Contract")
-    _accord402_root.contract = _accord402_contract_mod
+    try:
+        fake = ModuleType("genlayer")
+        fake.Address = _DummyAddress
+        fake.u64 = int
+        fake.u32 = int
+        fake.gl = SimpleNamespace(
+            Contract=object, evm=_DummyEvm(), public=_DummyPublic(),
+            nondet=SimpleNamespace(web=_DummyWeb, exec_prompt=lambda _: '{"failed_criterion_ids":[]}'),
+            vm=SimpleNamespace(UserError=ValueError, Return=_DummyReturn, run_nondet_unsafe=lambda l, v: l()),
+            message_raw={"datetime": datetime.fromtimestamp(NOW, tz=timezone.utc).isoformat().replace("+00:00", "Z")},
+        )
+        sys.modules["genlayer"] = fake
+        spec = importlib.util.spec_from_file_location("accord402_v2_adjudicator_test_module", MODULE_PATH)
+        module = importlib.util.module_from_spec(spec)
+        assert spec and spec.loader
+        # E23-R3-R7 TEMP-MIRROR-ONLY v0.3 compatibility bridge.
+        import types as _accord402_types
 
-    _accord402_types_mod = _accord402_types.ModuleType("genlayer.types")
-    _accord402_types_mod.__package__ = "genlayer"
-    _accord402_required_types = ["Address", "u32", "u64"]
-    _accord402_origins = []
-    _accord402_missing = []
+        _accord402_root = sys.modules.get("genlayer")
+        if not isinstance(_accord402_root, _accord402_types.ModuleType):
+            raise RuntimeError("E23_R3_R7_ROOT_GENLAYER_NOT_MODULE")
 
-    for _name in _accord402_required_types:
-        if hasattr(_accord402_root, _name):
-            _value = getattr(_accord402_root, _name)
-            _origin = "root"
-        elif hasattr(_accord402_child, _name):
+        _accord402_child = getattr(_accord402_root, "gl", None)
+        if _accord402_child is None:
+            raise RuntimeError("E23_R3_R7_ROOT_GL_CHILD_MISSING")
+
+        for _name in ("Contract", "evm", "nondet"):
+            if not hasattr(_accord402_child, _name):
+                raise RuntimeError("E23_R3_R7_CHILD_SURFACE_MISSING_" + _name)
+
+        _accord402_conflicts = []
+        for _name in dir(_accord402_child):
+            if _name.startswith("__") or _name == "contract":
+                continue
             _value = getattr(_accord402_child, _name)
-            _origin = "child"
-        else:
-            _accord402_missing.append(_name)
-            continue
-        setattr(_accord402_types_mod, _name, _value)
-        _accord402_origins.append(_name + ":" + _origin)
+            if hasattr(_accord402_root, _name):
+                _existing = getattr(_accord402_root, _name)
+                if _existing is not _value and _existing != _value:
+                    _accord402_conflicts.append(_name)
+            else:
+                setattr(_accord402_root, _name, _value)
 
-    if _accord402_missing:
-        raise RuntimeError(
-            "E23_R3_R7_REQUIRED_TYPES_MISSING="
-            + ",".join(sorted(_accord402_missing))
+        if _accord402_conflicts:
+            raise RuntimeError(
+                "E23_R3_R7_ROOT_SURFACE_CONFLICTS="
+                + ",".join(sorted(_accord402_conflicts))
+            )
+
+        _accord402_contract_mod = _accord402_types.ModuleType("genlayer.contract")
+        _accord402_contract_mod.Contract = getattr(_accord402_child, "Contract")
+        _accord402_root.contract = _accord402_contract_mod
+
+        _accord402_types_mod = _accord402_types.ModuleType("genlayer.types")
+        _accord402_types_mod.__package__ = "genlayer"
+        _accord402_required_types = ["Address", "u32", "u64"]
+        _accord402_origins = []
+        _accord402_missing = []
+
+        for _name in _accord402_required_types:
+            if hasattr(_accord402_root, _name):
+                _value = getattr(_accord402_root, _name)
+                _origin = "root"
+            elif hasattr(_accord402_child, _name):
+                _value = getattr(_accord402_child, _name)
+                _origin = "child"
+            else:
+                _accord402_missing.append(_name)
+                continue
+            setattr(_accord402_types_mod, _name, _value)
+            _accord402_origins.append(_name + ":" + _origin)
+
+        if _accord402_missing:
+            raise RuntimeError(
+                "E23_R3_R7_REQUIRED_TYPES_MISSING="
+                + ",".join(sorted(_accord402_missing))
+            )
+
+        _accord402_types_mod.__all__ = list(_accord402_required_types)
+        _accord402_storage_mod = _accord402_types.ModuleType("genlayer.storage")
+        _accord402_storage_mod.__package__ = "genlayer"
+
+        _accord402_root.__path__ = []
+        _accord402_root.types = _accord402_types_mod
+        _accord402_root.storage = _accord402_storage_mod
+
+        sys.modules["genlayer.types"] = _accord402_types_mod
+        sys.modules["genlayer.storage"] = _accord402_storage_mod
+        sys.modules["genlayer.contract"] = _accord402_contract_mod
+
+        for _name in _accord402_required_types:
+            _expected = (
+                getattr(_accord402_root, _name)
+                if hasattr(_accord402_root, _name)
+                else getattr(_accord402_child, _name)
+            )
+            if getattr(_accord402_types_mod, _name) is not _expected:
+                raise RuntimeError("E23_R3_R7_TYPE_IDENTITY_MISMATCH_" + _name)
+
+        print("R7_HARNESS_TYPES_ORIGINS=" + ",".join(_accord402_origins))
+        print("R7_HARNESS_TYPE_IDENTITY=PASS")
+        print("R7_HARNESS_ROOT_SURFACE_IDENTITY=PASS")
+
+        spec.loader.exec_module(module)
+        return module
+    finally:
+        for _module_name in list(sys.modules):
+            if (
+                _module_name == "genlayer"
+                or _module_name.startswith("genlayer.")
+            ):
+                sys.modules.pop(
+                    _module_name,
+                    None,
+                )
+
+        sys.modules.update(
+            _saved_genlayer_modules
         )
-
-    _accord402_types_mod.__all__ = list(_accord402_required_types)
-    _accord402_storage_mod = _accord402_types.ModuleType("genlayer.storage")
-    _accord402_storage_mod.__package__ = "genlayer"
-
-    _accord402_root.__path__ = []
-    _accord402_root.types = _accord402_types_mod
-    _accord402_root.storage = _accord402_storage_mod
-
-    sys.modules["genlayer.types"] = _accord402_types_mod
-    sys.modules["genlayer.storage"] = _accord402_storage_mod
-    sys.modules["genlayer.contract"] = _accord402_contract_mod
-
-    for _name in _accord402_required_types:
-        _expected = (
-            getattr(_accord402_root, _name)
-            if hasattr(_accord402_root, _name)
-            else getattr(_accord402_child, _name)
-        )
-        if getattr(_accord402_types_mod, _name) is not _expected:
-            raise RuntimeError("E23_R3_R7_TYPE_IDENTITY_MISMATCH_" + _name)
-
-    print("R7_HARNESS_TYPES_ORIGINS=" + ",".join(_accord402_origins))
-    print("R7_HARNESS_TYPE_IDENTITY=PASS")
-    print("R7_HARNESS_ROOT_SURFACE_IDENTITY=PASS")
-
-    spec.loader.exec_module(module)
-    return module
 
 def _manifest(identity, url, commit, payload="qualified evidence"):
     value = {

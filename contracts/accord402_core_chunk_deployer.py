@@ -1,6 +1,7 @@
 # { "Depends": "py-genlayer:1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6" }
 import hashlib
 from genlayer import *
+from genlayer import DynArray
 
 CORE_SOURCE_SHA256 = "60ac857d566e49ae912a384c7ce0a11da3bc3201d7349de3fe24bee0cd095692"
 CORE_SOURCE_BYTES = 51757
@@ -18,10 +19,10 @@ class Accord402CoreChunkDeployer(gl.Contract):
 
     def __init__(
         self,
-        settlement_vault: Address,
+        settlement_vault: str,
     ):
         self.owner = gl.message.sender_address
-        self.settlement_vault = settlement_vault
+        self.settlement_vault = Address(settlement_vault)
 
     def _only_owner(self) -> None:
         if gl.message.sender_address != self.owner:

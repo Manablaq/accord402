@@ -304,3 +304,146 @@ def test_runner_consumes_distinct_six_write_batch_authorization() -> None:
             "CHUNKED_CORE_BATCH_AUTHORIZATION_CONSUMED=YES"
         )
     )
+
+
+BRADBURY_SETTLEMENT_VAULT = (
+    "0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5"
+)
+
+
+def test_deployer_constructor_normalizes_bradbury_string_address() -> None:
+    source = DEPLOYER.read_text(
+        encoding="utf-8"
+    )
+
+    assert (
+        "from genlayer import DynArray"
+        in source
+    )
+
+    assert (
+        "from genlayer.storage import DynArray"
+        not in source
+    )
+
+    assert (
+        "\n    chunks: DynArray[str]\n"
+        in source
+    )
+
+    assert (
+        "chunks: gl.DynArray[str]"
+        not in source
+    )
+
+    tree = ast.parse(source)
+
+    contract_class = next(
+        node
+        for node in tree.body
+        if isinstance(
+            node,
+            ast.ClassDef,
+        )
+        and node.name
+        == "Accord402CoreChunkDeployer"
+    )
+
+    constructor = next(
+        node
+        for node in contract_class.body
+        if isinstance(
+            node,
+            ast.FunctionDef,
+        )
+        and node.name == "__init__"
+    )
+
+    settlement_arg = next(
+        argument
+        for argument in constructor.args.args
+        if argument.arg
+        == "settlement_vault"
+    )
+
+    assert (
+        ast.unparse(
+            settlement_arg.annotation
+        )
+        == "str"
+    )
+
+    assignments = [
+        node
+        for node in constructor.body
+        if isinstance(
+            node,
+            ast.Assign,
+        )
+    ]
+
+    settlement_assignment = next(
+        node
+        for node in assignments
+        if any(
+            ast.unparse(target)
+            == "self.settlement_vault"
+            for target in node.targets
+        )
+    )
+
+    assert (
+        ast.unparse(
+            settlement_assignment.value
+        )
+        == "Address(settlement_vault)"
+    )
+
+
+def test_deployer_constructor_executes_with_bradbury_string_vault(
+    direct_deploy,
+) -> None:
+    deployer = direct_deploy(
+        str(DEPLOYER),
+        BRADBURY_SETTLEMENT_VAULT,
+    )
+
+    assert int(
+        deployer.get_chunk_count()
+    ) == 0
+
+    source = CORE.read_text(
+        encoding="utf-8"
+    )
+
+    chunks = [
+        source[
+            offset:
+            offset + EXPECTED_CHUNK_SIZE
+        ]
+        for offset in range(
+            0,
+            len(source),
+            EXPECTED_CHUNK_SIZE,
+        )
+    ]
+
+    assert len(
+        chunks
+    ) == EXPECTED_CHUNK_COUNT
+
+    for index, chunk in enumerate(
+        chunks
+    ):
+        deployer.append_chunk(
+            index,
+            chunk,
+        )
+
+        assert int(
+            deployer.get_chunk_count()
+        ) == index + 1
+
+    assert int(
+        deployer.get_chunk_count()
+    ) == EXPECTED_CHUNK_COUNT
