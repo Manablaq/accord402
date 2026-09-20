@@ -1,6 +1,6 @@
 # Accord402 V2 implementation status
 
-**Status: R149 CURRENT CANONICAL GRAPH DEPLOYED AND LIVE-CERTIFIED FOR THE NON-DELIVERY BUYER-RECOVERY ECONOMIC PATH. Publication, frontend rebinding/E2E, the separately tracked supported-runtime reproducibility gate, and final reviewer audit remain.**
+**Status: R149 CURRENT CANONICAL GRAPH, NON-DELIVERY BUYER-RECOVERY ECONOMIC PROOF, PUBLICATION, AND PRODUCTION R149 FRONTEND REBINDING/E2E ARE COMPLETE. The guarded supported-runtime deployment harness remains available as supplemental reproducibility evidence if explicitly requested; it has not been executed for this release. Final reviewer audit and submission handoff remain.**
 
 Security Hardening V6 binds the exact Core and Registry adjudication snapshots into the finalized callback, eliminating the single-RPC semantic-substitution boundary.
 
@@ -121,31 +121,35 @@ and
 ## Verification completed
 
 - Solidity build: pass;
-- Solidity lifecycle/security tests: 11 passed;
-- existing Python regression suite: 75 passed;
+- Solidity lifecycle/security tests: 17 passed;
+- existing Python regression suite: 95 passed, 1 skipped;
 - `py_compile` for the adjudicator and historical contract: pass;
 - GenLayer linter/schema validation: pass;
 - Registry/Core deployment-size measurement under the pinned optimizer/via-IR
   profile: pass;
 - frontend typecheck and production build: pass;
-- live production homepage, covenant API route, and browser smoke check: pass.
+- live production R149 homepage binding, Covenant `1` API route, and exact-transaction finality observer: pass.
 
 Measured local runtime bytecode for the current graph: SettlementVault `1,231`
-bytes, Registry `23,074` bytes, and Core `24,243` bytes. Core remains below
-the EIP-170 limit by 334 bytes under the pinned optimizer/via-IR profile.
+bytes, Registry `23,429` bytes, and Core `22,304` bytes. Core remains below
+the EIP-170 limit by 2,272 bytes under the pinned optimizer/via-IR profile.
 
 ## Remaining publication and reviewer-readiness gates
 
-The R149 graph deployment and current Core non-delivery recovery economic proof
-are complete. Remaining gates are:
+The R149 graph deployment, current Core non-delivery recovery economic proof,
+publication with green CI, production R149 environment binding, stable
+`accord402.vercel.app` alias, and production homepage/API/finality-observer
+E2E are complete.
 
-1. commit and push this R149 publication patch and obtain green CI;
-2. complete the separately tracked supported-runtime Bradbury reproducibility
-   gate for the exact R149 Adjudicator if required;
-3. bind the production Vercel environment to the current R149 graph without
-   changing `accord402.vercel.app`;
-4. run production browser/API E2E; and
-5. complete the final regression/evidence/reviewer-readiness audit.
+The remaining release work is:
+
+1. complete the final regression/evidence/reviewer-readiness audit; and
+2. prepare the compact reviewer submission handoff.
+
+The guarded supported-runtime Bradbury deployment harness remains tracked as
+supplemental reproducibility evidence if a reviewer explicitly requests that
+specific harness. It has not been executed for R149, and this status document
+does not authorize an additional Bradbury write.
 
 The live review-retry path is implemented and observable. `REVIEW_RETRY_REQUIRED`
 is a non-economic intermediate state, not a payout failure or a claim that a
@@ -172,10 +176,10 @@ candidate:
   waits for exact `FINALIZED`, requires execution success, and persists the
   deployed address plus finalized receipt.
 
-The harness has **not** been executed for the current hardened release and
-remains a separate supported-runtime reproducibility gate. The canonical
-Bradbury graph has now been freshly deployed and independently audited through
-the guarded release-deployment path, but that does not substitute for this
-specific harness. The R149 non-delivery recovery and exact balance-consequence gate is now
-complete. The tracked supported-runtime reproducibility gate, production
-frontend R149 rebinding/E2E, and final reviewer completion remain.
+The harness has **not** been executed for the current hardened release. It is
+retained as supplemental supported-runtime reproducibility evidence if a
+reviewer explicitly requests that specific harness. The canonical R149
+Bradbury graph deployment, current non-delivery recovery and exact
+balance-consequence proof, and production R149 rebinding/E2E are complete.
+Final reviewer audit and submission handoff remain. No additional Bradbury
+write is authorized by this documentation update.

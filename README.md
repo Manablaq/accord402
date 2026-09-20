@@ -1,6 +1,6 @@
 # Accord402
 
-> **Canonical Bradbury release:** R149 source release `ebfe5ce3be305de360bcf86dde05c55936f8b637` / tree `0694e768890cb17e4eb32f014ab0b4ae6ee24e7b` is the current four-component graph. The current Core has a live Covenant `1` non-delivery recovery proof with exact `0.01 GEN` buyer settlement, zero remaining Core balance, Vault delivery recorded, and duplicate-claim rejection. Production frontend rebinding to R149 remains a separate publication gate.
+> **Canonical Bradbury release:** R149 source release `ebfe5ce3be305de360bcf86dde05c55936f8b637` / tree `0694e768890cb17e4eb32f014ab0b4ae6ee24e7b` is the current four-component graph. The current Core has a live Covenant `1` non-delivery recovery proof with exact `0.01 GEN` buyer settlement, zero remaining Core balance, Vault delivery recorded, and duplicate-claim rejection. Production at [accord402.vercel.app](https://accord402.vercel.app) is rebound to the exact R149 graph, and production homepage, covenant-read, and transaction-finality E2E verification pass.
 
 **Proof-bound service agreements for agent-to-agent commerce.**
 
@@ -16,12 +16,12 @@ GenLayer Intelligent Contract.
 | Surface | Status |
 | --- | --- |
 | Bradbury R149 canonical graph | Deployed, dependency-bound, and live re-certified |
-| Local Solidity lifecycle/security suite | Passing (11 tests) |
-| Python regression suite | Passing (75 tests) |
+| Local Solidity lifecycle/security suite | Passing (17 tests) |
+| Python regression suite | Passing (95 tests; 1 skipped) |
 | GenLayer schema/linter checks | Passing |
 | Current R149 Core recovery case | Open/fund → accept → non-delivery expiry → buyer claim completed |
 | Canonical Bradbury Adjudicator deployment | `FINALIZED / AGREE / FINISHED_WITH_RETURN` |
-| Production console | Stable URL live at [accord402.vercel.app](https://accord402.vercel.app); R149 environment rebinding/redeploy pending |
+| Production console | R149-bound at [accord402.vercel.app](https://accord402.vercel.app); homepage, Covenant `1`, and exact-transaction finality observer E2E pass |
 | Current Core economic recovery certification | Complete: exact recipient delta, conservation, Vault routing, and duplicate-claim proof |
 
 Accord402 does not infer payment from a state label alone. The current R149
@@ -96,11 +96,13 @@ GenLayer transaction ID before finality polling, waits for exact `Finalized`,
 requires successful GenVM execution, and persists the resulting contract
 address and finalized receipt.
 
-This tracked harness has not yet been executed for the current hardened
-release and remains a separate supported-runtime certification gate. The
-canonical graph below was deployed and independently audited through the
-guarded release-deployment path; that does not substitute for executing this
-specific reproducibility harness.
+This tracked harness has not been executed for the current hardened release.
+It remains available as supplemental supported-runtime reproducibility
+evidence if a reviewer explicitly requests that specific harness. The current
+R149 release record instead relies on the independently certified canonical
+Bradbury deployment, the current Core economic-consequence proof, and the
+production R149 E2E verification. No additional Bradbury write is authorized
+by this documentation update.
 
 ## Current canonical Bradbury deployment — R149
 

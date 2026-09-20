@@ -1,6 +1,6 @@
 # Accord402 Bradbury Runtime Integration V1
 
-Status: reproducible split-phase live-runtime harness present; **not yet executed for the current hardened release**. The authorized write phase submits and persists the deployment without waiting for GenLayer finality; finality is verified later by a dedicated read-only verifier.
+Status: reproducible split-phase live-runtime harness present; **not executed for the current hardened release**. It is retained as supplemental reproducibility evidence if a reviewer explicitly requests this specific harness. The current R149 release already has independently certified canonical Bradbury deployment/finality, economic-consequence evidence, and production R149 E2E; this document does not authorize an additional Bradbury write.
 
 ## Network binding
 
