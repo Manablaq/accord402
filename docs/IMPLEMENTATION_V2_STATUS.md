@@ -1,10 +1,44 @@
 # Accord402 V2 implementation status
 
-**Status: SECURITY REMEDIATION CANDIDATE — current deployed graph is historical until the hardened source is recompiled, size-certified, redeployed, finalized, and live-certified.**
+**Status: R149 CURRENT CANONICAL GRAPH DEPLOYED AND LIVE-CERTIFIED FOR THE NON-DELIVERY BUYER-RECOVERY ECONOMIC PATH. Publication, frontend rebinding/E2E, the separately tracked supported-runtime reproducibility gate, and final reviewer audit remain.**
 
 Security Hardening V6 binds the exact Core and Registry adjudication snapshots into the finalized callback, eliminating the single-RPC semantic-substitution boundary.
 
 Branch: `refactor/hybrid-architecture-v1`
+
+## R149 current canonical release
+
+- source release commit: `ebfe5ce3be305de360bcf86dde05c55936f8b637`
+- source release tree: `0694e768890cb17e4eb32f014ab0b4ae6ee24e7b`
+- Bradbury chain ID: `4221`
+- SettlementVault: `0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5`
+- Registry: `0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C`
+- Adjudicator: `0x9b204786e4641EbFF5D771a08624e2B0849Fcc56`
+- Core: `0xE315df22c15753D07a2FDb72b15B3AeAF4D27E2A`
+
+Current Covenant `1` proof:
+
+- principal: `10000000000000000` wei
+- isolated buyer: `0x67a6F6dD67E7DffEcD760a99b4D5A2fe019EbA4f`
+- isolated provider: `0x64f332ba2ED3F7372fF3FE3d777Ad01fbd3195a4`
+- registered payout: `0x1f87Ae197af539253978d435aD45cCf28Fb95024`
+- open: `0x7b45999ab31e82e941d25712be32770c7fd4f3d66b1e3ab938d591c93f5ca9cd`
+- accept: `0xaa010bd94bdd93ae2c9dc185174aba92a931a3609c1d6ef07bbb6783da8a98f3`
+- expire non-delivery: `0x1219914b612f60c439953be4818702d7e081167535e0bdc62c0ac86c87de3740`
+- claim settlement: `0x18197505652f86fc21ad1a926e8e5220a5a518b9673c97468c5fbbd3a151c77b`
+- final state: `CLOSED_BUYER`
+- accounting: `10000000000000000|0|10000000000000000|0`
+- Core balance: `0`
+- payout delta: `10000000000000000` wei
+- Vault delivery bit: `true`
+- duplicate claim: rejected
+
+This case proves the current Core non-delivery liveness and buyer-recovery
+economic path. It does not claim that Covenant `1` exercised delivery,
+challenge, repair/retry, or semantic adjudication.
+
+See `BRADBURY_CANONICAL_DEPLOYMENT_V3.md` and
+`BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md`.
 
 ## Implemented
 
@@ -66,7 +100,7 @@ deployed on Bradbury and independently audited. Canonical deployment finality
 is therefore complete; live settlement consequence and reviewer certification
 remain separate gates.
 
-## Canonical Bradbury deployment (2026-09-19)
+## Historical Bradbury V2 deployment (2026-09-19; superseded by R149)
 
 - SettlementVault: `0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5` — EVM tx `0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7`;
 - Registry: `0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C` — EVM tx `0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608`;
@@ -100,17 +134,18 @@ Measured local runtime bytecode for the current graph: SettlementVault `1,231`
 bytes, Registry `23,074` bytes, and Core `24,243` bytes. Core remains below
 the EIP-170 limit by 334 bytes under the pinned optimizer/via-IR profile.
 
-## Remaining certification gates
+## Remaining publication and reviewer-readiness gates
 
-The following are intentionally not marked complete until fresh Bradbury
-evidence exists for the exact deployed graph:
+The R149 graph deployment and current Core non-delivery recovery economic proof
+are complete. Remaining gates are:
 
-1. A settlement authorization transaction finalized with
-   `FINISHED_WITH_RETURN`.
-2. The expected recipient GEN balance delta and corresponding protocol
-   accounting delta.
-3. A repeated settlement attempt that proves duplicate-claim resistance.
-4. Recovery/expiry paths exercised with finalized balance outcomes.
+1. commit and push this R149 publication patch and obtain green CI;
+2. complete the separately tracked supported-runtime Bradbury reproducibility
+   gate for the exact R149 Adjudicator if required;
+3. bind the production Vercel environment to the current R149 graph without
+   changing `accord402.vercel.app`;
+4. run production browser/API E2E; and
+5. complete the final regression/evidence/reviewer-readiness audit.
 
 The live review-retry path is implemented and observable. `REVIEW_RETRY_REQUIRED`
 is a non-economic intermediate state, not a payout failure or a claim that a
@@ -141,5 +176,6 @@ The harness has **not** been executed for the current hardened release and
 remains a separate supported-runtime reproducibility gate. The canonical
 Bradbury graph has now been freshly deployed and independently audited through
 the guarded release-deployment path, but that does not substitute for this
-specific harness. Settlement, repair/recovery, balance consequence, frontend
-E2E, and reviewer completion remain live release gates.
+specific harness. The R149 non-delivery recovery and exact balance-consequence gate is now
+complete. The tracked supported-runtime reproducibility gate, production
+frontend R149 rebinding/E2E, and final reviewer completion remain.

@@ -1,0 +1,130 @@
+{
+  "canonical_graph": {
+    "adjudicator": "0x9b204786e4641EbFF5D771a08624e2B0849Fcc56",
+    "core": "0xE315df22c15753D07a2FDb72b15B3AeAF4D27E2A",
+    "registry": "0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C",
+    "settlement_vault": "0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5"
+  },
+  "certified_date": "2026-09-20",
+  "current_core_case": {
+    "accept": {
+      "block": 22374391,
+      "status": 1,
+      "transaction_hash": "0xaa010bd94bdd93ae2c9dc185174aba92a931a3609c1d6ef07bbb6783da8a98f3"
+    },
+    "accounting_totals": [
+      10000000000000000,
+      0,
+      10000000000000000,
+      0
+    ],
+    "bootstrap": {
+      "buyer_funding_transaction_hash": "0xf286625e7bb90652d680519b7dcd2bd5786ba70d44702e9daaa6c9cf3cd7d08c",
+      "provider_funding_transaction_hash": "0x14e392a963cb595c46b1cde09b15f64768d9eb92efa5834c4eed4245ac08b8a3"
+    },
+    "buyer": "0x67a6F6dD67E7DffEcD760a99b4D5A2fe019EbA4f",
+    "claim_settlement": {
+      "block": 22376179,
+      "status": 1,
+      "transaction_hash": "0x18197505652f86fc21ad1a926e8e5220a5a518b9673c97468c5fbbd3a151c77b"
+    },
+    "core_balance_wei": 0,
+    "covenant_id": 1,
+    "duplicate_claim_read_only_rejected": true,
+    "duplicate_expected_error": "SettlementAlreadyClaimed()",
+    "duplicate_expected_selector": "0x3eed0c7d",
+    "expire_non_delivery": {
+      "block": 22376150,
+      "status": 1,
+      "transaction_hash": "0x1219914b612f60c439953be4818702d7e081167535e0bdc62c0ac86c87de3740"
+    },
+    "final_state": "CLOSED_BUYER",
+    "open": {
+      "block": 22374366,
+      "status": 1,
+      "transaction_hash": "0x7b45999ab31e82e941d25712be32770c7fd4f3d66b1e3ab938d591c93f5ca9cd"
+    },
+    "payout_balance_delta_wei": 10000000000000000,
+    "principal_wei": 10000000000000000,
+    "provider": "0x64f332ba2ED3F7372fF3FE3d777Ad01fbd3195a4",
+    "registered_payout": "0x1f87Ae197af539253978d435aD45cCf28Fb95024",
+    "vault_was_delivered": true
+  },
+  "deployed_source_release": {
+    "chain_id": 4221,
+    "commit": "ebfe5ce3be305de360bcf86dde05c55936f8b637",
+    "tree": "0694e768890cb17e4eb32f014ab0b4ae6ee24e7b"
+  },
+  "deployment": {
+    "adjudicator": {
+      "execution_result": "FINISHED_WITH_RETURN",
+      "finality": "FINALIZED",
+      "genlayer_transaction_hash": "0xb7db252117751910ea7454c1145a866ddbafce72e4f84abe123fd7206cdb4c5e",
+      "outer_evm_transaction_hash": "0xc5304a59e389ee9bb26f5437f6c7612c3722a4e9ab5e6f16db8358001535838f",
+      "provenance": "R149_FRESH_DEPLOYMENT"
+    },
+    "core": {
+      "provenance": "R149_FRESH_DEPLOYMENT",
+      "receipt_block": 22357455,
+      "receipt_status": 1,
+      "transaction_hash": "0xa8ece88c6e71b7d5bb7a5e14fa2dc711cff9fa158699b56c511d49daf563259d"
+    },
+    "registry": {
+      "provenance": "REUSED_VERIFIED_V2_DEPLOYMENT",
+      "transaction_hash": "0xe8ebf7abdf511e2aaebfda13cb0fab9a6d2e881e785eeb969e0a30ec63007608"
+    },
+    "settlement_vault": {
+      "provenance": "REUSED_VERIFIED_V2_DEPLOYMENT",
+      "transaction_hash": "0xa478daf9a3a280214eb70592ffcd98cb7c4590fc044236fbaf4bf9df5537ffb7"
+    }
+  },
+  "evidence_sha256": {
+    "canonical_graph_certification": "d3e070b2992175dc6356f028a0ee7b0a783ed4e74a79a16b7c552803fbb9d886",
+    "isolated_open_accept_result": "56ff80afc9fd0cda606b9dac0d5715dace980fd10c572c8e1272a90a3b7ced4c",
+    "nondelivery_settlement_result": "8ab851d5706e0c0f22bb570730cd0c4f8acfaf5ca704338df6b491c4605dc67d",
+    "release_reconciliation": "e298b12a6d4baeb674abab9b9d215910f238aba8a7b3a440d08c4fc70757ba86"
+  },
+  "historical_v1_v2_evidence_preserved": true,
+  "proof_scope": {
+    "does_not_claim_for_covenant_1": [
+      "provider delivery",
+      "buyer challenge",
+      "repair or retry",
+      "semantic adjudication"
+    ],
+    "proves": [
+      "current R149 graph binding",
+      "current Core open/fund",
+      "provider acceptance",
+      "non-delivery liveness recovery",
+      "buyer settlement authorization",
+      "exact native GEN payout consequence",
+      "accounting conservation",
+      "zero final Core balance",
+      "Vault settlement routing",
+      "duplicate claim rejection"
+    ]
+  },
+  "publication_files_sha256": {
+    "README.md": "45c484852144d1ab4584fa368add5d1a023519746d5d649cd264de18621d9bc8",
+    "docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md": "5312c45898b768dfe42d412ec77ea316bd53b14026152e9a15223b7fa4da6568",
+    "docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md": "f9f7fcce76abdbe39c3f4733e98edb18cfe9b8a0abdfc773ece8e49baff9e003",
+    "docs/IMPLEMENTATION_V2_STATUS.md": "e544f9f16f7cd16ad7352f9b6920b17354914cda4a4ac4773c84f1107f0f9fca",
+    "docs/README.md": "649d344f28c3a58bc6f138dba6596f1241a8e60e1774324899a22d62697d6f32"
+  },
+  "remaining_release_gates": [
+    "commit/push publication patch and green CI",
+    "supported-runtime reproducibility gate if required",
+    "production Vercel R149 rebinding and redeploy",
+    "production frontend/API E2E",
+    "final reviewer-readiness audit"
+  ],
+  "schema": "accord402-canonical-r149-certification-v1",
+  "source_sha256": {
+    "adjudicator": "575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198",
+    "core": "ee8d58f6693c16c22eb610140570e0c92a0c923482f154e886f9ae25a7d3c289",
+    "registry": "bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae",
+    "settlement_vault": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6"
+  },
+  "status": "CURRENT_CANONICAL_R149_GRAPH_WITH_NONDELIVERY_BUYER_RECOVERY_ECONOMIC_PROOF"
+}

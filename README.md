@@ -1,6 +1,6 @@
 # Accord402
 
-> **Canonical Bradbury release:** the hardened V2 source at release commit `2c025294c66ade0c54b6d494bd5136490b9d1b3c` / tree `5de6c7a50c3ec7568cf4b6bce54383b51fd7b5df` is deployed as the four-component graph below and independently re-audited against live Bradbury state. Deployment finality is complete; settlement/balance-consequence certification remains a separate release gate.
+> **Canonical Bradbury release:** R149 source release `ebfe5ce3be305de360bcf86dde05c55936f8b637` / tree `0694e768890cb17e4eb32f014ab0b4ae6ee24e7b` is the current four-component graph. The current Core has a live Covenant `1` non-delivery recovery proof with exact `0.01 GEN` buyer settlement, zero remaining Core balance, Vault delivery recorded, and duplicate-claim rejection. Production frontend rebinding to R149 remains a separate publication gate.
 
 **Proof-bound service agreements for agent-to-agent commerce.**
 
@@ -15,19 +15,21 @@ GenLayer Intelligent Contract.
 
 | Surface | Status |
 | --- | --- |
-| Bradbury V2 contract graph | Deployed and independently audited |
+| Bradbury R149 canonical graph | Deployed, dependency-bound, and live re-certified |
 | Local Solidity lifecycle/security suite | Passing (11 tests) |
 | Python regression suite | Passing (75 tests) |
 | GenLayer schema/linter checks | Passing |
-| Bradbury lifecycle smoke run | Open → fund → accept → deliver → challenge completed |
+| Current R149 Core recovery case | Open/fund → accept → non-delivery expiry → buyer claim completed |
 | Canonical Bradbury Adjudicator deployment | `FINALIZED / AGREE / FINISHED_WITH_RETURN` |
-| Production console | Live at [accord402.vercel.app](https://accord402.vercel.app) |
-| Full settlement certification | Remaining: finalized recipient balance and duplicate-claim proof |
+| Production console | Stable URL live at [accord402.vercel.app](https://accord402.vercel.app); R149 environment rebinding/redeploy pending |
+| Current Core economic recovery certification | Complete: exact recipient delta, conservation, Vault routing, and duplicate-claim proof |
 
-The last item is intentionally called out: an accepted or closed state is not
-treated as proof of payment. Accord402 only reports canonical settlement after
-the settlement transaction is finalized with `FINISHED_WITH_RETURN` and the
-expected balance effects are verified.
+Accord402 does not infer payment from a state label alone. The current R149
+recovery case binds successful transaction receipts to an exact
+`10000000000000000`-wei payout delta, zero final Core balance, accounting
+conservation, Vault routing, and a rejected duplicate claim. GenLayer
+Adjudicator deployment finality remains independently bound to finalized
+consensus and `FINISHED_WITH_RETURN`.
 
 ## Architecture
 
@@ -67,8 +69,9 @@ with SHA-256 `a9a120391392f5e66c6d9008d7a50c474d76e9bea7f1cfdfcee0d60a4fd16f02`.
 
 This profile is historical deployment-admission evidence for that earlier
 Adjudicator source. It is **not** the canonical Bradbury deployment or
-settlement certification. The canonical Bradbury Adjudicator source is now
-`9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3` and is bound to the live graph documented below.
+settlement certification. That `9237e89878c74cb3ab3d71986d16aaf4c2f0cda3104b17a81ce79088d8f195a3`
+source belongs to the superseded V2 deployment record. The current R149
+Adjudicator source is `575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198` and is bound to the V3 graph below.
 The Studio-dev one-shot did not persist the exact transaction ID or deployed
 contract address, so Accord402 does not claim an Explorer link for that
 profiling deployment. The profiling authorization is consumed; no second
@@ -99,7 +102,42 @@ canonical graph below was deployed and independently audited through the
 guarded release-deployment path; that does not substitute for executing this
 specific reproducibility harness.
 
-## Canonical Bradbury deployment
+## Current canonical Bradbury deployment — R149
+
+The current Bradbury graph is:
+
+| Component | Canonical address | Provenance |
+| --- | --- | --- |
+| Settlement Vault | `0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5` | reused verified V2 deployment |
+| Registry | `0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C` | reused verified V2 deployment |
+| Adjudicator | `0x9b204786e4641EbFF5D771a08624e2B0849Fcc56` | R149 GenLayer deployment |
+| Core | `0xE315df22c15753D07a2FDb72b15B3AeAF4D27E2A` | R149 EVM deployment |
+
+Current source SHA-256 values:
+
+- SettlementVault: `e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6`
+- Registry: `bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae`
+- Adjudicator: `575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198`
+- Core: `ee8d58f6693c16c22eb610140570e0c92a0c923482f154e886f9ae25a7d3c289`
+
+Current Covenant `1` reviewer-case transactions:
+
+- open/fund: `0x7b45999ab31e82e941d25712be32770c7fd4f3d66b1e3ab938d591c93f5ca9cd`
+- provider acceptance: `0xaa010bd94bdd93ae2c9dc185174aba92a931a3609c1d6ef07bbb6783da8a98f3`
+- non-delivery expiry: `0x1219914b612f60c439953be4818702d7e081167535e0bdc62c0ac86c87de3740`
+- settlement claim: `0x18197505652f86fc21ad1a926e8e5220a5a518b9673c97468c5fbbd3a151c77b`
+
+Final state is `CLOSED_BUYER`; accounting is
+`10000000000000000|0|10000000000000000|0`; Core native balance is `0`; the registered
+payout received exactly `10000000000000000` wei; the Vault delivery bit is true; and
+a duplicate claim is rejected.
+
+See
+[`docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md`](docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md)
+and
+[`docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md`](docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md).
+
+## Historical Bradbury V2 deployment — superseded by R149
 
 The hardened V2 release is deployed on Bradbury chain `4221` as one immutable
 four-component dependency graph:
@@ -200,6 +238,8 @@ economic and finality requirements.
 Start with [`docs/README.md`](docs/README.md), then use the operational guide
 for local checks, deployment, live reads, and evidence capture:
 
+- [`docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md`](docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md) — current R149 Bradbury graph and source binding
+- [`docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md`](docs/BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md) — current Core non-delivery economic proof
 - [`docs/OPERATIONS.md`](docs/OPERATIONS.md) — contributor and deployment runbook
 - [`docs/ARCHITECTURE_V2.md`](docs/ARCHITECTURE_V2.md) — system boundaries and trust model
 - [`docs/IMPLEMENTATION_V2_STATUS.md`](docs/IMPLEMENTATION_V2_STATUS.md) — implementation and verification status

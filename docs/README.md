@@ -9,6 +9,15 @@ what it guarantees, and how to operate or verify it.
 2. [`OPERATIONS.md`](OPERATIONS.md) — local verification, frontend configuration, deployment, and live Bradbury checks.
 3. [`IMPLEMENTATION_V2_STATUS.md`](IMPLEMENTATION_V2_STATUS.md) — implementation inventory and remaining certification work.
 
+## Current Bradbury R149 evidence
+
+- [`BRADBURY_CANONICAL_DEPLOYMENT_V3.md`](BRADBURY_CANONICAL_DEPLOYMENT_V3.md) — current canonical R149 graph, source binding, and deployment provenance.
+- [`BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md`](BRADBURY_CURRENT_CORE_ECONOMIC_PROOF_V1.md) — live Covenant `1` non-delivery recovery, exact GEN consequence, conservation, Vault routing, and duplicate-claim rejection.
+- [`../artifacts/CANONICAL_R149_CERTIFICATION_V1.json`](../artifacts/CANONICAL_R149_CERTIFICATION_V1.json) — machine-readable R149 certification.
+
+Older V1/V2 deployment and amendment records remain append-only historical
+evidence.
+
 ## Protocol design
 
 - [`ARCHITECTURE_V2.md`](ARCHITECTURE_V2.md) — component boundaries and trust assumptions.
