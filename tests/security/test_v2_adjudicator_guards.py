@@ -334,3 +334,151 @@ def test_http_404_requires_repair():
     _DummyWeb.responses = {PRIMARY_URL: _response(404, b""), CORR_URL: _valid_response(corr)}
     _, repairs, transient = module._fetch_evidence(_snapshot(module, primary, corr), NOW)
     assert transient is False and repairs == ["primary-v1"]
+
+
+def test_direct_immutable_text_corroborator_passes():
+    module = _load()
+
+    primary = _manifest(
+        PRIMARY_IDENTITY,
+        PRIMARY_URL,
+        PRIMARY_COMMIT,
+    )
+
+    # Deliberately larger than the 2048-byte manifest-payload ceiling:
+    # direct immutable corroboration is bounded by the existing HTTP
+    # retrieval ceiling instead of the embedded manifest payload limit.
+    direct_text = ("GenLayer immutable documentation evidence\n" * 100).encode()
+    assert len(direct_text) > module.MAX_EVIDENCE_PAYLOAD_BYTES
+    assert len(direct_text) <= module.u
+
+    snapshot = _snapshot(
+        module,
+        primary,
+        direct_text,
+    )
+    snapshot["history"][1]["kind"] = module.DIRECT_TEXT_KIND
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(primary),
+        CORR_URL: _valid_response(direct_text),
+    }
+
+    payloads, repairs, transient = module._fetch_evidence(
+        snapshot,
+        NOW,
+    )
+
+    assert transient is False
+    assert repairs == []
+    assert payloads is not None
+    assert len(payloads) == 2
+
+    corroborator_payload = next(
+        item
+        for item in payloads
+        if item["evidence_id"] == "corr-v1"
+    )
+
+    assert corroborator_payload["authority"] == CORR_IDENTITY
+    assert corroborator_payload["payload"] == direct_text.decode()
+
+
+def test_direct_immutable_text_primary_requires_repair():
+    module = _load()
+
+    direct_primary = b"direct primary text is forbidden"
+
+    corr = _manifest(
+        CORR_IDENTITY,
+        CORR_URL,
+        CORR_COMMIT,
+    )
+
+    snapshot = _snapshot(
+        module,
+        direct_primary,
+        corr,
+    )
+    snapshot["history"][0]["kind"] = module.DIRECT_TEXT_KIND
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(direct_primary),
+        CORR_URL: _valid_response(corr),
+    }
+
+    _, repairs, transient = module._fetch_evidence(
+        snapshot,
+        NOW,
+    )
+
+    assert transient is False
+    assert repairs == ["primary-v1"]
+
+
+def test_direct_immutable_text_requires_fresh_observation():
+    module = _load()
+
+    primary = _manifest(
+        PRIMARY_IDENTITY,
+        PRIMARY_URL,
+        PRIMARY_COMMIT,
+    )
+
+    direct_text = b"freshness-bound direct immutable corroboration"
+
+    snapshot = _snapshot(
+        module,
+        primary,
+        direct_text,
+    )
+    snapshot["history"][1]["kind"] = module.DIRECT_TEXT_KIND
+    snapshot["history"][1]["observed_at"] = (
+        NOW - snapshot["max_evidence_age"] - 1
+    )
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(primary),
+        CORR_URL: _valid_response(direct_text),
+    }
+
+    _, repairs, transient = module._fetch_evidence(
+        snapshot,
+        NOW,
+    )
+
+    assert transient is False
+    assert repairs == ["corr-v1"]
+
+
+def test_direct_immutable_text_requires_unexpired_evidence():
+    module = _load()
+
+    primary = _manifest(
+        PRIMARY_IDENTITY,
+        PRIMARY_URL,
+        PRIMARY_COMMIT,
+    )
+
+    direct_text = b"expiry-bound direct immutable corroboration"
+
+    snapshot = _snapshot(
+        module,
+        primary,
+        direct_text,
+    )
+    snapshot["history"][1]["kind"] = module.DIRECT_TEXT_KIND
+    snapshot["history"][1]["expires_at"] = NOW
+
+    _DummyWeb.responses = {
+        PRIMARY_URL: _valid_response(primary),
+        CORR_URL: _valid_response(direct_text),
+    }
+
+    _, repairs, transient = module._fetch_evidence(
+        snapshot,
+        NOW,
+    )
+
+    assert transient is False
+    assert repairs == ["corr-v1"]

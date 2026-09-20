@@ -72,6 +72,7 @@ MAX_EVIDENCE_PAYLOAD_BYTES = 2048
 MAX_SERVER_DATE_SKEW = 600
 EVIDENCE_ORIGIN = 'https://raw.githubusercontent.com'
 EVIDENCE_IDENTITY_KIND = 'GITHUB_REPOSITORY'
+DIRECT_TEXT_KIND = 'IMMUTABLE_TEXT_V1'
 v = 'IMMUTABLE'
 w = {q13, q18, q11, q8, qm}
 FULL_REPAIR_MASK = 252
@@ -333,6 +334,17 @@ def _fetch_evidence(snapshot, now):
     repairs.append(evidence[qa])
     continue
    text = body.decode(qs, errors=q4)
+   role = authority['role']
+   if evidence[q23] == DIRECT_TEXT_KIND:
+    if evidence[q28] or role != 'CORROBORATOR':
+     repairs.append(evidence[qa])
+     continue
+    if (effective_time - evidence[q26] > snapshot[q16]) or (evidence[qo] <= effective_time):
+     repairs.append(evidence[qa])
+     continue
+    corroborator_owners.add(owner)
+    payloads.append({qa: evidence[qa], 'authority': authority[qu], q0: text})
+    continue
    manifest = c(text)
    required = {q34, qy, q9, q23, qq, qo, q0}
    if set(manifest) != required or manifest[q34] != 'ACCORD402_EVIDENCE_MANIFEST_V2':
@@ -347,7 +359,6 @@ def _fetch_evidence(snapshot, now):
    if type(manifest[qq]) is not int or type(manifest[qo]) is not int or (manifest[q9] != evidence[q9]) or (manifest[q23] != evidence[q23]) or (manifest[qy] != authority[qu]) or (manifest[qq] != evidence[qq]) or (manifest[qo] != evidence[qo]) or (effective_time - evidence[q26] > snapshot[q16]) or (evidence[qo] <= effective_time):
     repairs.append(evidence[qa])
     continue
-   role = authority['role']
    if evidence[q28]:
     if role != 'PRIMARY':
      repairs.append(evidence[qa])
@@ -405,7 +416,7 @@ class Accord402Adjudicator(gl.Contract):
   self.registry = Address(registry)
  @gl.public.write
  def adjudicate(self, core_address: Address, covenant_id: u64) -> None:
-  covenant_id = a(covenant_id)
+  covenant_id = u64(a(covenant_id))
   now = d()
   registry_address = self.registry
   def leader():
