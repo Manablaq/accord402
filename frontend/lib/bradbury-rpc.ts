@@ -28,7 +28,7 @@ export async function bradburyRpcRequest<T>(
       jsonrpc: "2.0",
       method,
       params,
-      id: crypto.randomUUID(),
+      id: 1,
     }),
     cache: "no-store",
   });
