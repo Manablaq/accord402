@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from web3 import Web3
 
 from gltest import get_contract_factory, get_default_account, get_gl_client
 from gltest.types import TransactionStatus
@@ -32,6 +33,9 @@ EXPECTED_SOURCE_SHA256 = (
 EXPECTED_NETWORK = "testnet_bradbury"
 EXPECTED_CHAIN_ID = 4221
 EXPECTED_RPC = "https://rpc-bradbury.genlayer.com"
+EXPECTED_EVM_RPC = "https://rpc.testnet-chain.genlayer.com"
+EXPECTED_MANIFEST_VERSION = "v0.5:9c68608"
+EXPECTED_SENDER = "0x1f87Ae197af539253978d435aD45cCf28Fb95024"
 
 pytestmark = pytest.mark.skipif(
     os.environ.get("ACCORD402_BRADBURY_WRITE_AUTHORIZED") != "YES",
@@ -83,7 +87,7 @@ def _hex_text(value: Any) -> str:
 
 
 def _extract_deployment_address(receipt: dict[str, Any]) -> str:
-    # Accept legacy decoded deployment data, but support Bradbury / v0.6
+    # Accept legacy decoded deployment data, but also support Bradbury
     # receipts where tx_data_decoded is null and recipient is the deployed IC.
     candidate: Any = None
 
@@ -120,6 +124,19 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
     assert _required_env("ACCORD402_BRADBURY_NETWORK") == EXPECTED_NETWORK
     assert int(_required_env("ACCORD402_BRADBURY_CHAIN_ID")) == EXPECTED_CHAIN_ID
     assert _required_env("ACCORD402_BRADBURY_RPC") == EXPECTED_RPC
+    assert _required_env("ACCORD402_BRADBURY_EVM_RPC") == EXPECTED_EVM_RPC
+    assert (
+        _required_env("ACCORD402_BRADBURY_MANIFEST_VERSION")
+        == EXPECTED_MANIFEST_VERSION
+    )
+
+    expected_sender = _required_env("ACCORD402_BRADBURY_EXPECTED_SENDER")
+    assert expected_sender.lower() == EXPECTED_SENDER.lower()
+
+    expected_start_nonce = int(
+        _required_env("ACCORD402_BRADBURY_EXPECTED_START_NONCE")
+    )
+    assert expected_start_nonce >= 0
 
     authorized_sha = _required_env("ACCORD402_AUTHORIZED_ADJUDICATOR_SHA256")
     assert authorized_sha == EXPECTED_SOURCE_SHA256
@@ -140,6 +157,47 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
     account = get_default_account()
 
     assert int(client.chain.id) == EXPECTED_CHAIN_ID
+    assert account.address.lower() == expected_sender.lower()
+
+    evm_client = Web3(
+        Web3.HTTPProvider(
+            EXPECTED_EVM_RPC,
+            request_kwargs={"timeout": 30},
+        )
+    )
+    assert evm_client.is_connected()
+    assert int(evm_client.eth.chain_id) == EXPECTED_CHAIN_ID
+
+    pre_submit_latest_nonce = int(
+        evm_client.eth.get_transaction_count(expected_sender, "latest")
+    )
+    pre_submit_pending_nonce = int(
+        evm_client.eth.get_transaction_count(expected_sender, "pending")
+    )
+
+    assert pre_submit_latest_nonce == expected_start_nonce
+    assert pre_submit_pending_nonce == expected_start_nonce
+
+    _atomic_json(
+        evidence_dir / "deployment-pre-submit-binding.json",
+        {
+            "schema": "accord402-bradbury-adjudicator-pre-submit-binding-v1",
+            "checked_at": datetime.now(timezone.utc).isoformat(),
+            "network": EXPECTED_NETWORK,
+            "chain_id": EXPECTED_CHAIN_ID,
+            "genlayer_rpc": EXPECTED_RPC,
+            "evm_rpc": EXPECTED_EVM_RPC,
+            "manifest_version": EXPECTED_MANIFEST_VERSION,
+            "release_commit": release_commit,
+            "source_sha256": source_sha,
+            "registry_address": registry_address,
+            "authorized_sender": expected_sender,
+            "loaded_sender": account.address,
+            "authorized_start_nonce": expected_start_nonce,
+            "latest_nonce": pre_submit_latest_nonce,
+            "pending_nonce": pre_submit_pending_nonce,
+        },
+    )
 
     # Low-level send is intentional: deploy_contract_tx() waits before
     # returning and therefore cannot persist the submitted GenLayer tx id
@@ -150,6 +208,17 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
         args=[registry_address],
         leader_only=False,
     )
+
+    post_submit_latest_nonce = int(
+        evm_client.eth.get_transaction_count(expected_sender, "latest")
+    )
+    post_submit_pending_nonce = int(
+        evm_client.eth.get_transaction_count(expected_sender, "pending")
+    )
+
+    assert post_submit_latest_nonce == expected_start_nonce + 1
+    assert post_submit_pending_nonce == expected_start_nonce + 1
+
     tx_id_text = _hex_text(tx_id)
 
     # Provenance is persisted immediately after the SDK returns the GenLayer
@@ -162,11 +231,19 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
             "network": EXPECTED_NETWORK,
             "chain_id": EXPECTED_CHAIN_ID,
             "rpc": EXPECTED_RPC,
+            "evm_rpc": EXPECTED_EVM_RPC,
+            "manifest_version": EXPECTED_MANIFEST_VERSION,
             "release_commit": release_commit,
             "source_path": "contracts/Accord402Adjudicator.py",
             "source_sha256": source_sha,
             "registry_address": registry_address,
             "sender_address": account.address,
+            "authorized_sender_address": expected_sender,
+            "authorized_start_nonce": expected_start_nonce,
+            "pre_submit_latest_nonce": pre_submit_latest_nonce,
+            "pre_submit_pending_nonce": pre_submit_pending_nonce,
+            "post_submit_latest_nonce": post_submit_latest_nonce,
+            "post_submit_pending_nonce": post_submit_pending_nonce,
             "transaction_id": tx_id_text,
         },
     )
@@ -184,10 +261,10 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
     assert str(receipt.get("status")) == "7", receipt
     assert receipt.get("status_name") == "FINALIZED", receipt
 
-    # Bradbury / Consensus v0.6 success requires both terminal finality and a
-    # successful GenVM execution result. Do not use gltest's legacy
+    # Bradbury success requires both terminal finality and a successful
+    # GenVM execution result. Do not use gltest's legacy
     # tx_execution_succeeded() helper here: the pinned helper depends on
-    # leader_receipt, while v0.6 exposes the consequential execution outcome
+    # leader_receipt, while the consequential execution outcome is exposed
     # directly as tx_execution_result / tx_execution_result_name.
     execution_result = receipt.get("tx_execution_result")
     execution_result_name = receipt.get("tx_execution_result_name")
@@ -207,11 +284,19 @@ def test_adjudicator_deploys_finalized_with_persisted_provenance() -> None:
             "network": EXPECTED_NETWORK,
             "chain_id": EXPECTED_CHAIN_ID,
             "rpc": EXPECTED_RPC,
+            "evm_rpc": EXPECTED_EVM_RPC,
+            "manifest_version": EXPECTED_MANIFEST_VERSION,
             "release_commit": release_commit,
             "source_path": "contracts/Accord402Adjudicator.py",
             "source_sha256": source_sha,
             "registry_address": registry_address,
             "sender_address": account.address,
+            "authorized_sender_address": expected_sender,
+            "authorized_start_nonce": expected_start_nonce,
+            "pre_submit_latest_nonce": pre_submit_latest_nonce,
+            "pre_submit_pending_nonce": pre_submit_pending_nonce,
+            "post_submit_latest_nonce": post_submit_latest_nonce,
+            "post_submit_pending_nonce": post_submit_pending_nonce,
             "transaction_id": tx_id_text,
             "finalized_status": 7,
             "execution_result": int(execution_result),

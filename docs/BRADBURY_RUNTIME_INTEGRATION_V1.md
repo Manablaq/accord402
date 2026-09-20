@@ -10,14 +10,34 @@ The harness is bound to current GenLayer Bradbury:
 - network: `testnet_bradbury`
 - chain ID: `4221`
 - GenLayer RPC: `https://rpc-bradbury.genlayer.com`
-- explorer: `https://explorer-bradbury.genlayer.com`
+- EVM RPC: `https://rpc.testnet-chain.genlayer.com`
+- release-bound Bradbury deployment-manifest version:
+  `v0.5:9c68608`
+- ConsensusMain:
+  `0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D`
+- Registry:
+  `0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C`
+- expected signing address:
+  `0x1f87Ae197af539253978d435aD45cCf28Fb95024`
 - exact Adjudicator source SHA-256:
   `35d8beeb2dedb9b2d6839c3237ad839d85a0a788abb80adbc0557ed15b07a271`
 
+The live runner checks the official Bradbury deployment manifest before
+authorization consumption. If its version or ConsensusMain changes, execution
+stops; this document does not treat the release-bound manifest version as a
+timeless claim about Bradbury.
+
 The tracked `gltest.config.yaml` intentionally contains no signing account.
-It explicitly retains the pinned suite's preconfigured `localnet` entry and
-keeps `localnet` as the default, so ordinary repository pytest execution
-does not acquire a Bradbury key and cannot silently become a Bradbury write.
+It retains the pinned suite's preconfigured local test entry as the default,
+so ordinary repository pytest execution does not acquire a Bradbury key and
+cannot silently become a Bradbury write.
+
+The start nonce is deliberately **not hard-coded into the repository**.
+Every fresh live authorization must bind an exact decimal start nonce. Before
+authorization consumption, the runner requires both live `latest` and
+`pending` EOA nonce to equal that authorized value. The runtime test repeats
+the same check immediately before submission and requires the nonce to advance
+by exactly one after the SDK returns the deployment transaction ID.
 
 ## What the live test proves
 
@@ -28,35 +48,53 @@ When, and only when, the guarded live runner is explicitly authorized, it:
 
 1. verifies the repository is an immutable clean Git commit;
 2. verifies the exact Adjudicator source SHA-256;
-3. verifies the selected RPC reports Bradbury chain ID `4221`;
-4. creates an ephemeral `gltest.config.yaml` outside the repository;
-5. injects the signing key through process environment substitution only;
-6. deploys `Accord402Adjudicator.py` against the explicitly supplied Registry
-   address using the pinned repository runtime;
-7. persists the returned GenLayer consensus transaction ID immediately after
-   the SDK returns it and before finality polling;
-8. waits specifically for `TransactionStatus.FINALIZED`;
-9. requires `tx_execution_result == 1` and
-   `tx_execution_result_name == "FINISHED_WITH_RETURN"`;
-10. requires the finalized receipt transaction ID to match the submitted ID;
-11. extracts and persists the deployed contract address; and
-12. preserves the finalized receipt and release/source binding in a dedicated
-    evidence directory.
+3. verifies both configured RPCs report Bradbury chain ID `4221`;
+4. verifies Bradbury is synced;
+5. verifies the official Bradbury deployment manifest still matches the
+   release-bound version and ConsensusMain;
+6. verifies the supplied Registry equals the release-bound Registry and its
+   live runtime hash matches the certified runtime;
+7. verifies the explicitly authorized signer equals the release-bound signer;
+8. verifies the supplied private key resolves to that exact signer without
+   printing or persisting the key;
+9. verifies both `latest` and `pending` signer nonce equal the exact authorized
+   start nonce before authorization consumption;
+10. creates an ephemeral `gltest.config.yaml` outside the repository;
+11. injects the signing key through process-environment substitution only;
+12. atomically consumes the one-shot authorization before pytest can reach the
+    deployment submission path;
+13. independently verifies the loaded account is the exact authorized signer;
+14. repeats the `latest` / `pending` nonce check immediately before submission;
+15. persists the pre-submit signer/nonce/release binding;
+16. deploys `Accord402Adjudicator.py` against the release-bound Registry using
+    the pinned repository runtime;
+17. requires the signer nonce to advance from `N` to exactly `N + 1` after
+    submission;
+18. persists the returned GenLayer consensus transaction ID immediately after
+    the SDK returns it and before finality polling;
+19. waits specifically for `TransactionStatus.FINALIZED`;
+20. requires `tx_execution_result == 1` and
+    `tx_execution_result_name == "FINISHED_WITH_RETURN"`;
+21. requires the finalized receipt transaction ID to match the submitted ID;
+22. extracts and persists the deployed contract address; and
+23. preserves the finalized receipt and release/source/signer/nonce binding in
+    a dedicated evidence directory.
 
 The pinned `genlayer-py 0.18.0` wait implementation requires exact
 `FINALIZED`; `ACCEPTED` is not treated as satisfying a finalized wait.
-Bradbury / Consensus v0.6 success is checked independently from status using
-the receipt's explicit execution-result fields. The runtime test deliberately
-does not rely on the pinned legacy `gltest.tx_execution_succeeded` helper
-because that helper requires `leader_receipt`, which is not the authoritative
-v0.6 execution-success field.
+Execution success is checked independently from consensus status using the
+receipt's explicit `tx_execution_result` and `tx_execution_result_name`
+fields. The runtime test deliberately does not rely on the pinned legacy
+`gltest.tx_execution_succeeded` helper because that helper depends on
+`leader_receipt` rather than the explicit consequential execution-result
+fields used here.
 
-Bradbury / Consensus v0.6 deployment receipts can also expose
-`tx_data_decoded: null`. For deployment-address provenance, the harness therefore
-accepts a decoded `contract_address` / `contractAddress` when present and
-otherwise requires the finalized transaction `recipient` as the deployed
-Intelligent Contract address. The fallback is covered by a no-write regression
-test and does not authorize another deployment.
+Bradbury deployment receipts can expose `tx_data_decoded: null`. For
+deployment-address provenance, the harness therefore accepts a decoded
+`contract_address` / `contractAddress` when present and otherwise requires the
+finalized transaction `recipient` as the deployed Intelligent Contract
+address. The fallback is covered by a no-write regression test and does not
+authorize another deployment.
 
 ## What it does not prove
 
@@ -87,17 +125,30 @@ It refuses to run unless all of the following are true:
 - `ACCORD402_AUTHORIZED_RELEASE_COMMIT` exactly equals `HEAD`;
 - `ACCORD402_AUTHORIZED_ADJUDICATOR_SHA256` exactly equals the expected source
   SHA;
-- `ACCORD402_BRADBURY_PRIVATE_KEY` is present in process environment;
-- `ACCORD402_BRADBURY_REGISTRY_ADDRESS` is a nonzero 20-byte hex address;
+- `ACCORD402_BRADBURY_EXPECTED_SENDER` equals the release-bound signing
+  address;
+- `ACCORD402_BRADBURY_EXPECTED_START_NONCE` is a canonical decimal nonce;
+- `ACCORD402_BRADBURY_PRIVATE_KEY` is present in process environment and
+  resolves to the exact authorized sender;
+- `ACCORD402_BRADBURY_REGISTRY_ADDRESS` equals the release-bound Registry;
+- the live Registry runtime hash matches the certified Registry runtime;
 - `ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID` is supplied and has not already
   been consumed locally;
-- the live RPC chain ID is exactly `4221`; and
+- both live RPC chain IDs are exactly `4221`;
+- the Bradbury node reports zero blocks behind;
+- the Bradbury deployment manifest version and ConsensusMain match the
+  release-bound values;
+- both live `latest` and `pending` signer nonce equal the exact authorized
+  start nonce before authorization consumption and again immediately before
+  deployment; and
 - the requested evidence directory is absolute, outside the repository, and
   does not already exist.
 
 Immediately before pytest can reach the write path, the runner atomically
 creates a local authorization-consumed sentinel keyed by the supplied
-authorization ID. Reusing the same authorization ID is refused.
+authorization ID. The sentinel records the exact release, source, network,
+manifest version, ConsensusMain, Registry/runtime hash, sender, start nonce,
+and authorization ID. Reusing that authorization ID is refused.
 
 The private key is never printed and is not written into the repository or
 the generated ephemeral config.
@@ -106,6 +157,9 @@ the generated ephemeral config.
 
 This document and its harness do **not** authorize a Bradbury write.
 
-The earlier Studio-dev profiling authorization remains consumed. A new,
-explicit Bradbury authorization must bind the exact committed release SHA and
-the exact permitted live action before this runner is used.
+A new explicit Bradbury authorization must bind the exact committed release
+SHA, exact Adjudicator source SHA, exact signer, exact freshly verified start
+nonce, Registry address, and the single permitted deployment action before
+this runner is used. Any nonce, release, network-manifest, or dependency drift
+is a stop condition; it does not authorize a retry, replacement, rebroadcast,
+appeal, finalization action, or second deployment.

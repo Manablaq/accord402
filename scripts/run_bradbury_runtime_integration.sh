@@ -9,6 +9,13 @@ EXPECTED_NETWORK="testnet_bradbury"
 EXPECTED_CHAIN_ID="4221"
 EXPECTED_CHAIN_ID_HEX="0x107d"
 EXPECTED_RPC="https://rpc-bradbury.genlayer.com"
+EXPECTED_EVM_RPC="https://rpc.testnet-chain.genlayer.com"
+EXPECTED_SENDER="0x1f87Ae197af539253978d435aD45cCf28Fb95024"
+EXPECTED_REGISTRY="0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C"
+EXPECTED_REGISTRY_RUNTIME_SHA256="25b850052c2d02c202262fcff7216363fcffdf6cb7fc6d533268a1842a008d7c"
+EXPECTED_MANIFEST_URL="https://raw.githubusercontent.com/genlayerlabs/genlayer-networks/main/bradbury/testnet_deployments.json"
+EXPECTED_MANIFEST_VERSION="v0.5:9c68608"
+EXPECTED_CONSENSUS_MAIN="0x0112Bf6e83497965A5fdD6Dad1E447a6E004271D"
 
 fail() {
   echo "STOP: $*" >&2
@@ -60,6 +67,8 @@ need_env ACCORD402_AUTHORIZED_RELEASE_COMMIT
 need_env ACCORD402_AUTHORIZED_ADJUDICATOR_SHA256
 need_env ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID
 need_env ACCORD402_BRADBURY_PRIVATE_KEY
+need_env ACCORD402_BRADBURY_EXPECTED_SENDER
+need_env ACCORD402_BRADBURY_EXPECTED_START_NONCE
 need_env ACCORD402_BRADBURY_REGISTRY_ADDRESS
 need_env ACCORD402_BRADBURY_EVIDENCE_DIR
 
@@ -69,6 +78,26 @@ test "$ACCORD402_AUTHORIZED_RELEASE_COMMIT" = "$RELEASE_COMMIT" \
   || fail "AUTHORIZED RELEASE COMMIT DOES NOT MATCH HEAD"
 test "$ACCORD402_AUTHORIZED_ADJUDICATOR_SHA256" = "$EXPECTED_SOURCE_SHA" \
   || fail "AUTHORIZED SOURCE SHA DOES NOT MATCH EXACT CANDIDATE"
+
+AUTH_SENDER="$ACCORD402_BRADBURY_EXPECTED_SENDER"
+AUTH_START_NONCE="$ACCORD402_BRADBURY_EXPECTED_START_NONCE"
+
+"$PY" - "$AUTH_SENDER" "$EXPECTED_SENDER" "$AUTH_START_NONCE" <<'PY_AUTH'
+import re
+import sys
+
+sender, expected_sender, nonce = sys.argv[1:]
+
+assert re.fullmatch(r"0x[0-9a-fA-F]{40}", sender), "invalid authorized sender"
+assert sender.lower() == expected_sender.lower(), "authorized sender mismatch"
+assert nonce.isdigit(), "authorized start nonce must be decimal digits"
+assert str(int(nonce)) == nonce, "authorized start nonce must be canonical decimal"
+assert int(nonce) >= 0, "authorized start nonce must be nonnegative"
+PY_AUTH
+
+test "$(printf '%s' "$ACCORD402_BRADBURY_REGISTRY_ADDRESS" | tr '[:upper:]' '[:lower:]')" = \
+     "$(printf '%s' "$EXPECTED_REGISTRY" | tr '[:upper:]' '[:lower:]')" \
+  || fail "AUTHORIZED REGISTRY ADDRESS DOES NOT MATCH RELEASE-BOUND REGISTRY"
 
 case "$ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID" in
   *[!A-Za-z0-9._-]*|"")
@@ -96,23 +125,178 @@ esac
 test ! -e "$EVIDENCE" || fail "EVIDENCE DIRECTORY ALREADY EXISTS"
 mkdir -m 700 "$EVIDENCE"
 
-# Read-only live network preflight occurs before authorization consumption.
-CHAIN_RESPONSE="$(
+# All following checks are read-only and occur before authorization
+# consumption. Any drift stops before signing or broadcast.
+GEN_CHAIN_RESPONSE="$(
   curl --fail --silent --show-error \
     -H 'content-type: application/json' \
     --data '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}' \
     "$EXPECTED_RPC"
 )"
-printf '%s' "$CHAIN_RESPONSE" > "$EVIDENCE/eth_chainId.raw.json"
+printf '%s' "$GEN_CHAIN_RESPONSE" > "$EVIDENCE/genlayer-eth_chainId.raw.json"
 
-CHAIN_HEX="$(
-  printf '%s' "$CHAIN_RESPONSE" |
-  "$PY" -c 'import json,sys; print(json.load(sys.stdin)["result"])'
+EVM_CHAIN_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data '{"jsonrpc":"2.0","id":2,"method":"eth_chainId","params":[]}' \
+    "$EXPECTED_EVM_RPC"
+)"
+printf '%s' "$EVM_CHAIN_RESPONSE" > "$EVIDENCE/evm-eth_chainId.raw.json"
+
+GEN_CHAIN_HEX="$(
+  printf '%s' "$GEN_CHAIN_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(o["result"])'
 )"
 
-echo "LIVE_CHAIN_ID_HEX=$CHAIN_HEX"
-test "$(printf '%s' "$CHAIN_HEX" | tr '[:upper:]' '[:lower:]')" = "$EXPECTED_CHAIN_ID_HEX" \
-  || fail "LIVE RPC CHAIN ID MISMATCH"
+EVM_CHAIN_HEX="$(
+  printf '%s' "$EVM_CHAIN_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(o["result"])'
+)"
+
+echo "LIVE_GENLAYER_CHAIN_ID_HEX=$GEN_CHAIN_HEX"
+echo "LIVE_EVM_CHAIN_ID_HEX=$EVM_CHAIN_HEX"
+
+test "$(printf '%s' "$GEN_CHAIN_HEX" | tr '[:upper:]' '[:lower:]')" = "$EXPECTED_CHAIN_ID_HEX" \
+  || fail "LIVE GENLAYER RPC CHAIN ID MISMATCH"
+
+test "$(printf '%s' "$EVM_CHAIN_HEX" | tr '[:upper:]' '[:lower:]')" = "$EXPECTED_CHAIN_ID_HEX" \
+  || fail "LIVE EVM RPC CHAIN ID MISMATCH"
+
+SYNC_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data '{"jsonrpc":"2.0","id":3,"method":"gen_syncing","params":[]}' \
+    "$EXPECTED_RPC"
+)"
+printf '%s' "$SYNC_RESPONSE" > "$EVIDENCE/gen_syncing.raw.json"
+
+BLOCKS_BEHIND="$(
+  printf '%s' "$SYNC_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(o["result"]["blocksBehind"])'
+)"
+
+echo "LIVE_BRADBURY_BLOCKS_BEHIND=$BLOCKS_BEHIND"
+test "$BLOCKS_BEHIND" = "0" || fail "BRADBURY RPC IS NOT SYNCED"
+
+MANIFEST_RESPONSE="$(
+  curl --fail --silent --show-error "$EXPECTED_MANIFEST_URL"
+)"
+printf '%s' "$MANIFEST_RESPONSE" > "$EVIDENCE/bradbury-deployment-manifest.raw.json"
+
+MANIFEST_VERSION="$(
+  printf '%s' "$MANIFEST_RESPONSE" |
+  "$PY" -c 'import json,sys; d=json.load(sys.stdin)["genlayerTestnet"]["deployment_bradbury"]; print(d["Version"])'
+)"
+
+MANIFEST_CONSENSUS_MAIN="$(
+  printf '%s' "$MANIFEST_RESPONSE" |
+  "$PY" -c 'import json,sys; d=json.load(sys.stdin)["genlayerTestnet"]["deployment_bradbury"]; print(d["ConsensusMain"])'
+)"
+
+echo "LIVE_BRADBURY_MANIFEST_VERSION=$MANIFEST_VERSION"
+echo "LIVE_BRADBURY_CONSENSUS_MAIN=$MANIFEST_CONSENSUS_MAIN"
+
+test "$MANIFEST_VERSION" = "$EXPECTED_MANIFEST_VERSION" \
+  || fail "BRADBURY DEPLOYMENT MANIFEST VERSION DRIFT"
+
+test "$(printf '%s' "$MANIFEST_CONSENSUS_MAIN" | tr '[:upper:]' '[:lower:]')" = \
+     "$(printf '%s' "$EXPECTED_CONSENSUS_MAIN" | tr '[:upper:]' '[:lower:]')" \
+  || fail "BRADBURY CONSENSUS MAIN ADDRESS DRIFT"
+
+REGISTRY_CODE_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data "{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"eth_getCode\",\"params\":[\"$EXPECTED_REGISTRY\",\"latest\"]}" \
+    "$EXPECTED_EVM_RPC"
+)"
+printf '%s' "$REGISTRY_CODE_RESPONSE" > "$EVIDENCE/registry-code.raw.json"
+
+REGISTRY_RUNTIME_SHA="$(
+  printf '%s' "$REGISTRY_CODE_RESPONSE" |
+  "$PY" -c '
+import hashlib,json,sys
+o=json.load(sys.stdin)
+assert o.get("error") is None,o
+v=o["result"]
+assert isinstance(v,str) and v.startswith("0x") and len(v)>2
+print(hashlib.sha256(bytes.fromhex(v[2:])).hexdigest())
+'
+)"
+
+echo "LIVE_REGISTRY_RUNTIME_SHA256=$REGISTRY_RUNTIME_SHA"
+
+test "$REGISTRY_RUNTIME_SHA" = "$EXPECTED_REGISTRY_RUNTIME_SHA256" \
+  || fail "LIVE REGISTRY RUNTIME DOES NOT MATCH RELEASE-BOUND REGISTRY"
+
+DERIVED_SENDER="$(
+  "$PY" - <<'PY_SENDER'
+import os
+from eth_account import Account
+
+private_key = os.environ["ACCORD402_BRADBURY_PRIVATE_KEY"]
+print(Account.from_key(private_key).address)
+PY_SENDER
+)"
+
+echo "PRIVATE_KEY_DERIVED_SENDER=$DERIVED_SENDER"
+
+test "$(printf '%s' "$DERIVED_SENDER" | tr '[:upper:]' '[:lower:]')" = \
+     "$(printf '%s' "$AUTH_SENDER" | tr '[:upper:]' '[:lower:]')" \
+  || fail "PRIVATE KEY DOES NOT RESOLVE TO AUTHORIZED SENDER"
+
+LATEST_NONCE_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data "{\"jsonrpc\":\"2.0\",\"id\":5,\"method\":\"eth_getTransactionCount\",\"params\":[\"$AUTH_SENDER\",\"latest\"]}" \
+    "$EXPECTED_EVM_RPC"
+)"
+printf '%s' "$LATEST_NONCE_RESPONSE" > "$EVIDENCE/sender-latest-nonce.raw.json"
+
+PENDING_NONCE_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data "{\"jsonrpc\":\"2.0\",\"id\":6,\"method\":\"eth_getTransactionCount\",\"params\":[\"$AUTH_SENDER\",\"pending\"]}" \
+    "$EXPECTED_EVM_RPC"
+)"
+printf '%s' "$PENDING_NONCE_RESPONSE" > "$EVIDENCE/sender-pending-nonce.raw.json"
+
+BALANCE_RESPONSE="$(
+  curl --fail --silent --show-error \
+    -H 'content-type: application/json' \
+    --data "{\"jsonrpc\":\"2.0\",\"id\":7,\"method\":\"eth_getBalance\",\"params\":[\"$AUTH_SENDER\",\"latest\"]}" \
+    "$EXPECTED_EVM_RPC"
+)"
+printf '%s' "$BALANCE_RESPONSE" > "$EVIDENCE/sender-balance.raw.json"
+
+LATEST_NONCE="$(
+  printf '%s' "$LATEST_NONCE_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(int(o["result"],16))'
+)"
+
+PENDING_NONCE="$(
+  printf '%s' "$PENDING_NONCE_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(int(o["result"],16))'
+)"
+
+BALANCE_WEI="$(
+  printf '%s' "$BALANCE_RESPONSE" |
+  "$PY" -c 'import json,sys; o=json.load(sys.stdin); assert o.get("error") is None,o; print(int(o["result"],16))'
+)"
+
+echo "AUTHORIZED_SENDER=$AUTH_SENDER"
+echo "AUTHORIZED_START_NONCE=$AUTH_START_NONCE"
+echo "LIVE_SENDER_LATEST_NONCE=$LATEST_NONCE"
+echo "LIVE_SENDER_PENDING_NONCE=$PENDING_NONCE"
+echo "LIVE_SENDER_BALANCE_WEI=$BALANCE_WEI"
+
+test "$LATEST_NONCE" = "$AUTH_START_NONCE" \
+  || fail "LIVE LATEST NONCE DOES NOT MATCH AUTHORIZED START NONCE"
+
+test "$PENDING_NONCE" = "$AUTH_START_NONCE" \
+  || fail "LIVE PENDING NONCE DOES NOT MATCH AUTHORIZED START NONCE"
+
+test "$BALANCE_WEI" -gt 0 \
+  || fail "AUTHORIZED SENDER HAS ZERO BALANCE"
 
 AUTH_DIR="$HOME/.accord402-write-authorizations"
 mkdir -m 700 -p "$AUTH_DIR"
@@ -143,14 +327,20 @@ EOF_CONFIG
 
 cat > "$EVIDENCE/release-binding.json" <<EOF_BINDING
 {
-  "schema": "accord402-bradbury-runtime-release-binding-v1",
+  "schema": "accord402-bradbury-runtime-release-binding-v2",
   "network": "$EXPECTED_NETWORK",
   "chain_id": $EXPECTED_CHAIN_ID,
-  "rpc": "$EXPECTED_RPC",
+  "genlayer_rpc": "$EXPECTED_RPC",
+  "evm_rpc": "$EXPECTED_EVM_RPC",
+  "bradbury_manifest_version": "$MANIFEST_VERSION",
+  "consensus_main": "$MANIFEST_CONSENSUS_MAIN",
   "release_commit": "$RELEASE_COMMIT",
   "source_path": "contracts/Accord402Adjudicator.py",
   "source_sha256": "$SOURCE_SHA",
   "registry_address": "$ACCORD402_BRADBURY_REGISTRY_ADDRESS",
+  "registry_runtime_sha256": "$REGISTRY_RUNTIME_SHA",
+  "authorized_sender": "$AUTH_SENDER",
+  "authorized_start_nonce": $AUTH_START_NONCE,
   "authorization_id": "$ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID"
 }
 EOF_BINDING
@@ -164,6 +354,12 @@ EOF_BINDING
     "release_commit=$RELEASE_COMMIT" \
     "source_sha256=$SOURCE_SHA" \
     "network=$EXPECTED_NETWORK" \
+    "manifest_version=$MANIFEST_VERSION" \
+    "consensus_main=$MANIFEST_CONSENSUS_MAIN" \
+    "registry_address=$ACCORD402_BRADBURY_REGISTRY_ADDRESS" \
+    "registry_runtime_sha256=$REGISTRY_RUNTIME_SHA" \
+    "sender_address=$AUTH_SENDER" \
+    "start_nonce=$AUTH_START_NONCE" \
     "authorization_id=$ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID" \
     > "$AUTH_SENTINEL"
 ) || fail "COULD NOT ATOMICALLY CONSUME AUTHORIZATION ID"
@@ -174,6 +370,10 @@ echo "RETRY_OR_REBROADCAST_AUTHORIZED=NO"
 export ACCORD402_BRADBURY_NETWORK="$EXPECTED_NETWORK"
 export ACCORD402_BRADBURY_CHAIN_ID="$EXPECTED_CHAIN_ID"
 export ACCORD402_BRADBURY_RPC="$EXPECTED_RPC"
+export ACCORD402_BRADBURY_EVM_RPC="$EXPECTED_EVM_RPC"
+export ACCORD402_BRADBURY_EXPECTED_SENDER="$AUTH_SENDER"
+export ACCORD402_BRADBURY_EXPECTED_START_NONCE="$AUTH_START_NONCE"
+export ACCORD402_BRADBURY_MANIFEST_VERSION="$MANIFEST_VERSION"
 
 cd "$RUNTIME_DIR"
 
@@ -188,6 +388,9 @@ echo "RELEASE_COMMIT=$RELEASE_COMMIT"
 echo "ADJUDICATOR_SHA256=$SOURCE_SHA"
 echo "EVIDENCE_DIR=$EVIDENCE"
 echo "AUTHORIZATION_ID=$ACCORD402_BRADBURY_WRITE_AUTHORIZATION_ID"
+echo "AUTHORIZED_SENDER=$AUTH_SENDER"
+echo "AUTHORIZED_START_NONCE=$AUTH_START_NONCE"
+echo "BRADBURY_MANIFEST_VERSION=$MANIFEST_VERSION"
 echo "BRADBURY_WRITE_AUTHORIZATION_CONSUMED=YES"
 echo "RETRY_OR_REBROADCAST_AUTHORIZED=NO"
 echo "================================================================"

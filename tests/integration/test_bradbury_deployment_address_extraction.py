@@ -1,4 +1,4 @@
-# Regression coverage for Bradbury / Consensus v0.6 deployment receipts.
+# Regression coverage for Bradbury deployment-receipt address extraction.
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ def _load_runtime_module():
     return module
 
 
-def test_v06_null_decoded_uses_finalized_recipient() -> None:
+def test_bradbury_null_decoded_uses_finalized_recipient() -> None:
     module = _load_runtime_module()
     recipient = "0x55BecA2ba6D2feeFFaE50c298315b0A75dc5C69b"
     assert module._extract_deployment_address(
