@@ -8,6 +8,8 @@ import {
   type Address,
 } from "viem";
 import { accord402WriteAbi } from "@/lib/accord402-abi";
+import { submitAdjudicationWrite } from "@/lib/adjudicator-write";
+import { parseEvidenceRepairJson } from "@/lib/evidence-repair";
 import { accord402Chain, accord402Config, protocolLimits } from "@/lib/config";
 import type { Covenant } from "@/components/case-lookup";
 
@@ -55,8 +57,10 @@ function isValidCanonicalSource(value: string) {
 }
 
 type ActionName =
+  | "adjudicate"
   | "acceptCovenant"
   | "submitDelivery"
+  | "submitEvidenceRepair"
   | "retryReview"
   | "claimSettlement"
   | "authorizeUnchallengedSettlement"
@@ -74,7 +78,8 @@ type Action = {
 
 function remaining(deadline: string, now: number) {
   const seconds = Number(deadline) - now;
-  if (!Number.isFinite(seconds) || seconds <= 0) return "deadline passed";
+  if (!Number.isFinite(seconds) || seconds < 0) return "deadline passed";
+  if (seconds === 0) return "available until this second";
   const secondsPerMinute = 60;
   const secondsPerHour = 60 * secondsPerMinute;
   const hours = Math.floor(seconds / secondsPerHour);
@@ -173,39 +178,79 @@ export function WalletActionPanel({
   const [providerPayoutRecipient, setProviderPayoutRecipient] = useState("");
   const [deliveryPayload, setDeliveryPayload] = useState("");
   const [evidenceJson, setEvidenceJson] = useState("");
+  const [repairEvidenceJson, setRepairEvidenceJson] = useState("");
 
   const covenantId = covenant?.covenantId || "";
   const state = covenant?.state || "";
   let action: Action | null = null;
   if (covenant) {
     if (state === "REVIEW_RETRY_REQUIRED") {
-      action = Number(covenant.retryDeadline) > now && covenant.reviewGeneration < covenant.maxReviewGenerations
+      action = Number(covenant.retryDeadline) >= now && covenant.reviewGeneration < covenant.maxReviewGenerations
         ? { label: "Retry review", functionName: "retryReview", hint: remaining(covenant.retryDeadline, now) }
         : { label: "Expire review", functionName: "expireReview", hint: "the retry window has closed" };
     } else if (state === "SETTLEMENT_AUTHORIZED_PROVIDER" || state === "SETTLEMENT_AUTHORIZED_BUYER") {
       action = { label: "Claim settlement", functionName: "claimSettlement", hint: "final settlement is authorized" };
     } else if (state === "DELIVERED") {
-      action = Number(covenant.challengeDeadline) <= now
+      action = Number(covenant.challengeDeadline) < now
         ? { label: "Authorize unchallenged settlement", functionName: "authorizeUnchallengedSettlement", hint: "the challenge window has closed" }
-        : { label: "Challenge delivery", functionName: "challengeDelivery", hint: remaining(covenant.challengeDeadline, now) };
+        : address.toLowerCase() === covenant.buyer.toLowerCase()
+          ? { label: "Challenge delivery", functionName: "challengeDelivery", hint: remaining(covenant.challengeDeadline, now) }
+          : null;
     } else if (state === "FUNDED") {
-      action = Number(covenant.acceptanceDeadline) <= now
+      action = Number(covenant.acceptanceDeadline) < now
         ? { label: "Expire unaccepted covenant", functionName: "expireUnaccepted", hint: "the acceptance deadline has passed" }
         : address.toLowerCase() === covenant.provider.toLowerCase()
           ? { label: "Accept covenant", functionName: "acceptCovenant", hint: "provider wallet connected" }
           : null;
     } else if (state === "SERVICE_ACCEPTED") {
-      action = Number(covenant.deliveryDeadline) <= now
+      action = Number(covenant.deliveryDeadline) < now
         ? { label: "Expire non-delivery", functionName: "expireNonDelivery", hint: "the delivery deadline has passed" }
         : address.toLowerCase() === covenant.provider.toLowerCase()
           ? { label: "Submit delivery", functionName: "submitDelivery", hint: remaining(covenant.deliveryDeadline, now) }
           : null;
     } else if (state === "EVIDENCE_REPAIR_REQUIRED") {
-      action = Number(covenant.repairDeadline) <= now && covenant.reviewGeneration < covenant.maxReviewGenerations
-        ? { label: "Expire repair window", functionName: "expireRepair", hint: "the repair deadline has passed" }
-        : null;
-    } else if (state === "CHALLENGED" && Number(covenant.absoluteDisputeDeadline) <= now) {
-      action = { label: "Expire review", functionName: "expireReview", hint: "the absolute dispute deadline has passed" };
+      const absoluteExpired =
+        now > Number(covenant.absoluteDisputeDeadline);
+      const generationExhausted =
+        covenant.reviewGeneration >= covenant.maxReviewGenerations;
+      const repairExpired =
+        now > Number(covenant.repairDeadline);
+      const authorizationCurrent =
+        covenant.repairAuthorizationActive &&
+        covenant.repairAuthorizationGeneration === covenant.reviewGeneration;
+
+      if (absoluteExpired || generationExhausted) {
+        action = {
+          label: "Expire review",
+          functionName: "expireReview",
+          hint: "review recovery is no longer available",
+        };
+      } else if (repairExpired) {
+        action = {
+          label: "Expire repair window",
+          functionName: "expireRepair",
+          hint: "the repair deadline has passed",
+        };
+      } else if (
+        authorizationCurrent &&
+        address.toLowerCase() === covenant.provider.toLowerCase()
+      ) {
+        action = {
+          label: "Submit evidence repair",
+          functionName: "submitEvidenceRepair",
+          hint: remaining(covenant.repairDeadline, now),
+        };
+      } else {
+        action = null;
+      }
+    } else if (state === "CHALLENGED") {
+      action = Number(covenant.absoluteDisputeDeadline) < now
+        ? { label: "Expire review", functionName: "expireReview", hint: "the absolute dispute deadline has passed" }
+        : {
+            label: "Adjudicate challenged delivery",
+            functionName: "adjudicate",
+            hint: remaining(covenant.absoluteDisputeDeadline, now),
+          };
     }
   }
 
@@ -299,7 +344,14 @@ export function WalletActionPanel({
         transport: custom(provider),
       });
       let hash: `0x${string}`;
-      if (action.functionName === "acceptCovenant") {
+      if (action.functionName === "adjudicate") {
+        hash = await submitAdjudicationWrite({
+          provider,
+          account: selected,
+          coreAddress,
+          covenantId,
+        });
+      } else if (action.functionName === "acceptCovenant") {
         const recipient = providerPayoutRecipient.trim() || selected;
         if (!isAddress(recipient)) throw new Error("Enter a valid registered provider payout address.");
         hash = await wallet.writeContract({
@@ -320,7 +372,42 @@ export function WalletActionPanel({
           functionName: "submitDelivery",
           args: [BigInt(covenantId), deliveryPayload.trim(), evidence],
         });
+      } else if (action.functionName === "submitEvidenceRepair") {
+        if (!covenant) {
+          throw new Error("Load the covenant before submitting a repair.");
+        }
+        if (
+          selected.toLowerCase() !== covenant.provider.toLowerCase()
+        ) {
+          throw new Error(
+            "Only the covenant provider can submit the authorized evidence repair.",
+          );
+        }
+        if (
+          !covenant.repairAuthorizationActive ||
+          covenant.repairAuthorizationGeneration !== covenant.reviewGeneration
+        ) {
+          throw new Error(
+            "The evidence-repair authorization is not active for the current review generation.",
+          );
+        }
+
+        const replacements =
+          parseEvidenceRepairJson(repairEvidenceJson);
+
+        hash = await wallet.writeContract({
+          address: coreAddress as Address,
+          abi: accord402WriteAbi,
+          functionName: "submitEvidenceRepair",
+          args: [BigInt(covenantId), replacements],
+        });
       } else if (action.functionName === "challengeDelivery") {
+        if (!covenant) {
+          throw new Error("Load the covenant before challenging delivery.");
+        }
+        if (selected.toLowerCase() !== covenant.buyer.toLowerCase()) {
+          throw new Error("Only the covenant buyer can challenge delivery.");
+        }
         const challengedCriterionIds = criterionIds
           .split(/[\n,]/)
           .map((value) => value.trim())
@@ -378,9 +465,9 @@ export function WalletActionPanel({
           {action ? action.label + " when you are ready." : "Actions follow the case state."}
         </h2>
         <p className="muted">
-          The console never guesses. It only offers permissionless actions that
-          match the current on-chain state, and it keeps the exact submitted
-          hash under observation afterward.
+          The console never guesses. It only offers state-valid actions to
+          wallets permitted by the current on-chain state, and it keeps the
+          exact submitted hash under observation afterward.
         </p>
       </div>
       <div className="wallet-controls">
@@ -435,6 +522,47 @@ export function WalletActionPanel({
             />
             <span id="evidence-help" className="form-help">Include one primary record and at least {covenant?.requiredCorroborationCount || 1} corroborating record(s). The contract validates authorities, timestamps, sources, and replay rules.</span>
             <button type="submit" className="action-button" disabled={busy || !address || !configReady}>
+              {busy ? "Waiting for wallet…" : action.label}
+            </button>
+          </form>
+        ) : action?.functionName === "submitEvidenceRepair" ? (
+          <form
+            className="wallet-form"
+            onSubmit={(event) => {
+              event.preventDefault();
+              void performAction();
+            }}
+          >
+            <label htmlFor="repair-evidence-json">
+              Authorized replacement evidence (JSON array)
+            </label>
+            <textarea
+              id="repair-evidence-json"
+              value={repairEvidenceJson}
+              onChange={(event) =>
+                setRepairEvidenceJson(event.target.value)
+              }
+              placeholder={"[{\"replacesEvidenceId\":\"old-id\",\"evidenceId\":\"new-id\",\"authorityId\":\"authority\",\"authorityRevision\":1,\"subject\":\"subject\",\"kind\":\"kind\",\"sourceKind\":\"IMMUTABLE\",\"canonicalSource\":\"https://raw.githubusercontent.com/owner/repo/commit/path\",\"immutableVersionOrRecordId\":\"40-character-commit\",\"publishedAt\":0,\"observedAt\":0,\"expiresAt\":0,\"contentDigest\":\"0x...\",\"isPrimary\":true}]"}
+              rows={9}
+              spellCheck={false}
+              aria-describedby="repair-evidence-help"
+            />
+            <span
+              id="repair-evidence-help"
+              className="form-help"
+            >
+              Submit every replacement authorized by the current
+              adjudication. The Core enforces the exact replaced evidence
+              IDs and per-record field masks. Review generation{" "}
+              {covenant?.reviewGeneration}; authorization generation{" "}
+              {covenant?.repairAuthorizationGeneration}; policy repair
+              mask {covenant?.repairAllowedFieldMask}.
+            </span>
+            <button
+              type="submit"
+              className="action-button"
+              disabled={busy || !address || !configReady}
+            >
               {busy ? "Waiting for wallet…" : action.label}
             </button>
           </form>

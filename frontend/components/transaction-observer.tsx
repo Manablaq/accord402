@@ -149,7 +149,9 @@ export function TransactionObserver({
         Accord402 never treats <strong>Accepted</strong> as payment proof. A
         consequential write is canonical only when {networkName} reports
         <strong> Finalized</strong> and the receipt reports
-        <strong> FINISHED_WITH_RETURN</strong>.
+        <strong> FINISHED_WITH_RETURN</strong>. After canonical success, the
+        loaded covenant is re-read from Core so repair, re-review, and
+        settlement state comes from the resulting on-chain state.
       </p>
 
       <form className="observer-form" onSubmit={observe}>

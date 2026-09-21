@@ -183,6 +183,23 @@ contract Accord402CoreTest {
         require(!ok, "duplicate claim accepted");
     }
 
+    function testSubmitDeliveryNormalizesObservedAtToExecutionTimestamp() public {
+        Accord402Core.OpenCovenantParams memory terms = _terms();
+        vm.prank(BUYER);
+        uint64 covenantId = core.openCovenant{value: terms.principal}(terms, BUYER_PAYOUT);
+        vm.prank(PROVIDER);
+        core.acceptCovenant(covenantId, PROVIDER_PAYOUT);
+
+        uint64 callerObservedAt = uint64(block.timestamp - 60);
+        require(callerObservedAt != uint64(block.timestamp), "delivery fixture must differ");
+        Accord402Registry.EvidenceInput[] memory evidence = _evidence(callerObservedAt);
+
+        vm.prank(PROVIDER);
+        core.submitDelivery(covenantId, "normalized delivery timestamp", evidence);
+
+        require(_same(core.getReviewState(covenantId), "DELIVERED"), "delivery normalization failed");
+    }
+
     function testFinalizedCallbackBindingsRejectStaleGeneration() public {
         Accord402Core.OpenCovenantParams memory terms = _terms();
         vm.prank(BUYER);
@@ -405,10 +422,14 @@ contract Accord402CoreTest {
             "https://raw.githubusercontent.com/owner-primary/repo/1111111111111111111111111111111111111111/report.json",
             "1111111111111111111111111111111111111111",
             uint64(1_699_999_990),
-            uint64(1_700_000_010),
+            uint64(1_699_999_999),
             uint64(1_700_000_600),
             bytes32(uint256(3)),
             true
+        );
+        require(
+            replacement[0].observedAt != uint64(block.timestamp),
+            "repair fixture must differ"
         );
         vm.prank(PROVIDER);
         core.submitEvidenceRepair(covenantId, replacement);

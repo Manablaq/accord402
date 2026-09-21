@@ -190,7 +190,7 @@ export function Accord402App({
       <section id="console" className="console-section shell">
         <Reveal className="console-heading">
           <div><p className="eyebrow">Live protocol console</p><h2>See the chain’s answer.</h2></div>
-          <p className="muted">Read-only by design. Use the exact {networkName} transaction hash you want to certify; the console keeps watching until the outcome is canonical.</p>
+          <p className="muted">State-aware by design. Load a covenant, use actions permitted by its current Core state, and follow the exact {networkName} transaction ID until canonical completion. After canonical success, the loaded covenant is re-read from Core.</p>
         </Reveal>
         <div className="console-grid">
           <Reveal className="contract-card panel">

@@ -32,6 +32,9 @@ export type Covenant = {
   deliveryPayload: string;
   challengeClaim: string;
   requiredCorroborationCount: number;
+  repairAllowedFieldMask: number;
+  repairAuthorizationGeneration: number;
+  repairAuthorizationActive: boolean;
   criteria?: Criterion[];
 };
 

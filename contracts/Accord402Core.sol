@@ -284,10 +284,17 @@ contract Accord402Core {
             bytes(deliveryPayload).length == 0 || bytes(deliveryPayload).length > 65536 || evidence.length == 0
                 || evidence.length > 16
         ) revert InvalidInput();
+        Accord402Registry.EvidenceInput[] memory normalizedEvidence =
+            new Accord402Registry.EvidenceInput[](evidence.length);
+        for (uint256 i; i < evidence.length; ++i) {
+            normalizedEvidence[i] = evidence[i];
+            normalizedEvidence[i].observedAt = nowTimestamp;
+        }
+
         bytes32 deliveryHash =
             sha256(abi.encode("ACCORD402:DELIVERY:V1", covenantId, covenant.provider, nowTimestamp, deliveryPayload));
         bytes32 activeEvidenceSetHash =
-            registry.recordDeliveryEvidence(covenantId, evidence, nowTimestamp, deliveryHash);
+            registry.recordDeliveryEvidence(covenantId, normalizedEvidence, nowTimestamp, deliveryHash);
         covenant.deliveryPayload = deliveryPayload;
         covenant.deliveryHash = deliveryHash;
         covenant.activeEvidenceSetHash = activeEvidenceSetHash;
@@ -352,6 +359,8 @@ contract Accord402Core {
 
         Accord402Registry.RepairAuthorizationInput[] memory authorizations =
             new Accord402Registry.RepairAuthorizationInput[](replacements.length);
+        Accord402Registry.EvidenceReplacementInput[] memory normalizedReplacements =
+            new Accord402Registry.EvidenceReplacementInput[](replacements.length);
         for (uint256 i; i < replacements.length; ++i) {
             RepairAuthorization storage authorization = _repairAuthorizations[covenantId][i];
             authorizations[i] =
@@ -359,9 +368,16 @@ contract Accord402Core {
             if (!_same(replacements[i].replacesEvidenceId, authorization.evidenceId)) {
                 revert InvalidRepairAuthorization();
             }
+            normalizedReplacements[i] = replacements[i];
+            normalizedReplacements[i].observedAt = nowTimestamp;
         }
         bytes32 newEvidenceSetHash = registry.applyEvidenceRepair(
-            covenantId, replacements, authorizations, covenant.reviewGeneration + 1, nowTimestamp, covenant.deliveryHash
+            covenantId,
+            normalizedReplacements,
+            authorizations,
+            covenant.reviewGeneration + 1,
+            nowTimestamp,
+            covenant.deliveryHash
         );
         covenant.activeEvidenceSetHash = newEvidenceSetHash;
         covenant.reviewGeneration += 1;
