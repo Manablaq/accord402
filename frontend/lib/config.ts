@@ -13,7 +13,6 @@ const publicEnvironment = {
   NEXT_PUBLIC_ACCORD402_ADJUDICATOR_ADDRESS: process.env.NEXT_PUBLIC_ACCORD402_ADJUDICATOR_ADDRESS,
   NEXT_PUBLIC_ACCORD402_VAULT_ADDRESS: process.env.NEXT_PUBLIC_ACCORD402_VAULT_ADDRESS,
   NEXT_PUBLIC_ACCORD402_SOURCE_FINGERPRINT: process.env.NEXT_PUBLIC_ACCORD402_SOURCE_FINGERPRINT,
-  NEXT_PUBLIC_ACCORD402_COVENANT_ID: process.env.NEXT_PUBLIC_ACCORD402_COVENANT_ID,
   NEXT_PUBLIC_ACCORD402_REPLAY_SCOPE: process.env.NEXT_PUBLIC_ACCORD402_REPLAY_SCOPE,
   NEXT_PUBLIC_ACCORD402_REPAIR_ALLOWED_FIELD_MASK: process.env.NEXT_PUBLIC_ACCORD402_REPAIR_ALLOWED_FIELD_MASK,
   NEXT_PUBLIC_ACCORD402_MAX_REPAIR_MASK: process.env.NEXT_PUBLIC_ACCORD402_MAX_REPAIR_MASK,
@@ -106,7 +105,6 @@ const registryAddress = readAddress("NEXT_PUBLIC_ACCORD402_REGISTRY_ADDRESS", co
 const adjudicatorAddress = readAddress("NEXT_PUBLIC_ACCORD402_ADJUDICATOR_ADDRESS", configurationErrors);
 const vaultAddress = readAddress("NEXT_PUBLIC_ACCORD402_VAULT_ADDRESS", configurationErrors);
 const sourceFingerprint = read("NEXT_PUBLIC_ACCORD402_SOURCE_FINGERPRINT");
-const defaultCovenantId = read("NEXT_PUBLIC_ACCORD402_COVENANT_ID");
 const replayScope = read("NEXT_PUBLIC_ACCORD402_REPLAY_SCOPE");
 const repairAllowedFieldMask = readInteger(
   "NEXT_PUBLIC_ACCORD402_REPAIR_ALLOWED_FIELD_MASK",
@@ -122,9 +120,6 @@ const expectedRepairAllowedFieldMask = readInteger(
 if (!sourceFingerprint) configurationErrors.push("NEXT_PUBLIC_ACCORD402_SOURCE_FINGERPRINT is required.");
 if (replayScope !== "COVENANT") configurationErrors.push("NEXT_PUBLIC_ACCORD402_REPLAY_SCOPE must be COVENANT.");
 if (repairAllowedFieldMask !== expectedRepairAllowedFieldMask) configurationErrors.push("NEXT_PUBLIC_ACCORD402_REPAIR_ALLOWED_FIELD_MASK must match the configured deployed Core repair mask.");
-if (defaultCovenantId && !/^[0-9]+$/.test(defaultCovenantId)) {
-  configurationErrors.push("NEXT_PUBLIC_ACCORD402_COVENANT_ID must be an unsigned integer when provided.");
-}
 
 export const protocolLimits = {
   maxCriteria: readInteger("NEXT_PUBLIC_ACCORD402_MAX_CRITERIA", configurationErrors, 1),
@@ -172,7 +167,6 @@ export const accord402Config = {
   adjudicatorAddress,
   vaultAddress,
   sourceFingerprint,
-  defaultCovenantId,
   replayScope,
   repairAllowedFieldMask,
   expectedRepairAllowedFieldMask,

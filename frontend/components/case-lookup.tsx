@@ -2,8 +2,6 @@
 
 import { FormEvent, useEffect, useState } from "react";
 
-import { configuredCovenantId } from "@/lib/client";
-
 export type Criterion = {
   criterionId: string;
   criterionText: string;
@@ -45,7 +43,6 @@ type ApiResponse = {
   message?: string;
 };
 
-const DEFAULT_ID = configuredCovenantId;
 const GEN_UNIT = BigInt("1000000000000000000");
 
 type CaseLookupProps = {
@@ -93,7 +90,7 @@ function shorten(value: string) {
 }
 
 export function CaseLookup({ onCovenantLoaded, refreshToken = 0, networkName, configReady }: CaseLookupProps) {
-  const [id, setId] = useState(DEFAULT_ID);
+  const [id, setId] = useState("");
   const [covenant, setCovenant] = useState<Covenant | null>(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -151,10 +148,6 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0, networkName, co
   }
 
   useEffect(() => {
-    if (configReady && DEFAULT_ID) void loadCase(DEFAULT_ID);
-  }, [configReady]);
-
-  useEffect(() => {
     if (configReady && refreshToken > 0 && id) void loadCase(id, false);
   }, [configReady, id, refreshToken]);
 
@@ -180,6 +173,7 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0, networkName, co
             pattern="[0-9]*"
             value={id}
             onChange={(event) => setId(event.target.value)}
+            placeholder="e.g. 1"
             aria-describedby="case-help"
           />
           <button type="submit" disabled={loading || !configReady}>
@@ -187,7 +181,7 @@ export function CaseLookup({ onCovenantLoaded, refreshToken = 0, networkName, co
           </button>
         </div>
         <span id="case-help" className="form-help">
-          {lastRead ? "Last read " + lastRead : "Enter a covenant number to read the live deployment."}
+          {lastRead ? "Last read " + lastRead : "Enter a covenant number after opening or receiving one. R150 does not assume a pre-seeded covenant."}
         </span>
       </form>
       {error ? <p className="result-card danger" role="alert">{error}</p> : null}

@@ -140,3 +140,41 @@ def test_core_normalizes_observed_at_at_execution():
     assert "input.observedAt != nowTimestamp" in registry
     assert "testSubmitDeliveryNormalizesObservedAtToExecutionTimestamp" in solidity_test
     assert "repair fixture must differ" in solidity_test
+
+def test_r150_frontend_starts_without_assuming_seeded_covenant():
+    case_lookup = read("frontend/components/case-lookup.tsx")
+    app = read("frontend/components/accord402-app.tsx")
+    config = read("frontend/lib/config.ts")
+    client = read("frontend/lib/client.ts")
+
+    assert "configuredCovenantId" not in case_lookup
+    assert "NEXT_PUBLIC_ACCORD402_COVENANT_ID" not in config
+    assert "configuredCovenantId" not in client
+    assert 'const [id, setId] = useState("");' in case_lookup
+    assert "void loadCase(DEFAULT_ID)" not in case_lookup
+    assert "R150 does not assume a pre-seeded covenant." in case_lookup
+    assert "R150 release surface" in app
+    assert "deployed R150 covenant engine" in app
+
+
+def test_r150_reviewer_facing_docs_are_current():
+    root = read("README.md")
+    docs_index = read("docs/README.md")
+    status = read("docs/IMPLEMENTATION_V2_STATUS.md")
+    current_deployment = read("docs/BRADBURY_CANONICAL_DEPLOYMENT_R150.md")
+    current_handoff = read("docs/SUBMISSION_HANDOFF_R150.md")
+    historical_deployment = read("docs/BRADBURY_CANONICAL_DEPLOYMENT_V3.md")
+    historical_handoff = read("docs/SUBMISSION_HANDOFF_R149.md")
+
+    assert "Current reviewer release: R150" in root
+    assert "Current R150 reviewer evidence" in docs_index
+    assert "R150 IS THE CURRENT REVIEWER RELEASE" in status
+    assert "CURRENT CANONICAL R150 REVIEWER RELEASE" in current_deployment
+    assert "CURRENT REVIEWER RESUBMISSION REFERENCE" in current_handoff
+    assert "HISTORICAL R149 GRAPH" in historical_deployment
+    assert "HISTORICAL R149 SUBMISSION SNAPSHOT" in historical_handoff
+
+    assert "**Canonical Bradbury release:** R149" not in root
+    assert "## Current canonical Bradbury deployment — R149" not in root
+    assert "## Current Bradbury R149 evidence" not in docs_index
+    assert "R149 CURRENT CANONICAL GRAPH" not in status

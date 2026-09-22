@@ -14,6 +14,5 @@ export const configuredRegistryAddress = accord402Config.registryAddress;
 export const configuredAdjudicatorAddress = accord402Config.adjudicatorAddress;
 export const configuredVaultAddress = accord402Config.vaultAddress;
 export const configuredExplorerUrl = accord402Config.explorerUrl;
-export const configuredCovenantId = accord402Config.defaultCovenantId;
 export const configuredContractSha = accord402Config.sourceFingerprint;
 export const isConfiguredContractAddress = isConfigured;

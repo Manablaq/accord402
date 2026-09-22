@@ -1,6 +1,6 @@
-# Accord402 Canonical Bradbury Deployment V3
+# Accord402 Canonical Bradbury Deployment V3 — Historical R149
 
-Status: **CURRENT CANONICAL R149 GRAPH**
+Status: **HISTORICAL R149 GRAPH — SUPERSEDED BY R150**
 
 This document supersedes the V2 deployment record as the current Accord402
 Bradbury graph. V1/V2 artifacts remain preserved as historical evidence.

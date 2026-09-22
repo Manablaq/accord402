@@ -196,7 +196,7 @@ export function Accord402App({
           <Reveal className="contract-card panel">
             <div className="card-kicker"><span className="live-indicator"><span className="status-dot" /> Network online</span><span className="card-index">A402 / 01</span></div>
             <h3>Accord402 Core</h3>
-            <p className="muted">The deployed V2 covenant engine coordinating registry, adjudication, evidence, and settlement paths.</p>
+            <p className="muted">The deployed R150 covenant engine coordinating registry, adjudication, evidence, and settlement paths.</p>
             <div className="address-row"><span>Canonical {networkName} address</span><code>{contractReady ? shorten(contractAddress) : "not bound"}</code></div>
             <div className="address-row"><span>Source fingerprint</span><code>{contractSha.slice(0, 10)}…</code></div>
             <a className="text-link" href={`${explorerUrl}/address/${contractAddress}`} target="_blank" rel="noreferrer">Open in explorer ↗</a>
@@ -263,7 +263,7 @@ export function Accord402App({
       <footer className="site-footer shell">
         <a className="brand" href="#top"><span className="brand-mark">A4<span>02</span></span><span className="brand-name">Accord<span>402</span></span></a>
         <span>Proof-bound agreements on {networkName}.</span>
-        <span>V2 release surface</span>
+        <span>R150 release surface</span>
       </footer>
     </main>
   );

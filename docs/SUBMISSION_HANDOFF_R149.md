@@ -1,6 +1,6 @@
-# Accord402 R149 Project Explorer handoff
+# Accord402 R149 Project Explorer handoff — Historical
 
-Status: **PUBLIC SUBMISSION REFERENCE FROZEN**
+Status: **HISTORICAL R149 SUBMISSION SNAPSHOT — SUPERSEDED BY R150**
 
 This file records the reviewer-facing Accord402 R149 references. It does not
 authorize a contract redeployment, replacement transaction, or change to the

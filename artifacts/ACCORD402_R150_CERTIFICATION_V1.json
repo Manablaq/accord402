@@ -1,0 +1,59 @@
+{
+  "contracts": {
+    "adjudicator": "0x9b204786e4641EbFF5D771a08624e2B0849Fcc56",
+    "core": "0x142b20B20a24F659e1053A504c23fF48832c090f",
+    "registry": "0x5BD6f9EEBF7BE527321ED46649447c59fAc5315C",
+    "settlement_vault": "0xFCc7FbE2243c32ff35cE74055695Bf8C23E17dD5"
+  },
+  "core_bytecode": {
+    "creation_bytes": 23921,
+    "creation_sha256": "8a643a0720396965fd41a7c6248e70bba239c11578097f75bf796ef7626353a5",
+    "runtime_bytes": 23571,
+    "runtime_sha256": "8554abb9b3d637e247f67d85e80f710974228dfa3df7d4cfbad4bdabbe62ba50"
+  },
+  "core_deployment_transaction": "0x750577a17692ba91471d9821befd2c858ac06eaf7a94a80a71e866bd59757bf6",
+  "historical_r149_is_current": false,
+  "implementation_release": {
+    "commit": "7dde8f45ae88db996895c02883c951d6350cf48c",
+    "github_actions_result": "success",
+    "github_actions_run_id": 35683293916,
+    "tree": "aa7f6129ce74e75c7e0405d482278568c127f100"
+  },
+  "network": {
+    "chain_id": 4221,
+    "evm_rpc": "https://rpc.testnet-chain.genlayer.com",
+    "name": "Bradbury"
+  },
+  "production": {
+    "public_config_sha256": "e52e39cfb594a588258952f8fbf78468af7a87ef81fd9f916ff00e2f789b3d23",
+    "stable_url": "https://accord402.vercel.app",
+    "stable_url_changed_for_r150": false
+  },
+  "reviewer_fix": {
+    "canonical_success_requires_finalized_and_finished_with_return": true,
+    "challenged_adjudication_frontend_reachable": true,
+    "evidence_repair_frontend_reachable": true,
+    "execution_time_observation_binding": true,
+    "post_success_core_refresh": true
+  },
+  "schema": "accord402-r150-certification-v1",
+  "source_sha256": {
+    "adjudicator": "575e063661cc12a5de18dfa67ab3fbeb38bee1028694a08021efbc300115c198",
+    "core": "98c6cb19e1783b5f2515d24fe74e7428d01c2cfcc6991acd54c367f3cce06b7d",
+    "registry": "bac515e32c8e4a56073b412079995c8bf64ace94274314a491b2dbe411ea35ae",
+    "settlement_vault": "e966518dac38ba95df3ff06f7a319bcd97b823a3e36d019003b45ee4a4fe6cd6"
+  },
+  "status": "CURRENT_REVIEWER_RELEASE",
+  "verification": {
+    "deployed_receipt": "pass",
+    "frontend_check": "pass",
+    "genvm_lint": "pass",
+    "live_immutable_wiring": "pass",
+    "python_tests_passed": 102,
+    "python_tests_skipped": 1,
+    "reviewer_workflow_guards_passed": 7,
+    "solidity_tests_passed": 18,
+    "targeted_core_tests_passed": 12,
+    "zero_arg_core_views_passed": 9
+  }
+}
